@@ -1,0 +1,129 @@
+# =============================================================================
+# Configuración del kernel Linux optimizada para Apple TV 1ra Generación
+# =============================================================================
+#
+# Este archivo contiene las opciones clave del kernel que deben habilitarse
+# al compilar un kernel personalizado para el Apple TV 1ra gen.
+#
+# Uso:
+#   cp kernel-config /path/to/linux-source/.config
+#   cd /path/to/linux-source
+#   make ARCH=i386 olddefconfig
+#   make ARCH=i386 -j$(nproc)
+#
+# Notas:
+#   - El Apple TV usa EFI 32-bit
+#   - CPU es Pentium M (i686)
+#   - Solo 256 MB RAM disponibles
+#   - GPU Nvidia GeForce Go 7300 via PCIe
+#   - Almacenamiento IDE (no SATA nativo)
+#   - Chipset Intel 945GUX + ICH7
+# =============================================================================
+
+# --- Arquitectura ---
+CONFIG_X86_32=y
+# CONFIG_X86_64 is not set
+CONFIG_M686=y
+CONFIG_X86_GENERIC=y
+
+# --- Procesador ---
+CONFIG_MCORE2=n
+CONFIG_MPENTIUMM=y
+CONFIG_X86_USE_PPRO_CHECKSUM=y
+
+# --- EFI Boot (CRUCIAL para Apple TV) ---
+CONFIG_EFI=y
+CONFIG_EFI_STUB=y
+CONFIG_EFI_MIXED=n
+CONFIG_FB_EFI=y
+CONFIG_FRAMEBUFFER_CONSOLE=y
+
+# --- Memoria (optimizar para 256MB) ---
+CONFIG_HIGHMEM4G=y
+# CONFIG_HIGHMEM64G is not set
+CONFIG_PAGE_OFFSET=0xC0000000
+CONFIG_SWAP=y
+CONFIG_ZSWAP=y
+CONFIG_ZRAM=y
+CONFIG_CRYPTO_LZ4=y
+
+# --- Almacenamiento IDE ---
+CONFIG_IDE=y
+CONFIG_BLK_DEV_IDE=y
+CONFIG_BLK_DEV_IDEDISK=y
+CONFIG_BLK_DEV_IDECD=y
+CONFIG_BLK_DEV_PIIX=y
+
+# --- Almacenamiento genérico ---
+CONFIG_ATA=y
+CONFIG_SATA_AHCI=y
+CONFIG_ATA_PIIX=y
+CONFIG_BLK_DEV_SD=y
+CONFIG_BLK_DEV_SR=y
+
+# --- USB (para USB boot y periféricos) ---
+CONFIG_USB=y
+CONFIG_USB_EHCI_HCD=y
+CONFIG_USB_OHCI_HCD=y
+CONFIG_USB_UHCI_HCD=y
+CONFIG_USB_STORAGE=y
+CONFIG_USB_HID=y
+
+# --- Red ---
+CONFIG_NET=y
+CONFIG_INET=y
+CONFIG_IPV6=y
+
+# Ethernet (Marvell en Apple TV)
+CONFIG_NET_VENDOR_MARVELL=y
+CONFIG_SKGE=y
+CONFIG_SKY2=y
+
+# Wi-Fi (Atheros en Apple TV - funcionalidad limitada en Linux)
+CONFIG_WLAN=y
+CONFIG_ATH_COMMON=m
+CONFIG_ATH5K=m
+
+# --- Video / GPU ---
+# Nvidia GeForce Go 7300
+CONFIG_DRM=y
+CONFIG_DRM_NOUVEAU=m
+CONFIG_DRM_FBDEV_EMULATION=y
+CONFIG_FB=y
+CONFIG_FB_NVIDIA=m
+
+# --- Audio ---
+CONFIG_SOUND=y
+CONFIG_SND=y
+CONFIG_SND_HDA_INTEL=y
+CONFIG_SND_HDA_CODEC_REALTEK=y
+
+# --- HDMI ---
+CONFIG_HDMI=y
+
+# --- Infrarrojo (control remoto Apple) ---
+CONFIG_RC_CORE=y
+CONFIG_IR_LIRC_CODEC=y
+CONFIG_USB_HID=y
+
+# --- Sistema de archivos ---
+CONFIG_EXT4_FS=y
+CONFIG_VFAT_FS=y
+CONFIG_TMPFS=y
+CONFIG_PROC_FS=y
+CONFIG_SYSFS=y
+
+# HFS+ (para leer particiones macOS del Apple TV)
+CONFIG_HFS_FS=y
+CONFIG_HFSPLUS_FS=y
+
+# --- Compresión (para initrd) ---
+CONFIG_RD_GZIP=y
+CONFIG_RD_LZ4=y
+
+# --- Crystal HD (decodificador de video opcional) ---
+# Si instalaste una tarjeta Crystal HD en lugar del Wi-Fi
+CONFIG_STAGING=y
+# CONFIG_CRYSTALHD is not set
+# Descomenta la siguiente línea si tienes Crystal HD:
+# CONFIG_CRYSTALHD=m
