@@ -1,0 +1,56 @@
+# WiFi Mesh Amplifier - Configuration
+# =====================================
+
+network:
+  # SSID of the mesh network to create/extend
+  mesh_ssid: "MeshAmplifier"
+  # Channel to operate on (auto = automatic selection)
+  channel: auto
+  # Security: WPA2, WPA3, or open
+  security: WPA2
+  # Maximum devices in the mesh
+  max_nodes: 20
+
+discovery:
+  # How often to scan for new devices (seconds)
+  scan_interval: 30
+  # Timeout for device response (seconds)
+  timeout: 5
+  # Network range to scan (CIDR notation)
+  scan_range: "192.168.1.0/24"
+  # Supported device types for auto-detection
+  supported_types:
+    - linux_embedded    # Linux-based IoT devices
+    - openwrt           # OpenWrt routers
+    - android           # Android devices with root
+    - raspberry_pi      # Raspberry Pi devices
+    - ip_camera         # IP cameras with Linux OS
+
+relay:
+  # Signal strength threshold to activate relay (dBm)
+  min_signal_strength: -70
+  # Maximum bandwidth allocation per relay (Mbps)
+  max_bandwidth: 50
+  # Enable packet forwarding optimization
+  optimize_forwarding: true
+  # TTL for relayed packets
+  packet_ttl: 3
+
+mesh:
+  # Mesh routing protocol: BATMAN, OLSR, or HWMP
+  routing_protocol: BATMAN
+  # Metric for path selection: signal, hops, bandwidth
+  path_metric: signal
+  # Enable self-healing (auto-reroute on node failure)
+  self_healing: true
+  # Heartbeat interval (seconds)
+  heartbeat_interval: 10
+
+dashboard:
+  # Web dashboard port
+  port: 8080
+  # Enable real-time monitoring
+  realtime: true
+  # Authentication
+  require_auth: true
+  default_username: admin
