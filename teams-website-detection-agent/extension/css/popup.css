@@ -1,0 +1,374 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 420px;
+  min-height: 500px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #1a1a2e;
+  color: #eee;
+}
+
+.container {
+  padding: 16px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #16213e;
+}
+
+header h1 {
+  font-size: 18px;
+  color: #00d4ff;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: #888;
+}
+
+/* Status Bar */
+.status-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #16213e;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #00c853;
+  animation: pulse 2s infinite;
+}
+
+.status-indicator.scanning {
+  background: #ff9800;
+}
+
+.status-indicator.error {
+  background: #f44336;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.tab {
+  flex: 1;
+  padding: 8px;
+  background: #16213e;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.tab:hover {
+  background: #1f3460;
+  color: #ccc;
+}
+
+.tab.active {
+  background: #0f3460;
+  color: #00d4ff;
+}
+
+/* Tab Content */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Scan Options */
+.scan-options {
+  margin-bottom: 12px;
+}
+
+.scan-options h3 {
+  font-size: 13px;
+  color: #00d4ff;
+  margin-bottom: 8px;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background 0.2s;
+}
+
+.checkbox-item:hover {
+  background: #16213e;
+}
+
+.checkbox-item input[type="checkbox"] {
+  accent-color: #00d4ff;
+}
+
+/* Buttons */
+.btn-primary {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(135deg, #00d4ff, #0f3460);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-bottom: 8px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
+}
+
+.btn-secondary {
+  width: 100%;
+  padding: 8px;
+  background: #16213e;
+  color: #00d4ff;
+  border: 1px solid #0f3460;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-secondary:hover {
+  background: #1f3460;
+}
+
+.btn-small {
+  padding: 6px 12px;
+  background: #16213e;
+  color: #00d4ff;
+  border: 1px solid #0f3460;
+  border-radius: 6px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-small:hover {
+  background: #1f3460;
+}
+
+/* Progress */
+.progress-container {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: #16213e;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #00d4ff, #00c853);
+  border-radius: 3px;
+  transition: width 0.3s;
+}
+
+.progress-text {
+  font-size: 11px;
+  color: #888;
+  margin-top: 4px;
+  display: inline-block;
+}
+
+/* Evidence */
+.evidence-actions {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.evidence-list {
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.empty-message {
+  text-align: center;
+  color: #555;
+  font-size: 12px;
+  padding: 20px;
+}
+
+.evidence-item {
+  padding: 10px;
+  background: #16213e;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  border-left: 3px solid #00d4ff;
+}
+
+.evidence-item.critical {
+  border-left-color: #f44336;
+}
+
+.evidence-item.warning {
+  border-left-color: #ff9800;
+}
+
+.evidence-item.info {
+  border-left-color: #00d4ff;
+}
+
+.evidence-item.success {
+  border-left-color: #00c853;
+}
+
+.evidence-item h4 {
+  font-size: 12px;
+  color: #00d4ff;
+  margin-bottom: 4px;
+}
+
+.evidence-item p {
+  font-size: 11px;
+  color: #aaa;
+  line-height: 1.4;
+}
+
+.evidence-item .severity {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.severity.critical { background: #f44336; color: white; }
+.severity.warning { background: #ff9800; color: white; }
+.severity.info { background: #2196f3; color: white; }
+.severity.success { background: #00c853; color: white; }
+
+/* Report */
+.report-summary {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.report-section {
+  margin-bottom: 16px;
+}
+
+.report-section h3 {
+  font-size: 14px;
+  color: #00d4ff;
+  margin-bottom: 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #16213e;
+}
+
+.score-card {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 16px;
+}
+
+.score-item {
+  text-align: center;
+  padding: 12px;
+  background: #16213e;
+  border-radius: 8px;
+  min-width: 70px;
+}
+
+.score-value {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.score-value.good { color: #00c853; }
+.score-value.average { color: #ff9800; }
+.score-value.poor { color: #f44336; }
+
+.score-label {
+  font-size: 10px;
+  color: #888;
+  margin-top: 4px;
+}
+
+.suggestion-item {
+  padding: 8px 10px;
+  background: #0d1b3e;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.suggestion-item .priority {
+  font-size: 10px;
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+.priority.high { color: #f44336; }
+.priority.medium { color: #ff9800; }
+.priority.low { color: #00c853; }
+
+/* Footer */
+footer {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 10px;
+  color: #444;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0f3460;
+  border-radius: 2px;
+}
