@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Detection Agent</title>
+  <link rel="stylesheet" href="css/popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Website Detection Agent</h1>
+      <p class="subtitle">Diagnóstico y mejoras para sitios web</p>
+    </header>
+
+    <div class="status-bar">
+      <span class="status-indicator" id="statusIndicator"></span>
+      <span id="statusText">Listo para analizar</span>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="scan">Escaneo</button>
+      <button class="tab" data-tab="evidence">Evidencias</button>
+      <button class="tab" data-tab="report">Reporte</button>
+    </div>
+
+    <!-- Tab: Escaneo -->
+    <div class="tab-content active" id="tab-scan">
+      <div class="scan-options">
+        <h3>Seleccionar análisis:</h3>
+        <label class="checkbox-item">
+          <input type="checkbox" id="chkPerformance" checked>
+          <span>Rendimiento (Core Web Vitals)</span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" id="chkErrors" checked>
+          <span>Errores JavaScript</span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" id="chkAccessibility" checked>
+          <span>Accesibilidad (WCAG)</span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" id="chkSEO" checked>
+          <span>SEO Básico</span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" id="chkNetwork" checked>
+          <span>Recursos de Red</span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" id="chkSecurity" checked>
+          <span>Seguridad Básica</span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" id="chkResponsive" checked>
+          <span>Diseño Responsivo</span>
+        </label>
+      </div>
+
+      <button class="btn-primary" id="btnScan">Iniciar Escaneo Completo</button>
+      <button class="btn-secondary" id="btnQuickScan">Escaneo Rápido</button>
+
+      <div class="progress-container" id="progressContainer" style="display:none;">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <span class="progress-text" id="progressText">0%</span>
+      </div>
+    </div>
+
+    <!-- Tab: Evidencias -->
+    <div class="tab-content" id="tab-evidence">
+      <div class="evidence-actions">
+        <button class="btn-small" id="btnScreenshot">Captura de Pantalla</button>
+        <button class="btn-small" id="btnExportJSON">Exportar JSON</button>
+        <button class="btn-small" id="btnClearEvidence">Limpiar</button>
+      </div>
+      <div class="evidence-list" id="evidenceList">
+        <p class="empty-message">No hay evidencias recopiladas aún. Ejecuta un escaneo primero.</p>
+      </div>
+    </div>
+
+    <!-- Tab: Reporte -->
+    <div class="tab-content" id="tab-report">
+      <div class="report-summary" id="reportSummary">
+        <p class="empty-message">Ejecuta un escaneo para generar el reporte de mejoras.</p>
+      </div>
+    </div>
+
+    <footer>
+      <p>Website Detection Agent v1.0 | Teams Plugin</p>
+    </footer>
+  </div>
+
+  <script src="js/popup.js"></script>
+</body>
+</html>
