@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="description" content="Aprende a tocar piano desde tu iPhone">
+    <meta name="theme-color" content="#1a1a2e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Piano">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Piano - Aprende a tocar</title>
+</head>
+<body>
+    <div id="app">
+        <header class="top-bar">
+            <h1 class="title">Piano</h1>
+            <div class="mode-tabs" role="tablist">
+                <button class="tab active" data-mode="free" role="tab">Libre</button>
+                <button class="tab" data-mode="notes" role="tab">Notas</button>
+                <button class="tab" data-mode="songs" role="tab">Canciones</button>
+            </div>
+        </header>
+
+        <main class="display">
+            <section id="panel-free" class="panel active">
+                <div class="big-note" id="freeNoteLabel">—</div>
+                <p class="hint">Toca las teclas libremente</p>
+            </section>
+
+            <section id="panel-notes" class="panel">
+                <p class="hint small">Presiona la tecla indicada</p>
+                <div class="big-note target" id="notesTarget">C</div>
+                <div class="score">
+                    <span>Aciertos: <b id="notesHits">0</b></span>
+                    <span>Intentos: <b id="notesTries">0</b></span>
+                </div>
+                <button class="btn" id="notesNext">Nueva nota</button>
+            </section>
+
+            <section id="panel-songs" class="panel">
+                <div class="song-select">
+                    <label for="songPicker">Canción:</label>
+                    <select id="songPicker"></select>
+                </div>
+                <div class="song-progress">
+                    <div class="progress-bar"><div class="progress-fill" id="songProgress"></div></div>
+                    <div class="big-note target small" id="songTarget">—</div>
+                    <div class="song-sequence" id="songSequence"></div>
+                </div>
+                <div class="song-controls">
+                    <button class="btn" id="songStart">Empezar</button>
+                    <button class="btn secondary" id="songDemo">Escuchar</button>
+                </div>
+            </section>
+        </main>
+
+        <section class="octave-bar">
+            <button class="oct-btn" id="octDown" aria-label="Octava abajo">−</button>
+            <span class="oct-label">Octava <b id="octValue">4</b></span>
+            <button class="oct-btn" id="octUp" aria-label="Octava arriba">+</button>
+            <label class="labels-toggle">
+                <input type="checkbox" id="showLabels" checked>
+                <span>Nombres</span>
+            </label>
+        </section>
+
+        <section class="piano" id="piano" aria-label="Teclado de piano"></section>
+
+        <footer class="foot">
+            <span class="tip">Agrega a pantalla de inicio para pantalla completa</span>
+        </footer>
+    </div>
+
+    <div id="tapToStart" class="overlay">
+        <div class="overlay-inner">
+            <div class="overlay-icon">♪</div>
+            <h2>Toca para comenzar</h2>
+            <p>Activa el sonido de tu iPhone y sube el volumen</p>
+            <button class="btn big" id="startBtn">Comenzar</button>
+        </div>
+    </div>
+
+    <script src="js/audio.js"></script>
+    <script src="js/songs.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

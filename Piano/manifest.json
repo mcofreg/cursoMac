@@ -1,0 +1,20 @@
+{
+  "name": "Piano - Aprende a tocar",
+  "short_name": "Piano",
+  "description": "Aprende a tocar piano desde tu iPhone",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0f1626",
+  "theme_color": "#1a1a2e",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
