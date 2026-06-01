@@ -1,0 +1,45 @@
+name: Desplegar Kikki en GitHub Pages
+
+# Publica el juego (carpeta KikkiGame) como sitio estatico.
+# La URL resultante sera: https://<usuario>.github.io/<repo>/
+on:
+  push:
+    branches: ["claude/kikki-street-crossing-game-LX18n"]
+  workflow_dispatch:
+
+# Permisos necesarios para que Actions habilite y publique en Pages.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Un solo despliegue a la vez.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Pages (habilitar si hace falta)
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Subir el juego como artefacto
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Servimos la carpeta del juego como raiz del sitio,
+          # asi index.html queda directamente en la URL.
+          path: KikkiGame
+
+      - name: Desplegar en GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
