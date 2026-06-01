@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kikki: Un Perro en Busca de su Hogar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="game-wrapper">
+        <div id="crt-overlay"></div>
+
+        <!-- Marcador superior (HUD) -->
+        <div id="hud" class="hidden">
+            <div class="hud-block">
+                <span class="hud-label">CIUDAD</span>
+                <span id="hud-city">-</span>
+            </div>
+            <div class="hud-block">
+                <span class="hud-label">P1 VIDAS</span>
+                <span id="hud-lives-p1">❤❤❤</span>
+            </div>
+            <div class="hud-block" id="hud-p2-block">
+                <span class="hud-label">P2 VIDAS</span>
+                <span id="hud-lives-p2">❤❤❤</span>
+            </div>
+            <div class="hud-block">
+                <span class="hud-label">HUESOS</span>
+                <span id="hud-bones">0</span>
+            </div>
+            <div class="hud-block">
+                <span class="hud-label">PUNTOS</span>
+                <span id="hud-score">0</span>
+            </div>
+        </div>
+
+        <!-- Lienzo del juego -->
+        <canvas id="game-canvas" width="640" height="640"></canvas>
+
+        <!-- Capas de pantallas (menús, tiendas, diálogos) -->
+        <div id="screens"></div>
+    </div>
+
+    <div id="controls-hint">
+        <p>P1: Flechas ← ↑ → ↓ &nbsp;|&nbsp; P2: W A S D &nbsp;|&nbsp; ENTER: aceptar &nbsp;|&nbsp; P: pausa</p>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/sprites.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>

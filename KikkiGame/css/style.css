@@ -1,0 +1,201 @@
+/* ============================================================
+   KIKKI - Estética retro 8/16 bits (años 90)
+   Paleta tipo consola: colores saturados y limitados.
+   ============================================================ */
+
+:root {
+    --c-bg:      #0b0221;   /* fondo morado oscuro */
+    --c-panel:   #20124d;   /* paneles */
+    --c-accent:  #ff4070;   /* rosa neón */
+    --c-accent2: #2ce8f5;   /* cyan */
+    --c-yellow:  #ffd23f;   /* amarillo monedas */
+    --c-green:   #3ad967;   /* verde semáforo */
+    --c-red:     #ff3c3c;   /* rojo semáforo */
+    --c-text:    #fdf6e3;   /* texto crema */
+    --c-shadow:  #000000;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+    height: 100%;
+    background:
+        radial-gradient(circle at 50% 0%, #2a0f5e 0%, var(--c-bg) 70%);
+    color: var(--c-text);
+    font-family: 'Press Start 2P', monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    -webkit-font-smoothing: none;
+    image-rendering: pixelated;
+}
+
+#game-wrapper {
+    position: relative;
+    width: 640px;
+    max-width: 100vw;
+    border: 4px solid var(--c-accent2);
+    box-shadow:
+        0 0 0 4px var(--c-shadow),
+        0 0 24px rgba(44,232,245,0.5),
+        0 0 60px rgba(255,64,112,0.3);
+    background: var(--c-bg);
+}
+
+#game-canvas {
+    display: block;
+    width: 640px;
+    height: 640px;
+    max-width: 100vw;
+    background: #111;
+    image-rendering: pixelated;
+}
+
+/* Líneas de escaneo CRT para sabor retro */
+#crt-overlay {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    z-index: 50;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.0) 0px,
+        rgba(0,0,0,0.0) 2px,
+        rgba(0,0,0,0.18) 3px,
+        rgba(0,0,0,0.18) 4px
+    );
+    mix-blend-mode: multiply;
+}
+
+/* ---------------- HUD ---------------- */
+#hud {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 10px;
+    background: var(--c-panel);
+    border-bottom: 4px solid var(--c-shadow);
+    font-size: 9px;
+    position: relative;
+    z-index: 20;
+}
+.hud-block { display: flex; flex-direction: column; gap: 4px; text-align: center; }
+.hud-label { color: var(--c-accent2); font-size: 7px; }
+#hud-bones { color: var(--c-yellow); }
+#hud-score { color: var(--c-green); }
+
+/* ---------------- Pantallas superpuestas ---------------- */
+#screens {
+    position: absolute;
+    inset: 0;
+    top: 0;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+#screens .screen {
+    pointer-events: auto;
+    width: 100%;
+    height: 100%;
+    background: rgba(11,2,33,0.92);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+    gap: 18px;
+    animation: fadein 0.25s ease;
+}
+@keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+
+.screen h1 {
+    font-size: 26px;
+    color: var(--c-accent);
+    text-shadow: 3px 3px 0 var(--c-shadow), -1px -1px 0 var(--c-accent2);
+    line-height: 1.4;
+}
+.screen h2 {
+    font-size: 16px;
+    color: var(--c-yellow);
+    text-shadow: 2px 2px 0 var(--c-shadow);
+}
+.screen p { font-size: 10px; line-height: 1.8; max-width: 520px; }
+.screen .small { font-size: 8px; color: #b9a7e0; }
+
+.menu-options { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
+.menu-item {
+    font-family: inherit;
+    font-size: 12px;
+    color: var(--c-text);
+    background: var(--c-panel);
+    border: 3px solid var(--c-shadow);
+    padding: 12px 22px;
+    cursor: pointer;
+    transition: transform 0.08s;
+}
+.menu-item:hover, .menu-item.selected {
+    background: var(--c-accent);
+    color: #fff;
+    transform: scale(1.06);
+    box-shadow: 0 0 14px var(--c-accent);
+}
+.menu-item .tag { display:block; font-size: 7px; color: var(--c-accent2); margin-top: 6px; }
+.menu-item.selected .tag { color: #fff; }
+
+/* Tienda / cuidados */
+.care-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    width: 100%;
+    max-width: 540px;
+}
+.care-card {
+    background: var(--c-panel);
+    border: 3px solid var(--c-shadow);
+    padding: 14px;
+    cursor: pointer;
+    text-align: left;
+    transition: transform 0.08s;
+}
+.care-card:hover { transform: translateY(-3px); box-shadow: 0 6px 0 var(--c-shadow); }
+.care-card .icon { font-size: 26px; }
+.care-card .title { font-size: 10px; color: var(--c-accent2); margin: 8px 0; }
+.care-card .cost { font-size: 9px; color: var(--c-yellow); }
+.care-card.done { opacity: 0.45; cursor: default; }
+.care-card.locked { opacity: 0.45; cursor: not-allowed; }
+
+.tip-box {
+    background: #07153a;
+    border: 3px dashed var(--c-green);
+    padding: 14px;
+    max-width: 540px;
+    font-size: 9px;
+    line-height: 1.9;
+    color: var(--c-green);
+}
+.tip-box strong { color: var(--c-yellow); }
+
+.blink { animation: blink 1s steps(2) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+.hidden { display: none !important; }
+
+#controls-hint {
+    margin-top: 14px;
+    font-size: 8px;
+    color: #8f7fc0;
+    text-align: center;
+    line-height: 1.8;
+}
+
+@media (max-width: 660px) {
+    #game-wrapper, #game-canvas { width: 100vw; }
+    #game-canvas { height: 100vw; }
+}
