@@ -69,5 +69,10 @@ A definir según el perfil. Posibles aportes:
 
 ### Cómo ver el prototipo
 - **Computador:** abrir `index.html`.
-- **Celular:** abrir `movil.html` (todo en un archivo, funciona sin conexión;
+- **Celular:** abrir `movil.html` (todo en un archivo, con las fotos incrustadas;
   las tipografías se ven mejor con internet).
+
+### Créditos de imágenes
+Las fotografías de ambientación provienen de **Unsplash** (licencia gratuita de
+uso, sin atribución obligatoria). Son material de referencia para el prototipo y
+deben reemplazarse por **fotos reales de los productos** antes de publicar.

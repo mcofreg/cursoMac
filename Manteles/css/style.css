@@ -86,60 +86,31 @@ img { max-width: 100%; }
 .nav a { color: var(--muted); transition: color .15s; }
 .nav a:hover { color: var(--accent); }
 
-/* ===================== Hero ===================== */
+/* ===================== Hero (foto real de fondo) ===================== */
 .hero {
-    display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px;
-    align-items: center; padding: 70px 6vw;
+    position: relative; isolation: isolate;
+    display: flex; align-items: center;
+    min-height: 86vh; padding: 90px 6vw;
+    background: url("../img/fotos/hero.jpg") center/cover no-repeat;
+    color: #fff;
 }
-.hero__eyebrow { color: var(--gold-dark); font-family: var(--font-display); font-weight: 600; text-transform: uppercase; letter-spacing: .14em; font-size: .85rem; }
-.hero h1 { font-size: clamp(2.2rem, 5.4vw, 3.8rem); font-weight: 700; margin: 12px 0 18px; }
-.hero__lead { color: var(--muted); font-size: 1.12rem; max-width: 46ch; margin-bottom: 28px; }
+.hero__overlay {
+    position: absolute; inset: 0; z-index: -1;
+    background: linear-gradient(100deg, rgba(31,44,64,.86) 0%, rgba(31,44,64,.62) 42%, rgba(31,44,64,.18) 100%);
+}
+.hero__text { max-width: 620px; }
+.hero__eyebrow { color: var(--gold); font-family: var(--font-display); font-weight: 600; text-transform: uppercase; letter-spacing: .14em; font-size: .9rem; }
+.hero h1 { color: #fff; font-size: clamp(2.3rem, 5.8vw, 4.2rem); font-weight: 700; margin: 14px 0 18px; text-shadow: 0 2px 16px rgba(0,0,0,.35); }
+.hero__lead { color: rgba(255,255,255,.92); font-size: 1.18rem; max-width: 48ch; margin-bottom: 30px; text-shadow: 0 1px 8px rgba(0,0,0,.3); }
 
-/* --- Escena: mesa con mantel (imagen principal) --- */
-.table-scene { position: relative; width: 100%; max-width: 400px; height: 320px; margin: 0 auto; }
-.table-floor {
-    position: absolute; left: 10%; right: 10%; bottom: 6px; height: 30px;
-    background: radial-gradient(ellipse at center, rgba(43,58,82,.28), transparent 72%);
-    filter: blur(4px);
-}
-.table-leg {
-    position: absolute; bottom: 22px; width: 18px; height: 86px; z-index: 1;
-    background:
-        repeating-linear-gradient(0deg, rgba(0,0,0,.07) 0 3px, transparent 3px 8px),
-        linear-gradient(90deg, var(--table-dark), var(--table) 45%, #e0b878 55%, var(--table) 65%, var(--table-dark));
-    border-radius: 3px 3px 5px 5px;
-    box-shadow: 0 8px 10px rgba(43,58,82,.18);
-}
-.table-leg::after { /* pie */
-    content: ""; position: absolute; bottom: -3px; left: -3px; right: -3px; height: 6px;
-    background: var(--table-dark); border-radius: 3px;
-}
-.table-leg--l { left: 26%; }
-.table-leg--r { right: 26%; }
-.table-cloth {
-    position: absolute; top: 14px; left: 5%; right: 5%; height: 66%; z-index: 2;
-    background-color: #fff; background-size: 40px;
-    border-radius: 12px 12px 6px 6px;
-    /* sombra exterior + oscurecido del faldón en la caída */
-    box-shadow: 0 18px 34px rgba(43,58,82,.26), inset 0 -34px 30px -24px rgba(0,0,0,.22);
-    /* el borde inferior cae con las esquinas colgando, como en el logo */
-    clip-path: polygon(0% 0%, 100% 0%, 100% 56%, 82% 100%, 64% 64%, 36% 64%, 18% 100%, 0% 56%);
-    transition: background .25s ease;
-}
-/* textura de género + pliegues verticales sutiles */
-.table-cloth::before, .preview__cloth::before {
+/* textura de género + pliegues sutiles en el mantel de la vista previa */
+.preview__cloth::before {
     content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: inherit;
     background:
         var(--fabric-texture),
         repeating-linear-gradient(91deg, rgba(0,0,0,.05) 0 1px, transparent 1px 13px, rgba(255,255,255,.05) 13px 14px, transparent 14px 26px);
     background-size: 120px 120px, auto;
     mix-blend-mode: overlay; opacity: .5;
-}
-/* brillo de la superficie de la mesa */
-.table-cloth::after {
-    content: ""; position: absolute; top: 6%; left: 6%; right: 6%; height: 16%;
-    background: linear-gradient(rgba(255,255,255,.40), transparent);
-    border-radius: 8px; z-index: 1;
 }
 
 /* ===================== Secciones genéricas ===================== */
@@ -267,7 +238,9 @@ section { scroll-margin-top: 80px; }
 .deco-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; max-width: 1100px; margin: 0 auto; }
 .deco-card { background: var(--card); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: transform .18s; }
 .deco-card:hover { transform: translateY(-4px); }
-.deco-card .deco-img { height: 150px; display: grid; place-items: center; font-size: 3rem; }
+.deco-card .deco-img { height: 200px; overflow: hidden; }
+.deco-card .deco-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s ease; }
+.deco-card:hover .deco-img img { transform: scale(1.06); }
 .deco-card .deco-body { padding: 20px; }
 .deco-card h4 { font-size: 1.1rem; margin-bottom: 6px; }
 .deco-card p { color: var(--muted); font-size: .92rem; }
@@ -317,23 +290,9 @@ section { scroll-margin-top: 80px; }
 
 /* ===================== Hero (extras) ===================== */
 .hero__cta { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 26px; }
-.hero__proof { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: .95rem; }
-.hero__proof strong { color: var(--ink); }
-.stars { color: var(--gold); letter-spacing: 2px; }
-.hero__art { position: relative; }
-.hero__halo {
-    position: absolute; inset: 6% 8%; z-index: 0;
-    background: radial-gradient(circle at 50% 45%, rgba(121,133,63,.22), transparent 65%);
-    filter: blur(6px);
-}
-.hero__tag {
-    position: absolute; z-index: 3; background: #fff; color: var(--navy);
-    font-family: var(--font-display); text-transform: uppercase; letter-spacing: .04em;
-    font-size: .78rem; font-weight: 600; padding: 8px 14px; border-radius: 999px;
-    box-shadow: var(--shadow);
-}
-.hero__tag--1 { top: 14%; right: 2%; }
-.hero__tag--2 { bottom: 16%; left: 0; }
+.hero__proof { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,.9); font-size: .98rem; }
+.hero__proof strong { color: #fff; }
+.stars { color: var(--gold); letter-spacing: 2px; font-size: 1.05rem; }
 
 /* ===================== Beneficios / confianza ===================== */
 .benefits {
@@ -410,8 +369,7 @@ section { scroll-margin-top: 80px; }
 @media (max-width: 860px) {
     .nav { display: none; }
     .header__cta { margin-left: auto; }
-    .hero { grid-template-columns: 1fr; }
-    .hero__art { order: -1; }
+    .hero { min-height: 80vh; padding: 70px 6vw; }
     .config-grid { grid-template-columns: 1fr; }
     .benefits { grid-template-columns: repeat(2, 1fr); }
     .how-grid { grid-template-columns: 1fr; }

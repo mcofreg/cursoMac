@@ -95,17 +95,20 @@ const DESIGNS = [
     }
 ];
 
-/* ---------- Paleta de colores base (tomada del logo) ---------- */
+/* ---------- Paleta de colores: tonos vivos + base de marca ---------- */
 const COLORS = [
-    { id: "oliva", name: "Verde oliva", hex: "#79853f" },
+    { id: "terracota", name: "Terracota", hex: "#e06a3b" },
+    { id: "mostaza", name: "Mostaza", hex: "#eab026" },
+    { id: "oliva", name: "Verde oliva", hex: "#8aa32f" },
+    { id: "esmeralda", name: "Esmeralda", hex: "#1f9e6b" },
+    { id: "teal", name: "Turquesa", hex: "#1aa3a3" },
+    { id: "royal", name: "Azul rey", hex: "#2f5fd0" },
     { id: "marino", name: "Azul marino", hex: "#2b3a52" },
-    { id: "mostaza", name: "Mostaza", hex: "#c2933a" },
-    { id: "lino", name: "Lino", hex: "#efe7d6" },
-    { id: "arena", name: "Arena", hex: "#d9c2a3" },
-    { id: "vino", name: "Vino", hex: "#7a3340" },
-    { id: "bosque", name: "Verde bosque", hex: "#3f6b53" },
-    { id: "azul", name: "Azul noche", hex: "#3c5a73" },
-    { id: "rosa", name: "Rosa palo", hex: "#cf9aa0" }
+    { id: "vino", name: "Vino", hex: "#a32844" },
+    { id: "coral", name: "Coral", hex: "#f0607e" },
+    { id: "uva", name: "Berenjena", hex: "#7a3fb0" },
+    { id: "arena", name: "Arena", hex: "#e2c79b" },
+    { id: "lino", name: "Lino", hex: "#f1e8d6" }
 ];
 
 /* ---------- Tipos de tela (afectan precio) ---------- */
@@ -132,7 +135,7 @@ const fmt = (n) => "$" + Math.round(n).toLocaleString("es-CL");
 const clothBg = () => state.design.pattern(state.color.hex);
 
 /* Referencias del DOM que se actualizan en vivo (se cachean en init) */
-const EL_IDS = ["heroCloth", "previewCloth", "largoVal", "anchoVal", "sizeLabel",
+const EL_IDS = ["previewCloth", "largoVal", "anchoVal", "sizeLabel",
                 "sumDesign", "sumColor", "sumSize", "sumFabric", "sumArea", "price"];
 const el = {};
 
@@ -201,8 +204,7 @@ function update() {
     const bg = clothBg();
     const size = `${state.largo} × ${state.ancho} cm`;
 
-    // Mantel del hero y de la vista previa (background-size va en el CSS)
-    el.heroCloth.style.backgroundImage = bg;
+    // Mantel de la vista previa (background-size va en el CSS)
     el.previewCloth.style.backgroundImage = bg;
 
     // Vista previa: escalada proporcional dentro de la "mesa"
@@ -249,12 +251,12 @@ const CARE_TIPS = [
 ];
 
 const DECO_IDEAS = [
-    { emoji: "🍂", bg: "#e7d3bf", t: "Mesa de otoño", d: "Combina tonos terracota y mostaza con hojas secas y velas bajas.", tags: ["Cálido", "Velas", "Centros bajos"] },
-    { emoji: "🎄", bg: "#cfe0d2", t: "Cena festiva", d: "Mantel verde o festivo, vajilla blanca y detalles dorados para las fiestas.", tags: ["Festivo", "Dorado", "Familiar"] },
-    { emoji: "🌿", bg: "#dde6d4", t: "Almuerzo al aire libre", d: "Lino claro, flores frescas y servilletas de tela para un brunch luminoso.", tags: ["Fresco", "Flores", "Brunch"] },
-    { emoji: "🕯️", bg: "#d8ccdf", t: "Cena romántica", d: "Tonos vino o azul noche, luz tenue y un camino de mesa contrastante.", tags: ["Íntimo", "Luz tenue", "Pareja"] },
-    { emoji: "☕", bg: "#e9dcc7", t: "Desayuno minimalista", d: "Mantel liso arena, cerámica artesanal y una sola flor de adorno.", tags: ["Sencillo", "Neutro", "Diario"] },
-    { emoji: "🎉", bg: "#f0d9c4", t: "Cumpleaños en casa", d: "Lunares o geométrico alegre con servilletas de colores y globos.", tags: ["Divertido", "Color", "Niños"] }
+    { img: "img/fotos/deco-romantica.jpg", t: "Cena romántica", d: "Mantel claro impecable, copas, una flor y luz tenue para una noche especial.", tags: ["Íntimo", "Elegante", "Pareja"] },
+    { img: "img/fotos/deco-aire.jpg", t: "Almuerzo al aire libre", d: "Mesa de madera vestida, platos compartidos y vino blanco para un día soleado.", tags: ["Fresco", "Brunch", "Jardín"] },
+    { img: "img/fotos/deco-familiar.jpg", t: "Comida familiar", d: "Un buen mantel resiste el ajetreo de una mesa llena: práctico y lindo.", tags: ["Familiar", "Abundante", "Día a día"] },
+    { img: "img/fotos/deco-brunch.jpg", t: "Desayuno de fin de semana", d: "Colores vivos y mucha fruta sobre un mantel alegre para empezar el día.", tags: ["Colorido", "Brunch", "Luminoso"] },
+    { img: "img/fotos/deco-fiesta.jpg", t: "Celebración en casa", d: "Tonos festivos, vajilla con estampado y un dulce protagonista al centro.", tags: ["Divertido", "Cumpleaños", "Color"] },
+    { img: "img/fotos/deco-terraza.jpg", t: "Eventos y terraza", d: "Manteles blancos y vista abierta: ideal para celebraciones y exteriores.", tags: ["Eventos", "Exterior", "Elegante"] }
 ];
 
 const ACCESSORIES = [
@@ -298,7 +300,7 @@ function renderContent() {
 
     $("#decoIdeas").innerHTML = DECO_IDEAS.map(x => `
         <article class="deco-card">
-            <div class="deco-img" style="background:${x.bg}">${x.emoji}</div>
+            <div class="deco-img"><img src="${x.img}" alt="${x.t}" loading="lazy"></div>
             <div class="deco-body">
                 <h4>${x.t}</h4>
                 <p>${x.d}</p>
