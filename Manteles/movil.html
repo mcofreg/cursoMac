@@ -4,24 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Manteles a medida: elige diseño, largo y ancho. Tips de cuidado, decoración y accesorios.">
-    <title>Telar &amp; Mesa · Manteles a medida</title>
+    <title>Manteles a Medida · Hecho en Chile</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
 /* ===================== Variables y base ===================== */
+/* Paleta tomada del logo "Manteles a Medida":
+   azul marino, verde oliva, mostaza y fondo lino. */
 :root {
-    --bg: #fbf7f1;
-    --bg-soft: #f3ece1;
-    --ink: #2c2522;
-    --muted: #7a6f66;
-    --accent: #c0613f;
-    --accent-dark: #a04d2f;
-    --line: #e5dccf;
-    --card: #ffffff;
-    --shadow: 0 12px 30px rgba(60, 40, 25, .10);
+    --bg: #efe7d6;          /* lino / crema */
+    --bg-soft: #e7dcc6;
+    --ink: #29384c;         /* azul marino tinta */
+    --muted: #6f776a;       /* gris oliva apagado */
+    --navy: #2b3a52;
+    --navy-dark: #1f2c40;
+    --olive: #79853f;
+    --olive-dark: #61702f;
+    --gold: #c2933a;        /* mostaza */
+    --gold-dark: #a87a23;
+    --accent: var(--navy);
+    --accent-dark: var(--navy-dark);
+    --line: #ddd0b8;
+    --card: #fffdf8;
+    --shadow: 0 12px 30px rgba(43, 58, 82, .12);
     --radius: 16px;
-    --table: #b98b5e;
-    --table-dark: #8f6841;
-    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    --table: #c79a4a;       /* madera mostaza (patas del logo) */
+    --table-dark: #9c7430;
+    --font-display: "Oswald", "Arial Narrow", system-ui, sans-serif;
+    --font-body: "Nunito Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+    font-family: var(--font-body);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -29,11 +41,18 @@
 body {
     background: var(--bg);
     color: var(--ink);
-    line-height: 1.55;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3 { line-height: 1.15; letter-spacing: -.01em; }
+h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    line-height: 1.1;
+    letter-spacing: .01em;
+    text-transform: uppercase;
+    color: var(--navy);
+}
+h4 { letter-spacing: .02em; }
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; }
 
@@ -57,14 +76,16 @@ img { max-width: 100%; }
     position: sticky; top: 0; z-index: 50;
     display: flex; align-items: center; justify-content: space-between;
     padding: 16px 6vw;
-    background: rgba(251,247,241,.85);
+    background: rgba(239,231,214,.88);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line);
+    border-top: 4px solid var(--navy);
+    box-shadow: inset 0 4px 0 var(--olive), inset 0 8px 0 var(--gold);
 }
-.brand { display: flex; align-items: center; gap: 8px; font-size: 1.25rem; font-weight: 700; }
-.brand__mark { color: var(--accent); font-size: 1.4rem; }
-.brand__name em { color: var(--accent); font-style: normal; }
-.nav { display: flex; gap: 26px; font-weight: 500; }
+.brand { display: flex; align-items: center; gap: 8px; font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; color: var(--navy); }
+.brand__mark { color: var(--gold); font-size: 1.4rem; }
+.brand__name em { color: var(--olive); font-style: normal; }
+.nav { display: flex; gap: 26px; font-weight: 600; }
 .nav a { color: var(--muted); transition: color .15s; }
 .nav a:hover { color: var(--accent); }
 
@@ -73,8 +94,8 @@ img { max-width: 100%; }
     display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px;
     align-items: center; padding: 70px 6vw;
 }
-.hero__eyebrow { color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: .12em; font-size: .8rem; }
-.hero h1 { font-size: clamp(2.1rem, 5vw, 3.6rem); margin: 12px 0 18px; }
+.hero__eyebrow { color: var(--gold-dark); font-family: var(--font-display); font-weight: 600; text-transform: uppercase; letter-spacing: .14em; font-size: .85rem; }
+.hero h1 { font-size: clamp(2.2rem, 5.4vw, 3.8rem); font-weight: 700; margin: 12px 0 18px; }
 .hero__lead { color: var(--muted); font-size: 1.12rem; max-width: 46ch; margin-bottom: 28px; }
 
 .hero__table {
@@ -107,7 +128,7 @@ section { scroll-margin-top: 80px; }
 .step__num {
     display: grid; place-items: center;
     width: 26px; height: 26px; border-radius: 50%;
-    background: var(--accent); color: #fff; font-size: .85rem;
+    background: var(--gold); color: #fff; font-size: .85rem;
 }
 
 /* Diseños */
@@ -182,7 +203,7 @@ section { scroll-margin-top: 80px; }
     margin-top: 16px; padding-top: 14px; border-top: 2px solid var(--line);
 }
 .summary__price span { color: var(--muted); }
-.summary__price strong { font-size: 1.8rem; color: var(--accent); }
+.summary__price strong { font-family: var(--font-display); font-size: 2rem; color: var(--gold-dark); }
 .summary__note { text-align: center; color: var(--muted); font-size: .75rem; margin-top: 10px; }
 
 /* ===================== Tips / Cuidado ===================== */
@@ -204,7 +225,7 @@ section { scroll-margin-top: 80px; }
 .deco-card h4 { font-size: 1.1rem; margin-bottom: 6px; }
 .deco-card p { color: var(--muted); font-size: .92rem; }
 .deco-card .deco-tags { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
-.deco-tags span { background: var(--bg-soft); color: var(--muted); font-size: .72rem; padding: 4px 10px; border-radius: 999px; }
+.deco-tags span { background: rgba(121,133,63,.14); color: var(--olive-dark); font-weight: 600; font-size: .72rem; padding: 4px 10px; border-radius: 999px; }
 
 /* ===================== Accesorios ===================== */
 .acc { padding: 70px 6vw; }
@@ -214,7 +235,7 @@ section { scroll-margin-top: 80px; }
 .acc-card .acc-ico { font-size: 2.6rem; }
 .acc-card h4 { margin: 10px 0 4px; font-size: 1.05rem; }
 .acc-card p { color: var(--muted); font-size: .85rem; min-height: 38px; }
-.acc-card .acc-price { display: block; margin-top: 8px; font-weight: 700; color: var(--accent); }
+.acc-card .acc-price { display: block; margin-top: 8px; font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--gold-dark); }
 
 /* ===================== Footer ===================== */
 .site-footer {
@@ -249,9 +270,9 @@ section { scroll-margin-top: 80px; }
     .designs { grid-template-columns: repeat(3, 1fr); gap: 8px; }
     .fabrics { grid-template-columns: 1fr; }
     .preview__table { padding: 24px 16px; min-height: 220px; }
-    .chip, .btn { padding: 12px 16px; }            /* objetivos táctiles cómodos */
+    .chip, .btn { padding: 12px 16px; }
     input[type=range] { height: 28px; }
-    .summary__price strong { font-size: 1.5rem; }
+    .summary__price strong { font-size: 1.6rem; }
 }
 
     </style>
@@ -260,8 +281,8 @@ section { scroll-margin-top: 80px; }
     <!-- ===================== HEADER ===================== -->
     <header class="site-header">
         <div class="brand">
-            <span class="brand__mark">✷</span>
-            <span class="brand__name">Telar <em>&amp;</em> Mesa</span>
+            <span class="brand__mark">🧵</span>
+            <span class="brand__name">Manteles <em>a Medida</em></span>
         </div>
         <nav class="nav">
             <a href="#configurador">Diseña el tuyo</a>
@@ -397,10 +418,10 @@ section { scroll-margin-top: 80px; }
     <!-- ===================== FOOTER ===================== -->
     <footer class="site-footer">
         <div class="brand">
-            <span class="brand__mark">✷</span>
-            <span class="brand__name">Telar <em>&amp;</em> Mesa</span>
+            <span class="brand__mark">🧵</span>
+            <span class="brand__name">Manteles <em>a Medida</em></span>
         </div>
-        <p>Manteles a medida, hechos con amor. · Prototipo 2026</p>
+        <p>Hecho a medida · Chile 🇨🇱 · Prototipo 2026</p>
     </footer>
 
     <!-- Toast -->
@@ -469,16 +490,16 @@ const DESIGNS = [
     }
 ];
 
-/* ---------- Paleta de colores base ---------- */
+/* ---------- Paleta de colores base (tomada del logo) ---------- */
 const COLORS = [
-    { id: "terracota", name: "Terracota", hex: "#c0613f" },
+    { id: "oliva", name: "Verde oliva", hex: "#79853f" },
+    { id: "marino", name: "Azul marino", hex: "#2b3a52" },
+    { id: "mostaza", name: "Mostaza", hex: "#c2933a" },
+    { id: "lino", name: "Lino", hex: "#efe7d6" },
     { id: "arena", name: "Arena", hex: "#d9c2a3" },
-    { id: "oliva", name: "Oliva", hex: "#7d8463" },
-    { id: "mostaza", name: "Mostaza", hex: "#d6a23e" },
-    { id: "azul", name: "Azul noche", hex: "#3c5a73" },
     { id: "vino", name: "Vino", hex: "#7a3340" },
-    { id: "blanco", name: "Blanco hueso", hex: "#f3ece1" },
-    { id: "verde", name: "Verde bosque", hex: "#3f6b53" },
+    { id: "bosque", name: "Verde bosque", hex: "#3f6b53" },
+    { id: "azul", name: "Azul noche", hex: "#3c5a73" },
     { id: "rosa", name: "Rosa palo", hex: "#cf9aa0" }
 ];
 
@@ -512,7 +533,7 @@ function renderDesigns() {
     const wrap = $("#designs");
     wrap.innerHTML = DESIGNS.map((d, i) => `
         <button class="design-swatch ${i === 1 ? "active" : ""}" data-id="${d.id}" title="${d.name}">
-            <span class="sw-thumb" style="background-image:${d.pattern("#b98b5e")};background-size:40px;"></span>
+            <span class="sw-thumb" style="background-image:${d.pattern("#79853f")};background-size:40px;"></span>
             <span class="sw-name">${d.name}</span>
         </button>`).join("");
     wrap.querySelectorAll(".design-swatch").forEach(btn => {

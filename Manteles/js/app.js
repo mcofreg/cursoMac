@@ -60,16 +60,16 @@ const DESIGNS = [
     }
 ];
 
-/* ---------- Paleta de colores base ---------- */
+/* ---------- Paleta de colores base (tomada del logo) ---------- */
 const COLORS = [
-    { id: "terracota", name: "Terracota", hex: "#c0613f" },
+    { id: "oliva", name: "Verde oliva", hex: "#79853f" },
+    { id: "marino", name: "Azul marino", hex: "#2b3a52" },
+    { id: "mostaza", name: "Mostaza", hex: "#c2933a" },
+    { id: "lino", name: "Lino", hex: "#efe7d6" },
     { id: "arena", name: "Arena", hex: "#d9c2a3" },
-    { id: "oliva", name: "Oliva", hex: "#7d8463" },
-    { id: "mostaza", name: "Mostaza", hex: "#d6a23e" },
-    { id: "azul", name: "Azul noche", hex: "#3c5a73" },
     { id: "vino", name: "Vino", hex: "#7a3340" },
-    { id: "blanco", name: "Blanco hueso", hex: "#f3ece1" },
-    { id: "verde", name: "Verde bosque", hex: "#3f6b53" },
+    { id: "bosque", name: "Verde bosque", hex: "#3f6b53" },
+    { id: "azul", name: "Azul noche", hex: "#3c5a73" },
     { id: "rosa", name: "Rosa palo", hex: "#cf9aa0" }
 ];
 
@@ -103,7 +103,7 @@ function renderDesigns() {
     const wrap = $("#designs");
     wrap.innerHTML = DESIGNS.map((d, i) => `
         <button class="design-swatch ${i === 1 ? "active" : ""}" data-id="${d.id}" title="${d.name}">
-            <span class="sw-thumb" style="background-image:${d.pattern("#b98b5e")};background-size:40px;"></span>
+            <span class="sw-thumb" style="background-image:${d.pattern("#79853f")};background-size:40px;"></span>
             <span class="sw-name">${d.name}</span>
         </button>`).join("");
     wrap.querySelectorAll(".design-swatch").forEach(btn => {
