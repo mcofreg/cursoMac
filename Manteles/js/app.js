@@ -230,6 +230,22 @@ const ACCESSORIES = [
     { ico: "🧷", t: "Argollas servilleteras", d: "Detalle dorado o natural.", price: 6990 }
 ];
 
+/* ---------- Opiniones (contenido de muestra para la demo) ---------- */
+const REVIEWS = [
+    { ini: "CM", name: "Carolina M.", city: "Providencia", text: "Pedí un mantel para mi mesa irregular y calzó perfecto. La tela es preciosa y el color tal cual lo vi en pantalla." },
+    { ini: "JR", name: "Javier R.", city: "Concepción", text: "El configurador es entretenido y rápido. Llegó antes de lo prometido y la terminación a mano se nota." },
+    { ini: "PD", name: "Paula D.", city: "La Serena", text: "Compré el antimanchas para la mesa de los niños. Funciona increíble y combiné con las servilletas." }
+];
+
+/* ---------- Preguntas frecuentes ---------- */
+const FAQS = [
+    { q: "¿Cómo sé qué medidas pedir?", a: "Mide el largo y ancho de tu mesa y suma la caída que prefieras a cada lado (15–30 cm es lo habitual). El configurador te muestra el resultado en tiempo real." },
+    { q: "¿Cuánto demora la confección y el envío?", a: "Cada mantel se confecciona a pedido. El tiempo estimado es de 5 a 7 días hábiles más el despacho a tu ciudad." },
+    { q: "¿Qué telas puedo elegir?", a: "Algodón (suave y lavable), lino (elegante y fresco) y una tela antimanchas que repele líquidos, ideal para el día a día." },
+    { q: "¿Puedo lavar el mantel en casa?", a: "Sí. Recomendamos lavado en frío y plancha del revés. En la sección de Cuidado encontrarás todos los tips." },
+    { q: "¿Hacen medidas y formas especiales?", a: "Sí, trabajamos medidas a pedido. Para mesas redondas u ovaladas escríbenos y lo cotizamos a tu necesidad." }
+];
+
 function renderContent() {
     $("#careTips").innerHTML = CARE_TIPS.map(x => `
         <article class="tip-card">
@@ -259,6 +275,35 @@ function renderContent() {
 
     document.querySelectorAll(".acc-add").forEach(b =>
         b.addEventListener("click", () => toast(`✓ ${b.dataset.name} agregado`)));
+
+    $("#reviews").innerHTML = REVIEWS.map(x => `
+        <article class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">“${x.text}”</p>
+            <div class="review-author">
+                <span class="review-avatar">${x.ini}</span>
+                <span><b>${x.name}</b><small>${x.city}</small></span>
+            </div>
+        </article>`).join("");
+
+    $("#faqList").innerHTML = FAQS.map(x => `
+        <div class="faq-item">
+            <button class="faq-q">${x.q}</button>
+            <div class="faq-a"><p>${x.a}</p></div>
+        </div>`).join("");
+
+    document.querySelectorAll(".faq-q").forEach(btn =>
+        btn.addEventListener("click", () => btn.parentElement.classList.toggle("open")));
+}
+
+/* ---------- Revelado al hacer scroll ---------- */
+function initReveal() {
+    const els = document.querySelectorAll(".reveal");
+    if (!("IntersectionObserver" in window)) { els.forEach(e => e.classList.add("in")); return; }
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    els.forEach(e => io.observe(e));
 }
 
 /* ---------- Toast ---------- */
@@ -281,6 +326,7 @@ function init() {
     bindMeasures();
     renderContent();
     update();
+    initReveal();
 
     $("#addBtn").addEventListener("click", () =>
         toast(`✓ Mantel ${state.design.name} ${state.largo}×${state.ancho} agregado al carrito`));

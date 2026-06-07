@@ -57,7 +57,12 @@ img { max-width: 100%; }
     transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
 }
 .btn--primary { background: var(--accent); color: #fff; }
-.btn--primary:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 18px rgba(192,97,63,.35); }
+.btn--primary:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 18px rgba(43,58,82,.35); }
+.btn--ghost { background: transparent; color: var(--navy); border: 2px solid var(--navy); padding: 11px 22px; }
+.btn--ghost:hover { background: var(--navy); color: #fff; transform: translateY(-2px); }
+.btn--light { background: #fff; color: var(--navy); }
+.btn--light:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(0,0,0,.18); }
+.btn--sm { padding: 9px 18px; font-size: .92rem; }
 .btn--block { width: 100%; margin-top: 14px; }
 
 /* ===================== Header ===================== */
@@ -75,7 +80,7 @@ img { max-width: 100%; }
 .brand__logo { height: 46px; width: 46px; border-radius: 50%; object-fit: cover; box-shadow: 0 2px 8px rgba(43,58,82,.25); border: 2px solid #fff; }
 .brand__mark { color: var(--gold); font-size: 1.4rem; }
 .brand__name em { color: var(--olive); font-style: normal; }
-.nav { display: flex; gap: 26px; font-weight: 600; }
+.nav { display: flex; gap: 24px; font-weight: 600; margin-left: auto; margin-right: 24px; }
 .nav a { color: var(--muted); transition: color .15s; }
 .nav a:hover { color: var(--accent); }
 
@@ -256,10 +261,18 @@ section { scroll-margin-top: 80px; }
 
 /* ===================== Footer ===================== */
 .site-footer {
-    text-align: center; padding: 40px 6vw; border-top: 1px solid var(--line);
-    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 30px;
+    padding: 56px 6vw 36px; background: var(--navy); color: #e9e2d2;
 }
-.site-footer p { color: var(--muted); font-size: .9rem; }
+.site-footer .brand { color: #fff; }
+.site-footer .brand__name { color: #fff; }
+.site-footer .brand__name em { color: var(--gold); }
+.footer-col h4 { color: #fff; margin-bottom: 14px; font-size: 1rem; }
+.footer-col a { display: block; color: #c5cdda; padding: 5px 0; font-size: .92rem; transition: color .15s; }
+.footer-col a:hover { color: var(--gold); }
+.footer-tag { color: #b9c2d0; font-size: .92rem; margin-top: 14px; max-width: 38ch; }
+.copyright { background: var(--navy-dark); text-align: center; padding: 16px; }
+.copyright p { color: #9aa6b8; font-size: .82rem; }
 
 /* ===================== Toast ===================== */
 .toast {
@@ -270,10 +283,112 @@ section { scroll-margin-top: 80px; }
 }
 .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
+/* ===================== Eyebrow de sección ===================== */
+.eyebrow {
+    color: var(--gold-dark); font-family: var(--font-display);
+    text-transform: uppercase; letter-spacing: .14em; font-size: .82rem;
+    font-weight: 600; margin-bottom: 6px;
+}
+
+/* ===================== Hero (extras) ===================== */
+.hero__cta { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 26px; }
+.hero__proof { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: .95rem; }
+.hero__proof strong { color: var(--ink); }
+.stars { color: var(--gold); letter-spacing: 2px; }
+.hero__art { position: relative; }
+.hero__halo {
+    position: absolute; inset: 6% 8%; z-index: 0;
+    background: radial-gradient(circle at 50% 45%, rgba(121,133,63,.22), transparent 65%);
+    filter: blur(6px);
+}
+.hero__tag {
+    position: absolute; z-index: 3; background: #fff; color: var(--navy);
+    font-family: var(--font-display); text-transform: uppercase; letter-spacing: .04em;
+    font-size: .78rem; font-weight: 600; padding: 8px 14px; border-radius: 999px;
+    box-shadow: var(--shadow);
+}
+.hero__tag--1 { top: 14%; right: 2%; }
+.hero__tag--2 { bottom: 16%; left: 0; }
+
+/* ===================== Beneficios / confianza ===================== */
+.benefits {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
+    max-width: 1100px; margin: -28px auto 0; padding: 0 6vw; position: relative; z-index: 5;
+}
+.benefit {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--card); border-radius: 14px; padding: 16px 18px;
+    box-shadow: var(--shadow); border: 1px solid var(--line);
+}
+.benefit__ico { font-size: 1.7rem; }
+.benefit strong { display: block; font-size: .98rem; color: var(--navy); }
+.benefit small { color: var(--muted); font-size: .8rem; }
+
+/* ===================== Cómo funciona ===================== */
+.how { padding: 72px 6vw; }
+.how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: 1000px; margin: 0 auto; }
+.how-card {
+    background: var(--card); border-radius: var(--radius); padding: 30px 26px;
+    box-shadow: var(--shadow); position: relative; border-top: 4px solid var(--olive);
+}
+.how-num {
+    display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%;
+    background: var(--olive); color: #fff; font-family: var(--font-display); font-size: 1.3rem;
+    margin-bottom: 14px;
+}
+.how-card h3 { font-size: 1.2rem; margin-bottom: 8px; }
+.how-card p { color: var(--muted); font-size: .95rem; }
+
+/* ===================== Opiniones ===================== */
+.reviews { padding: 72px 6vw; background: var(--bg-soft); }
+.reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; max-width: 1100px; margin: 0 auto; }
+.review-card { background: var(--card); border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow); }
+.review-card .review-stars { color: var(--gold); letter-spacing: 2px; }
+.review-card .review-text { margin: 12px 0 18px; font-size: 1rem; }
+.review-author { display: flex; align-items: center; gap: 12px; }
+.review-avatar {
+    width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center;
+    background: var(--olive); color: #fff; font-family: var(--font-display); font-size: 1.1rem;
+}
+.review-author b { display: block; font-size: .95rem; color: var(--navy); }
+.review-author small { color: var(--muted); font-size: .82rem; }
+
+/* ===================== FAQ ===================== */
+.faq { padding: 72px 6vw; }
+.faq-list { max-width: 760px; margin: 0 auto; }
+.faq-item { background: var(--card); border: 1px solid var(--line); border-radius: 12px; margin-bottom: 12px; overflow: hidden; }
+.faq-q {
+    width: 100%; text-align: left; background: none; border: none; cursor: pointer;
+    padding: 18px 22px; font-size: 1.02rem; font-weight: 700; color: var(--navy);
+    font-family: var(--font-body); display: flex; justify-content: space-between; align-items: center; gap: 12px;
+}
+.faq-q::after { content: "+"; font-size: 1.5rem; color: var(--gold-dark); transition: transform .2s; }
+.faq-item.open .faq-q::after { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .28s ease; color: var(--muted); }
+.faq-a p { padding: 0 22px 18px; }
+.faq-item.open .faq-a { max-height: 240px; }
+
+/* ===================== Banda CTA ===================== */
+.cta-band {
+    text-align: center; padding: 70px 6vw; margin: 0 6vw 70px; border-radius: 24px;
+    background: linear-gradient(135deg, var(--olive), var(--olive-dark));
+    color: #fff;
+}
+.cta-band h2 { color: #fff; font-size: clamp(1.7rem, 4vw, 2.6rem); }
+.cta-band p { margin: 10px 0 24px; color: #f0f3e6; font-size: 1.1rem; }
+
+/* ===================== Animación de revelado ===================== */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.in { opacity: 1; transform: none; }
+
 /* ===================== Responsive ===================== */
 @media (max-width: 860px) {
     .nav { display: none; }
+    .header__cta { margin-left: auto; }
     .hero { grid-template-columns: 1fr; }
     .hero__art { order: -1; }
     .config-grid { grid-template-columns: 1fr; }
+    .benefits { grid-template-columns: repeat(2, 1fr); }
+    .how-grid { grid-template-columns: 1fr; }
+    .site-footer { grid-template-columns: 1fr; gap: 24px; }
 }

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Manteles a medida: elige diseño, largo y ancho. Tips de cuidado, decoración y accesorios.">
-    <title>Manteles a Medida · Hecho en Chile</title>
+    <meta name="description" content="Manteles a medida hechos en Chile. Diseña tu mantel: elige diseño, color, largo y ancho. Telas premium, envío a todo Chile.">
+    <title>Manteles a Medida · Viste tu mesa, a tu medida</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -13,39 +13,86 @@
 <body>
     <!-- ===================== HEADER ===================== -->
     <header class="site-header">
-        <div class="brand">
+        <a class="brand" href="#top">
             <img class="brand__logo" src="./img/logo-web.jpg" alt="Logo Manteles a Medida">
             <span class="brand__name">Manteles <em>a Medida</em></span>
-        </div>
+        </a>
         <nav class="nav">
-            <a href="#configurador">Diseña el tuyo</a>
-            <a href="#cuidado">Cuidado</a>
-            <a href="#decoracion">Decoración</a>
-            <a href="#accesorios">Accesorios</a>
+            <a href="#como">Cómo funciona</a>
+            <a href="#configurador">Diseña</a>
+            <a href="#inspiracion">Inspiración</a>
+            <a href="#opiniones">Opiniones</a>
+            <a href="#faq">Preguntas</a>
         </nav>
+        <a class="btn btn--primary btn--sm header__cta" href="#configurador">Diseña el tuyo</a>
     </header>
 
     <!-- ===================== HERO ===================== -->
-    <section class="hero">
+    <section class="hero" id="top">
         <div class="hero__text">
-            <p class="hero__eyebrow">Hechos a tu medida</p>
-            <h1>El mantel perfecto<br>existe. Lo diseñas tú.</h1>
-            <p class="hero__lead">Elige un diseño, ajusta el largo y el ancho, y mira en tiempo real cómo queda sobre tu mesa. Divertido, sencillo y 100% a medida.</p>
-            <a class="btn btn--primary" href="#configurador">Empezar a diseñar →</a>
+            <p class="hero__eyebrow">✷ Hecho a medida en Chile 🇨🇱</p>
+            <h1>Viste tu mesa,<br>exactamente a tu medida.</h1>
+            <p class="hero__lead">Diseña en minutos un mantel único: elige el estampado, el color y las medidas exactas de tu mesa. Lo confeccionamos a mano y te lo llevamos a casa.</p>
+            <div class="hero__cta">
+                <a class="btn btn--primary" href="#configurador">Diseña tu mantel →</a>
+                <a class="btn btn--ghost" href="#como">Cómo funciona</a>
+            </div>
+            <div class="hero__proof">
+                <span class="stars">★★★★★</span>
+                <span><strong>4,9/5</strong> · más de 500 mesas vestidas</span>
+            </div>
         </div>
         <div class="hero__art" aria-hidden="true">
+            <div class="hero__halo"></div>
             <div class="table-scene">
                 <div class="table-leg table-leg--l"></div>
                 <div class="table-leg table-leg--r"></div>
                 <div class="table-cloth" id="heroCloth"></div>
                 <div class="table-floor"></div>
             </div>
+            <div class="hero__tag hero__tag--1">100% a medida</div>
+            <div class="hero__tag hero__tag--2">Telas premium</div>
+        </div>
+    </section>
+
+    <!-- ===================== BENEFICIOS / CONFIANZA ===================== -->
+    <section class="benefits" aria-label="Beneficios">
+        <div class="benefit"><span class="benefit__ico">✂️</span><div><strong>100% a medida</strong><small>Las dimensiones exactas de tu mesa</small></div></div>
+        <div class="benefit"><span class="benefit__ico">🧵</span><div><strong>Telas premium</strong><small>Algodón, lino y antimanchas</small></div></div>
+        <div class="benefit"><span class="benefit__ico">🚚</span><div><strong>Envío a todo Chile</strong><small>Despacho en 5 a 7 días hábiles</small></div></div>
+        <div class="benefit"><span class="benefit__ico">💚</span><div><strong>Hecho a mano</strong><small>Confección local y responsable</small></div></div>
+    </section>
+
+    <!-- ===================== CÓMO FUNCIONA ===================== -->
+    <section id="como" class="how reveal">
+        <div class="section-head">
+            <p class="eyebrow">Simple y entretenido</p>
+            <h2>Cómo funciona</h2>
+            <p>De la idea a tu mesa en tres pasos.</p>
+        </div>
+        <div class="how-grid">
+            <article class="how-card">
+                <div class="how-num">1</div>
+                <h3>Diseña</h3>
+                <p>Elige estampado y color, e ingresa el largo y ancho de tu mesa. Ves el resultado al instante.</p>
+            </article>
+            <article class="how-card">
+                <div class="how-num">2</div>
+                <h3>Confeccionamos</h3>
+                <p>Cortamos y cosemos tu mantel a mano con telas seleccionadas, justo a tus medidas.</p>
+            </article>
+            <article class="how-card">
+                <div class="how-num">3</div>
+                <h3>Recibes en casa</h3>
+                <p>Te lo despachamos a todo Chile, listo para vestir tu mesa en cualquier ocasión.</p>
+            </article>
         </div>
     </section>
 
     <!-- ===================== CONFIGURADOR ===================== -->
-    <section id="configurador" class="configurador">
+    <section id="configurador" class="configurador reveal">
         <div class="section-head">
+            <p class="eyebrow">Diseñador interactivo</p>
             <h2>Diseña tu mantel</h2>
             <p>Juega con las opciones y observa el resultado al instante.</p>
         </div>
@@ -124,18 +171,10 @@
         </div>
     </section>
 
-    <!-- ===================== CUIDADO ===================== -->
-    <section id="cuidado" class="tips">
+    <!-- ===================== INSPIRACIÓN / DECORACIÓN ===================== -->
+    <section id="inspiracion" class="deco reveal">
         <div class="section-head">
-            <h2>Tips de cuidado</h2>
-            <p>Para que tu mantel dure como el primer día.</p>
-        </div>
-        <div class="tips-grid" id="careTips"><!-- generado por JS --></div>
-    </section>
-
-    <!-- ===================== DECORACIÓN ===================== -->
-    <section id="decoracion" class="deco">
-        <div class="section-head">
+            <p class="eyebrow">Inspiración</p>
             <h2>Ideas de decoración</h2>
             <p>Inspírate con ejemplos para distintos momentos en casa.</p>
         </div>
@@ -143,22 +182,75 @@
     </section>
 
     <!-- ===================== ACCESORIOS ===================== -->
-    <section id="accesorios" class="acc">
+    <section id="accesorios" class="acc reveal">
         <div class="section-head">
+            <p class="eyebrow">Combínalo</p>
             <h2>Accesorios que hacen juego</h2>
             <p>Completa la mesa con piezas pensadas para combinar.</p>
         </div>
         <div class="acc-grid" id="accessories"><!-- generado por JS --></div>
     </section>
 
+    <!-- ===================== CUIDADO ===================== -->
+    <section id="cuidado" class="tips reveal">
+        <div class="section-head">
+            <p class="eyebrow">Cuídalo</p>
+            <h2>Tips de cuidado</h2>
+            <p>Para que tu mantel dure como el primer día.</p>
+        </div>
+        <div class="tips-grid" id="careTips"><!-- generado por JS --></div>
+    </section>
+
+    <!-- ===================== OPINIONES ===================== -->
+    <section id="opiniones" class="reviews reveal">
+        <div class="section-head">
+            <p class="eyebrow">Lo que dicen</p>
+            <h2>Clientes felices</h2>
+            <p>Mesas vestidas a lo largo de Chile.</p>
+        </div>
+        <div class="reviews-grid" id="reviews"><!-- generado por JS --></div>
+    </section>
+
+    <!-- ===================== FAQ ===================== -->
+    <section id="faq" class="faq reveal">
+        <div class="section-head">
+            <p class="eyebrow">Resolvemos tus dudas</p>
+            <h2>Preguntas frecuentes</h2>
+        </div>
+        <div class="faq-list" id="faqList"><!-- generado por JS --></div>
+    </section>
+
+    <!-- ===================== CTA FINAL ===================== -->
+    <section class="cta-band reveal">
+        <h2>¿List@ para vestir tu mesa?</h2>
+        <p>Diseña tu mantel único en minutos. Sin compromiso.</p>
+        <a class="btn btn--light" href="#configurador">Empezar a diseñar →</a>
+    </section>
+
     <!-- ===================== FOOTER ===================== -->
     <footer class="site-footer">
-        <div class="brand">
-            <img class="brand__logo" src="./img/logo-web.jpg" alt="Logo Manteles a Medida">
-            <span class="brand__name">Manteles <em>a Medida</em></span>
+        <div class="footer-col footer-col--brand">
+            <div class="brand">
+                <img class="brand__logo" src="./img/logo-web.jpg" alt="Logo Manteles a Medida">
+                <span class="brand__name">Manteles <em>a Medida</em></span>
+            </div>
+            <p class="footer-tag">Manteles a medida, hechos a mano en Chile. Viste tu mesa con piezas únicas.</p>
         </div>
-        <p>Hecho a medida · Chile 🇨🇱 · Prototipo 2026</p>
+        <div class="footer-col">
+            <h4>Explora</h4>
+            <a href="#como">Cómo funciona</a>
+            <a href="#configurador">Diseña tu mantel</a>
+            <a href="#inspiracion">Inspiración</a>
+            <a href="#accesorios">Accesorios</a>
+        </div>
+        <div class="footer-col">
+            <h4>Contacto</h4>
+            <a href="mailto:hola@mantelesamedida.cl">hola@mantelesamedida.cl</a>
+            <a href="#">WhatsApp +56 9 0000 0000</a>
+            <a href="#">Instagram @mantelesamedida</a>
+        </div>
     </footer>
+    <div class="copyright"><p>© 2026 Manteles a Medida · Prototipo de presentación</p></div>
 
     <!-- Toast -->
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
