@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manteles a medida: elige diseño, largo y ancho. Tips de cuidado, decoración y accesorios.">
+    <title>Telar &amp; Mesa · Manteles a medida</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <style>
+/* ===================== Variables y base ===================== */
+:root {
+    --bg: #fbf7f1;
+    --bg-soft: #f3ece1;
+    --ink: #2c2522;
+    --muted: #7a6f66;
+    --accent: #c0613f;
+    --accent-dark: #a04d2f;
+    --line: #e5dccf;
+    --card: #ffffff;
+    --shadow: 0 12px 30px rgba(60, 40, 25, .10);
+    --radius: 16px;
+    --table: #b98b5e;
+    --table-dark: #8f6841;
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { line-height: 1.15; letter-spacing: -.01em; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; }
+
+/* ===================== Botones ===================== */
+.btn {
+    display: inline-block;
+    border: none;
+    border-radius: 999px;
+    padding: 13px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.btn--primary { background: var(--accent); color: #fff; }
+.btn--primary:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 18px rgba(192,97,63,.35); }
+.btn--block { width: 100%; margin-top: 14px; }
+
+/* ===================== Header ===================== */
+.site-header {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 6vw;
+    background: rgba(251,247,241,.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+}
+.brand { display: flex; align-items: center; gap: 8px; font-size: 1.25rem; font-weight: 700; }
+.brand__mark { color: var(--accent); font-size: 1.4rem; }
+.brand__name em { color: var(--accent); font-style: normal; }
+.nav { display: flex; gap: 26px; font-weight: 500; }
+.nav a { color: var(--muted); transition: color .15s; }
+.nav a:hover { color: var(--accent); }
+
+/* ===================== Hero ===================== */
+.hero {
+    display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px;
+    align-items: center; padding: 70px 6vw;
+}
+.hero__eyebrow { color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: .12em; font-size: .8rem; }
+.hero h1 { font-size: clamp(2.1rem, 5vw, 3.6rem); margin: 12px 0 18px; }
+.hero__lead { color: var(--muted); font-size: 1.12rem; max-width: 46ch; margin-bottom: 28px; }
+
+.hero__table {
+    background: linear-gradient(160deg, var(--table), var(--table-dark));
+    border-radius: 20px; padding: 34px;
+    box-shadow: var(--shadow);
+    transform: rotate(-2deg);
+}
+.hero__cloth {
+    aspect-ratio: 4 / 3; border-radius: 8px;
+    box-shadow: 0 10px 24px rgba(0,0,0,.18);
+    background-color: #fff;
+}
+
+/* ===================== Secciones genéricas ===================== */
+section { scroll-margin-top: 80px; }
+.section-head { text-align: center; max-width: 640px; margin: 0 auto 38px; padding: 0 20px; }
+.section-head h2 { font-size: clamp(1.7rem, 3.5vw, 2.5rem); }
+.section-head p { color: var(--muted); margin-top: 8px; font-size: 1.05rem; }
+
+/* ===================== Configurador ===================== */
+.configurador { padding: 60px 6vw; background: var(--bg-soft); }
+.config-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 1100px; margin: 0 auto; }
+
+.panel { background: var(--card); border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow); }
+.step { padding: 18px 0; border-bottom: 1px solid var(--line); }
+.step:first-child { padding-top: 0; }
+.step:last-child { border-bottom: none; padding-bottom: 0; }
+.step h3 { display: flex; align-items: center; gap: 10px; font-size: 1.1rem; margin-bottom: 16px; }
+.step__num {
+    display: grid; place-items: center;
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--accent); color: #fff; font-size: .85rem;
+}
+
+/* Diseños */
+.designs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.design-swatch {
+    border: 2px solid var(--line); border-radius: 12px; overflow: hidden;
+    cursor: pointer; background: #fff; padding: 0; transition: border-color .15s, transform .15s;
+}
+.design-swatch:hover { transform: translateY(-2px); }
+.design-swatch.active { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(192,97,63,.18); }
+.design-swatch .sw-thumb { aspect-ratio: 1; }
+.design-swatch .sw-name { display: block; font-size: .72rem; padding: 6px 4px; color: var(--muted); }
+
+/* Colores */
+.colors { display: flex; flex-wrap: wrap; gap: 10px; }
+.color-dot {
+    width: 36px; height: 36px; border-radius: 50%; cursor: pointer;
+    border: 2px solid #fff; box-shadow: 0 0 0 1px var(--line); transition: transform .12s;
+}
+.color-dot:hover { transform: scale(1.1); }
+.color-dot.active { box-shadow: 0 0 0 2px var(--accent); transform: scale(1.12); }
+
+/* Medidas */
+.measure label { display: block; margin-bottom: 16px; }
+.measure label span { display: block; font-size: .9rem; margin-bottom: 6px; color: var(--muted); }
+.measure input[type=range] { width: 100%; accent-color: var(--accent); cursor: pointer; }
+.presets { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.chip {
+    border: 1px solid var(--line); background: #fff; border-radius: 999px;
+    padding: 7px 12px; font-size: .8rem; cursor: pointer; color: var(--muted);
+    transition: all .15s;
+}
+.chip:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Telas */
+.fabrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.fabric-opt {
+    border: 2px solid var(--line); border-radius: 10px; padding: 10px;
+    cursor: pointer; text-align: center; background: #fff; transition: border-color .15s;
+}
+.fabric-opt.active { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(192,97,63,.15); }
+.fabric-opt b { display: block; font-size: .9rem; }
+.fabric-opt small { color: var(--muted); font-size: .72rem; }
+
+/* Vista previa */
+.preview-col { display: flex; flex-direction: column; gap: 24px; }
+.preview { background: var(--card); border-radius: var(--radius); padding: 30px; box-shadow: var(--shadow); text-align: center; }
+.preview__table {
+    background: linear-gradient(160deg, var(--table), var(--table-dark));
+    border-radius: 14px; padding: 40px 30px; display: grid; place-items: center; min-height: 280px;
+}
+.preview__cloth {
+    position: relative; border-radius: 6px;
+    box-shadow: 0 14px 28px rgba(0,0,0,.22);
+    transition: width .25s ease, height .25s ease, background .25s ease;
+    display: grid; place-items: center;
+}
+.preview__size {
+    background: rgba(255,255,255,.85); color: var(--ink);
+    font-size: .8rem; font-weight: 600; padding: 4px 10px; border-radius: 999px;
+}
+.preview__hint { color: var(--muted); font-size: .9rem; margin-top: 14px; }
+
+/* Resumen */
+.summary { background: var(--card); border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow); }
+.summary h3 { margin-bottom: 14px; }
+.summary__list { list-style: none; }
+.summary__list li { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed var(--line); font-size: .95rem; }
+.summary__list li span { color: var(--muted); }
+.summary__price {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-top: 16px; padding-top: 14px; border-top: 2px solid var(--line);
+}
+.summary__price span { color: var(--muted); }
+.summary__price strong { font-size: 1.8rem; color: var(--accent); }
+.summary__note { text-align: center; color: var(--muted); font-size: .75rem; margin-top: 10px; }
+
+/* ===================== Tips / Cuidado ===================== */
+.tips { padding: 70px 6vw; }
+.tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
+.tip-card { background: var(--card); border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow); transition: transform .18s; }
+.tip-card:hover { transform: translateY(-4px); }
+.tip-card .tip-ico { font-size: 2rem; }
+.tip-card h4 { margin: 12px 0 6px; font-size: 1.1rem; }
+.tip-card p { color: var(--muted); font-size: .92rem; }
+
+/* ===================== Decoración ===================== */
+.deco { padding: 70px 6vw; background: var(--bg-soft); }
+.deco-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; max-width: 1100px; margin: 0 auto; }
+.deco-card { background: var(--card); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: transform .18s; }
+.deco-card:hover { transform: translateY(-4px); }
+.deco-card .deco-img { height: 150px; display: grid; place-items: center; font-size: 3rem; }
+.deco-card .deco-body { padding: 20px; }
+.deco-card h4 { font-size: 1.1rem; margin-bottom: 6px; }
+.deco-card p { color: var(--muted); font-size: .92rem; }
+.deco-card .deco-tags { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+.deco-tags span { background: var(--bg-soft); color: var(--muted); font-size: .72rem; padding: 4px 10px; border-radius: 999px; }
+
+/* ===================== Accesorios ===================== */
+.acc { padding: 70px 6vw; }
+.acc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
+.acc-card { background: var(--card); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); text-align: center; transition: transform .18s; }
+.acc-card:hover { transform: translateY(-4px); }
+.acc-card .acc-ico { font-size: 2.6rem; }
+.acc-card h4 { margin: 10px 0 4px; font-size: 1.05rem; }
+.acc-card p { color: var(--muted); font-size: .85rem; min-height: 38px; }
+.acc-card .acc-price { display: block; margin-top: 8px; font-weight: 700; color: var(--accent); }
+
+/* ===================== Footer ===================== */
+.site-footer {
+    text-align: center; padding: 40px 6vw; border-top: 1px solid var(--line);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+}
+.site-footer p { color: var(--muted); font-size: .9rem; }
+
+/* ===================== Toast ===================== */
+.toast {
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(120%);
+    background: var(--ink); color: #fff; padding: 14px 22px; border-radius: 999px;
+    font-weight: 600; box-shadow: var(--shadow); z-index: 100; opacity: 0;
+    transition: transform .35s ease, opacity .35s ease;
+}
+.toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+/* ===================== Responsive ===================== */
+@media (max-width: 860px) {
+    .nav { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero__art { order: -1; }
+    .config-grid { grid-template-columns: 1fr; }
+}
+
+/* ===================== Ajustes extra para móvil ===================== */
+@media (max-width: 560px) {
+    .site-header { padding: 12px 5vw; }
+    .hero, .configurador, .tips, .deco, .acc { padding-left: 5vw; padding-right: 5vw; }
+    .hero { padding-top: 32px; padding-bottom: 32px; gap: 24px; }
+    .panel, .preview, .summary { padding: 18px; }
+    .designs { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .fabrics { grid-template-columns: 1fr; }
+    .preview__table { padding: 24px 16px; min-height: 220px; }
+    .chip, .btn { padding: 12px 16px; }            /* objetivos táctiles cómodos */
+    input[type=range] { height: 28px; }
+    .summary__price strong { font-size: 1.5rem; }
+}
+
+    </style>
+</head>
+<body>
+    <!-- ===================== HEADER ===================== -->
+    <header class="site-header">
+        <div class="brand">
+            <span class="brand__mark">✷</span>
+            <span class="brand__name">Telar <em>&amp;</em> Mesa</span>
+        </div>
+        <nav class="nav">
+            <a href="#configurador">Diseña el tuyo</a>
+            <a href="#cuidado">Cuidado</a>
+            <a href="#decoracion">Decoración</a>
+            <a href="#accesorios">Accesorios</a>
+        </nav>
+    </header>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero">
+        <div class="hero__text">
+            <p class="hero__eyebrow">Hechos a tu medida</p>
+            <h1>El mantel perfecto<br>existe. Lo diseñas tú.</h1>
+            <p class="hero__lead">Elige un diseño, ajusta el largo y el ancho, y mira en tiempo real cómo queda sobre tu mesa. Divertido, sencillo y 100% a medida.</p>
+            <a class="btn btn--primary" href="#configurador">Empezar a diseñar →</a>
+        </div>
+        <div class="hero__art" aria-hidden="true">
+            <div class="hero__table">
+                <div class="hero__cloth" id="heroCloth"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CONFIGURADOR ===================== -->
+    <section id="configurador" class="configurador">
+        <div class="section-head">
+            <h2>Diseña tu mantel</h2>
+            <p>Juega con las opciones y observa el resultado al instante.</p>
+        </div>
+
+        <div class="config-grid">
+            <!-- Panel de controles -->
+            <div class="panel">
+                <!-- Paso 1: Diseño -->
+                <div class="step">
+                    <h3><span class="step__num">1</span> Elige un diseño</h3>
+                    <div class="designs" id="designs"><!-- generado por JS --></div>
+                </div>
+
+                <!-- Paso 2: Color base -->
+                <div class="step">
+                    <h3><span class="step__num">2</span> Color base</h3>
+                    <div class="colors" id="colors"><!-- generado por JS --></div>
+                </div>
+
+                <!-- Paso 3: Medidas -->
+                <div class="step">
+                    <h3><span class="step__num">3</span> Medidas (cm)</h3>
+                    <div class="measure">
+                        <label>
+                            <span>Largo: <strong id="largoVal">180</strong> cm</span>
+                            <input type="range" id="largo" min="80" max="320" step="5" value="180">
+                        </label>
+                        <label>
+                            <span>Ancho: <strong id="anchoVal">120</strong> cm</span>
+                            <input type="range" id="ancho" min="60" max="200" step="5" value="120">
+                        </label>
+                        <div class="presets">
+                            <button class="chip" data-l="120" data-a="120">Cuadrada 120×120</button>
+                            <button class="chip" data-l="180" data-a="120">Rectangular 180×120</button>
+                            <button class="chip" data-l="240" data-a="140">Familiar 240×140</button>
+                            <button class="chip" data-l="300" data-a="150">Banquete 300×150</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 4: Tela -->
+                <div class="step">
+                    <h3><span class="step__num">4</span> Tipo de tela</h3>
+                    <div class="fabrics" id="fabrics"><!-- generado por JS --></div>
+                </div>
+            </div>
+
+            <!-- Vista previa + resumen -->
+            <div class="preview-col">
+                <div class="preview" id="preview">
+                    <div class="preview__table">
+                        <div class="preview__cloth" id="previewCloth">
+                            <span class="preview__size" id="sizeLabel">180 × 120 cm</span>
+                        </div>
+                    </div>
+                    <p class="preview__hint">Vista previa sobre una mesa estándar 🍽️</p>
+                </div>
+
+                <div class="summary">
+                    <h3>Tu mantel</h3>
+                    <ul class="summary__list">
+                        <li><span>Diseño</span><strong id="sumDesign">—</strong></li>
+                        <li><span>Color</span><strong id="sumColor">—</strong></li>
+                        <li><span>Medidas</span><strong id="sumSize">—</strong></li>
+                        <li><span>Tela</span><strong id="sumFabric">—</strong></li>
+                        <li><span>Área</span><strong id="sumArea">—</strong></li>
+                    </ul>
+                    <div class="summary__price">
+                        <span>Precio estimado</span>
+                        <strong id="price">$0</strong>
+                    </div>
+                    <button class="btn btn--primary btn--block" id="addBtn">Agregar al carrito 🛒</button>
+                    <p class="summary__note">Prototipo demostrativo · precios referenciales</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CUIDADO ===================== -->
+    <section id="cuidado" class="tips">
+        <div class="section-head">
+            <h2>Tips de cuidado</h2>
+            <p>Para que tu mantel dure como el primer día.</p>
+        </div>
+        <div class="tips-grid" id="careTips"><!-- generado por JS --></div>
+    </section>
+
+    <!-- ===================== DECORACIÓN ===================== -->
+    <section id="decoracion" class="deco">
+        <div class="section-head">
+            <h2>Ideas de decoración</h2>
+            <p>Inspírate con ejemplos para distintos momentos en casa.</p>
+        </div>
+        <div class="deco-grid" id="decoIdeas"><!-- generado por JS --></div>
+    </section>
+
+    <!-- ===================== ACCESORIOS ===================== -->
+    <section id="accesorios" class="acc">
+        <div class="section-head">
+            <h2>Accesorios que hacen juego</h2>
+            <p>Completa la mesa con piezas pensadas para combinar.</p>
+        </div>
+        <div class="acc-grid" id="accessories"><!-- generado por JS --></div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="site-footer">
+        <div class="brand">
+            <span class="brand__mark">✷</span>
+            <span class="brand__name">Telar <em>&amp;</em> Mesa</span>
+        </div>
+        <p>Manteles a medida, hechos con amor. · Prototipo 2026</p>
+    </footer>
+
+    <!-- Toast -->
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script>
+/* =========================================================
+   Telar & Mesa · Configurador de manteles a medida
+   Prototipo interactivo (sin dependencias externas)
+   ========================================================= */
+
+/* ---------- Catálogo de diseños (patrones SVG) ----------
+   Cada diseño es una función que recibe el color base y
+   devuelve un data-URI de SVG, usable como background-image. */
+const svg = (inner, bg) =>
+    `url("data:image/svg+xml,${encodeURIComponent(
+        `<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80'><rect width='80' height='80' fill='${bg}'/>${inner}</svg>`
+    )}")`;
+
+const DESIGNS = [
+    {
+        id: "liso", name: "Liso",
+        pattern: (c) => svg("", c)
+    },
+    {
+        id: "cuadros", name: "Cuadros",
+        pattern: (c) => svg(
+            `<path d='M0 0h40v40H0z M40 40h40v40H40z' fill='rgba(255,255,255,.45)'/>`, c)
+    },
+    {
+        id: "rayas", name: "Rayas",
+        pattern: (c) => svg(
+            `<path d='M0 0h20v80H0z M40 0h20v80H40z' fill='rgba(255,255,255,.4)'/>`, c)
+    },
+    {
+        id: "lunares", name: "Lunares",
+        pattern: (c) => svg(
+            `<circle cx='20' cy='20' r='9' fill='rgba(255,255,255,.55)'/><circle cx='60' cy='60' r='9' fill='rgba(255,255,255,.55)'/>`, c)
+    },
+    {
+        id: "flores", name: "Floral",
+        pattern: (c) => svg(
+            `<g fill='rgba(255,255,255,.6)'><circle cx='20' cy='20' r='5'/><circle cx='14' cy='14' r='5'/><circle cx='26' cy='14' r='5'/><circle cx='14' cy='26' r='5'/><circle cx='26' cy='26' r='5'/></g>
+             <g fill='rgba(255,255,255,.6)'><circle cx='60' cy='60' r='5'/><circle cx='54' cy='54' r='5'/><circle cx='66' cy='54' r='5'/><circle cx='54' cy='66' r='5'/><circle cx='66' cy='66' r='5'/></g>`, c)
+    },
+    {
+        id: "rombos", name: "Rombos",
+        pattern: (c) => svg(
+            `<path d='M40 0L80 40L40 80L0 40Z' fill='none' stroke='rgba(255,255,255,.5)' stroke-width='6'/>`, c)
+    },
+    {
+        id: "espiga", name: "Espiga",
+        pattern: (c) => svg(
+            `<path d='M0 40L20 20L40 40L60 20L80 40' fill='none' stroke='rgba(255,255,255,.45)' stroke-width='6'/>
+             <path d='M0 80L20 60L40 80L60 60L80 80' fill='none' stroke='rgba(255,255,255,.45)' stroke-width='6'/>`, c)
+    },
+    {
+        id: "navidad", name: "Festivo",
+        pattern: (c) => svg(
+            `<g fill='rgba(255,255,255,.6)'><path d='M20 8l6 14H14z M20 18l8 18H12z'/><path d='M60 48l6 14H54z M60 58l8 18H52z'/></g>`, c)
+    },
+    {
+        id: "geometrico", name: "Geométrico",
+        pattern: (c) => svg(
+            `<g fill='none' stroke='rgba(255,255,255,.5)' stroke-width='4'><rect x='10' y='10' width='24' height='24'/><circle cx='60' cy='60' r='14'/></g>`, c)
+    }
+];
+
+/* ---------- Paleta de colores base ---------- */
+const COLORS = [
+    { id: "terracota", name: "Terracota", hex: "#c0613f" },
+    { id: "arena", name: "Arena", hex: "#d9c2a3" },
+    { id: "oliva", name: "Oliva", hex: "#7d8463" },
+    { id: "mostaza", name: "Mostaza", hex: "#d6a23e" },
+    { id: "azul", name: "Azul noche", hex: "#3c5a73" },
+    { id: "vino", name: "Vino", hex: "#7a3340" },
+    { id: "blanco", name: "Blanco hueso", hex: "#f3ece1" },
+    { id: "verde", name: "Verde bosque", hex: "#3f6b53" },
+    { id: "rosa", name: "Rosa palo", hex: "#cf9aa0" }
+];
+
+/* ---------- Tipos de tela (afectan precio) ---------- */
+const FABRICS = [
+    { id: "algodon", name: "Algodón", desc: "Suave y lavable", mult: 1.0 },
+    { id: "lino", name: "Lino", desc: "Elegante y fresco", mult: 1.6 },
+    { id: "resinado", name: "Antimanchas", desc: "Repele líquidos", mult: 1.9 }
+];
+
+const BASE_PRICE_PER_M2 = 14000; // CLP referencial
+
+/* ---------- Estado actual ---------- */
+const state = {
+    design: DESIGNS[1],
+    color: COLORS[0],
+    fabric: FABRICS[0],
+    largo: 180,
+    ancho: 120
+};
+
+/* ---------- Utilidades ---------- */
+const $ = (s) => document.querySelector(s);
+const fmt = (n) => "$" + Math.round(n).toLocaleString("es-CL");
+const clothBg = () => state.design.pattern(state.color.hex);
+
+/* =========================================================
+   Render de controles
+   ========================================================= */
+function renderDesigns() {
+    const wrap = $("#designs");
+    wrap.innerHTML = DESIGNS.map((d, i) => `
+        <button class="design-swatch ${i === 1 ? "active" : ""}" data-id="${d.id}" title="${d.name}">
+            <span class="sw-thumb" style="background-image:${d.pattern("#b98b5e")};background-size:40px;"></span>
+            <span class="sw-name">${d.name}</span>
+        </button>`).join("");
+    wrap.querySelectorAll(".design-swatch").forEach(btn => {
+        btn.addEventListener("click", () => {
+            state.design = DESIGNS.find(d => d.id === btn.dataset.id);
+            wrap.querySelectorAll(".design-swatch").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            update();
+        });
+    });
+}
+
+function renderColors() {
+    const wrap = $("#colors");
+    wrap.innerHTML = COLORS.map((c, i) => `
+        <button class="color-dot ${i === 0 ? "active" : ""}" data-id="${c.id}"
+                style="background:${c.hex}" title="${c.name}"></button>`).join("");
+    wrap.querySelectorAll(".color-dot").forEach(btn => {
+        btn.addEventListener("click", () => {
+            state.color = COLORS.find(c => c.id === btn.dataset.id);
+            wrap.querySelectorAll(".color-dot").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            update();
+        });
+    });
+}
+
+function renderFabrics() {
+    const wrap = $("#fabrics");
+    wrap.innerHTML = FABRICS.map((f, i) => `
+        <button class="fabric-opt ${i === 0 ? "active" : ""}" data-id="${f.id}">
+            <b>${f.name}</b><small>${f.desc}</small>
+        </button>`).join("");
+    wrap.querySelectorAll(".fabric-opt").forEach(btn => {
+        btn.addEventListener("click", () => {
+            state.fabric = FABRICS.find(f => f.id === btn.dataset.id);
+            wrap.querySelectorAll(".fabric-opt").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            update();
+        });
+    });
+}
+
+/* ---------- Medidas (sliders + presets) ---------- */
+function bindMeasures() {
+    const largo = $("#largo"), ancho = $("#ancho");
+    largo.addEventListener("input", () => { state.largo = +largo.value; update(); });
+    ancho.addEventListener("input", () => { state.ancho = +ancho.value; update(); });
+    document.querySelectorAll(".chip").forEach(chip => {
+        chip.addEventListener("click", () => {
+            state.largo = +chip.dataset.l;
+            state.ancho = +chip.dataset.a;
+            largo.value = state.largo;
+            ancho.value = state.ancho;
+            update();
+        });
+    });
+}
+
+/* =========================================================
+   Actualización de vista previa, resumen y precio
+   ========================================================= */
+function update() {
+    const bg = clothBg();
+
+    // Hero
+    $("#heroCloth").style.backgroundImage = bg;
+    $("#heroCloth").style.backgroundSize = "40px";
+
+    // Vista previa (escalada proporcional dentro de la "mesa")
+    const cloth = $("#previewCloth");
+    const maxW = 320, maxH = 220;
+    const scale = Math.min(maxW / state.largo, maxH / state.ancho);
+    cloth.style.width = (state.largo * scale) + "px";
+    cloth.style.height = (state.ancho * scale) + "px";
+    cloth.style.backgroundImage = bg;
+    cloth.style.backgroundSize = "40px";
+
+    // Etiquetas
+    $("#largoVal").textContent = state.largo;
+    $("#anchoVal").textContent = state.ancho;
+    $("#sizeLabel").textContent = `${state.largo} × ${state.ancho} cm`;
+
+    // Resumen
+    const area = (state.largo * state.ancho) / 10000; // m²
+    $("#sumDesign").textContent = state.design.name;
+    $("#sumColor").textContent = state.color.name;
+    $("#sumSize").textContent = `${state.largo} × ${state.ancho} cm`;
+    $("#sumFabric").textContent = state.fabric.name;
+    $("#sumArea").textContent = area.toFixed(2) + " m²";
+
+    // Precio
+    const price = area * BASE_PRICE_PER_M2 * state.fabric.mult;
+    $("#price").textContent = fmt(price);
+}
+
+/* =========================================================
+   Contenido: cuidado, decoración, accesorios
+   ========================================================= */
+const CARE_TIPS = [
+    { ico: "🌡️", t: "Lava en frío", d: "Usa agua fría o tibia (máx. 30°C) para conservar colores e impedir que el género encoja." },
+    { ico: "🧺", t: "Ciclo suave", d: "Programa delicado y bolsa de lavado para los manteles de lino o con bordados." },
+    { ico: "☀️", t: "Seca a la sombra", d: "Evita el sol directo prolongado: previene la decoloración del estampado." },
+    { ico: "🔥", t: "Plancha húmedo", d: "Plancha aún levemente húmedo, del revés, para un acabado impecable sin brillos." },
+    { ico: "🍷", t: "Mancha fresca", d: "Actúa rápido: absorbe sin frotar y aplica agua con jabón neutro antes de lavar." },
+    { ico: "📦", t: "Guarda enrollado", d: "Enróllalo en vez de doblarlo para evitar marcas permanentes de pliegue." }
+];
+
+const DECO_IDEAS = [
+    { emoji: "🍂", bg: "#e7d3bf", t: "Mesa de otoño", d: "Combina tonos terracota y mostaza con hojas secas y velas bajas.", tags: ["Cálido", "Velas", "Centros bajos"] },
+    { emoji: "🎄", bg: "#cfe0d2", t: "Cena festiva", d: "Mantel verde o festivo, vajilla blanca y detalles dorados para las fiestas.", tags: ["Festivo", "Dorado", "Familiar"] },
+    { emoji: "🌿", bg: "#dde6d4", t: "Almuerzo al aire libre", d: "Lino claro, flores frescas y servilletas de tela para un brunch luminoso.", tags: ["Fresco", "Flores", "Brunch"] },
+    { emoji: "🕯️", bg: "#d8ccdf", t: "Cena romántica", d: "Tonos vino o azul noche, luz tenue y un camino de mesa contrastante.", tags: ["Íntimo", "Luz tenue", "Pareja"] },
+    { emoji: "☕", bg: "#e9dcc7", t: "Desayuno minimalista", d: "Mantel liso arena, cerámica artesanal y una sola flor de adorno.", tags: ["Sencillo", "Neutro", "Diario"] },
+    { emoji: "🎉", bg: "#f0d9c4", t: "Cumpleaños en casa", d: "Lunares o geométrico alegre con servilletas de colores y globos.", tags: ["Divertido", "Color", "Niños"] }
+];
+
+const ACCESSORIES = [
+    { ico: "🧻", t: "Servilletas de tela", d: "Juego de 6 a tono con tu mantel.", price: 12990 },
+    { ico: "🪡", t: "Camino de mesa", d: "Contraste perfecto para el centro.", price: 9990 },
+    { ico: "🍽️", t: "Individuales", d: "Set de 4 que combinan con el diseño.", price: 11990 },
+    { ico: "🕯️", t: "Portavelas", d: "Cerámica artesanal en tonos cálidos.", price: 7990 },
+    { ico: "🌸", t: "Florero de mesa", d: "Pieza central minimalista.", price: 14990 },
+    { ico: "🧷", t: "Argollas servilleteras", d: "Detalle dorado o natural.", price: 6990 }
+];
+
+function renderContent() {
+    $("#careTips").innerHTML = CARE_TIPS.map(x => `
+        <article class="tip-card">
+            <div class="tip-ico">${x.ico}</div>
+            <h4>${x.t}</h4>
+            <p>${x.d}</p>
+        </article>`).join("");
+
+    $("#decoIdeas").innerHTML = DECO_IDEAS.map(x => `
+        <article class="deco-card">
+            <div class="deco-img" style="background:${x.bg}">${x.emoji}</div>
+            <div class="deco-body">
+                <h4>${x.t}</h4>
+                <p>${x.d}</p>
+                <div class="deco-tags">${x.tags.map(t => `<span>${t}</span>`).join("")}</div>
+            </div>
+        </article>`).join("");
+
+    $("#accessories").innerHTML = ACCESSORIES.map(x => `
+        <article class="acc-card">
+            <div class="acc-ico">${x.ico}</div>
+            <h4>${x.t}</h4>
+            <p>${x.d}</p>
+            <span class="acc-price">${fmt(x.price)}</span>
+            <button class="btn btn--primary btn--block acc-add" data-name="${x.t}">Agregar</button>
+        </article>`).join("");
+
+    document.querySelectorAll(".acc-add").forEach(b =>
+        b.addEventListener("click", () => toast(`✓ ${b.dataset.name} agregado`)));
+}
+
+/* ---------- Toast ---------- */
+let toastTimer;
+function toast(msg) {
+    const el = $("#toast");
+    el.textContent = msg;
+    el.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => el.classList.remove("show"), 2200);
+}
+
+/* =========================================================
+   Init
+   ========================================================= */
+function init() {
+    renderDesigns();
+    renderColors();
+    renderFabrics();
+    bindMeasures();
+    renderContent();
+    update();
+
+    $("#addBtn").addEventListener("click", () =>
+        toast(`✓ Mantel ${state.design.name} ${state.largo}×${state.ancho} agregado al carrito`));
+}
+
+document.addEventListener("DOMContentLoaded", init);
+
+    </script>
+</body>
+</html>
