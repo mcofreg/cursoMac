@@ -108,7 +108,7 @@ img { max-width: 100%; }
 .table-leg--r { right: 26%; }
 .table-cloth {
     position: absolute; top: 14px; left: 5%; right: 5%; height: 66%; z-index: 2;
-    background-color: #fff; background-size: 46px;
+    background-color: #fff; background-size: 40px;
     border-radius: 12px 12px 6px 6px;
     box-shadow: 0 16px 30px rgba(43,58,82,.22);
     /* el borde inferior cae con las esquinas colgando, como en el logo */
@@ -151,7 +151,7 @@ section { scroll-margin-top: 80px; }
 }
 .design-swatch:hover { transform: translateY(-2px); }
 .design-swatch.active { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(192,97,63,.18); }
-.design-swatch .sw-thumb { aspect-ratio: 1; }
+.design-swatch .sw-thumb { aspect-ratio: 1; background-size: 40px; }
 .design-swatch .sw-name { display: block; font-size: .72rem; padding: 6px 4px; color: var(--muted); }
 
 /* Colores */
@@ -203,7 +203,7 @@ section { scroll-margin-top: 80px; }
 .preview__table::before { left: 24%; }
 .preview__table::after { right: 24%; }
 .preview__cloth {
-    position: relative; border-radius: 6px;
+    position: relative; border-radius: 6px; background-size: 40px;
     box-shadow: 0 14px 28px rgba(0,0,0,.22);
     transition: width .25s ease, height .25s ease, background .25s ease;
     display: grid; place-items: center;
