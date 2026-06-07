@@ -22,6 +22,8 @@
     --table-dark: #9c7430;
     --font-display: "Oswald", "Arial Narrow", system-ui, sans-serif;
     --font-body: "Nunito Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+    /* textura de tela (ruido fractal en gris) para dar aspecto de género real */
+    --fabric-texture: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
     font-family: var(--font-body);
 }
 
@@ -96,13 +98,21 @@ img { max-width: 100%; }
 /* --- Escena: mesa con mantel (imagen principal) --- */
 .table-scene { position: relative; width: 100%; max-width: 400px; height: 320px; margin: 0 auto; }
 .table-floor {
-    position: absolute; left: 12%; right: 12%; bottom: 8px; height: 26px;
-    background: radial-gradient(ellipse at center, rgba(43,58,82,.22), transparent 70%);
+    position: absolute; left: 10%; right: 10%; bottom: 6px; height: 30px;
+    background: radial-gradient(ellipse at center, rgba(43,58,82,.28), transparent 72%);
+    filter: blur(4px);
 }
 .table-leg {
-    position: absolute; bottom: 24px; width: 18px; height: 84px; z-index: 1;
-    background: linear-gradient(90deg, var(--table-dark), var(--table) 50%, var(--table-dark));
-    border-radius: 0 0 4px 4px;
+    position: absolute; bottom: 22px; width: 18px; height: 86px; z-index: 1;
+    background:
+        repeating-linear-gradient(0deg, rgba(0,0,0,.07) 0 3px, transparent 3px 8px),
+        linear-gradient(90deg, var(--table-dark), var(--table) 45%, #e0b878 55%, var(--table) 65%, var(--table-dark));
+    border-radius: 3px 3px 5px 5px;
+    box-shadow: 0 8px 10px rgba(43,58,82,.18);
+}
+.table-leg::after { /* pie */
+    content: ""; position: absolute; bottom: -3px; left: -3px; right: -3px; height: 6px;
+    background: var(--table-dark); border-radius: 3px;
 }
 .table-leg--l { left: 26%; }
 .table-leg--r { right: 26%; }
@@ -110,16 +120,26 @@ img { max-width: 100%; }
     position: absolute; top: 14px; left: 5%; right: 5%; height: 66%; z-index: 2;
     background-color: #fff; background-size: 40px;
     border-radius: 12px 12px 6px 6px;
-    box-shadow: 0 16px 30px rgba(43,58,82,.22);
+    /* sombra exterior + oscurecido del faldón en la caída */
+    box-shadow: 0 18px 34px rgba(43,58,82,.26), inset 0 -34px 30px -24px rgba(0,0,0,.22);
     /* el borde inferior cae con las esquinas colgando, como en el logo */
     clip-path: polygon(0% 0%, 100% 0%, 100% 56%, 82% 100%, 64% 64%, 36% 64%, 18% 100%, 0% 56%);
     transition: background .25s ease;
 }
+/* textura de género + pliegues verticales sutiles */
+.table-cloth::before, .preview__cloth::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: inherit;
+    background:
+        var(--fabric-texture),
+        repeating-linear-gradient(91deg, rgba(0,0,0,.05) 0 1px, transparent 1px 13px, rgba(255,255,255,.05) 13px 14px, transparent 14px 26px);
+    background-size: 120px 120px, auto;
+    mix-blend-mode: overlay; opacity: .5;
+}
 /* brillo de la superficie de la mesa */
 .table-cloth::after {
-    content: ""; position: absolute; top: 8%; left: 6%; right: 6%; height: 14%;
-    background: linear-gradient(rgba(255,255,255,.35), transparent);
-    border-radius: 8px;
+    content: ""; position: absolute; top: 6%; left: 6%; right: 6%; height: 16%;
+    background: linear-gradient(rgba(255,255,255,.40), transparent);
+    border-radius: 8px; z-index: 1;
 }
 
 /* ===================== Secciones genéricas ===================== */
@@ -190,9 +210,12 @@ section { scroll-margin-top: 80px; }
 .preview { background: var(--card); border-radius: var(--radius); padding: 30px; box-shadow: var(--shadow); text-align: center; }
 .preview__table {
     position: relative;
-    background: linear-gradient(160deg, var(--table), var(--table-dark));
+    background:
+        repeating-linear-gradient(90deg, rgba(0,0,0,.04) 0 7px, transparent 7px 18px),
+        linear-gradient(160deg, var(--table), var(--table-dark));
     border-radius: 14px; padding: 40px 30px; display: grid; place-items: center; min-height: 280px;
     margin-bottom: 30px;
+    box-shadow: inset 0 2px 0 rgba(255,255,255,.18), inset 0 -10px 20px rgba(0,0,0,.12);
 }
 /* patas de la mesa */
 .preview__table::before, .preview__table::after {
@@ -209,8 +232,10 @@ section { scroll-margin-top: 80px; }
     display: grid; place-items: center;
 }
 .preview__size {
-    background: rgba(255,255,255,.85); color: var(--ink);
+    position: relative; z-index: 2;
+    background: rgba(255,255,255,.9); color: var(--ink);
     font-size: .8rem; font-weight: 600; padding: 4px 10px; border-radius: 999px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.12);
 }
 .preview__hint { color: var(--muted); font-size: .9rem; margin-top: 14px; }
 

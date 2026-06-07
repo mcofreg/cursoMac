@@ -11,52 +11,87 @@ const svg = (inner, bg) =>
         `<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80'><rect width='80' height='80' fill='${bg}'/>${inner}</svg>`
     )}")`;
 
+/* Pequeña flor de 4 pétalos con centro, reutilizada en el patrón floral */
+const flor = (x, y) =>
+    `<g transform='translate(${x} ${y})'>
+        <g fill='rgba(255,255,255,.55)'>
+            <ellipse cx='0' cy='-6' rx='3' ry='5'/><ellipse cx='0' cy='6' rx='3' ry='5'/>
+            <ellipse cx='-6' cy='0' rx='5' ry='3'/><ellipse cx='6' cy='0' rx='5' ry='3'/>
+        </g>
+        <circle r='3' fill='rgba(0,0,0,.16)'/>
+    </g>`;
+/* Ramita botánica (estilo olivo del logo) */
+const ramita = (x, y) =>
+    `<g transform='translate(${x} ${y})'>
+        <path d='M2 28 Q10 14 16 2' fill='none' stroke='rgba(255,255,255,.5)' stroke-width='1.6'/>
+        <g fill='rgba(255,255,255,.42)'>
+            <ellipse cx='5' cy='22' rx='4.5' ry='2.1' transform='rotate(-40 5 22)'/>
+            <ellipse cx='12' cy='21' rx='4.5' ry='2.1' transform='rotate(40 12 21)'/>
+            <ellipse cx='8' cy='13' rx='4.3' ry='2' transform='rotate(-40 8 13)'/>
+            <ellipse cx='15' cy='12' rx='4.3' ry='2' transform='rotate(40 15 12)'/>
+            <ellipse cx='13' cy='5' rx='3.8' ry='1.8' transform='rotate(-35 13 5)'/>
+        </g>
+    </g>`;
+
 const DESIGNS = [
     {
         id: "liso", name: "Liso",
         pattern: (c) => svg("", c)
     },
     {
-        id: "cuadros", name: "Cuadros",
+        id: "cuadros", name: "Vichy",
+        /* gingham: dos bandas translúcidas superpuestas → 3 tonos */
         pattern: (c) => svg(
-            `<path d='M0 0h40v40H0z M40 40h40v40H40z' fill='rgba(255,255,255,.45)'/>`, c)
+            `<g fill='rgba(255,255,255,.20)'><rect width='40' height='80'/><rect width='80' height='40'/></g>`, c)
     },
     {
         id: "rayas", name: "Rayas",
+        /* ticking stripe: bandas anchas claras + pinstripe fina */
         pattern: (c) => svg(
-            `<path d='M0 0h20v80H0z M40 0h20v80H40z' fill='rgba(255,255,255,.4)'/>`, c)
+            `<g fill='rgba(255,255,255,.20)'><rect x='12' width='11' height='80'/><rect x='52' width='11' height='80'/></g>
+             <rect x='34' width='2' height='80' fill='rgba(0,0,0,.10)'/>`, c)
     },
     {
         id: "lunares", name: "Lunares",
+        /* polka con sutil sombra para dar relieve */
         pattern: (c) => svg(
-            `<circle cx='20' cy='20' r='9' fill='rgba(255,255,255,.55)'/><circle cx='60' cy='60' r='9' fill='rgba(255,255,255,.55)'/>`, c)
+            `<g><circle cx='20' cy='21' r='6.5' fill='rgba(0,0,0,.07)'/><circle cx='20' cy='20' r='6.5' fill='rgba(255,255,255,.6)'/>
+                <circle cx='60' cy='61' r='6.5' fill='rgba(0,0,0,.07)'/><circle cx='60' cy='60' r='6.5' fill='rgba(255,255,255,.6)'/></g>`, c)
     },
     {
         id: "flores", name: "Floral",
-        pattern: (c) => svg(
-            `<g fill='rgba(255,255,255,.6)'><circle cx='20' cy='20' r='5'/><circle cx='14' cy='14' r='5'/><circle cx='26' cy='14' r='5'/><circle cx='14' cy='26' r='5'/><circle cx='26' cy='26' r='5'/></g>
-             <g fill='rgba(255,255,255,.6)'><circle cx='60' cy='60' r='5'/><circle cx='54' cy='54' r='5'/><circle cx='66' cy='54' r='5'/><circle cx='54' cy='66' r='5'/><circle cx='66' cy='66' r='5'/></g>`, c)
+        pattern: (c) => svg(flor(20, 20) + flor(60, 60), c)
     },
     {
-        id: "rombos", name: "Rombos",
+        id: "rombos", name: "Argyle",
+        /* rombo relleno + líneas diagonales punteadas */
         pattern: (c) => svg(
-            `<path d='M40 0L80 40L40 80L0 40Z' fill='none' stroke='rgba(255,255,255,.5)' stroke-width='6'/>`, c)
+            `<path d='M40 0L80 40L40 80L0 40Z' fill='rgba(255,255,255,.14)'/>
+             <path d='M40 0L80 40M40 0L0 40M40 80L80 40M40 80L0 40' stroke='rgba(0,0,0,.10)' stroke-width='1.5' fill='none'/>
+             <path d='M0 0L80 80M80 0L0 80' stroke='rgba(255,255,255,.20)' stroke-width='1' stroke-dasharray='3 4'/>`, c)
     },
     {
         id: "espiga", name: "Espiga",
+        /* herringbone a dos tonos para dar volumen */
         pattern: (c) => svg(
-            `<path d='M0 40L20 20L40 40L60 20L80 40' fill='none' stroke='rgba(255,255,255,.45)' stroke-width='6'/>
-             <path d='M0 80L20 60L40 80L60 60L80 80' fill='none' stroke='rgba(255,255,255,.45)' stroke-width='6'/>`, c)
+            `<g fill='none' stroke-width='3' stroke-linecap='square'>
+                <path d='M0 20L20 0L40 20L60 0L80 20' stroke='rgba(255,255,255,.30)'/>
+                <path d='M0 60L20 40L40 60L60 40L80 60' stroke='rgba(255,255,255,.30)'/>
+                <path d='M0 40L20 20L40 40L60 20L80 40' stroke='rgba(0,0,0,.08)'/>
+                <path d='M0 80L20 60L40 80L60 60L80 80' stroke='rgba(0,0,0,.08)'/>
+             </g>`, c)
     },
     {
-        id: "navidad", name: "Festivo",
-        pattern: (c) => svg(
-            `<g fill='rgba(255,255,255,.6)'><path d='M20 8l6 14H14z M20 18l8 18H12z'/><path d='M60 48l6 14H54z M60 58l8 18H52z'/></g>`, c)
+        id: "botanico", name: "Botánico",
+        pattern: (c) => svg(ramita(6, 8) + ramita(46, 48), c)
     },
     {
-        id: "geometrico", name: "Geométrico",
+        id: "geometrico", name: "Nórdico",
+        /* cruces escandinavas + puntos */
         pattern: (c) => svg(
-            `<g fill='none' stroke='rgba(255,255,255,.5)' stroke-width='4'><rect x='10' y='10' width='24' height='24'/><circle cx='60' cy='60' r='14'/></g>`, c)
+            `<g stroke='rgba(255,255,255,.4)' stroke-width='2.5' stroke-linecap='round'>
+                <path d='M20 12V28M12 20H28'/><path d='M60 52V68M52 60H68'/></g>
+             <g fill='rgba(0,0,0,.10)'><circle cx='60' cy='20' r='3'/><circle cx='20' cy='60' r='3'/></g>`, c)
     }
 ];
 
