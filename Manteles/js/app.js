@@ -268,6 +268,26 @@ const ACCESSORIES = [
     { ico: "🧷", t: "Argollas servilleteras", d: "Detalle dorado o natural.", price: 6990 }
 ];
 
+/* ---------- Estadísticas (banda de cifras) ---------- */
+const STATS = [
+    { n: "+500", l: "mesas vestidas" },
+    { n: "4,9★", l: "valoración promedio" },
+    { n: "12", l: "diseños exclusivos" },
+    { n: "100%", l: "hecho a medida" }
+];
+
+/* ---------- Catálogo destacado (combinaciones diseño + color) ---------- */
+const PRODUCTS = [
+    { design: "cuadros",    color: "terracota", name: "Mantel Vichy",     sub: "Terracota · 180×120", price: 30240 },
+    { design: "botanico",   color: "esmeralda", name: "Mantel Botánico",  sub: "Esmeralda · 240×140", price: 47040 },
+    { design: "rombos",     color: "royal",     name: "Mantel Argyle",    sub: "Azul rey · 180×120",  price: 30240 },
+    { design: "lunares",    color: "coral",     name: "Mantel Lunares",   sub: "Coral · 150×150",     price: 31500 },
+    { design: "rayas",      color: "marino",    name: "Mantel Rayas",     sub: "Azul marino · 200×140", price: 39200 },
+    { design: "flores",     color: "uva",       name: "Mantel Floral",    sub: "Berenjena · 180×120", price: 30240 },
+    { design: "espiga",     color: "teal",      name: "Mantel Espiga",    sub: "Turquesa · 240×140",  price: 47040 },
+    { design: "geometrico", color: "mostaza",   name: "Mantel Nórdico",   sub: "Mostaza · 180×120",   price: 30240 }
+];
+
 /* ---------- Opiniones (contenido de muestra para la demo) ---------- */
 const REVIEWS = [
     { ini: "CM", name: "Carolina M.", city: "Providencia", text: "Pedí un mantel para mi mesa irregular y calzó perfecto. La tela es preciosa y el color tal cual lo vi en pantalla." },
@@ -290,6 +310,27 @@ function renderContent() {
             <span class="benefit__ico">${x.ico}</span>
             <div><strong>${x.t}</strong><small>${x.d}</small></div>
         </div>`).join("");
+
+    $("#stats").innerHTML = STATS.map(x => `
+        <div class="stat"><span class="stat__n">${x.n}</span><span class="stat__l">${x.l}</span></div>`).join("");
+
+    $("#products").innerHTML = PRODUCTS.map(p => {
+        const d = DESIGNS.find(x => x.id === p.design);
+        const c = COLORS.find(x => x.id === p.color);
+        return `
+        <article class="product-card">
+            <div class="product-thumb" style="background-image:${d.pattern(c.hex)};background-size:64px"></div>
+            <div class="product-body">
+                <div class="product-rating">★ 4,9</div>
+                <h4>${p.name}</h4>
+                <p>${p.sub}</p>
+                <div class="product-foot">
+                    <span class="product-price">${fmt(p.price)}</span>
+                    <a class="btn btn--primary btn--sm" href="#configurador">Personalizar</a>
+                </div>
+            </div>
+        </article>`;
+    }).join("");
 
     $("#careTips").innerHTML = CARE_TIPS.map(x => `
         <article class="tip-card">
@@ -375,6 +416,12 @@ function init() {
 
     $("#addBtn").addEventListener("click", () =>
         toast(`✓ Mantel ${state.design.name} ${state.largo}×${state.ancho} agregado al carrito`));
+
+    $("#newsletterForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        e.target.reset();
+        toast("✓ ¡Listo! Te suscribiste a las novedades");
+    });
 }
 
 document.addEventListener("DOMContentLoaded", init);
