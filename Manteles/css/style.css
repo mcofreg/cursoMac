@@ -71,7 +71,8 @@ img { max-width: 100%; }
     border-top: 4px solid var(--navy);
     box-shadow: inset 0 4px 0 var(--olive), inset 0 8px 0 var(--gold);
 }
-.brand { display: flex; align-items: center; gap: 8px; font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; color: var(--navy); }
+.brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; color: var(--navy); }
+.brand__logo { height: 46px; width: 46px; border-radius: 50%; object-fit: cover; box-shadow: 0 2px 8px rgba(43,58,82,.25); border: 2px solid #fff; }
 .brand__mark { color: var(--gold); font-size: 1.4rem; }
 .brand__name em { color: var(--olive); font-style: normal; }
 .nav { display: flex; gap: 26px; font-weight: 600; }
@@ -87,16 +88,33 @@ img { max-width: 100%; }
 .hero h1 { font-size: clamp(2.2rem, 5.4vw, 3.8rem); font-weight: 700; margin: 12px 0 18px; }
 .hero__lead { color: var(--muted); font-size: 1.12rem; max-width: 46ch; margin-bottom: 28px; }
 
-.hero__table {
-    background: linear-gradient(160deg, var(--table), var(--table-dark));
-    border-radius: 20px; padding: 34px;
-    box-shadow: var(--shadow);
-    transform: rotate(-2deg);
+/* --- Escena: mesa con mantel (imagen principal) --- */
+.table-scene { position: relative; width: 100%; max-width: 400px; height: 320px; margin: 0 auto; }
+.table-floor {
+    position: absolute; left: 12%; right: 12%; bottom: 8px; height: 26px;
+    background: radial-gradient(ellipse at center, rgba(43,58,82,.22), transparent 70%);
 }
-.hero__cloth {
-    aspect-ratio: 4 / 3; border-radius: 8px;
-    box-shadow: 0 10px 24px rgba(0,0,0,.18);
-    background-color: #fff;
+.table-leg {
+    position: absolute; bottom: 24px; width: 18px; height: 84px; z-index: 1;
+    background: linear-gradient(90deg, var(--table-dark), var(--table) 50%, var(--table-dark));
+    border-radius: 0 0 4px 4px;
+}
+.table-leg--l { left: 26%; }
+.table-leg--r { right: 26%; }
+.table-cloth {
+    position: absolute; top: 14px; left: 5%; right: 5%; height: 66%; z-index: 2;
+    background-color: #fff; background-size: 46px;
+    border-radius: 12px 12px 6px 6px;
+    box-shadow: 0 16px 30px rgba(43,58,82,.22);
+    /* el borde inferior cae con las esquinas colgando, como en el logo */
+    clip-path: polygon(0% 0%, 100% 0%, 100% 56%, 82% 100%, 64% 64%, 36% 64%, 18% 100%, 0% 56%);
+    transition: background .25s ease;
+}
+/* brillo de la superficie de la mesa */
+.table-cloth::after {
+    content: ""; position: absolute; top: 8%; left: 6%; right: 6%; height: 14%;
+    background: linear-gradient(rgba(255,255,255,.35), transparent);
+    border-radius: 8px;
 }
 
 /* ===================== Secciones genéricas ===================== */
@@ -166,9 +184,19 @@ section { scroll-margin-top: 80px; }
 .preview-col { display: flex; flex-direction: column; gap: 24px; }
 .preview { background: var(--card); border-radius: var(--radius); padding: 30px; box-shadow: var(--shadow); text-align: center; }
 .preview__table {
+    position: relative;
     background: linear-gradient(160deg, var(--table), var(--table-dark));
     border-radius: 14px; padding: 40px 30px; display: grid; place-items: center; min-height: 280px;
+    margin-bottom: 30px;
 }
+/* patas de la mesa */
+.preview__table::before, .preview__table::after {
+    content: ""; position: absolute; bottom: -26px; width: 20px; height: 32px;
+    background: linear-gradient(90deg, var(--table-dark), var(--table) 50%, var(--table-dark));
+    border-radius: 0 0 5px 5px;
+}
+.preview__table::before { left: 24%; }
+.preview__table::after { right: 24%; }
 .preview__cloth {
     position: relative; border-radius: 6px;
     box-shadow: 0 14px 28px rgba(0,0,0,.22);
