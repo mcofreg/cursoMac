@@ -3,3 +3,4 @@ __pycache__/
 *.pyc
 *.html
 osm*.json
+data/indice_rut_por_nombre.json
