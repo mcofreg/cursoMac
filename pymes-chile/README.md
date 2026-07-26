@@ -68,6 +68,23 @@ en la era del teléfono fijo, frente a negocios mapeados hoy que operan con
 móvil e Instagram. Unirlas por nombre daría coincidencias falsas, así que no
 se hace.
 
+## Por qué tampoco sirve buscar empresa por empresa
+
+Queda una vía obvia: tomar las 1.056 del listado A y buscar las redes de cada
+una a mano. Se probó, y falla por la misma razón que todo lo demás.
+
+- No es automatizable: se probaron DuckDuckGo (202), Bing, Google y ocho
+  instancias públicas de SearXNG (403, 429 o captcha). Ningún buscador entrega
+  resultados parseables desde un script.
+- Y hecho a mano tampoco rinde. Ejemplo real: «Agrovet», Calama,
+  RUT 76.253.380-4. La búsqueda devuelve Agrovet de Perú, de México y de
+  Quilicura — ninguno es el de Calama. Asignarle `@agrovet.cl` sería inventar
+  el dato. Igual resultado con «Hospital Veterinario Cordillera», Los Andes.
+
+Es selección adversa: una pyme que no tiene sitio web tampoco suele tener una
+presencia social localizable por buscador. Las que sí aparecen, aparecen porque
+tienen web — y entonces no son objetivo.
+
 ## La regla que gobierna este repositorio
 
 **Ningún campo se rellena con datos inventados.** Un listado de mil registros
