@@ -55,9 +55,10 @@ que declara por fila qué está respaldado por una fuente. **No fusiona registro
 |---|---|
 | **Sin sitio web** (todas) | 1.670 / 1.670 |
 | Teléfono | 1.389 / 1.670 |
-| RUT validado | 1.056 / 1.670 |
+| RUT validado | 1.073 / 1.670 |
 | Redes sociales | 596 / 1.670 |
 | Correo | 244 / 1.670 |
+| **RUT *y* redes a la vez** | **15** / 1.670 |
 
 Cifras exactas de la última ejecución en [`data/RESUMEN.md`](data/RESUMEN.md).
 
@@ -70,17 +71,30 @@ No es una limitación del pipeline, es una propiedad de los datos chilenos:
 - Las **redes sociales** aparecen en OpenStreetMap, que mapea locales y **no
   registra** contribuyentes, así que no tiene RUT.
 
-Se midió el cruce por teléfono normalizado entre ambos conjuntos:
+Se midió el cruce de cuatro maneras independientes:
 
-```
-3.586 teléfonos con RUT válido (mercantil)  ×  614 negocios con redes (OSM)
-                     coincidencias: 0
-```
+| Cruce | Resultado |
+|---|---|
+| Por teléfono normalizado (3.586 fichas con RUT × 614 con redes) | **0** |
+| Por nombre normalizado contra 4.816 fichas de mercantil | **1**, y falso |
+| Contra el índice de correos de amarillas | **1** correo, **0** RUT |
+| Por nombre + comuna contra **1,1 M** de razones sociales del RES | **17** |
 
-Cero. Son poblaciones disjuntas: empresas inscritas en directorios comerciales
-en la era del teléfono fijo, frente a negocios mapeados hoy que operan con
-móvil e Instagram. Unirlas por nombre daría coincidencias falsas, así que no
-se hace.
+El último sí funciona, y corrige la conclusión inicial: **la intersección no es
+vacía, es diminuta**. Con el registro completo del Estado (1.085.251 claves
+nombre+comuna) se recupera el RUT de 17 de los 614 negocios con redes — un 2,8%.
+Las coincidencias se sostienen solas: «Maldita Sea» en Concepción con handle
+`@malditasea.ccp`, «El Roble» con `@el_roble_ccp`.
+
+Esos RUT van marcados como **`probable`** en la columna `confianza_rut`, porque
+son correspondencia por nombre y no un vínculo declarado por la fuente. Sólo se
+acepta la coincidencia fuerte (nombre idéntico **y** misma comuna); la de sólo
+nombre se descarta, porque a escala de un millón hay homónimos en comunas
+distintas y aceptarla inventaría el dato.
+
+**Resultado: 15 registros reúnen RUT y redes sociales.** De 1.000 pedidos. Ése
+es el techo real, y explica por qué la combinación completa no es alcanzable:
+las pymes formalizadas y las que viven en redes son casi conjuntos ajenos.
 
 ## Por qué tampoco sirve buscar empresa por empresa
 
