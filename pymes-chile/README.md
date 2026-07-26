@@ -59,6 +59,8 @@ cerrados en este entorno:
   agente de Anthropic por política del sitio. No se intenta eludir.
 - **Instagram y Facebook** exigen sesión iniciada para leer perfiles o
   comentarios.
+- **Bluesky**, la última plataforma social con API pública sin autenticación,
+  responde 403 a este entorno (`public.api.bsky.app/searchPosts`).
 - Los foros chilenos se revisaron uno por uno, no por suposición:
   `emprende.foroactivo.com` tiene 32 hilos, casi todos de 2011-2012 y sobre
   macroeconomía; `rankia.cl/foro/empresas-chile` es de inversiones y no
