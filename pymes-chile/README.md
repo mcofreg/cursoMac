@@ -1,15 +1,72 @@
 # Pymes chilenas sin sitio web
 
-Pipeline que identifica pequeñas y medianas empresas chilenas que **no tienen
-sitio web propio**, con su RUT verificado, razón social, teléfono, comuna y —
-cuando la empresa lo publicó — su correo de contacto.
+Identifica pequeñas y medianas empresas chilenas que **no tienen sitio web
+propio**, como base de prospección para ofrecer servicios de presencia digital.
 
-Pensado como base de prospección para ofrecer servicios de presencia digital.
+## Dos listados, porque los datos no se dejan combinar
 
-## Resultado
+El encargo pedía un solo listado con RUT **y** redes sociales. No existe: se
+comprobó que ninguna fuente pública trae ambos, y que las poblaciones que los
+tienen **no se solapan** (ver [El hallazgo](#el-hallazgo-rut-y-redes-no-conviven)).
+Por eso se entregan dos listados complementarios, cada uno completo en lo suyo.
 
-El dataset se genera en `data/pymes_chilenas_sin_sitio_web.csv` (y `.json`).
-Las cifras exactas de la última ejecución están en [`data/RESUMEN.md`](data/RESUMEN.md).
+### A. `data/pymes_chilenas_sin_sitio_web.csv` — 1.056 pymes
+
+Identificación formal. Para facturar, validar o cruzar con registros oficiales.
+
+| Campo | Cobertura |
+|---|---|
+| Nombre, razón social, teléfono, dirección, comuna | 1.056 / 1.056 |
+| **RUT validado por módulo 11** | 1.056 / 1.056 |
+| **Sin sitio web** | 1.056 / 1.056 |
+| Correo | 112 / 1.056 |
+| Redes sociales | 0 (esta fuente no las publica) |
+
+### B. `data/pymes_con_redes_sin_sitio_web.csv` — 614 pymes
+
+**Es el que cumple el criterio del encargo de forma literal**: sobre el mismo
+registro se verifica que el negocio *sí* tiene perfil social y que *no* declara
+sitio web. Es también el mejor listado de prospección: prueba que el negocio ya
+tiene presencia digital y le falta justamente una web.
+
+| Campo | Cobertura |
+|---|---|
+| Nombre del negocio | 614 / 614 |
+| **Redes sociales verificadas** | 614 / 614 (473 Instagram, 253 Facebook, 1 TikTok) |
+| **Sin sitio web** | 614 / 614 |
+| Teléfono | 333 / 614 |
+| Correo | 132 / 614 |
+| Rubro, dirección, comuna, coordenadas | mayoritaria |
+| RUT | 0 (esta fuente no lo publica) |
+
+**No llega a 1.000, y no puede.** OpenStreetMap tiene 1.593 negocios chilenos
+con alguna red social etiquetada; de ésos sólo 629 no declaran sitio web. Ése
+es el universo completo disponible, no una muestra. La columna
+`canal_contacto` indica por dónde se llega a cada uno: 333 por teléfono, 254
+únicamente por mensaje directo en su red social.
+
+Cifras exactas de la última ejecución en [`data/RESUMEN.md`](data/RESUMEN.md).
+
+## El hallazgo: RUT y redes no conviven
+
+No es una limitación del pipeline, es una propiedad de los datos chilenos:
+
+- El **RUT** sólo aparece en directorios de empresas formalmente constituidas
+  (mercantil.com). Esos directorios **no publican** perfiles sociales.
+- Las **redes sociales** aparecen en OpenStreetMap, que mapea locales y **no
+  registra** contribuyentes, así que no tiene RUT.
+
+Se midió el cruce por teléfono normalizado entre ambos conjuntos:
+
+```
+3.586 teléfonos con RUT válido (mercantil)  ×  614 negocios con redes (OSM)
+                     coincidencias: 0
+```
+
+Cero. Son poblaciones disjuntas: empresas inscritas en directorios comerciales
+en la era del teléfono fijo, frente a negocios mapeados hoy que operan con
+móvil e Instagram. Unirlas por nombre daría coincidencias falsas, así que no
+se hace.
 
 ## La regla que gobierna este repositorio
 
@@ -40,6 +97,7 @@ Es una señal declarativa, no una comprobación técnica del dominio. Ver
 | [mercantil.com](https://www.mercantil.com) | Razón social, **RUT**, teléfono, dirección, comuna, rubro, tamaño y el campo **"Sitio web"** | Directorio comercial donde las empresas se inscriben para ser encontradas |
 | [amarillas.cl](https://www.amarillas.cl) | **Correo** de contacto, vía bloques `schema.org/LocalBusiness` en JSON-LD | Datos estructurados publicados por el propio directorio para buscadores |
 | [datos.gob.cl — Registro de Empresas y Sociedades](https://datos.gob.cl/dataset/registro-de-empresas-y-sociedades) | Mapa comuna → región (1,17 M de constituciones 2019-2026) | Datos abiertos del Estado de Chile |
+| [OpenStreetMap](https://www.openstreetmap.org) vía [Overpass](https://overpass-api.de) | **Perfiles sociales**, teléfono, correo, rubro y coordenadas, más la ausencia de `website` | Datos abiertos © colaboradores de OSM, licencia ODbL |
 
 Ambos directorios se rastrean **respetando `robots.txt`**: el módulo `net.py`
 consulta y aplica las reglas, y las rutas prohibidas (como la API interna
@@ -55,9 +113,13 @@ distintas, así que un cruce por nombre inventaría correspondencias que no exis
 ## Uso
 
 ```bash
-python3 collect.py 1000     # etapa 1: rastrea mercantil hasta juntar N pymes sin web
-python3 index_dirigido.py   # etapa 2: índice teléfono -> correo desde amarillas
-python3 finalize.py         # etapa 3: une y exporta CSV + JSON
+# Listado A — con RUT
+python3 collect.py 1000     # rastrea mercantil hasta juntar N pymes sin web
+python3 index_dirigido.py   # índice teléfono -> correo desde amarillas
+python3 finalize.py         # une y exporta CSV + JSON
+
+# Listado B — con redes sociales
+python3 collect_redes.py    # consulta OpenStreetMap y exporta CSV + JSON
 ```
 
 Cada etapa guarda su avance. La caché en disco (`.cache/`) hace que reejecutar
@@ -79,29 +141,33 @@ sea casi instantáneo y evita volver a golpear los servidores.
 
 Estas son reales y conviene tenerlas presentes antes de usar el listado.
 
-1. **Redes sociales: sin poblar.** Ninguno de los directorios publica el perfil
-   social de la empresa (`schema.org/sameAs` viene vacío), e Instagram y Facebook
-   bloquean el acceso automatizado sin sesión. Obtenerlas exigiría una búsqueda
-   web por empresa. Las columnas quedan creadas pero vacías.
+1. **Ningún listado tiene RUT y redes a la vez.** Es el hallazgo descrito
+   arriba, no un pendiente por resolver. Se intentó y se midió: cero cruces.
 
-2. **Por lo tanto, el criterio verificado es "sin sitio web", no "solo redes
-   sociales".** El dataset confirma la ausencia de web; no confirma que la
-   empresa sí tenga presencia social. Son cosas distintas.
+2. **En el listado A el criterio es "sin sitio web", no "solo redes sociales".**
+   Confirma la ausencia de web, no que la empresa tenga presencia social. Quien
+   necesite esa garantía debe usar el listado B, donde sí se verifica.
 
-3. **Cobertura de correo parcial.** Sólo se incluye el correo de las pymes que
+3. **En el listado B no hay razón social ni RUT.** OpenStreetMap registra el
+   nombre de fantasía del local, que puede no coincidir con la razón social.
+
+4. **La cobertura de OpenStreetMap es desigual.** Depende del trabajo voluntario
+   de mapeo: buena en zonas urbanas, escasa en localidades pequeñas.
+
+5. **Cobertura de correo parcial en el listado A.** Sólo se incluye el correo de las pymes que
    lo publicaron en amarillas.cl y cuyo teléfono coincide exactamente con la
    ficha de mercantil. Es una limitación de fondo: una empresa sin sitio web
    con frecuencia tampoco tiene correo publicado — su canal es el teléfono.
 
-4. **El campo "Sitio web" es declarativo.** Una empresa podría tener sitio y no
+6. **El campo "Sitio web" es declarativo.** Una empresa podría tener sitio y no
    haberlo informado al directorio. Conviene confirmar antes de contactar.
 
-5. **Sesgo de rubro.** El rastreo por bola de nieve avanza por rubros vecinos,
+7. **Sesgo de rubro (listado A).** El rastreo por bola de nieve avanza por rubros vecinos,
    así que el dataset se concentra en los giros recorridos (veterinarias,
    restaurantes, panaderías, peluquerías y afines) y no es una muestra
    representativa del universo pyme chileno.
 
-6. **Los datos envejecen.** Teléfonos y correos de directorios quedan obsoletos.
+8. **Los datos envejecen.** Teléfonos y correos de directorios quedan obsoletos.
 
 ## Sobre datos personales
 

@@ -1,49 +1,39 @@
 # Resumen de la última ejecución
 
-**1056 pymes chilenas verificadas sin sitio web propio.**
+## Listado A — identificación formal (1056 pymes)
+`pymes_chilenas_sin_sitio_web.csv`
 
 | Campo | Cobertura |
 |---|---|
-| Nombre de la empresa | 1056 / 1056 |
-| Razón social | 1055 / 1056 |
-| RUT validado por módulo 11 | 1056 / 1056 |
+| Nombre / razón social | 1056 / 1055 |
+| **RUT validado (módulo 11)** | 1056 / 1056 |
 | Teléfono | 1056 / 1056 |
+| Correo | 112 / 1056 |
 | Dirección | 1056 / 1056 |
-| Correo de contacto | 112 / 1056 |
-| Redes sociales | 0 / 1056 (no disponible, ver README) |
-| **Sin sitio web (criterio de inclusión)** | **1056 / 1056** |
+| Redes sociales | 0 (la fuente no las publica) |
+| **Sin sitio web** | 1056 / 1056 |
 
-- Comunas distintas cubiertas: **176**
-- Excluidas por estar marcadas como Gran Empresa: 4
+Comunas cubiertas: 176
 
-## Tipo de RUT
+## Listado B — verificación de redes (614 pymes)
+`pymes_con_redes_sin_sitio_web.csv`
 
-- persona natural: 703
-- persona juridica: 353
+| Campo | Cobertura |
+|---|---|
+| Nombre del negocio | 614 / 614 |
+| **Instagram** | 473 / 614 |
+| **Facebook** | 253 / 614 |
+| TikTok | 1 / 614 |
+| Teléfono | 333 / 614 |
+| Correo | 132 / 614 |
+| RUT | 0 (la fuente no lo publica) |
+| **Sin sitio web** | 614 / 614 |
 
-RUT bajo 50.000.000 corresponde a persona natural (EIRL, microempresario):
-en esos casos el RUT es dato personal, no sólo empresarial.
+Canal de contacto: {'telefono': 333, 'correo': 22, 'red social': 254, 'whatsapp': 5}
 
-## Tamaño declarado
+Rubros más frecuentes: sin clasificar (134), school (74), restaurant (73), cafe (37), fast food (29), pharmacy (19)
 
-- sin clasificar: 855
-- Pequeña Empresa: 176
-- Mediana Empresa: 25
+## Cruce entre ambos listados
 
-## Comunas con más registros
-
-- Santiago: 37
-- Maipu: 33
-- Concepcion: 30
-- Vina Del Mar: 30
-- Las Condes: 26
-- Antofagasta: 26
-- Puente Alto: 25
-- Nunoa: 23
-- Temuco: 21
-- La Florida: 21
-- Rancagua: 20
-- Penalolen: 18
-- Pudahuel: 18
-- La Serena: 17
-- Talca: 17
+Medido por teléfono normalizado sobre 3.586 fichas de mercantil con RUT válido
+y los 614 negocios con redes: **0 coincidencias**. Son poblaciones disjuntas.
