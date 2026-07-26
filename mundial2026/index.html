@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#0b0f1a">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>MUNDIAL 2026 · CAPTAIN FIGHTERS</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>⚽</text></svg>">
+</head>
+<body>
+<div id="wrap">
+
+  <div id="stage">
+    <canvas id="game" width="480" height="270"></canvas>
+  </div>
+
+  <div id="pad">
+    <div class="side left">
+      <div class="dpad">
+        <button class="key up"    data-k="up">▲</button>
+        <button class="key left"  data-k="left">◀</button>
+        <button class="key right" data-k="right">▶</button>
+        <button class="key down"  data-k="down">▼</button>
+      </div>
+    </div>
+    <div class="side right">
+      <div class="btns">
+        <button class="key act p" data-k="p">P</button>
+        <button class="key act k" data-k="k">K</button>
+        <button class="key act s" data-k="s">S</button>
+        <button class="key act u" data-k="u">SUPER</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="top">
+    <button id="btnSound" title="Sonido">🔊</button>
+    <button id="btnFull" title="Pantalla completa">⛶</button>
+  </div>
+
+</div>
+<script src="game.js"></script>
+</body>
+</html>

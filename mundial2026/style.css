@@ -1,0 +1,138 @@
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{
+  width:100%;height:100%;overflow:hidden;background:#05070d;
+  font-family:"Trebuchet MS",Verdana,system-ui,sans-serif;
+  -webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent;
+  overscroll-behavior:none;touch-action:none;
+}
+#wrap{
+  position:fixed;inset:0;display:flex;flex-direction:column;
+  padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  background:radial-gradient(ellipse at 50% 0%,#16213e 0%,#05070d 70%);
+}
+#stage{
+  position:relative;flex:1 1 auto;min-height:0;
+  display:flex;align-items:center;justify-content:center;
+}
+canvas#game{
+  display:block;
+  image-rendering:pixelated;image-rendering:crisp-edges;
+  background:#000;
+  border-radius:4px;
+  box-shadow:0 0 0 2px #2b3350,0 8px 34px rgba(0,0,0,.75);
+}
+#rotate{display:none}
+
+/* ---------- controles táctiles ---------- */
+#pad{
+  position:relative;flex:0 0 auto;
+  display:flex;justify-content:space-between;align-items:flex-end;
+  padding:6px 10px 10px;gap:8px;
+  touch-action:none;
+}
+.side{display:flex;align-items:flex-end}
+.dpad{position:relative;width:150px;height:150px}
+.key{
+  -webkit-appearance:none;appearance:none;border:0;cursor:pointer;
+  color:#eaf0ff;font-weight:bold;font-family:inherit;
+  background:linear-gradient(#3a456e,#212a48);
+  border:2px solid #6c7cb5;border-bottom-width:4px;
+  border-radius:12px;
+  text-shadow:0 1px 0 #000;
+  touch-action:none;
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .04s,filter .04s;
+}
+.key.down-active{filter:brightness(1.7);transform:translateY(2px);border-bottom-width:2px}
+.dpad .key{position:absolute;width:52px;height:52px;font-size:17px}
+.dpad .up   {left:49px;top:0}
+.dpad .down {left:49px;top:98px}
+.dpad .left {left:0;top:49px}
+.dpad .right{left:98px;top:49px}
+
+.btns{position:relative;width:170px;height:150px}
+.btns .key{position:absolute;border-radius:50%;font-size:19px}
+.key.p{width:58px;height:58px;right:74px;top:24px;background:linear-gradient(#f2c14e,#c68a12);border-color:#ffe08a;color:#3a2a00}
+.key.k{width:58px;height:58px;right:8px;top:2px;background:linear-gradient(#63c9f5,#1b74a8);border-color:#a9e6ff;color:#01293c}
+.key.s{width:58px;height:58px;right:8px;top:70px;background:linear-gradient(#7de08a,#238f3d);border-color:#b7f5c0;color:#04310f}
+.key.u{width:66px;height:44px;right:74px;top:92px;border-radius:14px;font-size:12px;letter-spacing:1px;
+  background:linear-gradient(#ff7a7a,#b21c2e);border-color:#ffb3b3;color:#fff}
+
+/* ---------- botones superiores ---------- */
+#top{position:absolute;top:4px;right:6px;display:flex;gap:6px;z-index:5}
+#top button{
+  -webkit-appearance:none;appearance:none;
+  width:34px;height:30px;border-radius:8px;cursor:pointer;
+  background:rgba(20,26,46,.72);color:#cdd8ff;border:1px solid #56629a;
+  font-size:15px;line-height:1;
+}
+#top button.off{opacity:.45}
+
+/* ---------- horizontal: mandos encima del canvas ---------- */
+@media (orientation:landscape){
+  #wrap{flex-direction:row}
+  #stage{flex:1 1 auto}
+  #pad{
+    position:absolute;inset:auto 0 0 0;
+    padding:0 12px calc(8px + env(safe-area-inset-bottom));
+    pointer-events:none;
+    align-items:flex-end;
+  }
+  .side{pointer-events:auto}
+  .key{opacity:.82}
+  .dpad{width:138px;height:138px}
+  .dpad .key{width:48px;height:48px}
+  .dpad .up{left:45px;top:0}.dpad .down{left:45px;top:90px}
+  .dpad .left{left:0;top:45px}.dpad .right{left:90px;top:45px}
+}
+
+/* ---------- vertical: lienzo arriba, mandos grandes abajo ---------- */
+@media (orientation:portrait){
+  #stage{flex:0 0 auto;align-items:flex-start;padding-top:4px}
+  #pad{flex:1 1 auto;align-items:center;padding:0 14px calc(10px + env(safe-area-inset-bottom))}
+  .dpad{width:180px;height:180px}
+  .dpad .key{width:62px;height:62px;font-size:20px}
+  .dpad .up{left:59px;top:0}
+  .dpad .down{left:59px;top:118px}
+  .dpad .left{left:0;top:59px}
+  .dpad .right{left:118px;top:59px}
+  .btns{width:186px;height:180px}
+  .key.p,.key.k,.key.s{width:66px;height:66px}
+  .key.p{right:84px;top:28px}
+  .key.k{right:6px;top:2px}
+  .key.s{right:6px;top:80px}
+  .key.u{width:76px;height:50px;right:84px;top:106px;font-size:13px}
+}
+@media (orientation:portrait) and (max-height:640px){
+  .dpad{width:150px;height:150px}
+  .dpad .key{width:52px;height:52px;font-size:17px}
+  .dpad .up{left:49px;top:0}.dpad .down{left:49px;top:98px}
+  .dpad .left{left:0;top:49px}.dpad .right{left:98px;top:49px}
+  .btns{width:170px;height:150px}
+  .key.p,.key.k,.key.s{width:58px;height:58px}
+  .key.p{right:74px;top:24px}.key.k{right:8px;top:2px}.key.s{right:8px;top:70px}
+  .key.u{width:66px;height:44px;right:74px;top:92px;font-size:12px}
+}
+
+/* en horizontal los mandos flotan sobre el lienzo: en los menús estorban */
+@media (orientation:landscape){
+  body.in-menu #pad{display:none}
+}
+
+/* pantallas muy bajas en horizontal */
+@media (orientation:landscape) and (max-height:380px){
+  .dpad{width:118px;height:118px}
+  .dpad .key{width:42px;height:42px;font-size:14px}
+  .dpad .up{left:38px;top:0}.dpad .down{left:38px;top:76px}
+  .dpad .left{left:0;top:38px}.dpad .right{left:76px;top:38px}
+  .btns{width:150px;height:120px}
+  .key.p,.key.k,.key.s{width:50px;height:50px}
+  .key.p{right:64px;top:18px}.key.k{right:6px;top:0}.key.s{right:6px;top:58px}
+  .key.u{width:58px;height:38px;right:64px;top:74px;font-size:11px}
+}
+
+/* pantallas grandes / escritorio */
+@media (min-width:900px) and (orientation:landscape){
+  .key{opacity:.55}
+  .key:hover{opacity:.9}
+}
