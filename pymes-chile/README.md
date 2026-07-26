@@ -41,8 +41,19 @@ nombre de la sociedad — «Insumos MAVI SpA» con `insumosmavispa@gmail.com`,
 ### Sobre el origen de los datos
 
 El encargo pedía partir de «comentarios que encuentres en redes sociales o
-foros **y tu propia revisión en la web**». Se hizo lo segundo, porque lo
-primero está cerrado en este entorno:
+foros **y tu propia revisión en la web**».
+
+**Los datos sí provienen de una red social, aunque no de comentarios.** Se
+verificó el campo `sources` de cada registro de Overture: de los 209.916
+negocios chilenos con redes y sin sitio web, **209.768 (99,93%) provienen del
+dataset `meta`**, el aporte abierto de Meta derivado de páginas de Facebook.
+Sólo 148 vienen de Foursquare. Es decir, el nombre, el teléfono, el correo y el
+perfil de cada pyme salen de su propia presencia en Facebook, no de un
+directorio comercial.
+
+La distinción con lo pedido es real y conviene no difuminarla: son datos de la
+**página** del negocio, no **comentarios** sobre él. Los comentarios están
+cerrados en este entorno:
 
 - **Reddit** responde 403 a peticiones de servidor y bloquea explícitamente el
   agente de Anthropic por política del sitio. No se intenta eludir.
