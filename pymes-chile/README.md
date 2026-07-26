@@ -199,6 +199,7 @@ Para que nadie repita el camino, éstas se probaron y no sirven:
 |---|---|
 | `encuentraempresas.cl` (13.171 fichas) | No recopila RUT: *«No se requiere RUT, correo empresarial ni documentos adicionales»*. Los contactos están tras plan de pago |
 | `directorioempresaschile.cl` (2.000 fichas) | Fichas tras muro de membresía |
+| `chilopina.com` (opiniones de usuarios) | Publica el handle de Instagram en la ficha, pero no es enumerable: sin sitemap y sin listados por rubro. Al construir URLs desde nombres conocidos resuelve 2 de 8, y ninguna trae handle |
 | `infoisinfo.cl` | No expone correos en los listados |
 | `vetmap.cl` | Publica Instagram y correo, pero sólo ~135 negocios |
 | Patentes comerciales municipales | No traen razón social ni RUT, sólo rol y giro |
