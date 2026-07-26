@@ -48,8 +48,15 @@ primero está cerrado en este entorno:
   agente de Anthropic por política del sitio. No se intenta eludir.
 - **Instagram y Facebook** exigen sesión iniciada para leer perfiles o
   comentarios.
-- Los foros chilenos alcanzables (`antronio.cl`, `emol.cl`) no publican
-  recomendaciones de negocios con sus perfiles sociales.
+- Los foros chilenos se revisaron uno por uno, no por suposición:
+  `emprende.foroactivo.com` tiene 32 hilos, casi todos de 2011-2012 y sobre
+  macroeconomía; `rankia.cl/foro/empresas-chile` es de inversiones y no
+  menciona pymes; `proempresas.cl` devuelve una página de 1,8 KB;
+  `antronio.cl` y `emol.cl` no publican recomendaciones con perfiles sociales.
+  Ninguno contiene un solo handle de Instagram.
+
+La discusión chilena sobre pymes ocurre hoy en Reddit, Instagram y Facebook
+—los tres cerrados a este entorno—, no en foros web abiertos.
 
 Vale decir además que minar comentarios habría dado un resultado peor. Un hilo
 de foro rinde unas decenas de menciones sin RUT ni teléfono, con nombres
