@@ -38,6 +38,26 @@ El cruce se corrobora solo: en la mayoría de los casos el correo refleja el
 nombre de la sociedad — «Insumos MAVI SpA» con `insumosmavispa@gmail.com`,
 «Delfín Confección» con `delfinconfeccion@hotmail.com`.
 
+### Sobre el origen de los datos
+
+El encargo pedía partir de «comentarios que encuentres en redes sociales o
+foros **y tu propia revisión en la web**». Se hizo lo segundo, porque lo
+primero está cerrado en este entorno:
+
+- **Reddit** responde 403 a peticiones de servidor y bloquea explícitamente el
+  agente de Anthropic por política del sitio. No se intenta eludir.
+- **Instagram y Facebook** exigen sesión iniciada para leer perfiles o
+  comentarios.
+- Los foros chilenos alcanzables (`antronio.cl`, `emol.cl`) no publican
+  recomendaciones de negocios con sus perfiles sociales.
+
+Vale decir además que minar comentarios habría dado un resultado peor. Un hilo
+de foro rinde unas decenas de menciones sin RUT ni teléfono, con nombres
+ambiguos y sin forma de verificar si la empresa tiene o no sitio web. Overture
+entrega 209.916 registros donde esa verificación es un campo del propio dato.
+El fin que perseguía la instrucción —encontrar pymes que viven en redes y no
+tienen web— se cumple mejor por esta vía.
+
 ### Advertencias sobre este listado
 
 - El RUT va marcado como **`probable`** en `confianza_rut`: es correspondencia

@@ -1,0 +1,3159 @@
+<!DOCTYPE html>
+<html id="XF" lang="es-LA" dir="LTR"
+	data-app="public"
+	data-template="EWRporta_articles_index"
+	data-container-key=""
+	data-content-key=""
+	data-logged-in="false"
+	data-cookie-prefix="xf_"
+	data-csrf="1785045216,ef2cde159ecc3e916ba6cb63d63f25ce"
+	data-style-id="6" 
+	class="has-no-js template-EWRporta_articles_index"
+	 data-run-jobs="">
+<head>
+	
+	
+
+	
+	
+	
+
+	
+	<meta name="clckd" content="97208128e83cfe799657ac9bd8605f87" />
+	
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+	
+	
+	
+
+	<title>Inicio | ElAntro</title>
+
+	<link rel="manifest" href="/webmanifest.php">
+	
+		<meta name="theme-color" content="#e1e8f8" />
+	
+
+	<meta name="apple-mobile-web-app-title" content="El poder del ocio">
+	
+
+	
+		
+		<meta name="description" content="" />
+		<meta property="og:description" content="" />
+		<meta property="twitter:description" content="" />
+	
+	
+		<link rel="alternate" type="application/rss+xml"
+	title="RSS de Inicio"
+	href="/ewr-porta/index.rss" />
+	
+		<link rel="next" href="/ewr-porta/page-2" />
+	
+		
+        <!-- App Indexing for Google Search -->
+        <link href="android-app://com.quoord.tapatalkpro.activity/tapatalk/www.antronio.cl/?ttfid=192808&location=index&channel=google-indexing" rel="alternate" />
+        <link href="ios-app://307880732/tapatalk/www.antronio.cl/?ttfid=192808&location=index&channel=google-indexing" rel="alternate" />
+        
+        <link href="https://www.antronio.cl//mobiquo/smartbanner/manifest.json" rel="manifest">
+        
+        <meta name="apple-itunes-app" content="app-id=307880732, affiliate-data=at=10lR7C, app-argument=tapatalk://www.antronio.cl/?ttfid=192808&location=index" />
+        
+	
+
+	
+		
+	
+	
+	<meta property="og:site_name" content="ElAntro" />
+
+
+	
+	
+		
+	
+	
+	<meta property="og:type" content="website" />
+
+
+	
+	
+		
+	
+	
+	
+		<meta property="og:title" content="Inicio" />
+		<meta property="twitter:title" content="Inicio" />
+	
+
+
+	
+	
+	
+		
+	
+	
+	<meta property="og:url" content="https://www.antronio.cl/" />
+
+
+	
+	
+
+	
+
+	
+	<link rel="manifest" href="/manifest.json" />
+	
+
+	
+
+
+	<link rel="preload" href="/styles/fonts/fa/fa-regular-400.woff2?_v=5.15.3" as="font" type="font/woff2" crossorigin="anonymous" />
+
+
+	<link rel="preload" href="/styles/fonts/fa/fa-solid-900.woff2?_v=5.15.3" as="font" type="font/woff2" crossorigin="anonymous" />
+
+
+<link rel="preload" href="/styles/fonts/fa/fa-brands-400.woff2?_v=5.15.3" as="font" type="font/woff2" crossorigin="anonymous" />
+
+	<link rel="stylesheet" href="/css.php?css=public%3Anormalize.css%2Cpublic%3Afa.css%2Cpublic%3Acore.less%2Cpublic%3Aapp.less&amp;s=6&amp;l=4&amp;d=1767280666&amp;k=43029d1ee30d752152cff0b1213c58cb341339e9" />
+
+	<link rel="stylesheet" href="/css.php?css=public%3AEWRporta.less%2Cpublic%3AEWRporta_articles.less%2Cpublic%3Amessage.less%2Cpublic%3Anotices.less%2Cpublic%3Ashare_controls.less%2Cpublic%3Astructured_list.less%2Cpublic%3Aextra.less&amp;s=6&amp;l=4&amp;d=1767280666&amp;k=6c09abd7d86df5b0749a25d8b4954bd577fa384f" />
+
+	
+		<script src="/js/xf/preamble.min.js?_v=5d2db260"></script>
+	
+
+
+	
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-62047822-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-62047822-1', {
+			// 
+			
+			
+		});
+	</script>
+
+
+	<script type='text/javascript'>
+var xfhtml = document.getElementById('XF');
+function applySetting(settingName, settingOn, allowToggle){
+	
+	// Theme editor is disabled, so simply apply the setting if enabled in ACP
+		if(settingOn === 1){
+			xfhtml.classList.add(settingName);
+		}
+	
+}
+
+applySetting('focus-mobile-navigation-bar', 1, 1);
+
+
+applySetting('focus-fluid', 0, 1);
+
+
+applySetting('focus-grid', 1, 1);
+
+
+applySetting('focus-sidebar-sticky', 0, 1);
+
+
+applySetting('focus-sidebar-flip', 0, 1);
+
+
+
+
+
+	xfhtml.setAttribute('data-focus-bg', '1');
+
+</script>
+<script type='text/javascript' src='https://www.antronio.cl/elantro/js/pace.min.js'></script>
+
+</head>
+<body data-template="EWRporta_articles_index">
+
+
+
+
+
+
+
+
+	
+<div class='focus-width'><div class="p-pageWrapper" id="top">
+
+
+
+
+   
+    
+    
+    
+
+
+    
+  
+    
+
+
+
+    
+    
+    
+    
+
+
+    
+    
+    
+
+
+    
+    
+    
+    
+
+
+    
+    
+    
+    
+
+
+
+<!-- Logo bar: start -->
+<header class="p-header" id="header">
+	<div class="p-header-inner">
+		<div class="p-header-content">
+
+			
+
+	<!-- Logo -->
+	<div class="p-header-logo p-header-logo--image">
+		<a href="/" class='focus-logo'>
+			
+			
+				<span class='focus-logo--image'>
+	                <img src="https://www.antronio.cl/elantro/images/logo/logo-elantro-2016.png" alt="ElAntro"  />
+	            </span>
+	        
+	        
+		</a>
+	</div>
+
+
+
+			
+
+    <div class='focus-ad'></div>
+    
+	<div class='focus-wrap-user'>
+
+    <!-- User bar -->
+
+								
+		<div class="p-nav-opposite" title="">
+			<div class="p-navgroup p-account p-navgroup--guest">
+				
+					<a href="/login/" class="p-navgroup-link p-navgroup-link--textual p-navgroup-link--logIn" data-xf-click="overlay" data-follow-redirects="on">
+						<span class="p-navgroup-linkText">Iniciar sesión</span>
+					</a>
+					
+						<a href="/register/" class="p-navgroup-link p-navgroup-link--textual p-navgroup-link--register" data-xf-click="overlay" data-follow-redirects="on">
+							<span class="p-navgroup-linkText">Registro</span>
+						</a>
+					
+				
+				
+				
+				
+	            
+			</div>
+
+			<div class="p-navgroup p-discovery p-discovery--noSearch">
+				<a href="/whats-new/"
+					class="p-navgroup-link p-navgroup-link--iconic p-navgroup-link--whatsnew"
+				   	aria-label="Qué hay de nuevo"
+					title="Qué hay de nuevo">
+					<i aria-hidden="true"></i>
+					<span class="p-navgroup-linkText">Qué hay de nuevo</span>
+				</a>
+
+				
+
+			</div>
+		</div>
+
+</div>
+    
+
+			
+		</div>
+	</div>
+</header>
+<!-- Logo bar: end -->
+
+
+	
+
+<!-- Secondary header: start -->
+
+	
+    
+    <!-- Secondary header -->
+    
+	<div class="p-nav">
+		<div class="p-nav-inner">
+			
+			<div class='focus-mobile-navigation'>
+				<a class="p-nav-menuTrigger" data-xf-click="off-canvas" data-menu=".js-headerOffCanvasMenu" role="button" tabindex="0">
+					<i aria-hidden="true"></i>
+					<span class="p-nav-menuText">Menú</span>
+				</a>
+				<div class='focus-mobile-logo'>
+					<a href="/">
+						
+	                        <img src="https://www.antronio.cl/elantro/images/logo/logo-elantro-2016.png" alt="ElAntro"  />
+						
+					</a>
+				</div>
+			</div>
+
+			<div class='focus-wrap-user hide:desktop'>
+
+    <!-- User bar -->
+
+								
+		<div class="p-nav-opposite" title="">
+			<div class="p-navgroup p-account p-navgroup--guest">
+				
+					<a href="/login/" class="p-navgroup-link p-navgroup-link--textual p-navgroup-link--logIn" data-xf-click="overlay" data-follow-redirects="on">
+						<span class="p-navgroup-linkText">Iniciar sesión</span>
+					</a>
+					
+						<a href="/register/" class="p-navgroup-link p-navgroup-link--textual p-navgroup-link--register" data-xf-click="overlay" data-follow-redirects="on">
+							<span class="p-navgroup-linkText">Registro</span>
+						</a>
+					
+				
+				
+				
+				
+	            
+			</div>
+
+			<div class="p-navgroup p-discovery p-discovery--noSearch">
+				<a href="/whats-new/"
+					class="p-navgroup-link p-navgroup-link--iconic p-navgroup-link--whatsnew"
+				   	aria-label="Qué hay de nuevo"
+					title="Qué hay de nuevo">
+					<i aria-hidden="true"></i>
+					<span class="p-navgroup-linkText">Qué hay de nuevo</span>
+				</a>
+
+				
+
+			</div>
+		</div>
+
+</div>
+			
+    
+    <!-- Navigation wrap -->
+    <nav class='focus-wrap-nav'>
+		<div class="p-nav-scroller hScroller" data-xf-init="h-scroller" data-auto-scroll=".p-navEl.is-selected">
+			<div class="hScroller-scroll">
+				<ul class="p-nav-list js-offCanvasNavSource">
+				
+					<li>
+						
+	<div class="p-navEl is-selected" data-has-children="true">
+		
+			<svg data-name="curve" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 6"><path d="M0,6H6V0A6,6,0,0,1,0,6Z"></path></svg>
+			<svg data-name="curve" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 6"><path d="M6,6H0V0A6,6,0,0,0,6,6Z"></path></svg>
+		
+		
+
+			
+	
+	<a href="/"
+		class="p-navEl-link p-navEl-link--splitMenu "
+		
+		
+		data-nav-id="EWRporta">Home</a>
+
+
+			<a data-xf-key="1"
+				data-xf-click="menu"
+				data-menu-pos-ref="< .p-navEl"
+				class="p-navEl-splitTrigger"
+				role="button"
+				tabindex="0"
+				aria-label="Alternar expandido"
+				aria-expanded="false"
+				aria-haspopup="true"></a>
+
+		
+		
+			<div class="menu menu--structural" data-menu="menu" aria-hidden="true">
+				<div class="menu-content">
+					
+						
+	
+	
+	<a href="/whats-new/"
+		class="menu-linkRow u-indentDepth0 js-offCanvasCopy "
+		
+		
+		data-nav-id="EWRporta_whatsnaw">What's new</a>
+
+	
+
+					
+				</div>
+			</div>
+		
+	</div>
+
+					</li>
+				
+					<li>
+						
+	<div class="p-navEl " data-has-children="true">
+		
+		
+
+			
+	
+	<a href="/foros/"
+		class="p-navEl-link p-navEl-link--splitMenu "
+		
+		
+		data-nav-id="forums">Foros</a>
+
+
+			<a data-xf-key="2"
+				data-xf-click="menu"
+				data-menu-pos-ref="< .p-navEl"
+				class="p-navEl-splitTrigger"
+				role="button"
+				tabindex="0"
+				aria-label="Alternar expandido"
+				aria-expanded="false"
+				aria-haspopup="true"></a>
+
+		
+		
+			<div class="menu menu--structural" data-menu="menu" aria-hidden="true">
+				<div class="menu-content">
+					
+						
+	
+	
+	<a href="/whats-new/posts/"
+		class="menu-linkRow u-indentDepth0 js-offCanvasCopy "
+		
+		
+		data-nav-id="newPosts">Mensajes nuevos</a>
+
+	
+
+					
+				</div>
+			</div>
+		
+	</div>
+
+					</li>
+				
+					<li>
+						
+	<div class="p-navEl " data-has-children="true">
+		
+		
+
+			
+	
+	<a href="/wiki/"
+		class="p-navEl-link p-navEl-link--splitMenu "
+		
+		
+		data-nav-id="EWRcarta">Wiki</a>
+
+
+			<a data-xf-key="3"
+				data-xf-click="menu"
+				data-menu-pos-ref="< .p-navEl"
+				class="p-navEl-splitTrigger"
+				role="button"
+				tabindex="0"
+				aria-label="Alternar expandido"
+				aria-expanded="false"
+				aria-haspopup="true"></a>
+
+		
+		
+			<div class="menu menu--structural" data-menu="menu" aria-hidden="true">
+				<div class="menu-content">
+					
+						
+	
+	
+	<a href="/wiki/special/pages"
+		class="menu-linkRow u-indentDepth0 js-offCanvasCopy "
+		
+		
+		data-nav-id="EWRcarta_pages">Pages</a>
+
+	
+
+					
+						
+	
+	
+	<a href="/wiki/special/activity/"
+		class="menu-linkRow u-indentDepth0 js-offCanvasCopy "
+		
+		
+		data-nav-id="EWRcarta_activity">Latest activity</a>
+
+	
+
+					
+				</div>
+			</div>
+		
+	</div>
+
+					</li>
+				
+				</ul>
+			</div>
+		</div>
+	</nav>
+    
+
+			
+	<div class='focus-wrap-search'>
+	
+		
+
+
+	</div>
+
+
+		</div>
+	</div>
+    
+
+	
+    <!-- Sub navigation -->
+	
+		<div class="p-sectionLinks">
+			<div class="p-sectionLinks-inner hScroller" data-xf-init="h-scroller">
+				<div class="hScroller-scroll">
+					<ul class="p-sectionLinks-list">
+					
+						<li>
+							
+	<div class="p-navEl " >
+		
+		
+
+			
+	
+	<a href="/whats-new/"
+		class="p-navEl-link "
+		
+		data-xf-key="alt+1"
+		data-nav-id="EWRporta_whatsnaw">What's new</a>
+
+
+			
+
+		
+		
+	</div>
+
+						</li>
+					
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+
+
+<!-- Secondary header: end -->
+
+<div class="offCanvasMenu offCanvasMenu--nav js-headerOffCanvasMenu" data-menu="menu" aria-hidden="true" data-ocm-builder="navigation">
+	<div class="offCanvasMenu-backdrop" data-menu-close="true"></div>
+	<div class="offCanvasMenu-content">
+		<div class="offCanvasMenu-header">
+			Menú
+			<a class="offCanvasMenu-closer" data-menu-close="true" role="button" tabindex="0" aria-label="Cerrar"></a>
+		</div>
+		
+			<div class="p-offCanvasRegisterLink">
+				<div class="offCanvasMenu-linkHolder">
+					<a href="/login/" class="offCanvasMenu-link" data-xf-click="overlay" data-menu-close="true">
+						Iniciar sesión
+					</a>
+				</div>
+				<hr class="offCanvasMenu-separator" />
+				
+					<div class="offCanvasMenu-linkHolder">
+						<a href="/register/" class="offCanvasMenu-link" data-xf-click="overlay" data-menu-close="true">
+							Registro
+						</a>
+					</div>
+					<hr class="offCanvasMenu-separator" />
+				
+			</div>
+		
+		<div class="js-offCanvasNavTarget"></div>
+		<div class="offCanvasMenu-installBanner js-installPromptContainer" style="display: none;" data-xf-init="install-prompt">
+			<div class="offCanvasMenu-installBanner-header">Install the app</div>
+			<button type="button" class="js-installPromptButton button"><span class="button-text">Instalar</span></button>
+			<template class="js-installTemplateIOS">
+				<div class="overlay-title">How to install the app on iOS</div>
+				<div class="block-body">
+					<div class="block-row">
+						<p>
+							Follow along with the video below to see how to install our site as a web app on your home screen.
+						</p>
+						<p style="text-align: center">
+							<img src="/styles/default/xenforo/add_to_home.gif" width="222" height="480" />
+						</p>
+						<p>
+							<small><strong>Nota:</strong> This feature currently requires accessing the site using the built-in Safari browser.</small>
+						</p>
+					</div>
+				</div>
+			</template>
+		</div>
+	</div>
+</div>
+<div class='focus-content'>
+
+<div class="p-body">
+	<div class="p-body-inner">
+		<!--XF:EXTRA_OUTPUT-->
+        
+        <!-- Staff bar: start -->
+        
+        
+        
+
+
+        
+		
+			
+	
+		
+		
+		
+
+		<ul class="notices notices--block  js-notices"
+			data-xf-init="notices"
+			data-type="block"
+			data-scroll-interval="6">
+
+			
+				
+	<li class="notice js-notice notice--primary"
+		data-notice-id="1"
+		data-delay-duration="0"
+		data-display-duration="0"
+		data-auto-dismiss=""
+		data-visibility="">
+
+		
+		<div class="notice-content">
+			
+				<a href="/account/dismiss-notice?notice_id=1" class="notice-dismiss js-noticeDismiss" data-xf-init="tooltip" title="Descartar aviso"></a>
+			
+			<style>
+.crypto-advice {
+    padding: 5px;
+    font-size: 1.1em;
+}
+</style>
+<div class="crypto-advice">¿Quieres apoyar a nuestro foro haciendo una donación?, <a href="https://www.antronio.cl/threads/%C2%BFquieres-apoyar-elantro-cl-entra-aqu%C3%AD.1296097/" >entra aquí</a>.
+</div>
+		</div>
+	</li>
+
+			
+		</ul>
+	
+
+		
+
+		
+
+		
+		
+        
+
+        
+            
+		
+
+
+		
+	<noscript class="js-jsWarning"><div class="blockMessage blockMessage--important blockMessage--iconic u-noJsOnly">JavaScript está desactivado. Para una mejor experiencia, habilite JavaScript en tu navegador antes de continuar.</div></noscript>
+
+		
+	<div class="blockMessage blockMessage--important blockMessage--iconic js-browserWarning" style="display: none">Estás utilizando un navegador desactualizado. Puede que no muestre este u otros sitios web correctamente<br />Deberías actualizar o utilizar un <a href="https://www.google.com/chrome/browser/" target="_blank">navegador alternativo</a>.</div>
+
+
+		
+
+		<div class="p-body-main p-body-main--withSidebar ">
+			
+			<div class="p-body-contentCol"></div>
+			
+				<div class="p-body-sidebarCol"></div>
+			
+
+			
+
+			<div class="p-body-content">
+				
+				
+<div class="p-body-pageContent">
+	
+
+
+
+	
+
+
+	
+	
+	
+
+
+
+
+
+<div class="porta-articles-above-full">
+	
+</div>
+
+<div class="porta-articles-above-split porta-widgets-split">
+	
+</div>
+
+
+
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	<div class="block porta-articles  "
+			data-xf-init=" "
+			data-masonry=""
+		 	data-click="1"
+		 	data-after="0"
+		 	data-history="0">
+		<div class="porta-article-item fixed--height">
+		<div class="block-container porta-article-container">
+			
+				
+				<h2 class="block-header">
+					<a href="/temas/nace-la-guerrilla-urbana-contra-narcos-civiles-armados-se-cansaron-ya-balearon-2-casas-narcos-fiscal%C3%ADa-ya-trabaja-para-detenerlos.1380484/">
+						
+						Nace la Guerrilla Urbana contra Narcos, Civiles armados se cansaron, ya balearon 2 casas Narcos - Fiscalía ya trabaja para detenerlos
+					</a>
+				</h2>
+			
+			
+			
+				
+					<div class="message-cell porta-article-date with--text">
+						<div class="porta-date-block">
+							
+								Jul <b>11</b>
+							
+						</div>
+					</div>
+				
+			
+
+				<div class="block-body message-inner
+						with--date">
+					<div class="message-cell message-main">
+						<header class="message-attribution">
+							<div class="message-attribution-main">
+								<ul class="listInline listInline--bullet">
+									<li>
+										<i class="fa--xf far fa-clock" aria-hidden="true"></i>
+										<a href="/temas/nace-la-guerrilla-urbana-contra-narcos-civiles-armados-se-cansaron-ya-balearon-2-casas-narcos-fiscal%C3%ADa-ya-trabaja-para-detenerlos.1380484/" class="u-concealed">
+											<time  class="u-dt" dir="auto" datetime="2026-07-11T20:27:00-0400" data-time="1783816020" data-date-string="2026/07/11" data-time-string="20:27" title="2026/07/11 a las 20:27" data-full-old-date="true">2026/07/11</time></a>
+									</li>
+									<li>
+										<i class="fa--xf far fa-user" aria-hidden="true"></i>
+										<a href="/ewr-porta/authors/mister_h.176092/" class="u-concealed">
+											Mister_H</a>
+									</li>
+								</ul>
+							</div>
+
+							<div class="message-attribution-opposite">
+								<ul class="listInline listInline--bullet">
+									<li><i class="fa--xf far fa-eye" aria-hidden="true"></i> 3.092</li>
+									<li><i class="fa--xf far fa-comments" aria-hidden="true"></i> 79</li>
+								</ul>
+							</div>
+						</header>
+
+						<div class="message-body">
+							
+
+							<div class="bbWrapper">Un reportaje de CHV Noticias dio cuenta de la existencia de un grupo de civiles armados llamado Guerrilla Urbana contra Narcos.     En una cuenta de Instagram, hace cinco días, subieron dos registros: uno con su misión y otro que evidencia el ataque que propinaron a una casa que aseguraron era un punto de venta de drogas en la comuna de Quinta Normal. Con su actuar no solo es ilegal, también constituye la comisión de varios delitos.   En el primer video que era tipo comunicado, sostuvieron...</div>
+
+							
+						</div>
+					</div>
+						
+					
+						<div class="porta-expandLink">
+							<a href="/temas/nace-la-guerrilla-urbana-contra-narcos-civiles-armados-se-cansaron-ya-balearon-2-casas-narcos-fiscal%C3%ADa-ya-trabaja-para-detenerlos.1380484/" >
+								
+									Continuar...
+								
+							</a>
+						</div>
+					
+				</div>
+
+			
+				<div class="block-footer block-footer--split">
+					<div class="block-footer-main">
+						
+					</div>
+					<div class="block-footer-controls">
+						<a href="/temas/nace-la-guerrilla-urbana-contra-narcos-civiles-armados-se-cansaron-ya-balearon-2-casas-narcos-fiscal%C3%ADa-ya-trabaja-para-detenerlos.1380484/" class="button button--icon"><i class="fa--xf far fa-sign-in" aria-hidden="true"></i><span class="button-text">
+							
+						</span></a>
+					</div>
+				</div>
+			
+		</div>
+	</div><div class="porta-article-item fixed--height">
+		<div class="block-container porta-article-container">
+			
+				
+				<h2 class="block-header">
+					<a href="/temas/alerta-culinaria-en-chile-tras-ofensiva-internacional-%E2%80%9Cpara-que-el-mundo-entero-sepa-que-la-marraqueta-es-de-bolivia%E2%80%9D.1380388/">
+						
+						Alerta culinaria en Chile tras ofensiva internacional: “Para que el mundo entero sepa que la marraqueta es de Bolivia”
+					</a>
+				</h2>
+			
+			
+			
+				
+					<div class="message-cell porta-article-date with--text">
+						<div class="porta-date-block">
+							
+								Jul <b>07</b>
+							
+						</div>
+					</div>
+				
+			
+
+				<div class="block-body message-inner
+						with--date">
+					<div class="message-cell message-main">
+						<header class="message-attribution">
+							<div class="message-attribution-main">
+								<ul class="listInline listInline--bullet">
+									<li>
+										<i class="fa--xf far fa-clock" aria-hidden="true"></i>
+										<a href="/temas/alerta-culinaria-en-chile-tras-ofensiva-internacional-%E2%80%9Cpara-que-el-mundo-entero-sepa-que-la-marraqueta-es-de-bolivia%E2%80%9D.1380388/" class="u-concealed">
+											<time  class="u-dt" dir="auto" datetime="2026-07-07T12:41:00-0400" data-time="1783442460" data-date-string="2026/07/07" data-time-string="12:41" title="2026/07/07 a las 12:41" data-full-old-date="true">2026/07/07</time></a>
+									</li>
+									<li>
+										<i class="fa--xf far fa-user" aria-hidden="true"></i>
+										<a href="/ewr-porta/authors/virox.582831/" class="u-concealed">
+											Virox</a>
+									</li>
+								</ul>
+							</div>
+
+							<div class="message-attribution-opposite">
+								<ul class="listInline listInline--bullet">
+									<li><i class="fa--xf far fa-eye" aria-hidden="true"></i> 2.599</li>
+									<li><i class="fa--xf far fa-comments" aria-hidden="true"></i> 94</li>
+								</ul>
+							</div>
+						</header>
+
+						<div class="message-body">
+							
+
+							<div class="bbWrapper">Se quemó el pan en la puerta del horno! Bolivia nos quiere quitar la marraqueta  Tremenda polémica! Resulta que los vecinos bolivianos se levantaron con la marraqueta bien de punta <img class="smilie smilie--emoji" loading="lazy" alt="🫦" title="Biting lip    :biting_lip:" src="https://cdn.jsdelivr.net/joypixels/assets/7.0/png/unicode/64/1fae6.png" data-shortname=":biting_lip:" /> y anunciaron una ofensiva internacional que nos dejó a todos tiritando como pico de pingüino. El gremio de panaderos de La Paz quiere que el &quot;pan de batalla&quot; sea declarado nada menos que Patrimonio de la Humanidad por la Unesco.  El dirigente de la movida, un tal Dandy Mallea, soltó la bombita sin anestesia...</div>
+
+							
+						</div>
+					</div>
+						
+					
+						<div class="porta-expandLink">
+							<a href="/temas/alerta-culinaria-en-chile-tras-ofensiva-internacional-%E2%80%9Cpara-que-el-mundo-entero-sepa-que-la-marraqueta-es-de-bolivia%E2%80%9D.1380388/" >
+								
+									Continuar...
+								
+							</a>
+						</div>
+					
+				</div>
+
+			
+				<div class="block-footer block-footer--split">
+					<div class="block-footer-main">
+						
+					</div>
+					<div class="block-footer-controls">
+						<a href="/temas/alerta-culinaria-en-chile-tras-ofensiva-internacional-%E2%80%9Cpara-que-el-mundo-entero-sepa-que-la-marraqueta-es-de-bolivia%E2%80%9D.1380388/" class="button button--icon"><i class="fa--xf far fa-sign-in" aria-hidden="true"></i><span class="button-text">
+							
+						</span></a>
+					</div>
+				</div>
+			
+		</div>
+	</div><div class="porta-article-item fixed--height">
+		<div class="block-container porta-article-container">
+			
+				
+				<h2 class="block-header">
+					<a href="/temas/terremoto-en-venezuela.1380142/">
+						
+						Terremoto en Venezuela
+					</a>
+				</h2>
+			
+			
+			
+				
+					<div class="message-cell porta-article-date with--text">
+						<div class="porta-date-block">
+							
+								Jun <b>24</b>
+							
+						</div>
+					</div>
+				
+			
+
+				<div class="block-body message-inner
+						with--date">
+					<div class="message-cell message-main">
+						<header class="message-attribution">
+							<div class="message-attribution-main">
+								<ul class="listInline listInline--bullet">
+									<li>
+										<i class="fa--xf far fa-clock" aria-hidden="true"></i>
+										<a href="/temas/terremoto-en-venezuela.1380142/" class="u-concealed">
+											<time  class="u-dt" dir="auto" datetime="2026-06-24T19:04:00-0400" data-time="1782342240" data-date-string="2026/06/24" data-time-string="19:04" title="2026/06/24 a las 19:04" data-full-old-date="true">2026/06/24</time></a>
+									</li>
+									<li>
+										<i class="fa--xf far fa-user" aria-hidden="true"></i>
+										<a href="/ewr-porta/authors/el-clavo.579999/" class="u-concealed">
+											El Clavo</a>
+									</li>
+								</ul>
+							</div>
+
+							<div class="message-attribution-opposite">
+								<ul class="listInline listInline--bullet">
+									<li><i class="fa--xf far fa-eye" aria-hidden="true"></i> 73.496</li>
+									<li><i class="fa--xf far fa-comments" aria-hidden="true"></i> 2.143</li>
+								</ul>
+							</div>
+						</header>
+
+						<div class="message-body">
+							
+
+							<div class="bbWrapper">¿Qué pasó?  La tarde de este miércoles, un terremoto de magnitud 7,1 se registró en Venezuela, según información entregada por el Servicio Geológico de los Estados Unidos (USGS).  El movimiento telúrico habría ocurrido 28 kilómetros al noroeste de Montalbán , pasadas las 18:00 horas. El sismo, además, tuvo una profundidad de 13 kms.    Según información preliminar, el movimiento telúrico se habría sentido con fuerza en Caracas, la capital de Venezuela, provocando escenas de pánico. Acto...</div>
+
+							
+						</div>
+					</div>
+						
+					
+						<div class="porta-expandLink">
+							<a href="/temas/terremoto-en-venezuela.1380142/" >
+								
+									Continuar...
+								
+							</a>
+						</div>
+					
+				</div>
+
+			
+				<div class="block-footer block-footer--split">
+					<div class="block-footer-main">
+						
+					</div>
+					<div class="block-footer-controls">
+						<a href="/temas/terremoto-en-venezuela.1380142/" class="button button--icon"><i class="fa--xf far fa-sign-in" aria-hidden="true"></i><span class="button-text">
+							
+						</span></a>
+					</div>
+				</div>
+			
+		</div>
+	</div><div class="porta-article-item fixed--height">
+		<div class="block-container porta-article-container">
+			
+				
+				<h2 class="block-header">
+					<a href="/temas/ni%C3%B1os-haitianos-sin-rastro-en-chile-informe-revela-fallas-graves-y-vuelos-sospechosos-autorizados.1379961/">
+						
+						Niños haitianos sin rastro en Chile: informe revela fallas graves y vuelos sospechosos autorizados
+					</a>
+				</h2>
+			
+			
+			
+				
+					<div class="message-cell porta-article-date with--text">
+						<div class="porta-date-block">
+							
+								Jun <b>15</b>
+							
+						</div>
+					</div>
+				
+			
+
+				<div class="block-body message-inner
+						with--date">
+					<div class="message-cell message-main">
+						<header class="message-attribution">
+							<div class="message-attribution-main">
+								<ul class="listInline listInline--bullet">
+									<li>
+										<i class="fa--xf far fa-clock" aria-hidden="true"></i>
+										<a href="/temas/ni%C3%B1os-haitianos-sin-rastro-en-chile-informe-revela-fallas-graves-y-vuelos-sospechosos-autorizados.1379961/" class="u-concealed">
+											<time  class="u-dt" dir="auto" datetime="2026-06-15T10:38:00-0400" data-time="1781534280" data-date-string="2026/06/15" data-time-string="10:38" title="2026/06/15 a las 10:38" data-full-old-date="true">2026/06/15</time></a>
+									</li>
+									<li>
+										<i class="fa--xf far fa-user" aria-hidden="true"></i>
+										<a href="/ewr-porta/authors/walter-nelson.546153/" class="u-concealed">
+											Walter Nelson</a>
+									</li>
+								</ul>
+							</div>
+
+							<div class="message-attribution-opposite">
+								<ul class="listInline listInline--bullet">
+									<li><i class="fa--xf far fa-eye" aria-hidden="true"></i> 16.880</li>
+									<li><i class="fa--xf far fa-comments" aria-hidden="true"></i> 564</li>
+								</ul>
+							</div>
+						</header>
+
+						<div class="message-body">
+							
+
+							<div class="bbWrapper">Contraloría detectó un ingreso masivo de haitianos con menores bajo reunificación familiar, muchos en vuelos chárter autorizados bajo el gobierno de Gabriel Boric. El informe reservado advierte fallas graves como adultos que no se verificó la relación con los menores, registros incompletos y controles migratorios débiles. En terreno, la investigación de la Contraloría no logró ubicar a parte de los niños que el Estado autorizó a ingresar. Los antecedentes abren dudas sobre su paradero y...</div>
+
+							
+						</div>
+					</div>
+						
+					
+						<div class="porta-expandLink">
+							<a href="/temas/ni%C3%B1os-haitianos-sin-rastro-en-chile-informe-revela-fallas-graves-y-vuelos-sospechosos-autorizados.1379961/" >
+								
+									Continuar...
+								
+							</a>
+						</div>
+					
+				</div>
+
+			
+				<div class="block-footer block-footer--split">
+					<div class="block-footer-main">
+						
+					</div>
+					<div class="block-footer-controls">
+						<a href="/temas/ni%C3%B1os-haitianos-sin-rastro-en-chile-informe-revela-fallas-graves-y-vuelos-sospechosos-autorizados.1379961/" class="button button--icon"><i class="fa--xf far fa-sign-in" aria-hidden="true"></i><span class="button-text">
+							
+						</span></a>
+					</div>
+				</div>
+			
+		</div>
+	</div>
+	</div>
+	
+	
+	
+	<div class="block porta-article-pager">
+		<div class="block-outer block-outer--after">
+			<div class="block-outer-main"><nav class="pageNavWrapper pageNavWrapper--mixed ">
+
+
+
+<div class="pageNav  pageNav--skipEnd">
+	
+
+	<ul class="pageNav-main">
+		
+
+	
+		<li class="pageNav-page pageNav-page--current "><a href="/">1</a></li>
+	
+
+
+		
+
+		
+			
+
+	
+		<li class="pageNav-page pageNav-page--later"><a href="/ewr-porta/page-2">2</a></li>
+	
+
+		
+			
+
+	
+		<li class="pageNav-page pageNav-page--later"><a href="/ewr-porta/page-3">3</a></li>
+	
+
+		
+
+		
+			
+				<li class="pageNav-page pageNav-page--skip pageNav-page--skipEnd">
+					<a data-xf-init="tooltip" title="Ir a la página"
+						data-xf-click="menu"
+						role="button" tabindex="0" aria-expanded="false" aria-haspopup="true">...</a>
+					
+
+	<div class="menu menu--pageJump" data-menu="menu" aria-hidden="true">
+		<div class="menu-content">
+			<h4 class="menu-header">Ir a la página</h4>
+			<div class="menu-row" data-xf-init="page-jump" data-page-url="/ewr-porta/page-%page%">
+				<div class="inputGroup inputGroup--numbers">
+					<div class="inputGroup inputGroup--numbers inputNumber" data-xf-init="number-box"><input type="number" pattern="\d*" class="input input--number js-numberBoxTextInput input input--numberNarrow js-pageJumpPage" value="4"  min="1" max="41" step="1" required="required" data-menu-autofocus="true" /></div>
+					<span class="inputGroup-text"><button type="button" class="js-pageJumpGo button"><span class="button-text">Ir</span></button></span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+				</li>
+			
+		
+
+		
+
+	
+		<li class="pageNav-page "><a href="/ewr-porta/page-41">41</a></li>
+	
+
+	</ul>
+
+	
+		<a href="/ewr-porta/page-2" class="pageNav-jump pageNav-jump--next">Próximo</a>
+	
+</div>
+
+<div class="pageNavSimple">
+	
+
+	<a class="pageNavSimple-el pageNavSimple-el--current"
+		data-xf-init="tooltip" title="Ir a la página"
+		data-xf-click="menu" role="button" tabindex="0" aria-expanded="false" aria-haspopup="true">
+		1 de 41
+	</a>
+	
+
+	<div class="menu menu--pageJump" data-menu="menu" aria-hidden="true">
+		<div class="menu-content">
+			<h4 class="menu-header">Ir a la página</h4>
+			<div class="menu-row" data-xf-init="page-jump" data-page-url="/ewr-porta/page-%page%">
+				<div class="inputGroup inputGroup--numbers">
+					<div class="inputGroup inputGroup--numbers inputNumber" data-xf-init="number-box"><input type="number" pattern="\d*" class="input input--number js-numberBoxTextInput input input--numberNarrow js-pageJumpPage" value="1"  min="1" max="41" step="1" required="required" data-menu-autofocus="true" /></div>
+					<span class="inputGroup-text"><button type="button" class="js-pageJumpGo button"><span class="button-text">Ir</span></button></span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	
+		<a href="/ewr-porta/page-2" class="pageNavSimple-el pageNavSimple-el--next">
+			Próximo <i aria-hidden="true"></i>
+		</a>
+		<a href="/ewr-porta/page-41"
+			class="pageNavSimple-el pageNavSimple-el--last"
+			data-xf-init="tooltip" title="Último">
+			<i aria-hidden="true"></i> <span class="u-srOnly">Último</span>
+		</a>
+	
+</div>
+
+</nav>
+
+
+
+</div>
+		</div>
+	</div>
+
+
+<div class="porta-articles-below-full">
+	
+	<div class="block" data-widget-id="4" data-widget-key="whats_new_new_posts" data-widget-definition="new_posts">
+		<div class="block-container">
+			
+				<h3 class="block-header">
+					<a href="/whats-new/posts/?skip=1" rel="nofollow">Últimas publicaciones</a>
+				</h3>
+				<div class="block-body">
+					<div class="structItemContainer">
+						
+							
+								
+
+	
+
+	<div class="structItem structItem--thread js-inlineModContainer js-threadListItem-1375875" data-author="Topotin">
+
+	
+		<div class="structItem-cell structItem-cell--icon">
+			<div class="structItem-iconContainer">
+				<a href="/members/topotin.600890/" class="avatar avatar--s" data-user-id="600890" data-xf-init="member-tooltip">
+			<img src="/data/avatars/s/600/600890.jpg?1764253375" srcset="/data/avatars/m/600/600890.jpg?1764253375 2x" alt="Topotin" class="avatar-u600890-s" width="48" height="48" loading="lazy" /> 
+		</a>
+				
+			</div>
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--main" data-xf-init="touch-proxy">
+			
+
+			<div class="structItem-title">
+				
+				
+				<a href="/temas/tema-oficial-jos%C3%A9-antonio-kast-presidente.1375875/" class="" data-tp-primary="on" data-xf-init="preview-tooltip" data-preview-url="/temas/tema-oficial-jos%C3%A9-antonio-kast-presidente.1375875/preview">Tema oficial: José Antonio Kast Presidente</a>
+	
+	
+
+			</div>
+
+			<div class="structItem-minor">
+				
+
+				
+					<ul class="structItem-parts">
+						<li><a href="/members/topotin.600890/" class="username " dir="auto" data-user-id="600890" data-xf-init="member-tooltip">Topotin</a></li>
+						<li class="structItem-startDate"><a href="/temas/tema-oficial-jos%C3%A9-antonio-kast-presidente.1375875/" rel="nofollow"><time  class="u-dt" dir="auto" datetime="2025-12-14T20:13:24-0300" data-time="1765754004" data-date-string="2025/12/14" data-time-string="20:13" title="2025/12/14 a las 20:13">2025/12/14</time></a></li>
+						
+							<li><a href="/foros/politica-debates.22/">Politica &amp; Debates</a></li>
+						
+					</ul>
+
+					
+						<span class="structItem-pageJump">
+						
+							<a href="/temas/tema-oficial-jos%C3%A9-antonio-kast-presidente.1375875/page-1093">1093</a>
+						
+							<a href="/temas/tema-oficial-jos%C3%A9-antonio-kast-presidente.1375875/page-1094">1094</a>
+						
+							<a href="/temas/tema-oficial-jos%C3%A9-antonio-kast-presidente.1375875/page-1095">1095</a>
+						
+						</span>
+					
+				
+			</div>
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--meta" title="Puntuación de la reacción del primer mensaje: 61">
+			<dl class="pairs pairs--justified">
+				<dt>Respuestas</dt>
+				<dd>22 K</dd>
+			</dl>
+			<dl class="pairs pairs--justified structItem-minor">
+				<dt>Vistas</dt>
+				<dd>748 K</dd>
+			</dl>
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--latest">
+			
+				<a href="/temas/tema-oficial-jos%C3%A9-antonio-kast-presidente.1375875/latest" rel="nofollow"><time  class="structItem-latestDate u-dt" dir="auto" datetime="2026-07-26T01:45:54-0400" data-time="1785044754" data-date-string="2026/07/26" data-time-string="01:45" title="2026/07/26 a las 01:45">Hace 7 minutos</time></a>
+				<div class="structItem-minor">
+					
+						<a href="/members/roccolocco.293788/" class="username " dir="auto" data-user-id="293788" data-xf-init="member-tooltip">RoccoLocco</a>
+					
+				</div>
+			
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--icon structItem-cell--iconEnd">
+			<div class="structItem-iconContainer">
+				
+					<a href="/members/roccolocco.293788/" class="avatar avatar--xxs avatar--default avatar--default--dynamic" data-user-id="293788" data-xf-init="member-tooltip" style="background-color: #cc6699; color: #602040">
+			<span class="avatar-u293788-s" role="img" aria-label="RoccoLocco">R</span> 
+		</a>
+				
+			</div>
+		</div>
+	
+
+	</div>
+
+							
+								
+
+	
+
+	<div class="structItem structItem--thread js-inlineModContainer js-threadListItem-1380736" data-author="Heroe_de_nadie">
+
+	
+		<div class="structItem-cell structItem-cell--icon">
+			<div class="structItem-iconContainer">
+				<a href="/members/heroe_de_nadie.120473/" class="avatar avatar--s" data-user-id="120473" data-xf-init="member-tooltip">
+			<img src="/data/avatars/s/120/120473.jpg?1730338215" srcset="/data/avatars/m/120/120473.jpg?1730338215 2x" alt="Heroe_de_nadie" class="avatar-u120473-s" width="48" height="48" loading="lazy" /> 
+		</a>
+				
+			</div>
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--main" data-xf-init="touch-proxy">
+			
+
+			<div class="structItem-title">
+				
+				
+				<a href="/temas/tengo-una-bolsa-de-pilas-llena-para-botar.1380736/" class="" data-tp-primary="on" data-xf-init="preview-tooltip" data-preview-url="/temas/tengo-una-bolsa-de-pilas-llena-para-botar.1380736/preview">Tengo una bolsa de pilas llena para botar...</a>
+	
+	
+
+			</div>
+
+			<div class="structItem-minor">
+				
+
+				
+					<ul class="structItem-parts">
+						<li><a href="/members/heroe_de_nadie.120473/" class="username " dir="auto" data-user-id="120473" data-xf-init="member-tooltip">Heroe_de_nadie</a></li>
+						<li class="structItem-startDate"><a href="/temas/tengo-una-bolsa-de-pilas-llena-para-botar.1380736/" rel="nofollow"><time  class="u-dt" dir="auto" datetime="2026-07-25T19:18:42-0400" data-time="1785021522" data-date-string="2026/07/25" data-time-string="19:18" title="2026/07/25 a las 19:18">Ayer a las 19:18</time></a></li>
+						
+							<li><a href="/foros/el-muro.131/">El Muro</a></li>
+						
+					</ul>
+
+					
+						<span class="structItem-pageJump">
+						
+							<a href="/temas/tengo-una-bolsa-de-pilas-llena-para-botar.1380736/page-2">2</a>
+						
+						</span>
+					
+				
+			</div>
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--meta" title="Puntuación de la reacción del primer mensaje: 5">
+			<dl class="pairs pairs--justified">
+				<dt>Respuestas</dt>
+				<dd>23</dd>
+			</dl>
+			<dl class="pairs pairs--justified structItem-minor">
+				<dt>Vistas</dt>
+				<dd>202</dd>
+			</dl>
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--latest">
+			
+				<a href="/temas/tengo-una-bolsa-de-pilas-llena-para-botar.1380736/latest" rel="nofollow"><time  class="structItem-latestDate u-dt" dir="auto" datetime="2026-07-26T01:41:57-0400" data-time="1785044517" data-date-string="2026/07/26" data-time-string="01:41" title="2026/07/26 a las 01:41">Hace 11 minutos</time></a>
+				<div class="structItem-minor">
+					
+						<a href="/members/dashner.591896/" class="username " dir="auto" data-user-id="591896" data-xf-init="member-tooltip">dashner</a>
+					
+				</div>
+			
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--icon structItem-cell--iconEnd">
+			<div class="structItem-iconContainer">
+				
+					<a href="/members/dashner.591896/" class="avatar avatar--xxs avatar--default avatar--default--dynamic" data-user-id="591896" data-xf-init="member-tooltip" style="background-color: #3399cc; color: #0f2e3d">
+			<span class="avatar-u591896-s" role="img" aria-label="dashner">D</span> 
+		</a>
+				
+			</div>
+		</div>
+	
+
+	</div>
+
+							
+								
+
+	
+
+	<div class="structItem structItem--thread js-inlineModContainer js-threadListItem-1379305" data-author="piemti">
+
+	
+		<div class="structItem-cell structItem-cell--icon">
+			<div class="structItem-iconContainer">
+				<a href="/members/piemti.2627/" class="avatar avatar--s" data-user-id="2627" data-xf-init="member-tooltip">
+			<img src="/data/avatars/s/2/2627.jpg?1698370560" srcset="/data/avatars/m/2/2627.jpg?1698370560 2x" alt="piemti" class="avatar-u2627-s" width="48" height="48" loading="lazy" /> 
+		</a>
+				
+			</div>
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--main" data-xf-init="touch-proxy">
+			
+
+			<div class="structItem-title">
+				
+				
+				<a href="/temas/el-superni%C3%B1o-2026-que-podr%C3%ADa-llegar-a-megani%C3%B1o-ya-se-ve-en-el-pacifico-y-todo-predice-que-sera-por-decir-lo-menos-intenso-agresivo-y-catastr%C3%B3fico.1379305/" class="" data-tp-primary="on" data-xf-init="preview-tooltip" data-preview-url="/temas/el-superni%C3%B1o-2026-que-podr%C3%ADa-llegar-a-megani%C3%B1o-ya-se-ve-en-el-pacifico-y-todo-predice-que-sera-por-decir-lo-menos-intenso-agresivo-y-catastr%C3%B3fico.1379305/preview">El &quot;Superniño&quot; 2026 que podría llegar a Meganiño ya se ve en el Pacifico, y todo predice que sera por decir lo menos intenso, agresivo y catastrófico.</a>
+	
+	
+
+			</div>
+
+			<div class="structItem-minor">
+				
+
+				
+					<ul class="structItem-parts">
+						<li><a href="/members/piemti.2627/" class="username " dir="auto" data-user-id="2627" data-xf-init="member-tooltip">piemti</a></li>
+						<li class="structItem-startDate"><a href="/temas/el-superni%C3%B1o-2026-que-podr%C3%ADa-llegar-a-megani%C3%B1o-ya-se-ve-en-el-pacifico-y-todo-predice-que-sera-por-decir-lo-menos-intenso-agresivo-y-catastr%C3%B3fico.1379305/" rel="nofollow"><time  class="u-dt" dir="auto" datetime="2026-05-15T19:44:55-0400" data-time="1778888695" data-date-string="2026/05/15" data-time-string="19:44" title="2026/05/15 a las 19:44">2026/05/15</time></a></li>
+						
+							<li><a href="/foros/general-y-actualidad.12/">General y Actualidad</a></li>
+						
+					</ul>
+
+					
+						<span class="structItem-pageJump">
+						
+							<a href="/temas/el-superni%C3%B1o-2026-que-podr%C3%ADa-llegar-a-megani%C3%B1o-ya-se-ve-en-el-pacifico-y-todo-predice-que-sera-por-decir-lo-menos-intenso-agresivo-y-catastr%C3%B3fico.1379305/page-59">59</a>
+						
+							<a href="/temas/el-superni%C3%B1o-2026-que-podr%C3%ADa-llegar-a-megani%C3%B1o-ya-se-ve-en-el-pacifico-y-todo-predice-que-sera-por-decir-lo-menos-intenso-agresivo-y-catastr%C3%B3fico.1379305/page-60">60</a>
+						
+							<a href="/temas/el-superni%C3%B1o-2026-que-podr%C3%ADa-llegar-a-megani%C3%B1o-ya-se-ve-en-el-pacifico-y-todo-predice-que-sera-por-decir-lo-menos-intenso-agresivo-y-catastr%C3%B3fico.1379305/page-61">61</a>
+						
+						</span>
+					
+				
+			</div>
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--meta" title="Puntuación de la reacción del primer mensaje: 12">
+			<dl class="pairs pairs--justified">
+				<dt>Respuestas</dt>
+				<dd>1 K</dd>
+			</dl>
+			<dl class="pairs pairs--justified structItem-minor">
+				<dt>Vistas</dt>
+				<dd>38 K</dd>
+			</dl>
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--latest">
+			
+				<a href="/temas/el-superni%C3%B1o-2026-que-podr%C3%ADa-llegar-a-megani%C3%B1o-ya-se-ve-en-el-pacifico-y-todo-predice-que-sera-por-decir-lo-menos-intenso-agresivo-y-catastr%C3%B3fico.1379305/latest" rel="nofollow"><time  class="structItem-latestDate u-dt" dir="auto" datetime="2026-07-26T01:41:43-0400" data-time="1785044503" data-date-string="2026/07/26" data-time-string="01:41" title="2026/07/26 a las 01:41">Hace 11 minutos</time></a>
+				<div class="structItem-minor">
+					
+						<a href="/members/verrrrd.577185/" class="username " dir="auto" data-user-id="577185" data-xf-init="member-tooltip">verrrrd</a>
+					
+				</div>
+			
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--icon structItem-cell--iconEnd">
+			<div class="structItem-iconContainer">
+				
+					<a href="/members/verrrrd.577185/" class="avatar avatar--xxs avatar--default avatar--default--dynamic" data-user-id="577185" data-xf-init="member-tooltip" style="background-color: #cc3333; color: #f0c2c2">
+			<span class="avatar-u577185-s" role="img" aria-label="verrrrd">V</span> 
+		</a>
+				
+			</div>
+		</div>
+	
+
+	</div>
+
+							
+								
+
+	
+
+	<div class="structItem structItem--thread js-inlineModContainer js-threadListItem-1380717" data-author="Walter Nelson">
+
+	
+		<div class="structItem-cell structItem-cell--icon">
+			<div class="structItem-iconContainer">
+				<a href="/members/walter-nelson.546153/" class="avatar avatar--s" data-user-id="546153" data-xf-init="member-tooltip">
+			<img src="/data/avatars/s/546/546153.jpg?1529944193" srcset="/data/avatars/m/546/546153.jpg?1529944193 2x" alt="Walter Nelson" class="avatar-u546153-s" width="48" height="48" loading="lazy" /> 
+		</a>
+				
+			</div>
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--main" data-xf-init="touch-proxy">
+			
+
+			<div class="structItem-title">
+				
+				
+				<a href="/temas/casi-un-tercio-de-las-personas-de-m%C3%A1s-50-a%C3%B1os-est%C3%A1-fuera-del-mercado-laboral-y-mayor%C3%ADa-se-ha-sentido-discriminada-por-la-edad.1380717/" class="" data-tp-primary="on" data-xf-init="preview-tooltip" data-preview-url="/temas/casi-un-tercio-de-las-personas-de-m%C3%A1s-50-a%C3%B1os-est%C3%A1-fuera-del-mercado-laboral-y-mayor%C3%ADa-se-ha-sentido-discriminada-por-la-edad.1380717/preview">Casi un tercio de las personas de más 50 años está fuera del mercado laboral y mayoría se ha sentido discriminada por la edad</a>
+	
+	
+
+			</div>
+
+			<div class="structItem-minor">
+				
+
+				
+					<ul class="structItem-parts">
+						<li><a href="/members/walter-nelson.546153/" class="username " dir="auto" data-user-id="546153" data-xf-init="member-tooltip">Walter Nelson</a></li>
+						<li class="structItem-startDate"><a href="/temas/casi-un-tercio-de-las-personas-de-m%C3%A1s-50-a%C3%B1os-est%C3%A1-fuera-del-mercado-laboral-y-mayor%C3%ADa-se-ha-sentido-discriminada-por-la-edad.1380717/" rel="nofollow"><time  class="u-dt" dir="auto" datetime="2026-07-24T10:04:39-0400" data-time="1784901879" data-date-string="2026/07/24" data-time-string="10:04" title="2026/07/24 a las 10:04">viernes a las 10:04</time></a></li>
+						
+							<li><a href="/foros/general-y-actualidad.12/">General y Actualidad</a></li>
+						
+					</ul>
+
+					
+						<span class="structItem-pageJump">
+						
+							<a href="/temas/casi-un-tercio-de-las-personas-de-m%C3%A1s-50-a%C3%B1os-est%C3%A1-fuera-del-mercado-laboral-y-mayor%C3%ADa-se-ha-sentido-discriminada-por-la-edad.1380717/page-2">2</a>
+						
+							<a href="/temas/casi-un-tercio-de-las-personas-de-m%C3%A1s-50-a%C3%B1os-est%C3%A1-fuera-del-mercado-laboral-y-mayor%C3%ADa-se-ha-sentido-discriminada-por-la-edad.1380717/page-3">3</a>
+						
+						</span>
+					
+				
+			</div>
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--meta" title="Puntuación de la reacción del primer mensaje: 4">
+			<dl class="pairs pairs--justified">
+				<dt>Respuestas</dt>
+				<dd>56</dd>
+			</dl>
+			<dl class="pairs pairs--justified structItem-minor">
+				<dt>Vistas</dt>
+				<dd>860</dd>
+			</dl>
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--latest">
+			
+				<a href="/temas/casi-un-tercio-de-las-personas-de-m%C3%A1s-50-a%C3%B1os-est%C3%A1-fuera-del-mercado-laboral-y-mayor%C3%ADa-se-ha-sentido-discriminada-por-la-edad.1380717/latest" rel="nofollow"><time  class="structItem-latestDate u-dt" dir="auto" datetime="2026-07-26T01:36:08-0400" data-time="1785044168" data-date-string="2026/07/26" data-time-string="01:36" title="2026/07/26 a las 01:36">Hace 17 minutos</time></a>
+				<div class="structItem-minor">
+					
+						<a href="/members/joaocapri.555207/" class="username " dir="auto" data-user-id="555207" data-xf-init="member-tooltip">JoaoCapri</a>
+					
+				</div>
+			
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--icon structItem-cell--iconEnd">
+			<div class="structItem-iconContainer">
+				
+					<a href="/members/joaocapri.555207/" class="avatar avatar--xxs" data-user-id="555207" data-xf-init="member-tooltip">
+			<img src="/data/avatars/s/555/555207.jpg?1675009126"  alt="JoaoCapri" class="avatar-u555207-s" width="48" height="48" loading="lazy" /> 
+		</a>
+				
+			</div>
+		</div>
+	
+
+	</div>
+
+							
+								
+
+	
+
+	<div class="structItem structItem--thread js-inlineModContainer js-threadListItem-1376142" data-author="Diego_V">
+
+	
+		<div class="structItem-cell structItem-cell--icon">
+			<div class="structItem-iconContainer">
+				<a href="/members/diego_v.207950/" class="avatar avatar--s" data-user-id="207950" data-xf-init="member-tooltip">
+			<img src="/data/avatars/s/207/207950.jpg?1693702687" srcset="/data/avatars/m/207/207950.jpg?1693702687 2x" alt="Diego_V" class="avatar-u207950-s" width="48" height="48" loading="lazy" /> 
+		</a>
+				
+			</div>
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--main" data-xf-init="touch-proxy">
+			
+
+			<div class="structItem-title">
+				
+				
+				<a href="/temas/la-cofrad%C3%ADa-el-programa-online-de-extrema-derecha.1376142/" class="" data-tp-primary="on" data-xf-init="preview-tooltip" data-preview-url="/temas/la-cofrad%C3%ADa-el-programa-online-de-extrema-derecha.1376142/preview">&quot;La Cofradía&quot;   El programa online de extrema derecha</a>
+	
+	
+
+			</div>
+
+			<div class="structItem-minor">
+				
+
+				
+					<ul class="structItem-parts">
+						<li><a href="/members/diego_v.207950/" class="username " dir="auto" data-user-id="207950" data-xf-init="member-tooltip">Diego_V</a></li>
+						<li class="structItem-startDate"><a href="/temas/la-cofrad%C3%ADa-el-programa-online-de-extrema-derecha.1376142/" rel="nofollow"><time  class="u-dt" dir="auto" datetime="2025-12-29T22:14:14-0300" data-time="1767057254" data-date-string="2025/12/29" data-time-string="22:14" title="2025/12/29 a las 22:14">2025/12/29</time></a></li>
+						
+							<li><a href="/foros/politica-debates.22/">Politica &amp; Debates</a></li>
+						
+					</ul>
+
+					
+						<span class="structItem-pageJump">
+						
+							<a href="/temas/la-cofrad%C3%ADa-el-programa-online-de-extrema-derecha.1376142/page-13">13</a>
+						
+							<a href="/temas/la-cofrad%C3%ADa-el-programa-online-de-extrema-derecha.1376142/page-14">14</a>
+						
+							<a href="/temas/la-cofrad%C3%ADa-el-programa-online-de-extrema-derecha.1376142/page-15">15</a>
+						
+						</span>
+					
+				
+			</div>
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--meta" title="Puntuación de la reacción del primer mensaje: 19">
+			<dl class="pairs pairs--justified">
+				<dt>Respuestas</dt>
+				<dd>290</dd>
+			</dl>
+			<dl class="pairs pairs--justified structItem-minor">
+				<dt>Vistas</dt>
+				<dd>10 K</dd>
+			</dl>
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--latest">
+			
+				<a href="/temas/la-cofrad%C3%ADa-el-programa-online-de-extrema-derecha.1376142/latest" rel="nofollow"><time  class="structItem-latestDate u-dt" dir="auto" datetime="2026-07-26T01:35:09-0400" data-time="1785044109" data-date-string="2026/07/26" data-time-string="01:35" title="2026/07/26 a las 01:35">Hace 18 minutos</time></a>
+				<div class="structItem-minor">
+					
+						<a href="/members/maxxxpayne.73403/" class="username " dir="auto" data-user-id="73403" data-xf-init="member-tooltip">maxxxpayne</a>
+					
+				</div>
+			
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--icon structItem-cell--iconEnd">
+			<div class="structItem-iconContainer">
+				
+					<a href="/members/maxxxpayne.73403/" class="avatar avatar--xxs" data-user-id="73403" data-xf-init="member-tooltip">
+			<img src="/data/avatars/s/73/73403.jpg?1772761454"  alt="maxxxpayne" class="avatar-u73403-s" width="48" height="48" loading="lazy" /> 
+		</a>
+				
+			</div>
+		</div>
+	
+
+	</div>
+
+							
+								
+
+	
+
+	<div class="structItem structItem--thread js-inlineModContainer js-threadListItem-1378300" data-author="lAlItOgOrE">
+
+	
+		<div class="structItem-cell structItem-cell--icon">
+			<div class="structItem-iconContainer">
+				<a href="/members/lalitogore.13876/" class="avatar avatar--s" data-user-id="13876" data-xf-init="member-tooltip">
+			<img src="/data/avatars/s/13/13876.jpg?1606351824" srcset="/data/avatars/m/13/13876.jpg?1606351824 2x" alt="lAlItOgOrE" class="avatar-u13876-s" width="48" height="48" loading="lazy" /> 
+		</a>
+				
+			</div>
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--main" data-xf-init="touch-proxy">
+			
+
+			<div class="structItem-title">
+				
+				
+				<a href="/temas/candidatura-de-michelle-bachelet-a-la-onu-noticias-candidaturas-humo-y-apoyo-de-otros-gobiernos-y-memes-claro.1378300/" class="" data-tp-primary="on" data-xf-init="preview-tooltip" data-preview-url="/temas/candidatura-de-michelle-bachelet-a-la-onu-noticias-candidaturas-humo-y-apoyo-de-otros-gobiernos-y-memes-claro.1378300/preview">candidatura de Michelle Bachelet a la ONU: noticias, candidaturas, humo y apoyo de otros gobiernos (y memes, claro).</a>
+	
+	
+
+			</div>
+
+			<div class="structItem-minor">
+				
+
+				
+					<ul class="structItem-parts">
+						<li><a href="/members/lalitogore.13876/" class="username " dir="auto" data-user-id="13876" data-xf-init="member-tooltip">lAlItOgOrE</a></li>
+						<li class="structItem-startDate"><a href="/temas/candidatura-de-michelle-bachelet-a-la-onu-noticias-candidaturas-humo-y-apoyo-de-otros-gobiernos-y-memes-claro.1378300/" rel="nofollow"><time  class="u-dt" dir="auto" datetime="2026-04-01T19:05:17-0300" data-time="1775081117" data-date-string="2026/04/01" data-time-string="19:05" title="2026/04/01 a las 19:05">2026/04/01</time></a></li>
+						
+							<li><a href="/foros/politica-debates.22/">Politica &amp; Debates</a></li>
+						
+					</ul>
+
+					
+						<span class="structItem-pageJump">
+						
+							<a href="/temas/candidatura-de-michelle-bachelet-a-la-onu-noticias-candidaturas-humo-y-apoyo-de-otros-gobiernos-y-memes-claro.1378300/page-8">8</a>
+						
+							<a href="/temas/candidatura-de-michelle-bachelet-a-la-onu-noticias-candidaturas-humo-y-apoyo-de-otros-gobiernos-y-memes-claro.1378300/page-9">9</a>
+						
+							<a href="/temas/candidatura-de-michelle-bachelet-a-la-onu-noticias-candidaturas-humo-y-apoyo-de-otros-gobiernos-y-memes-claro.1378300/page-10">10</a>
+						
+						</span>
+					
+				
+			</div>
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--meta" title="Puntuación de la reacción del primer mensaje: 4">
+			<dl class="pairs pairs--justified">
+				<dt>Respuestas</dt>
+				<dd>195</dd>
+			</dl>
+			<dl class="pairs pairs--justified structItem-minor">
+				<dt>Vistas</dt>
+				<dd>7 K</dd>
+			</dl>
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--latest">
+			
+				<a href="/temas/candidatura-de-michelle-bachelet-a-la-onu-noticias-candidaturas-humo-y-apoyo-de-otros-gobiernos-y-memes-claro.1378300/latest" rel="nofollow"><time  class="structItem-latestDate u-dt" dir="auto" datetime="2026-07-26T01:25:17-0400" data-time="1785043517" data-date-string="2026/07/26" data-time-string="01:25" title="2026/07/26 a las 01:25">Hace 28 minutos</time></a>
+				<div class="structItem-minor">
+					
+						<a href="/members/alejo2020renacido.566214/" class="username " dir="auto" data-user-id="566214" data-xf-init="member-tooltip">Alejo2020renacido</a>
+					
+				</div>
+			
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--icon structItem-cell--iconEnd">
+			<div class="structItem-iconContainer">
+				
+					<a href="/members/alejo2020renacido.566214/" class="avatar avatar--xxs avatar--default avatar--default--dynamic" data-user-id="566214" data-xf-init="member-tooltip" style="background-color: #336633; color: #88c388">
+			<span class="avatar-u566214-s" role="img" aria-label="Alejo2020renacido">A</span> 
+		</a>
+				
+			</div>
+		</div>
+	
+
+	</div>
+
+							
+								
+
+	
+
+	<div class="structItem structItem--thread js-inlineModContainer js-threadListItem-1380734" data-author="Chancrod Van Damme">
+
+	
+		<div class="structItem-cell structItem-cell--icon">
+			<div class="structItem-iconContainer">
+				<a href="/members/chancrod-van-damme.604007/" class="avatar avatar--s avatar--default avatar--default--dynamic" data-user-id="604007" data-xf-init="member-tooltip" style="background-color: #7a1f1f; color: #db7070">
+			<span class="avatar-u604007-s" role="img" aria-label="Chancrod Van Damme">C</span> 
+		</a>
+				
+			</div>
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--main" data-xf-init="touch-proxy">
+			
+				<ul class="structItem-statuses">
+				
+				
+					
+					
+					
+					
+					
+
+
+	<li>
+		<i class="structItem-status structItem-status--unanswered" aria-hidden="true" title="Unanswered thread"></i>
+		<span class="u-srOnly">Unanswered thread</span>
+	</li>
+
+
+					
+						
+					
+
+					
+					
+
+					
+					
+						
+							
+						
+					
+				
+				
+				</ul>
+			
+
+			<div class="structItem-title">
+				
+				
+				<a href="/temas/%C2%BFes-muy-costo-adoptar-un-gatito.1380734/" class="" data-tp-primary="on" data-xf-init="preview-tooltip" data-preview-url="/temas/%C2%BFes-muy-costo-adoptar-un-gatito.1380734/preview">¿Es muy costo adoptar un gatito?</a>
+	
+	
+
+			</div>
+
+			<div class="structItem-minor">
+				
+
+				
+					<ul class="structItem-parts">
+						<li><a href="/members/chancrod-van-damme.604007/" class="username " dir="auto" data-user-id="604007" data-xf-init="member-tooltip">Chancrod Van Damme</a></li>
+						<li class="structItem-startDate"><a href="/temas/%C2%BFes-muy-costo-adoptar-un-gatito.1380734/" rel="nofollow"><time  class="u-dt" dir="auto" datetime="2026-07-25T13:17:21-0400" data-time="1784999841" data-date-string="2026/07/25" data-time-string="13:17" title="2026/07/25 a las 13:17">Ayer a las 13:17</time></a></li>
+						
+							<li><a href="/foros/preguntas-y-respuestas.134/">Preguntas y respuestas</a></li>
+						
+					</ul>
+
+					
+						<span class="structItem-pageJump">
+						
+							<a href="/temas/%C2%BFes-muy-costo-adoptar-un-gatito.1380734/page-2">2</a>
+						
+							<a href="/temas/%C2%BFes-muy-costo-adoptar-un-gatito.1380734/page-3">3</a>
+						
+							<a href="/temas/%C2%BFes-muy-costo-adoptar-un-gatito.1380734/page-4">4</a>
+						
+						</span>
+					
+				
+			</div>
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--meta" title="Puntuación de la reacción del primer mensaje: 8">
+			<dl class="pairs pairs--justified">
+				<dt>Respuestas</dt>
+				<dd>63</dd>
+			</dl>
+			<dl class="pairs pairs--justified structItem-minor">
+				<dt>Vistas</dt>
+				<dd>642</dd>
+			</dl>
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--latest">
+			
+				<a href="/temas/%C2%BFes-muy-costo-adoptar-un-gatito.1380734/latest" rel="nofollow"><time  class="structItem-latestDate u-dt" dir="auto" datetime="2026-07-26T01:19:03-0400" data-time="1785043143" data-date-string="2026/07/26" data-time-string="01:19" title="2026/07/26 a las 01:19">Hace 34 minutos</time></a>
+				<div class="structItem-minor">
+					
+						<a href="/members/mkharq.43875/" class="username " dir="auto" data-user-id="43875" data-xf-init="member-tooltip">mkharq</a>
+					
+				</div>
+			
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--icon structItem-cell--iconEnd">
+			<div class="structItem-iconContainer">
+				
+					<a href="/members/mkharq.43875/" class="avatar avatar--xxs" data-user-id="43875" data-xf-init="member-tooltip">
+			<img src="/data/avatars/s/43/43875.jpg?1784853162"  alt="mkharq" class="avatar-u43875-s" width="48" height="48" loading="lazy" /> 
+		</a>
+				
+			</div>
+		</div>
+	
+
+	</div>
+
+							
+								
+
+	
+
+	<div class="structItem structItem--thread js-inlineModContainer js-threadListItem-1380620" data-author="DesdeElPeral">
+
+	
+		<div class="structItem-cell structItem-cell--icon">
+			<div class="structItem-iconContainer">
+				<a href="/members/desdeelperal.603683/" class="avatar avatar--s" data-user-id="603683" data-xf-init="member-tooltip">
+			<img src="/data/avatars/s/603/603683.jpg?1784900573" srcset="/data/avatars/m/603/603683.jpg?1784900573 2x" alt="DesdeElPeral" class="avatar-u603683-s" width="48" height="48" loading="lazy" /> 
+		</a>
+				
+			</div>
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--main" data-xf-init="touch-proxy">
+			
+
+			<div class="structItem-title">
+				
+				
+				<a href="/temas/2-mujeres-desaparecieron-tras-salir-de-discoteca-en-pe%C3%B1alol%C3%A9n-iban-al-caj%C3%B3n-del-maipo-con-un-hombre.1380620/" class="" data-tp-primary="on" data-xf-init="preview-tooltip" data-preview-url="/temas/2-mujeres-desaparecieron-tras-salir-de-discoteca-en-pe%C3%B1alol%C3%A9n-iban-al-caj%C3%B3n-del-maipo-con-un-hombre.1380620/preview">2 mujeres desaparecieron tras salir de discoteca en Peñalolén: iban al Cajón del Maipo con un hombre</a>
+	
+	
+
+			</div>
+
+			<div class="structItem-minor">
+				
+
+				
+					<ul class="structItem-parts">
+						<li><a href="/members/desdeelperal.603683/" class="username " dir="auto" data-user-id="603683" data-xf-init="member-tooltip">DesdeElPeral</a></li>
+						<li class="structItem-startDate"><a href="/temas/2-mujeres-desaparecieron-tras-salir-de-discoteca-en-pe%C3%B1alol%C3%A9n-iban-al-caj%C3%B3n-del-maipo-con-un-hombre.1380620/" rel="nofollow"><time  class="u-dt" dir="auto" datetime="2026-07-19T09:08:36-0400" data-time="1784466516" data-date-string="2026/07/19" data-time-string="09:08" title="2026/07/19 a las 09:08">2026/07/19</time></a></li>
+						
+							<li><a href="/foros/lum.188/">LUM</a></li>
+						
+					</ul>
+
+					
+						<span class="structItem-pageJump">
+						
+							<a href="/temas/2-mujeres-desaparecieron-tras-salir-de-discoteca-en-pe%C3%B1alol%C3%A9n-iban-al-caj%C3%B3n-del-maipo-con-un-hombre.1380620/page-56">56</a>
+						
+							<a href="/temas/2-mujeres-desaparecieron-tras-salir-de-discoteca-en-pe%C3%B1alol%C3%A9n-iban-al-caj%C3%B3n-del-maipo-con-un-hombre.1380620/page-57">57</a>
+						
+							<a href="/temas/2-mujeres-desaparecieron-tras-salir-de-discoteca-en-pe%C3%B1alol%C3%A9n-iban-al-caj%C3%B3n-del-maipo-con-un-hombre.1380620/page-58">58</a>
+						
+						</span>
+					
+				
+			</div>
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--meta" title="Puntuación de la reacción del primer mensaje: 25">
+			<dl class="pairs pairs--justified">
+				<dt>Respuestas</dt>
+				<dd>1 K</dd>
+			</dl>
+			<dl class="pairs pairs--justified structItem-minor">
+				<dt>Vistas</dt>
+				<dd>42 K</dd>
+			</dl>
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--latest">
+			
+				<a href="/temas/2-mujeres-desaparecieron-tras-salir-de-discoteca-en-pe%C3%B1alol%C3%A9n-iban-al-caj%C3%B3n-del-maipo-con-un-hombre.1380620/latest" rel="nofollow"><time  class="structItem-latestDate u-dt" dir="auto" datetime="2026-07-26T01:03:08-0400" data-time="1785042188" data-date-string="2026/07/26" data-time-string="01:03" title="2026/07/26 a las 01:03">Hace 50 minutos</time></a>
+				<div class="structItem-minor">
+					
+						<a href="/members/bibendum.588641/" class="username " dir="auto" data-user-id="588641" data-xf-init="member-tooltip">bibendum</a>
+					
+				</div>
+			
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--icon structItem-cell--iconEnd">
+			<div class="structItem-iconContainer">
+				
+					<a href="/members/bibendum.588641/" class="avatar avatar--xxs" data-user-id="588641" data-xf-init="member-tooltip">
+			<img src="/data/avatars/s/588/588641.jpg?1781749292"  alt="bibendum" class="avatar-u588641-s" width="48" height="48" loading="lazy" /> 
+		</a>
+				
+			</div>
+		</div>
+	
+
+	</div>
+
+							
+								
+
+	
+
+	<div class="structItem structItem--thread js-inlineModContainer js-threadListItem-1380684" data-author="Mister_H">
+
+	
+		<div class="structItem-cell structItem-cell--icon">
+			<div class="structItem-iconContainer">
+				<a href="/members/mister_h.176092/" class="avatar avatar--s" data-user-id="176092" data-xf-init="member-tooltip">
+			<img src="/data/avatars/s/176/176092.jpg?1767977086" srcset="/data/avatars/m/176/176092.jpg?1767977086 2x" alt="Mister_H" class="avatar-u176092-s" width="48" height="48" loading="lazy" /> 
+		</a>
+				
+			</div>
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--main" data-xf-init="touch-proxy">
+			
+
+			<div class="structItem-title">
+				
+				
+				<a href="/temas/burlas-causan-en-las-redes-el-sal%C3%B3n-vip-del-aeropuerto-de-osorno.1380684/" class="" data-tp-primary="on" data-xf-init="preview-tooltip" data-preview-url="/temas/burlas-causan-en-las-redes-el-sal%C3%B3n-vip-del-aeropuerto-de-osorno.1380684/preview">Burlas causan en las redes el Salón &quot;VIP&quot; del Aeropuerto de Osorno</a>
+	
+	
+
+			</div>
+
+			<div class="structItem-minor">
+				
+
+				
+					<ul class="structItem-parts">
+						<li><a href="/members/mister_h.176092/" class="username " dir="auto" data-user-id="176092" data-xf-init="member-tooltip">Mister_H</a></li>
+						<li class="structItem-startDate"><a href="/temas/burlas-causan-en-las-redes-el-sal%C3%B3n-vip-del-aeropuerto-de-osorno.1380684/" rel="nofollow"><time  class="u-dt" dir="auto" datetime="2026-07-22T14:47:47-0400" data-time="1784746067" data-date-string="2026/07/22" data-time-string="14:47" title="2026/07/22 a las 14:47">miércoles a las 14:47</time></a></li>
+						
+							<li><a href="/foros/lum.188/">LUM</a></li>
+						
+					</ul>
+
+					
+						<span class="structItem-pageJump">
+						
+							<a href="/temas/burlas-causan-en-las-redes-el-sal%C3%B3n-vip-del-aeropuerto-de-osorno.1380684/page-2">2</a>
+						
+							<a href="/temas/burlas-causan-en-las-redes-el-sal%C3%B3n-vip-del-aeropuerto-de-osorno.1380684/page-3">3</a>
+						
+							<a href="/temas/burlas-causan-en-las-redes-el-sal%C3%B3n-vip-del-aeropuerto-de-osorno.1380684/page-4">4</a>
+						
+						</span>
+					
+				
+			</div>
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--meta" title="Puntuación de la reacción del primer mensaje: 36">
+			<dl class="pairs pairs--justified">
+				<dt>Respuestas</dt>
+				<dd>64</dd>
+			</dl>
+			<dl class="pairs pairs--justified structItem-minor">
+				<dt>Vistas</dt>
+				<dd>1 K</dd>
+			</dl>
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--latest">
+			
+				<a href="/temas/burlas-causan-en-las-redes-el-sal%C3%B3n-vip-del-aeropuerto-de-osorno.1380684/latest" rel="nofollow"><time  class="structItem-latestDate u-dt" dir="auto" datetime="2026-07-26T00:59:42-0400" data-time="1785041982" data-date-string="2026/07/26" data-time-string="00:59" title="2026/07/26 a las 00:59">Hace 53 minutos</time></a>
+				<div class="structItem-minor">
+					
+						<a href="/members/bibendum.588641/" class="username " dir="auto" data-user-id="588641" data-xf-init="member-tooltip">bibendum</a>
+					
+				</div>
+			
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--icon structItem-cell--iconEnd">
+			<div class="structItem-iconContainer">
+				
+					<a href="/members/bibendum.588641/" class="avatar avatar--xxs" data-user-id="588641" data-xf-init="member-tooltip">
+			<img src="/data/avatars/s/588/588641.jpg?1781749292"  alt="bibendum" class="avatar-u588641-s" width="48" height="48" loading="lazy" /> 
+		</a>
+				
+			</div>
+		</div>
+	
+
+	</div>
+
+							
+								
+
+	
+
+	<div class="structItem structItem--thread js-inlineModContainer js-threadListItem-1375516" data-author="WOLFPACK">
+
+	
+		<div class="structItem-cell structItem-cell--icon">
+			<div class="structItem-iconContainer">
+				<a href="/members/wolfpack.496801/" class="avatar avatar--s" data-user-id="496801" data-xf-init="member-tooltip">
+			<img src="/data/avatars/s/496/496801.jpg?1776132274" srcset="/data/avatars/m/496/496801.jpg?1776132274 2x" alt="WOLFPACK" class="avatar-u496801-s" width="48" height="48" loading="lazy" /> 
+		</a>
+				
+			</div>
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--main" data-xf-init="touch-proxy">
+			
+
+			<div class="structItem-title">
+				
+				
+				<a href="/temas/volvio-corxea-a-transmitir.1375516/" class="" data-tp-primary="on" data-xf-init="preview-tooltip" data-preview-url="/temas/volvio-corxea-a-transmitir.1375516/preview">volvio corxea a transmitir</a>
+	
+	
+
+			</div>
+
+			<div class="structItem-minor">
+				
+
+				
+					<ul class="structItem-parts">
+						<li><a href="/members/wolfpack.496801/" class="username " dir="auto" data-user-id="496801" data-xf-init="member-tooltip">WOLFPACK</a></li>
+						<li class="structItem-startDate"><a href="/temas/volvio-corxea-a-transmitir.1375516/" rel="nofollow"><time  class="u-dt" dir="auto" datetime="2025-11-27T23:32:23-0300" data-time="1764297143" data-date-string="2025/11/27" data-time-string="23:32" title="2025/11/27 a las 23:32">2025/11/27</time></a></li>
+						
+							<li><a href="/foros/el-muro.131/">El Muro</a></li>
+						
+					</ul>
+
+					
+						<span class="structItem-pageJump">
+						
+							<a href="/temas/volvio-corxea-a-transmitir.1375516/page-114">114</a>
+						
+							<a href="/temas/volvio-corxea-a-transmitir.1375516/page-115">115</a>
+						
+							<a href="/temas/volvio-corxea-a-transmitir.1375516/page-116">116</a>
+						
+						</span>
+					
+				
+			</div>
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--meta" title="Puntuación de la reacción del primer mensaje: 8">
+			<dl class="pairs pairs--justified">
+				<dt>Respuestas</dt>
+				<dd>2 K</dd>
+			</dl>
+			<dl class="pairs pairs--justified structItem-minor">
+				<dt>Vistas</dt>
+				<dd>112 K</dd>
+			</dl>
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--latest">
+			
+				<a href="/temas/volvio-corxea-a-transmitir.1375516/latest" rel="nofollow"><time  class="structItem-latestDate u-dt" dir="auto" datetime="2026-07-26T00:07:19-0400" data-time="1785038839" data-date-string="2026/07/26" data-time-string="00:07" title="2026/07/26 a las 00:07">Hoy a las 00:07</time></a>
+				<div class="structItem-minor">
+					
+						<a href="/members/thebigbossban.601864/" class="username " dir="auto" data-user-id="601864" data-xf-init="member-tooltip">thebigbossban</a>
+					
+				</div>
+			
+		</div>
+	
+
+	
+		<div class="structItem-cell structItem-cell--icon structItem-cell--iconEnd">
+			<div class="structItem-iconContainer">
+				
+					<a href="/members/thebigbossban.601864/" class="avatar avatar--xxs" data-user-id="601864" data-xf-init="member-tooltip">
+			<img src="/data/avatars/s/601/601864.jpg?1768533713"  alt="thebigbossban" class="avatar-u601864-s" width="48" height="48" loading="lazy" /> 
+		</a>
+				
+			</div>
+		</div>
+	
+
+	</div>
+
+							
+						
+					</div>
+				</div>
+				
+					<div class="block-footer">
+						<span class="block-footer-controls">
+							<a href="/whats-new/posts/?skip=1" class="button" rel="nofollow"><span class="button-text">Ver más...</span></a>
+						</span>
+					</div>
+				
+			
+		</div>
+	</div>
+
+
+</div>
+
+<div class="porta-articles-below-split porta-widgets-split">
+	
+</div>
+
+
+
+</div>
+
+				
+			</div>
+
+			
+				<div class="p-body-sidebar">
+					
+					
+
+						<div class="block">
+		<div class="block-container"  data-widget-id="24" data-widget-key="portal_fpdctm" data-widget-definition="html">
+			
+				<h3 class="block-minorHeader">FPDCTM</h3>
+			
+			<div class="block-body block-row">
+				<a href="https://www.antronio.cl/threads/fotos-para-decir-conchetumadre.1289265/unread">
+	<img src="https://www.antronio.cl/elantro/images/fpdctm/001.jpg" alt="FPDCTM" />
+</a>
+			</div>
+		</div>
+	</div>
+
+
+	
+		
+	
+	
+		<div class="block" data-widget-id="22" data-widget-key="portal_mostviewsday" data-widget-definition="dl6_most_viewed_threads">
+			<div class="block-container">
+				
+					<h3 class="block-minorHeader">
+						
+							Lo más visto del día
+						
+					</h3>
+					<ul class="block-body">
+						
+							<li class="block-row">
+								<div class="contentRow">
+	<div class="contentRow-figure">
+		<a href="/members/chancrod-van-damme.604007/" class="avatar avatar--xxs avatar--default avatar--default--dynamic" data-user-id="604007" data-xf-init="member-tooltip" style="background-color: #7a1f1f; color: #db7070">
+			<span class="avatar-u604007-s" role="img" aria-label="Chancrod Van Damme">C</span> 
+		</a>
+	</div>
+	<div class="contentRow-main contentRow-main--close">
+		<a href="/temas/%C2%BFes-muy-costo-adoptar-un-gatito.1380734/">¿Es muy costo adoptar un gatito?</a>
+		
+			<div class="contentRow-minor contentRow-minor--hideLinks">
+				<ul class="listInline listInline--bullet">
+					<li>Iniciado por Chancrod Van Damme</li>
+					<li><time  class="u-dt" dir="auto" datetime="2026-07-25T13:17:21-0400" data-time="1784999841" data-date-string="2026/07/25" data-time-string="13:17" title="2026/07/25 a las 13:17">Ayer a las 13:17</time></li>
+					<li>Vistas: 642</li>
+				</ul>
+			</div>
+			<div class="contentRow-minor contentRow-minor--hideLinks">
+				<a href="/foros/preguntas-y-respuestas.134/">Preguntas y respuestas</a>
+			</div>
+		
+	</div>
+</div>
+							</li>
+						
+							<li class="block-row">
+								<div class="contentRow">
+	<div class="contentRow-figure">
+		<a href="/members/myth.2983/" class="avatar avatar--xxs" data-user-id="2983" data-xf-init="member-tooltip">
+			<img src="/data/avatars/s/2/2983.jpg?1774642433"  alt="Myth" class="avatar-u2983-s" width="48" height="48" loading="lazy" /> 
+		</a>
+	</div>
+	<div class="contentRow-main contentRow-main--close">
+		<a href="/temas/vilc%C3%BAn-news-borracho-culiao-es-detenido-por-tirarle-una-olla-con-agua-hirviendo-en-la-cara-de-su-esposa.1380735/">Vilcún News: Borracho culiao es detenido por tirarle una olla con agua hirviendo en la cara de su esposa</a>
+		
+			<div class="contentRow-minor contentRow-minor--hideLinks">
+				<ul class="listInline listInline--bullet">
+					<li>Iniciado por Myth</li>
+					<li><time  class="u-dt" dir="auto" datetime="2026-07-25T19:05:07-0400" data-time="1785020707" data-date-string="2026/07/25" data-time-string="19:05" title="2026/07/25 a las 19:05">Ayer a las 19:05</time></li>
+					<li>Vistas: 473</li>
+				</ul>
+			</div>
+			<div class="contentRow-minor contentRow-minor--hideLinks">
+				<a href="/foros/general-y-actualidad.12/">General y Actualidad</a>
+			</div>
+		
+	</div>
+</div>
+							</li>
+						
+							<li class="block-row">
+								<div class="contentRow">
+	<div class="contentRow-figure">
+		<a href="/members/heroe_de_nadie.120473/" class="avatar avatar--xxs" data-user-id="120473" data-xf-init="member-tooltip">
+			<img src="/data/avatars/s/120/120473.jpg?1730338215"  alt="Heroe_de_nadie" class="avatar-u120473-s" width="48" height="48" loading="lazy" /> 
+		</a>
+	</div>
+	<div class="contentRow-main contentRow-main--close">
+		<a href="/temas/tengo-una-bolsa-de-pilas-llena-para-botar.1380736/">Tengo una bolsa de pilas llena para botar...</a>
+		
+			<div class="contentRow-minor contentRow-minor--hideLinks">
+				<ul class="listInline listInline--bullet">
+					<li>Iniciado por Heroe_de_nadie</li>
+					<li><time  class="u-dt" dir="auto" datetime="2026-07-25T19:18:42-0400" data-time="1785021522" data-date-string="2026/07/25" data-time-string="19:18" title="2026/07/25 a las 19:18">Ayer a las 19:18</time></li>
+					<li>Vistas: 202</li>
+				</ul>
+			</div>
+			<div class="contentRow-minor contentRow-minor--hideLinks">
+				<a href="/foros/el-muro.131/">El Muro</a>
+			</div>
+		
+	</div>
+</div>
+							</li>
+						
+							<li class="block-row">
+								<div class="contentRow">
+	<div class="contentRow-figure">
+		<a href="/members/mister_h.176092/" class="avatar avatar--xxs" data-user-id="176092" data-xf-init="member-tooltip">
+			<img src="/data/avatars/s/176/176092.jpg?1767977086"  alt="Mister_H" class="avatar-u176092-s" width="48" height="48" loading="lazy" /> 
+		</a>
+	</div>
+	<div class="contentRow-main contentRow-main--close">
+		<a href="/temas/hbomax-lanterns-el-rol-del-tata-sinestro-2026.1380733/">[HBOMax] Lanterns - El Rol del Tata Sinestro (2026)</a>
+		
+			<div class="contentRow-minor contentRow-minor--hideLinks">
+				<ul class="listInline listInline--bullet">
+					<li>Iniciado por Mister_H</li>
+					<li><time  class="u-dt" dir="auto" datetime="2026-07-25T02:33:11-0400" data-time="1784961191" data-date-string="2026/07/25" data-time-string="02:33" title="2026/07/25 a las 02:33">Ayer a las 02:33</time></li>
+					<li>Vistas: 76</li>
+				</ul>
+			</div>
+			<div class="contentRow-minor contentRow-minor--hideLinks">
+				<a href="/foros/series-de-tv.107/">Series de TV</a>
+			</div>
+		
+	</div>
+</div>
+							</li>
+						
+					</ul>
+				
+			</div>
+		</div>
+	
+
+
+	
+		
+	
+	
+		<div class="block" data-widget-id="23" data-widget-key="portal_mostcommentsday" data-widget-definition="dl6_most_replied_threads">
+			<div class="block-container">
+				
+					<h3 class="block-minorHeader">
+						
+							Lo más comentado del día
+						
+					</h3>
+					<ul class="block-body">
+						
+							<li class="block-row">
+								<div class="contentRow">
+	<div class="contentRow-figure">
+		<a href="/members/chancrod-van-damme.604007/" class="avatar avatar--xxs avatar--default avatar--default--dynamic" data-user-id="604007" data-xf-init="member-tooltip" style="background-color: #7a1f1f; color: #db7070">
+			<span class="avatar-u604007-s" role="img" aria-label="Chancrod Van Damme">C</span> 
+		</a>
+	</div>
+	<div class="contentRow-main contentRow-main--close">
+		<a href="/temas/%C2%BFes-muy-costo-adoptar-un-gatito.1380734/">¿Es muy costo adoptar un gatito?</a>
+		
+			<div class="contentRow-minor contentRow-minor--hideLinks">
+				<ul class="listInline listInline--bullet">
+					<li>Iniciado por Chancrod Van Damme</li>
+					<li><time  class="u-dt" dir="auto" datetime="2026-07-25T13:17:21-0400" data-time="1784999841" data-date-string="2026/07/25" data-time-string="13:17" title="2026/07/25 a las 13:17">Ayer a las 13:17</time></li>
+					<li>Respuestas: 63</li>
+				</ul>
+			</div>
+			<div class="contentRow-minor contentRow-minor--hideLinks">
+				<a href="/foros/preguntas-y-respuestas.134/">Preguntas y respuestas</a>
+			</div>
+		
+	</div>
+</div>
+							</li>
+						
+							<li class="block-row">
+								<div class="contentRow">
+	<div class="contentRow-figure">
+		<a href="/members/myth.2983/" class="avatar avatar--xxs" data-user-id="2983" data-xf-init="member-tooltip">
+			<img src="/data/avatars/s/2/2983.jpg?1774642433"  alt="Myth" class="avatar-u2983-s" width="48" height="48" loading="lazy" /> 
+		</a>
+	</div>
+	<div class="contentRow-main contentRow-main--close">
+		<a href="/temas/vilc%C3%BAn-news-borracho-culiao-es-detenido-por-tirarle-una-olla-con-agua-hirviendo-en-la-cara-de-su-esposa.1380735/">Vilcún News: Borracho culiao es detenido por tirarle una olla con agua hirviendo en la cara de su esposa</a>
+		
+			<div class="contentRow-minor contentRow-minor--hideLinks">
+				<ul class="listInline listInline--bullet">
+					<li>Iniciado por Myth</li>
+					<li><time  class="u-dt" dir="auto" datetime="2026-07-25T19:05:07-0400" data-time="1785020707" data-date-string="2026/07/25" data-time-string="19:05" title="2026/07/25 a las 19:05">Ayer a las 19:05</time></li>
+					<li>Respuestas: 39</li>
+				</ul>
+			</div>
+			<div class="contentRow-minor contentRow-minor--hideLinks">
+				<a href="/foros/general-y-actualidad.12/">General y Actualidad</a>
+			</div>
+		
+	</div>
+</div>
+							</li>
+						
+							<li class="block-row">
+								<div class="contentRow">
+	<div class="contentRow-figure">
+		<a href="/members/heroe_de_nadie.120473/" class="avatar avatar--xxs" data-user-id="120473" data-xf-init="member-tooltip">
+			<img src="/data/avatars/s/120/120473.jpg?1730338215"  alt="Heroe_de_nadie" class="avatar-u120473-s" width="48" height="48" loading="lazy" /> 
+		</a>
+	</div>
+	<div class="contentRow-main contentRow-main--close">
+		<a href="/temas/tengo-una-bolsa-de-pilas-llena-para-botar.1380736/">Tengo una bolsa de pilas llena para botar...</a>
+		
+			<div class="contentRow-minor contentRow-minor--hideLinks">
+				<ul class="listInline listInline--bullet">
+					<li>Iniciado por Heroe_de_nadie</li>
+					<li><time  class="u-dt" dir="auto" datetime="2026-07-25T19:18:42-0400" data-time="1785021522" data-date-string="2026/07/25" data-time-string="19:18" title="2026/07/25 a las 19:18">Ayer a las 19:18</time></li>
+					<li>Respuestas: 23</li>
+				</ul>
+			</div>
+			<div class="contentRow-minor contentRow-minor--hideLinks">
+				<a href="/foros/el-muro.131/">El Muro</a>
+			</div>
+		
+	</div>
+</div>
+							</li>
+						
+							<li class="block-row">
+								<div class="contentRow">
+	<div class="contentRow-figure">
+		<a href="/members/mister_h.176092/" class="avatar avatar--xxs" data-user-id="176092" data-xf-init="member-tooltip">
+			<img src="/data/avatars/s/176/176092.jpg?1767977086"  alt="Mister_H" class="avatar-u176092-s" width="48" height="48" loading="lazy" /> 
+		</a>
+	</div>
+	<div class="contentRow-main contentRow-main--close">
+		<a href="/temas/hbomax-lanterns-el-rol-del-tata-sinestro-2026.1380733/">[HBOMax] Lanterns - El Rol del Tata Sinestro (2026)</a>
+		
+			<div class="contentRow-minor contentRow-minor--hideLinks">
+				<ul class="listInline listInline--bullet">
+					<li>Iniciado por Mister_H</li>
+					<li><time  class="u-dt" dir="auto" datetime="2026-07-25T02:33:11-0400" data-time="1784961191" data-date-string="2026/07/25" data-time-string="02:33" title="2026/07/25 a las 02:33">Ayer a las 02:33</time></li>
+					<li>Respuestas: 1</li>
+				</ul>
+			</div>
+			<div class="contentRow-minor contentRow-minor--hideLinks">
+				<a href="/foros/series-de-tv.107/">Series de TV</a>
+			</div>
+		
+	</div>
+</div>
+							</li>
+						
+					</ul>
+				
+			</div>
+		</div>
+	
+
+
+	<div class="block">
+		<div class="block-container"  data-widget-id="20" data-widget-key="portal_twitter" data-widget-definition="html">
+			
+				<h3 class="block-minorHeader">@elantro</h3>
+			
+			<div class="block-body block-row">
+				<a class="twitter-timeline" data-height="500" data-theme="dark" href="https://twitter.com/elantro?ref_src=twsrc%5Etfw">Tweets by elantro</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="block" data-widget-id="21" data-widget-key="portal_share" data-widget-definition="share_page">
+		<div class="block-container">
+			<h3 class="block-minorHeader">Comparte esta página</h3>
+			<div class="block-body block-row">
+				
+					
+
+	
+		
+
+		<div class="shareButtons shareButtons--iconic" data-xf-init="share-buttons" data-page-url="" data-page-title="" data-page-desc="" data-page-image="">
+			
+
+			<div class="shareButtons-buttons">
+				
+					
+						<a class="shareButtons-button shareButtons-button--brand shareButtons-button--facebook" data-href="https://www.facebook.com/sharer.php?u={url}">
+							<i aria-hidden="true"></i>
+							<span>Facebook</span>
+						</a>
+					
+
+					
+						<a class="shareButtons-button shareButtons-button--brand shareButtons-button--twitter" data-href="https://twitter.com/intent/tweet?url={url}&amp;text={title}&amp;via=elantro">
+							<i aria-hidden="true"></i>
+							<span>Twitter</span>
+						</a>
+					
+
+					
+						<a class="shareButtons-button shareButtons-button--brand shareButtons-button--reddit" data-href="https://reddit.com/submit?url={url}&amp;title={title}">
+							<i aria-hidden="true"></i>
+							<span>Reddit</span>
+						</a>
+					
+
+					
+
+					
+
+					
+						<a class="shareButtons-button shareButtons-button--brand shareButtons-button--whatsApp" data-href="https://api.whatsapp.com/send?text={title}&nbsp;{url}">
+							<i aria-hidden="true"></i>
+							<span>WhatsApp</span>
+						</a>
+					
+
+					
+
+					
+						<a class="shareButtons-button shareButtons-button--share is-hidden"
+							data-xf-init="web-share"
+							data-title="" data-text="" data-url=""
+							data-hide=".shareButtons-button:not(.shareButtons-button--share)">
+
+							<i aria-hidden="true"></i>
+							<span>Compartir</span>
+						</a>
+					
+
+					
+						<a class="shareButtons-button shareButtons-button--link is-hidden" data-clipboard="{url}">
+							<i aria-hidden="true"></i>
+							<span>Enlace</span>
+						</a>
+					
+				
+			</div>
+		</div>
+	
+
+				
+			</div>
+		</div>
+	</div>
+					
+
+					
+				</div>
+			
+		</div>
+
+		
+		
+
+	
+	
+	
+
+		
+
+		
+	</div>
+</div>
+
+
+</div> <!-- End: focus-content -->
+
+
+
+<!-- Mobile off-canvas navigation: start -->
+<div class="offCanvasMenu offCanvasMenu--nav js-headerOffCanvasMenu" data-menu="menu" aria-hidden="true" data-ocm-builder="navigation">
+	<div class="offCanvasMenu-backdrop" data-menu-close="true"></div>
+	<div class="offCanvasMenu-content">
+		<div class="offCanvasMenu-header">
+			Menú
+			<a class="offCanvasMenu-closer" data-menu-close="true" role="button" tabindex="0" aria-label="Cerrar"></a>
+		</div>
+		
+			<div class="p-offCanvasRegisterLink">
+				<div class="offCanvasMenu-linkHolder">
+					<a href="/login/" class="offCanvasMenu-link" data-xf-click="overlay" data-menu-close="true">
+					Iniciar sesión
+					</a>
+				</div>
+				<hr class="offCanvasMenu-separator" />
+				
+					<div class="offCanvasMenu-linkHolder">
+						<a href="/register/" class="offCanvasMenu-link" data-xf-click="overlay" data-menu-close="true">
+							Registro
+						</a>
+					</div>
+				<hr class="offCanvasMenu-separator" />
+				
+			</div>
+		
+		<div class="js-offCanvasNavTarget"></div>
+	</div>
+</div>
+<!-- Mobile off-canvas navigation: end -->
+
+<footer class="p-footer" id="footer">
+
+	
+
+	<div class='focus-footer'>
+		<div class='focus-width focus-footer__align'>
+
+			<div class='focus-footer-col focus-footer-col--1'><h4>ElAntro © 1999 - 2026</h4>
+<p>ElAntro y Antronio son marcas registradas (fuera de hueveo)</p></div>
+			<div class='focus-footer-col focus-footer-col--2'><h4>Deberías leer.</h4>
+<ul class='focus-footer-list'>
+<li>- <a href='https://www.antronio.cl/threads/condiciones-de-uso.958771/'>Condiciones de Uso</a></li>
+<li>- <a href='https://www.antronio.cl/threads/reglas-de-elantro.1009216/'>Reglas de la Comunidad</a></li>
+</ul></div>
+			<div class='focus-footer-col focus-footer-col--3'><h4>Deberías saber.</h4>
+<p>Sobre la comunidad y el contenido que ella genera aquí en este sitio: <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.es">ningún derecho reservado (CC0 1.0)</a>.</p></div>
+			<div class='focus-footer-col focus-footer-col--4'><h4>A nadie le importa.</h4>
+<p>ElAntro es una creación de <a href="https://actitud.xyz/esteban/">TC "El Turco"</a> y <a href="https://twitter.com/NAN0">_NANO_ "Churrejas"</a>... que nada tienen que ver con este sitio (legalmente), desde el 2011 y el 2004 respectivamente (aclaración a prueba de tarados).<br/><br/>
+Actual papa (dictador y administrador) de la Iglesia Antroniana: <a href="https://twitter.com/tintolio">Tintolio</a>.</p></div>
+
+		</div>
+	</div>
+
+
+
+	<div class='footer-bottom-wrap'>
+		<div class="p-footer-inner">
+
+			<div class="p-footer-row">
+				
+					<div class="p-footer-row-main">
+						<ul class="p-footer-linkList">
+						
+							
+							
+							
+							
+								<li><a href="/misc/language" data-xf-click="overlay"
+									data-xf-init="tooltip" title="Selector de idioma" rel="nofollow">
+									<i class="fa--xf far fa-globe" aria-hidden="true"></i> Español</a></li>
+							
+						
+						</ul>
+					</div>
+				
+				<div class="p-footer-row-opposite">
+					<ul class="p-footer-linkList">
+						
+							
+								<li><a href="/misc/contact" data-xf-click="overlay">Contactanos</a></li>
+							
+						
+
+						
+							<li><a href="/help/terms/">Términos y reglas</a></li>
+						
+
+						
+							<li><a href="/help/privacy-policy/">Politicas de privacidad</a></li>
+						
+
+						
+							<li><a href="/help/">Ayuda</a></li>
+						
+
+						
+
+						<li><a href="/foros/-/index.rss" target="_blank" class="p-footer-rssLink" title="RSS"><span aria-hidden="true"><i class="fa--xf far fa-rss" aria-hidden="true"></i><span class="u-srOnly">RSS</span></span></a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class='footer-align'>
+				<div>
+
+					
+						<div class="p-footer-copyright">
+							
+								<a href="https://xenforo.com" class="u-concealed" dir="ltr" target="_blank" rel="sponsored noopener">Community platform by XenForo<sup>&reg;</sup> <span class="copyright">&copy; 2010-2023 XenForo Ltd.</span></a>
+								
+<div class="porta-copyright">
+	<a href="https://xenforo.com/community/resources/6023/"
+		target="_blank">XenPorta 2 PRO</a> &copy; Jason Axelrod of
+	<a href="https://8wayrun.com/" target="_blank">8WAYRUN</a>
+</div>
+<div class="carta-copyright">
+	<a href="https://xenforo.com/community/resources/6393/"
+		target="_blank">XenCarta 2 PRO</a> &copy; Jason Axelrod of
+	<a href="https://8wayrun.com/" target="_blank">8WAYRUN</a>
+</div>
+							
+							<span class='xenfocus:branding'>
+	<a href='https://xenfocus.com' target='_blank' rel="noreferrer">XenForo theme</a> by xenfocus
+</span>
+						</div>
+					
+
+				</div>
+				<div>
+
+					<ul class='xenfocus-social'>
+	<!--<li><a href='#youtube.com' target='_blank'></a></li>-->
+<li><a href='https://www.facebook.com/elantrocl/' target='_blank'></a></li>
+<li><a href='https://twitter.com/elantro' target='_blank'></a></li>
+<!--<li><a href='#discordapp.com' target='_blank'></a></li>-->
+</ul>
+
+				</div>
+			</div>
+
+			
+		</div>
+	</div>
+</footer>
+
+</div></div> <!-- closing p-pageWrapper -->
+
+
+<div class='mobile-navigation-bar'>
+	<div class='focus-width'>
+		<ul class='mobile-navigation-bar__list'>
+			<li class='mobile-navigation-bar--forums'>
+				<a href="/foros/-/list">
+					<span class='mobile-navigation-bar__icon'><i class="fa--xf far fa-comments" aria-hidden="true"></i></span>
+					<span class='mobile-navigation-bar__text'>Forums</span>
+				</a>
+			</li>
+			<li class='mobile-navigation-bar--whatsnew'>
+				<a href="/whats-new/">
+					<span class='mobile-navigation-bar__icon'><i class="fa--xf far fa-file-alt" aria-hidden="true"></i></span>
+					<span class='mobile-navigation-bar__text'>Qué hay de nuevo</span>
+				</a>
+			</li>
+			
+				<li class='mobile-navigation-bar--login'>
+					<a href="/login/" rel="nofollow" data-xf-click="overlay" data-follow-redirects="on">
+						<span class='mobile-navigation-bar__icon'><i class="fa--xf far fa-sign-in-alt" aria-hidden="true"></i></span>
+						<span class='mobile-navigation-bar__text'>Iniciar sesión</span>
+					</a>
+				</li>
+				
+					<li class='mobile-navigation-bar--register'>
+						<a href="/register/" rel="nofollow" data-xf-click="overlay" data-follow-redirects="on">
+							<span class='mobile-navigation-bar__icon'><i class="fa--xf far fa-user-plus" aria-hidden="true"></i></span>
+							<span class='mobile-navigation-bar__text'>Registro</span>
+						</a>
+					</li>
+				
+			
+			
+		</ul>
+	</div>
+</div>
+
+
+
+
+<div class="u-bottomFixer js-bottomFixTarget">
+	
+	
+</div>
+
+<div class="u-navButtons js-navButtons" data-trigger-type="up">
+	<a href="javascript:" class="button--scroll button"><span class="button-text"><i class="fa--xf far fa-arrow-left" aria-hidden="true"></i><span class="u-srOnly">Volver</span></span></a>
+</div>
+
+
+	<div class="u-scrollButtons js-scrollButtons" data-trigger-type="up">
+		<a href="#top" class="button--scroll button" data-xf-click="scroll-to"><span class="button-text"><i class="fa--xf far fa-arrow-up" aria-hidden="true"></i><span class="u-srOnly">Arriba</span></span></a>
+		
+	</div>
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script><script>window.jQuery || document.write('<script src="/js/vendor/jquery/jquery-3.5.1.min.js?_v=5d2db260"><\/script>')</script>
+	<script src="/js/vendor/vendor-compiled.js?_v=5d2db260"></script>
+	<script src="/js/xf/core-compiled.js?_v=5d2db260"></script>
+	<script src="/js/8wayrun/porta/portal.js?_v=5d2db260"></script>
+<script src="/js/xf/notice.min.js?_v=5d2db260"></script>
+<script>
+
+	if ('serviceWorker' in navigator) {
+		// Override the default scope of '/' with './', so that the registration applies
+		// to the current directory and everything underneath it.
+		navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+			// At this point, registration has taken place.
+			// The service worker will not handle requests until this page and any
+			// other instances of this page (in other tabs, etc.) have been
+			// closed/reloaded.
+			console.log('ServiceWorker registration successful with scope: ', registration.scope);
+		}).catch(function(error) {
+			// Something went wrong during registration. The service-worker.js file
+			// might be unavailable or contain a syntax error.
+			console.log('ServiceWorker registration failed: ', error);
+		});
+	} else {
+		// The current browser doesn't support service workers.
+		var aElement = document.createElement('a');
+		aElement.href = 'http://www.chromium.org/blink/serviceworker/service-worker-faq';
+		aElement.textContent = 'unavailable';
+		console.log(' ', aElement);
+	}
+	window.addEventListener('beforeinstallprompt', function(e) {
+		// beforeinstallprompt Event fired
+
+		// e.userChoice will return a Promise.
+		// For more details read: https://developers.google.com/web/fundamentals/getting-started/primers/promises
+		e.userChoice.then(function(choiceResult) {
+
+			console.log(choiceResult.outcome);
+
+			if(choiceResult.outcome == 'dismissed') {
+				console.log('User cancelled home screen install');
+			}
+			else {
+				console.log('User added to home screen');
+			}
+		});
+	});
+
+</script>
+
+
+	<script>
+		jQuery.extend(true, XF.config, {
+			// 
+			userId: 0,
+			enablePush: false,
+			pushAppServerKey: '',
+			url: {
+				fullBase: 'https://www.antronio.cl/',
+				basePath: '/',
+				css: '/css.php?css=__SENTINEL__&s=6&l=4&d=1767280666',
+				keepAlive: '/login/keep-alive'
+			},
+			cookie: {
+				path: '/',
+				domain: '',
+				prefix: 'xf_',
+				secure: true,
+				consentMode: 'disabled',
+				consented: ["optional","_third_party"]
+			},
+			cacheKey: 'ac738f6fe676cd3fd0b5f77b238b4c85',
+			csrf: '1785045216,ef2cde159ecc3e916ba6cb63d63f25ce',
+			js: {"\/js\/8wayrun\/porta\/portal.js?_v=5d2db260":true,"\/js\/xf\/notice.min.js?_v=5d2db260":true},
+			css: {"public:EWRporta.less":true,"public:EWRporta_articles.less":true,"public:message.less":true,"public:notices.less":true,"public:share_controls.less":true,"public:structured_list.less":true,"public:extra.less":true},
+			time: {
+				now: 1785045216,
+				today: 1785038400,
+				todayDow: 0,
+				tomorrow: 1785124800,
+				yesterday: 1784952000,
+				week: 1784520000
+			},
+			borderSizeFeature: '3px',
+			fontAwesomeWeight: 'r',
+			enableRtnProtect: true,
+			
+			enableFormSubmitSticky: true,
+			uploadMaxFilesize: 8388608,
+			allowedVideoExtensions: ["m4v","mov","mp4","mp4v","mpeg","mpg","ogv","webm"],
+			allowedAudioExtensions: ["mp3","opus","ogg","wav"],
+			shortcodeToEmoji: true,
+			visitorCounts: {
+				conversations_unread: '0',
+				alerts_unviewed: '0',
+				total_unread: '0',
+				title_count: true,
+				icon_indicator: true
+			},
+			jsState: {},
+			publicMetadataLogoUrl: '',
+			publicPushBadgeUrl: 'https://www.antronio.cl/styles/default/xenforo/bell.png'
+		});
+
+		jQuery.extend(XF.phrases, {
+			// 
+			date_x_at_time_y: "{date} a las {time}",
+			day_x_at_time_y:  "{day} a las {time}",
+			yesterday_at_x:   "Ayer a las {time}",
+			x_minutes_ago:    "Hace {minutes} minutos",
+			one_minute_ago:   "Hace 1 minuto",
+			a_moment_ago:     "Hace un momento",
+			today_at_x:       "Hoy a las {time}",
+			in_a_moment:      "En un momento",
+			in_a_minute:      "En un minuto",
+			in_x_minutes:     "En {minutes} minutos",
+			later_today_at_x: "Más tarde hoy a las {time}",
+			tomorrow_at_x:    "Mañana a las {time}",
+
+			day0: "domingo",
+			day1: "lunes",
+			day2: "martes",
+			day3: "miércoles",
+			day4: "jueves",
+			day5: "viernes",
+			day6: "sábado",
+
+			dayShort0: "Dom",
+			dayShort1: "Lun",
+			dayShort2: "Mar",
+			dayShort3: "Mié",
+			dayShort4: "Jue",
+			dayShort5: "Vie",
+			dayShort6: "Sab",
+
+			month0: "Enero",
+			month1: "Febrero",
+			month2: "Marzo",
+			month3: "Abril",
+			month4: "Mayo",
+			month5: "Junio",
+			month6: "Julio",
+			month7: "Agosto",
+			month8: "Septiembre",
+			month9: "Octubre",
+			month10: "Noviembre",
+			month11: "Diciembre",
+
+			active_user_changed_reload_page: "El usuario activo ha cambiado. Vuelve a cargar la página para obtener la última versión.",
+			server_did_not_respond_in_time_try_again: "El servidor no respondió a tiempo. Por favor, inténtalo de nuevo.",
+			oops_we_ran_into_some_problems: "¡Ups! Nos encontramos con algunos problemas.",
+			oops_we_ran_into_some_problems_more_details_console: "¡Ups! Nos encontramos con algunos problemas. Por favor, inténtalo de nuevo más tarde. Más detalles del error pueden estar en la consola del navegador.",
+			file_too_large_to_upload: "El archivo es demasiado grande para ser cargado.",
+			uploaded_file_is_too_large_for_server_to_process: "El archivo cargado es demasiado grande para que el servidor lo procese.",
+			files_being_uploaded_are_you_sure: "Los archivos todavía se están cargando. ¿Estás seguro de que deseas enviar este formulario?",
+			attach: "Adjuntar archivos",
+			rich_text_box: "Cuadro de texto enriquecido",
+			close: "Cerrar",
+			link_copied_to_clipboard: "Enlace copiado al portapapeles.",
+			text_copied_to_clipboard: "Texto copiado al portapapeles.",
+			loading: "Cargando...",
+			you_have_exceeded_maximum_number_of_selectable_items: "You have exceeded the maximum number of selectable items.",
+
+			processing: "Procesando",
+			'processing...': "Procesando...",
+
+			showing_x_of_y_items: "Mostrando {count} de {total} artículos",
+			showing_all_items: "Mostrando todos los artículos",
+			no_items_to_display: "No hay artículos para mostrar",
+
+			number_button_up: "Increase",
+			number_button_down: "Decrease",
+
+			push_enable_notification_title: "Notificaciones push habilitadas exitosamente en ElAntro",
+			push_enable_notification_body: "¡Gracias por activar las notificaciones push!",
+
+			pull_down_to_refresh: "Pull down to refresh",
+			release_to_refresh: "Release to refresh",
+			refreshing: "Refreshing..."
+		,
+			"svStandardLib_time.day": "{count} day",
+			"svStandardLib_time.days": "{count} días",
+			"svStandardLib_time.hour": "{count} hour",
+			"svStandardLib_time.hours": "{count} horas",
+			"svStandardLib_time.minute": "{count} minutos",
+			"svStandardLib_time.minutes": "{count} minutos",
+			"svStandardLib_time.month": "{count} month",
+			"svStandardLib_time.months": "{count} meses",
+			"svStandardLib_time.second": "{count} second",
+			"svStandardLib_time.seconds": "{count} segundos",
+			"svStandardLib_time.week": "time.week",
+			"svStandardLib_time.weeks": "{count} semanas",
+			"svStandardLib_time.year": "{count} year",
+			"svStandardLib_time.years": "{count} años"
+
+		});
+	</script>
+
+	<form style="display:none" hidden="hidden">
+		<input type="text" name="_xfClientLoadTime" value="" id="_xfClientLoadTime" title="_xfClientLoadTime" tabindex="-1" />
+	</form>
+
+	
+
+
+
+
+
+
+<script>
+
+$(document).ready(function(){
+	var html = $('#XF');
+	
+	
+		// Advanced search menu
+		$('.focus-search-advanced').on('click', function(){ html.toggleClass('focus-search-menu-active'); });
+		$('.focus-search-flex input').on('focus', function(){ html.addClass('focus-search-menu-active'); });
+		$(document).on('click', function() { html.removeClass('focus-search-menu-active'); });
+		$('.focus-wrap-search').on('click', function(event){ event.stopPropagation(); });
+	
+
+	
+});
+
+	
+
+function throttle(func, wait, options) {
+	var context, args, result;
+	var timeout = null;
+	var previous = 0;
+	if (!options) options = {};
+	var later = function() {
+		previous = options.leading === false ? 0 : Date.now();
+		timeout = null;
+		result = func.apply(context, args);
+		if (!timeout) context = args = null;
+	};
+	return function() {
+		var now = Date.now();
+		if (!previous && options.leading === false) previous = now;
+		var remaining = wait - (now - previous);
+		context = this;
+		args = arguments;
+		if (remaining <= 0 || remaining > wait) {
+			if (timeout) {
+				clearTimeout(timeout);
+				timeout = null;
+			}
+			previous = now;
+			result = func.apply(context, args);
+			if (!timeout) context = args = null;
+		} else if (!timeout && options.trailing !== false) {
+			timeout = setTimeout(later, remaining);
+		}
+		return result;
+	};
+};
+var lastScrollTop = 0;
+function checkScrollDirection() {
+	var st = window.pageYOffset || document.documentElement.scrollTop;
+	if ((st < lastScrollTop) || (st <= 0)){
+		xfhtml.classList.remove('mobile-navigation-bar--hidden');
+	} else {
+		xfhtml.classList.add('mobile-navigation-bar--hidden');
+	}
+	lastScrollTop = st;
+}
+window.addEventListener("scroll", throttle(checkScrollDirection, 500));
+
+</script>
+
+
+
+
+<script type='text/javascript'>
+$(document).ready(function(){
+	// Ignored inside Quote fix
+	// https://github.com/antronio/elantro-ctm/issues/16
+	$( ".showIgnoredLink" ).click(function() { $(this).parent().hide(); });
+});
+</script>
+    
+
+
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a211693008b859ce',t:'MTc4NTA0ODAwNQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
+
+
+
+
+
+
+
+
+
