@@ -85,6 +85,21 @@ Es selección adversa: una pyme que no tiene sitio web tampoco suele tener una
 presencia social localizable por buscador. Las que sí aparecen, aparecen porque
 tienen web — y entonces no son objetivo.
 
+## Fuentes descartadas, y por qué
+
+Para que nadie repita el camino, éstas se probaron y no sirven:
+
+| Fuente | Motivo del descarte |
+|---|---|
+| `encuentraempresas.cl` (13.171 fichas) | No recopila RUT: *«No se requiere RUT, correo empresarial ni documentos adicionales»*. Los contactos están tras plan de pago |
+| `directorioempresaschile.cl` (2.000 fichas) | Fichas tras muro de membresía |
+| `infoisinfo.cl` | No expone correos en los listados |
+| `vetmap.cl` | Publica Instagram y correo, pero sólo ~135 negocios |
+| Patentes comerciales municipales | No traen razón social ni RUT, sólo rol y giro |
+| Catastros municipales de emprendedores | No existen como dato abierto nacional |
+| Buscadores (DuckDuckGo, Bing, Google, 8 SearXNG) | 202, 403, 429, captcha o sin enlaces parseables |
+| Instagram / Facebook directo | Muro de sesión |
+
 ## La regla que gobierna este repositorio
 
 **Ningún campo se rellena con datos inventados.** Un listado de mil registros
