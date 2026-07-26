@@ -45,6 +45,20 @@ es el universo completo disponible, no una muestra. La columna
 `canal_contacto` indica por dónde se llega a cada uno: 333 por teléfono, 254
 únicamente por mensaje directo en su red social.
 
+### C. `data/pymes_chilenas_consolidado.csv` — 1.670 pymes
+
+Los dos anteriores apilados en un archivo, con una columna `criterio_verificado`
+que declara por fila qué está respaldado por una fuente. **No fusiona registros**
+—son poblaciones disjuntas— sólo permite filtrar por lo que cada uso necesite.
+
+| Campo | Cobertura |
+|---|---|
+| **Sin sitio web** (todas) | 1.670 / 1.670 |
+| Teléfono | 1.389 / 1.670 |
+| RUT validado | 1.056 / 1.670 |
+| Redes sociales | 596 / 1.670 |
+| Correo | 244 / 1.670 |
+
 Cifras exactas de la última ejecución en [`data/RESUMEN.md`](data/RESUMEN.md).
 
 ## El hallazgo: RUT y redes no conviven
