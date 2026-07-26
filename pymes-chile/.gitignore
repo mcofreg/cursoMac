@@ -2,5 +2,8 @@
 __pycache__/
 *.pyc
 *.html
+*.xml
 osm*.json
 data/indice_rut_por_nombre.json
+data/overture_crudo.json
+parts.txt

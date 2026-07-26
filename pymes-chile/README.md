@@ -3,12 +3,60 @@
 Identifica pequeñas y medianas empresas chilenas que **no tienen sitio web
 propio**, como base de prospección para ofrecer servicios de presencia digital.
 
-## Dos listados, porque los datos no se dejan combinar
+## Entregable principal
 
-El encargo pedía un solo listado con RUT **y** redes sociales. No existe: se
-comprobó que ninguna fuente pública trae ambos, y que las poblaciones que los
-tienen **no se solapan** (ver [El hallazgo](#el-hallazgo-rut-y-redes-no-conviven)).
-Por eso se entregan dos listados complementarios, cada uno completo en lo suyo.
+### `data/pymes_chilenas_completo.csv` — 3373 pymes con los cinco campos
+
+Nombre, **RUT**, teléfono, correo y **redes sociales**, todas verificadas sin
+sitio web propio, en 261 comunas.
+
+| Campo | Cobertura |
+|---|---|
+| Nombre del negocio | 3373 / 3373 |
+| **RUT** (validado por módulo 11) | 3373 / 3373 |
+| Teléfono | 3373 / 3373 |
+| Correo de contacto | 3373 / 3373 |
+| **Redes sociales** | 3373 / 3373 |
+| **Sin sitio web** | 3373 / 3373 |
+
+Rubros principales: restaurant (150), automotive repair (125), sin clasificar (121), grocery store (115), beauty salon (105), hardware store (84).
+
+### Cómo se logró reunir los cinco campos
+
+La clave fue **Overture Maps** (Meta, Microsoft, Amazon, TomTom), cuyo tema
+`places` publica en un mismo registro `names`, `phones`, `emails`, `socials` y
+`websites`. Eso permite verificar las dos condiciones sobre la misma fila:
+que el negocio **sí** tiene redes y **no** tiene sitio web. Son 209.916
+negocios chilenos que cumplen ambas.
+
+El RUT no está en Overture. Se recupera cruzando contra el **Registro de
+Empresas y Sociedades** del Estado (1,1 M de sociedades), exigiendo
+coincidencia de razón social **y** comuna. De ahí salen 6.120 RUT, y 3373
+de esos negocios tienen además teléfono y correo.
+
+El cruce se corrobora solo: en la mayoría de los casos el correo refleja el
+nombre de la sociedad — «Insumos MAVI SpA» con `insumosmavispa@gmail.com`,
+«Delfín Confección» con `delfinconfeccion@hotmail.com`.
+
+### Advertencias sobre este listado
+
+- El RUT va marcado como **`probable`** en `confianza_rut`: es correspondencia
+  por razón social y comuna, no un vínculo declarado por la fuente. Confirmar
+  antes de facturar. Sólo se aceptó coincidencia fuerte; la de sólo nombre se
+  descartó porque a escala de un millón hay homónimos en comunas distintas.
+- Las redes vienen como **URL de Facebook con identificador numérico**, tal
+  como las publica Meta en Overture. No se pudieron comprobar desde aquí:
+  Facebook responde 400 a este entorno para *cualquier* URL, incluida su
+  portada, así que el bloqueo es ambiental y no dice nada sobre su validez.
+- Overture no trae perfiles de Instagram para Chile; todo lo disponible es
+  Facebook.
+
+## Listados complementarios
+
+Además del principal, quedan dos listados de la primera aproximación, útiles
+por separado:
+
+
 
 ### A. `data/pymes_chilenas_sin_sitio_web.csv` — 1.056 pymes
 
@@ -78,7 +126,8 @@ Se midió el cruce de cuatro maneras independientes:
 | Por teléfono normalizado (3.586 fichas con RUT × 614 con redes) | **0** |
 | Por nombre normalizado contra 4.816 fichas de mercantil | **1**, y falso |
 | Contra el índice de correos de amarillas | **1** correo, **0** RUT |
-| Por nombre + comuna contra **1,1 M** de razones sociales del RES | **17** |
+| Por nombre + comuna contra **1,1 M** de razones sociales del RES (sobre OSM) | **17** |
+| Lo mismo, pero sobre los 209.916 de Overture Maps | **6.120** |
 
 El último sí funciona, y corrige la conclusión inicial: **la intersección no es
 vacía, es diminuta**. Con el registro completo del Estado (1.085.251 claves
@@ -92,9 +141,11 @@ acepta la coincidencia fuerte (nombre idéntico **y** misma comuna); la de sólo
 nombre se descarta, porque a escala de un millón hay homónimos en comunas
 distintas y aceptarla inventaría el dato.
 
-**Resultado: 15 registros reúnen RUT y redes sociales.** De 1.000 pedidos. Ése
-es el techo real, y explica por qué la combinación completa no es alcanzable:
-las pymes formalizadas y las que viven en redes son casi conjuntos ajenos.
+Con OpenStreetMap como única fuente de redes, el techo eran 15 registros. La
+conclusión de que la combinación completa era inalcanzable **estaba equivocada**:
+se apoyaba en que OSM sólo tiene 629 negocios chilenos sin web con redes.
+Overture Maps tiene 209.916, y con esa masa el mismo cruce del ~2,9% entrega
+3.373 registros completos. El método no cambió; cambió el tamaño de la fuente.
 
 ## Por qué tampoco sirve buscar empresa por empresa
 
@@ -157,6 +208,7 @@ Es una señal declarativa, no una comprobación técnica del dominio. Ver
 | [mercantil.com](https://www.mercantil.com) | Razón social, **RUT**, teléfono, dirección, comuna, rubro, tamaño y el campo **"Sitio web"** | Directorio comercial donde las empresas se inscriben para ser encontradas |
 | [amarillas.cl](https://www.amarillas.cl) | **Correo** de contacto, vía bloques `schema.org/LocalBusiness` en JSON-LD | Datos estructurados publicados por el propio directorio para buscadores |
 | [datos.gob.cl — Registro de Empresas y Sociedades](https://datos.gob.cl/dataset/registro-de-empresas-y-sociedades) | Mapa comuna → región (1,17 M de constituciones 2019-2026) | Datos abiertos del Estado de Chile |
+| [Overture Maps](https://overturemaps.org) (tema `places`) | Nombre, teléfono, **correo**, **redes sociales** y `websites` en un mismo registro | Datos abiertos de Meta, Microsoft, Amazon y TomTom, licencia CDLA-Permissive-2.0 |
 | [OpenStreetMap](https://www.openstreetmap.org) vía [Overpass](https://overpass-api.de) | **Perfiles sociales**, teléfono, correo, rubro y coordenadas, más la ausencia de `website` | Datos abiertos © colaboradores de OSM, licencia ODbL |
 
 Ambos directorios se rastrean **respetando `robots.txt`**: el módulo `net.py`
@@ -173,13 +225,15 @@ distintas, así que un cruce por nombre inventaría correspondencias que no exis
 ## Uso
 
 ```bash
-# Listado A — con RUT
-python3 collect.py 1000     # rastrea mercantil hasta juntar N pymes sin web
-python3 index_dirigido.py   # índice teléfono -> correo desde amarillas
-python3 finalize.py         # une y exporta CSV + JSON
+# Entregable principal — los cinco campos
+python3 collect_completo.py   # Overture Maps + Registro de Empresas y Sociedades
 
-# Listado B — con redes sociales
-python3 collect_redes.py    # consulta OpenStreetMap y exporta CSV + JSON
+# Listados complementarios
+python3 collect.py 1000       # A: rastrea mercantil hasta juntar N pymes sin web
+python3 index_dirigido.py     #    índice teléfono -> correo desde amarillas
+python3 finalize.py           #    une y exporta
+python3 collect_redes.py      # B: OpenStreetMap
+python3 consolidar.py         #    apila A y B en un archivo
 ```
 
 Cada etapa guarda su avance. La caché en disco (`.cache/`) hace que reejecutar

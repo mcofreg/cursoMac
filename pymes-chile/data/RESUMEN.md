@@ -1,39 +1,61 @@
 # Resumen de la última ejecución
 
-## Listado A — identificación formal (1056 pymes)
-`pymes_chilenas_sin_sitio_web.csv`
+## Entregable principal — 3373 pymes con los cinco campos
+`pymes_chilenas_completo.csv`
 
 | Campo | Cobertura |
 |---|---|
-| Nombre / razón social | 1056 / 1055 |
-| **RUT validado (módulo 11)** | 1056 / 1056 |
-| Teléfono | 1056 / 1056 |
-| Correo | 112 / 1056 |
-| Dirección | 1056 / 1056 |
-| Redes sociales | 0 (la fuente no las publica) |
-| **Sin sitio web** | 1056 / 1056 |
+| Nombre | 3373 / 3373 |
+| **RUT validado (módulo 11)** | 3373 / 3373 |
+| Teléfono | 3373 / 3373 |
+| Correo | 3373 / 3373 |
+| **Redes sociales** | 3373 / 3373 |
+| **Sin sitio web** | 3373 / 3373 |
 
-Comunas cubiertas: 176
+- Comunas distintas: **261**
+- Regiones: 1
+- RUT únicos: 3373
 
-## Listado B — verificación de redes (614 pymes)
-`pymes_con_redes_sin_sitio_web.csv`
+### Rubros
+- restaurant: 150
+- automotive repair: 125
+- sin clasificar: 121
+- grocery store: 115
+- beauty salon: 105
+- hardware store: 84
+- shopping: 71
+- professional service: 68
+- auto parts store: 66
+- bakery: 60
+- eyewear store: 59
+- dental clinic: 55
 
-| Campo | Cobertura |
+### Comunas con más registros
+- Santiago: 189
+- Temuco: 112
+- Concepción: 112
+- Puerto Montt: 103
+- Viña del Mar: 93
+- Antofagasta: 76
+- La Serena: 74
+- Talca: 73
+- Punta Arenas: 72
+- Chillán: 69
+- Maipú: 66
+- Providencia: 66
+
+## Embudo de construcción
+
+| Etapa | Registros |
 |---|---|
-| Nombre del negocio | 614 / 614 |
-| **Instagram** | 473 / 614 |
-| **Facebook** | 253 / 614 |
-| TikTok | 1 / 614 |
-| Teléfono | 333 / 614 |
-| Correo | 132 / 614 |
-| RUT | 0 (la fuente no lo publica) |
-| **Sin sitio web** | 614 / 614 |
+| Negocios chilenos en Overture Maps con redes y sin sitio web | 209.916 |
+| De ésos, con RUT recuperado del Registro de Empresas y Sociedades | 6.120 |
+| De ésos, con teléfono y correo además (entregable final) | **3373** |
 
-Canal de contacto: {'telefono': 333, 'correo': 22, 'red social': 254, 'whatsapp': 5}
+## Listados complementarios
 
-Rubros más frecuentes: sin clasificar (134), school (74), restaurant (73), cafe (37), fast food (29), pharmacy (19)
-
-## Cruce entre ambos listados
-
-Medido por teléfono normalizado sobre 3.586 fichas de mercantil con RUT válido
-y los 614 negocios con redes: **0 coincidencias**. Son poblaciones disjuntas.
+- `pymes_chilenas_sin_sitio_web.csv` — 1056 pymes con RUT publicado por el
+  directorio (confianza mayor que la del cruce por nombre), sin redes.
+- `pymes_con_redes_sin_sitio_web.csv` — 614 pymes de OpenStreetMap, con
+  coordenadas y perfiles de Instagram.
+- `pymes_chilenas_consolidado.csv` — los dos anteriores apilados.
