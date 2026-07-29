@@ -1,0 +1,33 @@
+{
+  "name": "faro",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Comunicaciones de canales digitales hacia la red de sucursales",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "pnpm -r --filter './packages/**' build && pnpm -r --filter './apps/**' build",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test",
+    "lint": "pnpm -r lint",
+    "db:up": "bash scripts/db-up.sh",
+    "db:migrate": "pnpm --filter @faro/api db:migrate",
+    "db:seed": "pnpm --filter @faro/api db:seed",
+    "db:reset": "pnpm --filter @faro/api db:reset",
+    "keys:generate": "node --experimental-strip-types packages/signing/scripts/generate-keys.ts",
+    "dev": "node scripts/dev.mjs",
+    "dev:api": "pnpm --filter @faro/api dev",
+    "dev:admin": "pnpm --filter @faro/admin dev",
+    "dev:ext": "pnpm --filter @faro/extension dev",
+    "build:ext": "pnpm --filter @faro/extension build",
+    "setup": "bash scripts/setup.sh"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "playwright": "^1.62.0",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  },
+  "packageManager": "pnpm@10.33.0"
+}

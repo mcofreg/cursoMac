@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Faro — Historial</title>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0; padding: 14px; background: #f8fafc;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-size: 14px; color: #0f172a;
+      }
+      h1 { margin: 0 0 2px; font-size: 15px; }
+      .sub { margin: 0 0 14px; font-size: 12px; color: #64748b; }
+      .tarjeta {
+        background: #fff; border-radius: 9px; padding: 12px 14px; margin-bottom: 10px;
+        border-left: 4px solid #cbd5e1; box-shadow: 0 1px 3px rgba(0,0,0,.06);
+      }
+      .tarjeta.critica { border-left-color: #c62828; }
+      .tarjeta.advertencia { border-left-color: #ef6c00; }
+      .tarjeta.info { border-left-color: #1565c0; }
+      .titulo { font-weight: 650; margin-bottom: 4px; }
+      .cuerpo { font-size: 13px; color: #475569; line-height: 1.5; }
+      .meta {
+        margin-top: 8px; font-size: 11px; color: #94a3b8;
+        display: flex; gap: 10px; flex-wrap: wrap;
+      }
+      .insignia {
+        display: inline-block; padding: 1px 7px; border-radius: 99px;
+        font-size: 10px; font-weight: 650; text-transform: uppercase; letter-spacing: .03em;
+      }
+      .insignia.critica { background: #fdecea; color: #c62828; }
+      .insignia.advertencia { background: #fff4e5; color: #ef6c00; }
+      .insignia.info { background: #e8f1fb; color: #1565c0; }
+      .vacio { text-align: center; color: #94a3b8; padding: 36px 16px; font-size: 13px; }
+      button {
+        width: 100%; padding: 8px; border: 1px solid #cbd5e1; border-radius: 6px;
+        background: #fff; color: #475569; font-family: inherit; font-size: 13px;
+        cursor: pointer; margin-bottom: 12px;
+      }
+      .nota {
+        margin-top: 16px; padding-top: 12px; border-top: 1px solid #e2e8f0;
+        font-size: 11px; color: #94a3b8; line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Comunicaciones</h1>
+    <p class="sub" id="contexto">—</p>
+    <button id="sincronizar">Actualizar</button>
+    <div id="lista"></div>
+    <p class="nota">
+      Este panel no registra qué páginas visitas. Solo se mide si viste una
+      comunicación y si interactuaste con ella.
+    </p>
+    <script type="module" src="./sidepanel.ts"></script>
+  </body>
+</html>

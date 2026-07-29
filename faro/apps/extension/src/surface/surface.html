@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Faro</title>
+  </head>
+  <body>
+    <!--
+      Página SANDBOXED (declarada así en el manifiesto): corre en un origen
+      opaco, sin acceso a chrome.* ni al DOM de la aplicación del banco.
+      Trae su propia CSP, que es lo que permite que las imágenes de campaña
+      carguen sin depender del CSP de cada aplicación interna.
+    -->
+    <div id="raiz"></div>
+    <script type="module" src="./main.tsx"></script>
+  </body>
+</html>

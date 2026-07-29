@@ -1,0 +1,31 @@
+node_modules/
+dist/
+build/
+.turbo/
+coverage/
+*.tsbuildinfo
+
+# Entorno y secretos
+.env
+.env.local
+.env.*.local
+
+# Claves de firma generadas localmente (NUNCA se versionan)
+keys/
+*.pem
+*.key
+
+# Artefactos de la extensión
+*.crx
+*.zip
+apps/extension/dist/
+apps/extension/.crxjs/
+
+# Datos locales
+.data/
+pgdata/
+uploads/
+
+# Sistema
+.DS_Store
+*.log

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Faro</title>
+    <style>
+      :root { --azul: #1565c0; --rojo: #c62828; }
+      * { box-sizing: border-box; }
+      body {
+        width: 340px; margin: 0; padding: 16px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-size: 14px; color: #0f172a;
+      }
+      h1 { margin: 0 0 4px; font-size: 16px; }
+      .sub { margin: 0 0 14px; font-size: 12px; color: #64748b; }
+      .fila { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid #f1f5f9; }
+      .fila:last-child { border-bottom: 0; }
+      .etiqueta { color: #64748b; }
+      .valor { font-weight: 600; }
+      select, button { width: 100%; font-family: inherit; font-size: 14px; }
+      select { padding: 8px; border: 1px solid #cbd5e1; border-radius: 6px; margin-bottom: 8px; }
+      button {
+        padding: 9px; border: 0; border-radius: 6px; background: var(--azul);
+        color: #fff; font-weight: 600; cursor: pointer;
+      }
+      button:hover { filter: brightness(1.1); }
+      button.secundario { background: #fff; color: #475569; border: 1px solid #cbd5e1; }
+      .aviso {
+        background: #fff4e5; border-left: 3px solid #ef6c00; padding: 9px 11px;
+        border-radius: 4px; font-size: 12px; color: #7a3e00; margin-bottom: 12px;
+      }
+      .privacidad {
+        margin-top: 14px; padding-top: 12px; border-top: 1px solid #e2e8f0;
+        font-size: 11px; color: #64748b; line-height: 1.5;
+      }
+      .oculto { display: none; }
+      #estado { margin-top: 8px; font-size: 12px; text-align: center; color: #64748b; }
+    </style>
+  </head>
+  <body>
+    <h1>Faro</h1>
+    <p class="sub">Comunicaciones de canales digitales</p>
+
+    <div id="sin-sesion" class="oculto">
+      <p style="font-size: 13px; color: #475569; margin-top: 0">
+        Inicia sesión para recibir las comunicaciones de tu canal.
+      </p>
+      <select id="usuario"></select>
+      <button id="entrar">Iniciar sesión</button>
+    </div>
+
+    <div id="con-sesion" class="oculto">
+      <div id="aviso-perfil" class="aviso oculto">
+        Tu sucursal no viene del directorio corporativo. Complétala para recibir
+        las comunicaciones que corresponden a tu punto de atención.
+      </div>
+
+      <div class="fila"><span class="etiqueta">Usuario</span><span class="valor" id="v-nombre">—</span></div>
+      <div class="fila"><span class="etiqueta">Sucursal</span><span class="valor" id="v-sucursal">—</span></div>
+      <div class="fila"><span class="etiqueta">Rol</span><span class="valor" id="v-rol">—</span></div>
+      <div class="fila"><span class="etiqueta">Comunicaciones activas</span><span class="valor" id="v-campanas">0</span></div>
+      <div class="fila"><span class="etiqueta">Última sincronización</span><span class="valor" id="v-sync">—</span></div>
+      <div class="fila"><span class="etiqueta">Eventos por enviar</span><span class="valor" id="v-cola">0</span></div>
+
+      <div style="display: flex; gap: 8px; margin-top: 14px">
+        <button id="sincronizar">Sincronizar ahora</button>
+        <button id="panel" class="secundario">Ver historial</button>
+      </div>
+      <button id="salir" class="secundario" style="margin-top: 8px">Cerrar sesión</button>
+    </div>
+
+    <div id="estado"></div>
+
+    <p class="privacidad">
+      Faro no registra qué páginas visitas. No pide el permiso <code>tabs</code>
+      y solo declara acceso a las aplicaciones internas listadas en
+      <code>chrome://extensions</code>; todo lo demás es invisible para la
+      extensión. Dentro de esas aplicaciones, nada de lo que ves se guarda ni se
+      envía.
+    </p>
+
+    <script type="module" src="./popup.ts"></script>
+  </body>
+</html>
