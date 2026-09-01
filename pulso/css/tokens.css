@@ -40,13 +40,15 @@
   --azul:             #1d4ed8;
   --azul-fondo:       #e3ebfd;
 
-  /* Serie categórica para gráficos (probada en claro y oscuro) */
-  --serie-1: #4f46e5;
-  --serie-2: #0d9488;
-  --serie-3: #c2410c;
-  --serie-4: #7c3aed;
-  --serie-5: #b45309;
-  --serie-6: #0369a1;
+  /* Serie categórica para gráficos. Cada modo tiene sus propios pasos,
+     validados contra su superficie: banda de luminosidad, piso de croma,
+     separación para daltonismo y contraste. No invertir uno para obtener el otro. */
+  --serie-1: #2a78d6;
+  --serie-2: #eb6834;
+  --serie-3: #1baf7a;
+  --serie-4: #eda100;
+  --serie-5: #e87ba4;
+  --serie-6: #4a3aa7;
 
   /* Forma y ritmo */
   --r-sm: 6px;
@@ -92,12 +94,12 @@
     --azul:           #7ea6ff;
     --azul-fondo:     #141f38;
 
-    --serie-1: #8b85f5;
-    --serie-2: #2dd4bf;
-    --serie-3: #fb923c;
-    --serie-4: #c4b5fd;
-    --serie-5: #fbbf24;
-    --serie-6: #60a5fa;
+    --serie-1: #3987e5;
+    --serie-2: #d95926;
+    --serie-3: #199e70;
+    --serie-4: #c98500;
+    --serie-5: #d55181;
+    --serie-6: #9085e9;
 
     --sombra-1: 0 1px 2px rgba(0, 0, 0, .4);
     --sombra-2: 0 4px 12px rgba(0, 0, 0, .45);
@@ -137,12 +139,12 @@
   --azul:           #7ea6ff;
   --azul-fondo:     #141f38;
 
-  --serie-1: #8b85f5;
-  --serie-2: #2dd4bf;
-  --serie-3: #fb923c;
-  --serie-4: #c4b5fd;
-  --serie-5: #fbbf24;
-  --serie-6: #60a5fa;
+  --serie-1: #3987e5;
+  --serie-2: #d95926;
+  --serie-3: #199e70;
+  --serie-4: #c98500;
+  --serie-5: #d55181;
+  --serie-6: #9085e9;
 
   --sombra-1: 0 1px 2px rgba(0, 0, 0, .4);
   --sombra-2: 0 4px 12px rgba(0, 0, 0, .45);
