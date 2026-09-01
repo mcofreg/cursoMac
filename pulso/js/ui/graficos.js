@@ -111,9 +111,11 @@ function conGlobo(nodo, contenido) {
  */
 export function barrasHorizontales(datos, opciones = {}) {
   const {
-    ancho = 640, altoBarra = 26, separacion = 8,
-    anchoEtiqueta = 190, sufijo = '', titulo = '', color = 'var(--acento)',
+    ancho = 560, altoBarra = 26, separacion = 8,
+    anchoEtiqueta = 170, sufijo = '', sufijoSingular = null, titulo = '',
+    color = 'var(--acento)',
   } = opciones;
+  const unidad = (v) => (v === 1 && sufijoSingular !== null ? sufijoSingular : sufijo);
   const alto = Math.max(1, datos.length) * (altoBarra + separacion) + 6;
   const maximo = Math.max(1, ...datos.map((d) => d.valor));
   const x0 = anchoEtiqueta;
@@ -134,9 +136,9 @@ export function barrasHorizontales(datos, opciones = {}) {
       x: x0, y: y + 3, width: largo, height: altoBarra - 6,
       rx: 4, fill: d.color || color,
     }));
-    grupo.appendChild(texto(x0 + largo + 8, y + altoBarra / 2, `${formatoNumero(d.valor)}${sufijo}`,
+    grupo.appendChild(texto(x0 + largo + 8, y + altoBarra / 2, `${formatoNumero(d.valor)}${unidad(d.valor)}`,
       { fill: 'var(--texto)', peso: 650 }));
-    conGlobo(grupo, `<strong>${escapar(d.etiqueta)}</strong><br>${formatoNumero(d.valor)}${escapar(sufijo)}`
+    conGlobo(grupo, `<strong>${escapar(d.etiqueta)}</strong><br>${formatoNumero(d.valor)}${escapar(unidad(d.valor))}`
       + (d.detalle ? `<br><span style="color:var(--texto-suave)">${escapar(d.detalle)}</span>` : ''));
     svg.appendChild(grupo);
   });
@@ -149,13 +151,17 @@ export function barrasHorizontales(datos, opciones = {}) {
  * @param {{etiqueta:string, valor:number, detalle?:string}[]} datos
  */
 export function barrasVerticales(datos, opciones = {}) {
-  const { ancho = 640, alto = 190, color = 'var(--acento)', titulo = '', sufijo = '' } = opciones;
-  const margen = { arriba: 16, abajo: 30, izq: 30, der: 8 };
+  const {
+    ancho = 1100, alto = 240, color = 'var(--acento)', titulo = '',
+    sufijo = '', sufijoSingular = null,
+  } = opciones;
+  const unidad = (v) => (v === 1 && sufijoSingular !== null ? sufijoSingular : sufijo);
+  const margen = { arriba: 20, abajo: 34, izq: 34, der: 10 };
   const anchoUtil = ancho - margen.izq - margen.der;
   const altoUtil = alto - margen.arriba - margen.abajo;
   const maximo = Math.max(1, ...datos.map((d) => d.valor));
   const paso = anchoUtil / Math.max(1, datos.length);
-  const anchoBarra = Math.max(6, Math.min(46, paso - 10));
+  const anchoBarra = Math.max(6, Math.min(54, paso - 14));
   const svg = lienzo(ancho, alto, titulo);
 
   // Rejilla discreta y recesiva: solo tres referencias.
@@ -181,7 +187,7 @@ export function barrasVerticales(datos, opciones = {}) {
     }
     grupo.appendChild(texto(x + anchoBarra / 2, alto - 10, d.etiqueta,
       { anclaje: 'middle', fill: 'var(--texto-tenue)', tamano: 10 }));
-    conGlobo(grupo, `<strong>${escapar(d.etiqueta)}</strong><br>${formatoNumero(d.valor)}${escapar(sufijo)}`
+    conGlobo(grupo, `<strong>${escapar(d.etiqueta)}</strong><br>${formatoNumero(d.valor)}${escapar(unidad(d.valor))}`
       + (d.detalle ? `<br><span style="color:var(--texto-suave)">${escapar(d.detalle)}</span>` : ''));
     svg.appendChild(grupo);
   });
@@ -195,7 +201,9 @@ export function barrasVerticales(datos, opciones = {}) {
  * @param {{etiqueta:string, valor:number, color:string}[]} segmentos
  */
 export function barraApilada(segmentos, opciones = {}) {
-  const { ancho = 640, alto = 30 } = opciones;
+  // El lienzo es ancho a propósito: al escalarse al ancho disponible la altura
+  // resultante queda cerca de los 24 px, sin convertirse en un bloque.
+  const { ancho = 1200, alto = 26 } = opciones;
   const total = segmentos.reduce((s, x) => s + x.valor, 0);
   const svg = lienzo(ancho, alto, opciones.titulo || '');
   if (!total) {
