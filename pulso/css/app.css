@@ -394,3 +394,7 @@ table.tabla tr.clicable { cursor: pointer; }
   .cabecera { padding: 12px 14px; }
   .columna { flex-basis: 240px; width: 240px; }
 }
+
+/* Tabla densa: se usa en el portafolio, que lleva muchas columnas. */
+table.tabla--densa th, table.tabla--densa td { padding: 8px 9px; }
+table.tabla--densa td { font-size: 12.5px; }

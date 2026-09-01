@@ -39,15 +39,21 @@ function el(etiqueta, atributos = {}, ...hijos) {
   return nodo;
 }
 
-function lienzo(ancho, alto, titulo) {
-  const svg = el('svg', {
+/**
+ * Lienzo SVG. Por defecto ocupa el ancho disponible y conserva la proporción;
+ * con `fijo` mantiene su tamaño natural (medidores, iconos).
+ */
+function lienzo(ancho, alto, titulo, fijo = false) {
+  return el('svg', {
     viewBox: `0 0 ${ancho} ${alto}`,
-    width: '100%',
+    width: fijo ? ancho : '100%',
+    height: fijo ? alto : null,
     role: 'img',
     'aria-label': titulo || '',
-    style: `display:block;max-width:100%;height:auto;font-family:var(--fuente)`,
+    style: fijo
+      ? 'display:block;flex:0 0 auto;font-family:var(--fuente)'
+      : 'display:block;max-width:100%;height:auto;font-family:var(--fuente)',
   });
-  return svg;
 }
 
 function texto(x, y, contenido, atributos = {}) {
@@ -243,7 +249,7 @@ export function medidor(valor, opciones = {}) {
   const centro = tamano / 2;
   const circunferencia = 2 * Math.PI * radio;
   const proporcion = Math.max(0, Math.min(100, valor)) / 100;
-  const svg = lienzo(tamano, tamano, `${etiqueta}: ${valor} de 100`);
+  const svg = lienzo(tamano, tamano, `${etiqueta}: ${valor} de 100`, true);
   svg.appendChild(el('circle', {
     cx: centro, cy: centro, r: radio, fill: 'none',
     stroke: 'var(--superficie-3)', 'stroke-width': 9,
@@ -260,7 +266,7 @@ export function medidor(valor, opciones = {}) {
     svg.appendChild(texto(centro, centro + 17, etiqueta,
       { anclaje: 'middle', fill: 'var(--texto-tenue)', tamano: 10 }));
   }
-  return envolver(svg);
+  return svg;
 }
 
 /**
@@ -273,7 +279,7 @@ export function gantt(filas, opciones = {}) {
     desde, hasta, hoy, ancho = 900, altoFila = 26,
     anchoEtiqueta = 230, marcas = [],
   } = opciones;
-  const alto = filas.length * altoFila + 34;
+  const alto = filas.length * altoFila + 44;
   const x0 = anchoEtiqueta;
   const anchoUtil = ancho - x0 - 16;
   const total = Math.max(1, dias(desde, hasta));
@@ -335,7 +341,8 @@ export function gantt(filas, opciones = {}) {
       x1: x, x2: x, y1: 18, y2: alto - 4,
       stroke: 'var(--rojo)', 'stroke-width': 1.6, 'stroke-dasharray': '3 3',
     }));
-    svg.appendChild(texto(x + 5, 12, 'hoy', { fill: 'var(--rojo)', tamano: 10, peso: 650 }));
+    // La etiqueta va abajo: arriba chocaría con el nombre del mes en curso.
+    svg.appendChild(texto(x + 5, alto - 7, 'hoy', { fill: 'var(--rojo)', tamano: 10, peso: 650 }));
   }
 
   return envolver(svg, true);
