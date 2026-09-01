@@ -170,7 +170,7 @@ export const suites = [
         t.cierto(mala < 60, `esperaba salud baja, llegó ${mala}`);
       }],
       ['sin tareas la salud es 100', (t) => t.igual(M.salud(M.resumirTareas([], HOY)), 100)],
-      ['colorSalud usa los umbrales 75 y 50', (t) => {
+      ['colorSalud usa los umbrales 80 y 55', (t) => {
         t.igual(M.colorSalud(80), 'verde');
         t.igual(M.colorSalud(60), 'ambar');
         t.igual(M.colorSalud(30), 'rojo');

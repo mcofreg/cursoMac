@@ -60,25 +60,27 @@ export function resumirTareas(tareas, hoy = hoyISO()) {
 }
 
 /**
- * Índice de salud 0-100. Parte de 100 y descuenta por atrasos, bloqueos,
- * sobrecosto de esfuerzo y seguimientos abandonados.
+ * Índice de salud 0-100. Parte de 100 y descuenta por cuántas tareas van
+ * atrasadas, cuán atrasadas van, cuántas están bloqueadas, el sobrecosto de
+ * esfuerzo y los seguimientos abandonados.
  */
 export function salud(resumen) {
   if (!resumen.total) return 100;
   let puntos = 100;
-  puntos -= (resumen.atrasadas / resumen.total) * 45;
-  puntos -= (resumen.bloqueadas / resumen.total) * 20;
+  puntos -= (resumen.atrasadas / resumen.total) * 55;
+  puntos -= Math.min(15, resumen.atrasoPromedio * 0.8);
+  puntos -= (resumen.bloqueadas / resumen.total) * 25;
   if (resumen.desvioPct !== null && resumen.desvioPct > 0) {
-    puntos -= Math.min(20, resumen.desvioPct * 0.3);
+    puntos -= Math.min(15, resumen.desvioPct * 0.3);
   }
-  puntos -= ((100 - resumen.cumplimientoSeguimiento) / 100) * 15;
+  puntos -= ((100 - resumen.cumplimientoSeguimiento) / 100) * 10;
   return Math.max(0, Math.min(100, Math.round(puntos)));
 }
 
 /** Traduce el índice de salud a un color de semáforo. */
 export function colorSalud(indice) {
-  if (indice >= 75) return 'verde';
-  if (indice >= 50) return 'ambar';
+  if (indice >= 80) return 'verde';
+  if (indice >= 55) return 'ambar';
   return 'rojo';
 }
 
