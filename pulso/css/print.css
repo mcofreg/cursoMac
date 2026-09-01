@@ -17,7 +17,12 @@
   .rejilla--2 { grid-template-columns: repeat(2, 1fr); }
   h1 { font-size: 17px; }
   h2 { font-size: 13px; }
-  table.tabla { font-size: 10px; }
+
+  /* En pantalla las tablas anchas se desplazan; en papel no hay a dónde
+     desplazarse, así que se dejan fluir y se achica la letra para que quepan. */
+  .tabla-envoltura { overflow: visible !important; }
+  table.tabla { font-size: 9px; width: 100%; }
+  table.tabla th, table.tabla td { padding: 4px 5px; white-space: normal !important; }
   table.tabla th { background: #f0f0f0 !important; position: static; }
   .seccion-informe { break-inside: avoid; page-break-inside: avoid; }
   a { color: #000; text-decoration: none; }

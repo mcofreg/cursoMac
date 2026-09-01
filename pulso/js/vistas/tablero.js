@@ -143,7 +143,7 @@ function construirTablero(carril, agrupacion) {
 
     const columna = h('section', {
       class: 'columna',
-      'aria-label': `${estado.etiqueta} — ${deColumna.length} tareas`,
+      'aria-label': `${estado.etiqueta} — ${deColumna.length} ${deColumna.length === 1 ? 'tarea' : 'tareas'}`,
     },
     h('header', { class: 'columna__cab' },
       h('span', { class: `punto punto--${estado.color === 'azul' ? 'gris' : estado.color}` }),

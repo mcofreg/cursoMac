@@ -81,7 +81,7 @@ function panelSalud(metricas) {
     h('div', { class: 'tarjeta__cab' },
       h('h2', {}, 'Salud de la iniciativa'),
       pastilla(`${metricas.proyectos} proyectos`, '', { linea: true })),
-    h('div', { class: 'tarjeta__cuerpo fila fila--sup', style: { gap: '18px' } },
+    h('div', { class: 'tarjeta__cuerpo fila fila--sup envolver', style: { gap: '18px' } },
       medidor(metricas.salud, {
         color: `var(--${colorSalud(metricas.salud)})`,
         etiqueta: 'de 100',
@@ -113,7 +113,9 @@ function panelComposicion(metricas) {
       h('h2', {}, 'Tareas por estado'),
       pastilla(`${metricas.total} en total`, '', { linea: true })),
     h('div', { class: 'tarjeta__cuerpo' },
-      barraApilada(segmentos, { titulo: 'Distribución de tareas por estado' }),
+      // Media columna: el lienzo se elige angosto para que la barra no quede
+      // como una línea al escalarse.
+      barraApilada(segmentos, { ancho: 560, alto: 26, titulo: 'Distribución de tareas por estado' }),
       leyenda(segmentos.filter((s) => s.valor > 0)),
       h('div', { class: 'mt-16 fila envolver', style: { gap: '14px' } },
         dato('Cumplimiento de seguimiento', `${metricas.cumplimientoSeguimiento}%`),

@@ -177,7 +177,10 @@ input:focus, select:focus, textarea:focus { border-color: var(--acento); outline
 .tarjeta__cab h2 { flex: 1; }
 .tarjeta__cuerpo { padding: 14px; }
 
-.rejilla { display: grid; gap: 14px; }
+.rejilla { display: grid; gap: 14px; align-items: start; }
+/* Sin esto, una tabla ancha dentro de una celda estira la rejilla completa en
+   pantallas angostas en vez de desplazarse dentro de su propia caja. */
+.rejilla > * { min-width: 0; }
 .rejilla--4 { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
 .rejilla--3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
 .rejilla--2 { grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); }
@@ -391,7 +394,12 @@ table.tabla tr.clicable { cursor: pointer; }
   }
   .abrir-menu { display: inline-flex; }
   .vista { padding: 16px 14px 48px; }
-  .cabecera { padding: 12px 14px; }
+
+  /* En pantallas angostas los botones de la cabecera bajan a una segunda fila
+     en vez de empujar la página a lo ancho. */
+  .cabecera { padding: 12px 14px; flex-wrap: wrap; row-gap: 10px; }
+  .cabecera__titulo { flex: 1 1 200px; }
+  .cabecera .btn { font-size: 12.5px; padding: 6px 10px; }
   .columna { flex-basis: 240px; width: 240px; }
 }
 
