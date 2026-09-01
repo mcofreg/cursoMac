@@ -1,0 +1,11 @@
+{
+  "name": "pulso",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Seguimiento de actividades multiequipo. Aplicacion web sin dependencias ni compilacion; este archivo solo existe para que Node trate los .js como modulos ES al correr las pruebas.",
+  "type": "module",
+  "scripts": {
+    "test": "node tests/run.mjs",
+    "start": "python3 -m http.server 8000"
+  }
+}

@@ -1,0 +1,150 @@
+/* Pulso — tokens de diseño.
+   Toda la paleta se define en :root (modo claro) y se reescribe en los dos
+   bloques de modo oscuro: el automático del sistema y el forzado con
+   data-tema="oscuro". Ningún color se define solo dentro de un media query. */
+
+:root {
+  color-scheme: light;
+
+  /* Superficies */
+  --fondo:            #f4f5f7;
+  --superficie:       #ffffff;
+  --superficie-2:     #fafbfc;
+  --superficie-3:     #eef0f3;
+  --lateral:          #1c2333;
+  --lateral-texto:    #c3cad9;
+  --lateral-activo:   #2a3346;
+
+  /* Texto */
+  --texto:            #161d2b;
+  --texto-suave:      #5a6478;
+  --texto-tenue:      #8b94a6;
+  --borde:            #dfe3ea;
+  --borde-fuerte:     #c4cad6;
+
+  /* Marca */
+  --acento:           #4f46e5;
+  --acento-hover:     #4338ca;
+  --acento-suave:     #eceafd;
+  --acento-texto:     #ffffff;
+
+  /* Semáforo */
+  --verde:            #0f7b4f;
+  --verde-fondo:      #dcf5e8;
+  --ambar:            #a75f00;
+  --ambar-fondo:      #fdefd5;
+  --rojo:             #b91c1c;
+  --rojo-fondo:       #fde5e5;
+  --gris:             #6b7280;
+  --gris-fondo:       #eceef2;
+  --azul:             #1d4ed8;
+  --azul-fondo:       #e3ebfd;
+
+  /* Serie categórica para gráficos (probada en claro y oscuro) */
+  --serie-1: #4f46e5;
+  --serie-2: #0d9488;
+  --serie-3: #c2410c;
+  --serie-4: #7c3aed;
+  --serie-5: #b45309;
+  --serie-6: #0369a1;
+
+  /* Forma y ritmo */
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --sombra-1: 0 1px 2px rgba(16, 24, 40, .06), 0 1px 3px rgba(16, 24, 40, .08);
+  --sombra-2: 0 4px 12px rgba(16, 24, 40, .10);
+  --sombra-3: 0 12px 32px rgba(16, 24, 40, .18);
+  --fuente: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema="claro"]) {
+    color-scheme: dark;
+    --fondo:          #0e1118;
+    --superficie:     #171b24;
+    --superficie-2:   #1c212c;
+    --superficie-3:   #232936;
+    --lateral:        #0a0d13;
+    --lateral-texto:  #97a1b5;
+    --lateral-activo: #1e2532;
+
+    --texto:          #e8ecf3;
+    --texto-suave:    #a3adc0;
+    --texto-tenue:    #737e93;
+    --borde:          #262d3a;
+    --borde-fuerte:   #38414f;
+
+    --acento:         #8b85f5;
+    --acento-hover:   #a29cfa;
+    --acento-suave:   #262341;
+    --acento-texto:   #14121f;
+
+    --verde:          #4ade80;
+    --verde-fondo:    #10291f;
+    --ambar:          #fbbf24;
+    --ambar-fondo:    #2e2210;
+    --rojo:           #f87171;
+    --rojo-fondo:     #331414;
+    --gris:           #9ca3af;
+    --gris-fondo:     #232936;
+    --azul:           #7ea6ff;
+    --azul-fondo:     #141f38;
+
+    --serie-1: #8b85f5;
+    --serie-2: #2dd4bf;
+    --serie-3: #fb923c;
+    --serie-4: #c4b5fd;
+    --serie-5: #fbbf24;
+    --serie-6: #60a5fa;
+
+    --sombra-1: 0 1px 2px rgba(0, 0, 0, .4);
+    --sombra-2: 0 4px 12px rgba(0, 0, 0, .45);
+    --sombra-3: 0 12px 32px rgba(0, 0, 0, .6);
+  }
+}
+
+:root[data-tema="oscuro"] {
+  color-scheme: dark;
+  --fondo:          #0e1118;
+  --superficie:     #171b24;
+  --superficie-2:   #1c212c;
+  --superficie-3:   #232936;
+  --lateral:        #0a0d13;
+  --lateral-texto:  #97a1b5;
+  --lateral-activo: #1e2532;
+
+  --texto:          #e8ecf3;
+  --texto-suave:    #a3adc0;
+  --texto-tenue:    #737e93;
+  --borde:          #262d3a;
+  --borde-fuerte:   #38414f;
+
+  --acento:         #8b85f5;
+  --acento-hover:   #a29cfa;
+  --acento-suave:   #262341;
+  --acento-texto:   #14121f;
+
+  --verde:          #4ade80;
+  --verde-fondo:    #10291f;
+  --ambar:          #fbbf24;
+  --ambar-fondo:    #2e2210;
+  --rojo:           #f87171;
+  --rojo-fondo:     #331414;
+  --gris:           #9ca3af;
+  --gris-fondo:     #232936;
+  --azul:           #7ea6ff;
+  --azul-fondo:     #141f38;
+
+  --serie-1: #8b85f5;
+  --serie-2: #2dd4bf;
+  --serie-3: #fb923c;
+  --serie-4: #c4b5fd;
+  --serie-5: #fbbf24;
+  --serie-6: #60a5fa;
+
+  --sombra-1: 0 1px 2px rgba(0, 0, 0, .4);
+  --sombra-2: 0 4px 12px rgba(0, 0, 0, .45);
+  --sombra-3: 0 12px 32px rgba(0, 0, 0, .6);
+}

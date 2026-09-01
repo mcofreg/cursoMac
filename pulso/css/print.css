@@ -1,0 +1,24 @@
+/* Pulso — hoja de impresión, pensada para el informe de iniciativa. */
+@media print {
+  @page { size: A4; margin: 14mm; }
+
+  body { background: #fff; color: #000; font-size: 11px; }
+  :root { color-scheme: light; }
+
+  .lateral, .cabecera, .barra-filtros, .tostadas, .velo,
+  .no-imprimir, .btn { display: none !important; }
+
+  .solo-impresion { display: block !important; }
+  #app { display: block; }
+  .vista { padding: 0; }
+
+  .tarjeta, .kpi { box-shadow: none; border: 1px solid #bbb; break-inside: avoid; }
+  .rejilla--4 { grid-template-columns: repeat(4, 1fr); }
+  .rejilla--2 { grid-template-columns: repeat(2, 1fr); }
+  h1 { font-size: 17px; }
+  h2 { font-size: 13px; }
+  table.tabla { font-size: 10px; }
+  table.tabla th { background: #f0f0f0 !important; position: static; }
+  .seccion-informe { break-inside: avoid; page-break-inside: avoid; }
+  a { color: #000; text-decoration: none; }
+}
