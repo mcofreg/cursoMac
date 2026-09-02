@@ -1,0 +1,21 @@
+{
+  "name": "batallones-de-sudamerica",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Juego voxel de estrategia: recorre Sudamérica al mando de batallones romanos, incas o rapanui.",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "tsc --noEmit && vite build && node scripts/postbuild.mjs",
+    "preview": "vite preview --host",
+    "icons": "node scripts/make-icons.mjs"
+  },
+  "dependencies": {
+    "three": "0.169.0"
+  },
+  "devDependencies": {
+    "@types/three": "0.169.0",
+    "typescript": "^5.6.0",
+    "vite": "^5.4.0"
+  }
+}
