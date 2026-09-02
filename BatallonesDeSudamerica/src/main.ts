@@ -64,6 +64,41 @@ function renderStart(save: SaveData | null): void {
   startEl.querySelector('#btnContinue')?.addEventListener('click', () => { void launch(save!.faction, quality, save!); });
 }
 
+/** Sonda: ¿entrega el navegador un contexto WebGL utilizable? (En iOS con Modo Aislamiento o en algunos visores
+ *  embebidos el contexto se crea pero todas sus llamadas devuelven null.) */
+function probeWebGL(): 'ok' | 'none' | 'blocked' {
+  try {
+    const c = document.createElement('canvas');
+    const gl = (c.getContext('webgl2') as WebGL2RenderingContext | null);
+    if (!gl) return 'none';
+    const fmt = gl.getShaderPrecisionFormat(gl.VERTEX_SHADER, gl.HIGH_FLOAT);
+    const ok = fmt !== null && typeof gl.getParameter(gl.MAX_TEXTURE_SIZE) === 'number';
+    gl.getExtension('WEBGL_lose_context')?.loseContext();
+    return ok ? 'ok' : 'blocked';
+  } catch { return 'blocked'; }
+}
+
+function showBlocked(kind: 'none' | 'blocked'): void {
+  const inFrame = window.self !== window.top;
+  startEl.innerHTML = `<div class="loading error">
+    <h2>${kind === 'none' ? 'Este navegador no tiene WebGL2' : 'Los gráficos 3D están bloqueados aquí'}</h2>
+    <p class="blocked">${kind === 'none'
+      ? 'El juego necesita WebGL2 (Safari de iOS 15 o superior, Chrome o Firefox actuales en Android).'
+      : inFrame
+        ? 'Este visor embebido no deja usar la tarjeta gráfica. Abre el juego en una pestaña completa de Safari o Chrome.'
+        : 'El navegador creó un contexto gráfico vacío. En iPhone suele deberse al <b>Modo Aislamiento</b> (Ajustes → Privacidad y seguridad), que bloquea WebGL: desactívalo para este sitio desde el menú “aA” de Safari → Ajustes del sitio web.'}</p>
+    <div class="actions">
+      ${kind === 'blocked' ? '<button class="primary" id="btnOpen">Abrir a pantalla completa</button>' : ''}
+      <button id="btnCopy">Copiar enlace</button>
+      <button id="btnAgain">Reintentar</button>
+    </div>
+    <p class="tip">Otra opción: en la app, toca el icono de compartir (arriba a la derecha) y elige “Abrir en Safari”.</p>
+  </div>`;
+  startEl.querySelector('#btnOpen')?.addEventListener('click', () => { window.open(location.href, '_blank', 'noopener'); });
+  startEl.querySelector('#btnCopy')?.addEventListener('click', () => { navigator.clipboard?.writeText(location.href).then(() => alert('Enlace copiado. Pégalo en Safari.')).catch(() => prompt('Copia este enlace:', location.href)); });
+  startEl.querySelector('#btnAgain')?.addEventListener('click', () => renderStart(Game.load()));
+}
+
 const nextFrame = () => new Promise<void>((r) => requestAnimationFrame(() => setTimeout(r, 0)));
 
 function showError(title: string, detail: string, quality: Quality): void {
@@ -80,10 +115,8 @@ async function launch(faction: FactionId, quality: Quality, save?: SaveData): Pr
     startEl.innerHTML = `<div class="loading"><h2>Forjando el continente…</h2><p>${steps[i]}</p><div class="prog"><i style="width:${((i + 1) / (steps.length + 1)) * 100}%"></i></div></div>`;
   };
   setStep(0);
-  if (typeof WebGL2RenderingContext === 'undefined') {
-    showError('Este navegador no soporta WebGL2', 'El juego necesita WebGL2 (iOS 15+ Safari, Chrome/Android moderno). Prueba a actualizar el sistema o abrir el enlace directamente en Safari.', quality);
-    return;
-  }
+  const probe = typeof WebGL2RenderingContext === 'undefined' ? 'none' : probeWebGL();
+  if (probe !== 'ok') { showBlocked(probe); return; }
   // Intentar pantalla completa y bloqueo horizontal en móviles.
   const anyDoc = document.documentElement as HTMLElement & { webkitRequestFullscreen?: () => void };
   try { (anyDoc.requestFullscreen?.() as Promise<void> | undefined)?.catch(() => {}); } catch { /* */ }
@@ -105,10 +138,8 @@ async function launch(faction: FactionId, quality: Quality, save?: SaveData): Pr
   } catch (err) {
     const e = err as Error;
     console.error(e);
-    const gpuHint = /getShaderPrecisionFormat|WebGL|contexto/i.test(String(e?.message))
-      ? 'El navegador no entregó un contexto gráfico válido. Suele ocurrir en visores embebidos o con poca memoria: cierra otras pestañas, abre el enlace directamente en Safari (o instálalo en la pantalla de inicio) y vuelve a intentarlo.\n\n'
-      : '';
-    showError('No se pudo iniciar el juego', `${gpuHint}${e?.name ?? 'Error'}: ${e?.message ?? String(err)}\n${(e?.stack ?? '').split('\n').slice(0, 4).join('\n')}`, quality);
+    if (/getShaderPrecisionFormat|WebGL|contexto/i.test(String(e?.message))) { showBlocked('blocked'); return; }
+    showError('No se pudo iniciar el juego', `${e?.name ?? 'Error'}: ${e?.message ?? String(err)}\n${(e?.stack ?? '').split('\n').slice(0, 4).join('\n')}`, quality);
   }
 }
 

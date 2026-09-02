@@ -31,6 +31,7 @@ html, body { margin: 0; height: 100%; overflow: hidden; background: #0a1020; fon
 .loading .prog { width: min(320px, 70vw); height: 6px; margin: 18px auto 0; background: rgba(255,255,255,0.15); border-radius: 3px; overflow: hidden; }
 .loading .prog i { display: block; height: 100%; background: linear-gradient(90deg, #ffd166, #ef8f00); transition: width .3s; }
 .loading.error h2 { color: #ff8080; }
+.loading .blocked { max-width: 520px; margin: 0 auto; line-height: 1.5; font-size: 15px; }
 .loading pre { text-align: left; font-size: 12px; white-space: pre-wrap; background: rgba(0,0,0,0.4); padding: 10px; border-radius: 8px; max-width: 90vw; }
 
 /* HUD */
