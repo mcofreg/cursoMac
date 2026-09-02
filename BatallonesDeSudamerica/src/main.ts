@@ -80,8 +80,7 @@ async function launch(faction: FactionId, quality: Quality, save?: SaveData): Pr
     startEl.innerHTML = `<div class="loading"><h2>Forjando el continente…</h2><p>${steps[i]}</p><div class="prog"><i style="width:${((i + 1) / (steps.length + 1)) * 100}%"></i></div></div>`;
   };
   setStep(0);
-  const test = document.createElement('canvas').getContext('webgl2');
-  if (!test) {
+  if (typeof WebGL2RenderingContext === 'undefined') {
     showError('Este navegador no soporta WebGL2', 'El juego necesita WebGL2 (iOS 15+ Safari, Chrome/Android moderno). Prueba a actualizar el sistema o abrir el enlace directamente en Safari.', quality);
     return;
   }
@@ -106,7 +105,10 @@ async function launch(faction: FactionId, quality: Quality, save?: SaveData): Pr
   } catch (err) {
     const e = err as Error;
     console.error(e);
-    showError('No se pudo iniciar el juego', `${e?.name ?? 'Error'}: ${e?.message ?? String(err)}\n${(e?.stack ?? '').split('\n').slice(0, 6).join('\n')}`, quality);
+    const gpuHint = /getShaderPrecisionFormat|WebGL|contexto/i.test(String(e?.message))
+      ? 'El navegador no entregó un contexto gráfico válido. Suele ocurrir en visores embebidos o con poca memoria: cierra otras pestañas, abre el enlace directamente en Safari (o instálalo en la pantalla de inicio) y vuelve a intentarlo.\n\n'
+      : '';
+    showError('No se pudo iniciar el juego', `${gpuHint}${e?.name ?? 'Error'}: ${e?.message ?? String(err)}\n${(e?.stack ?? '').split('\n').slice(0, 4).join('\n')}`, quality);
   }
 }
 

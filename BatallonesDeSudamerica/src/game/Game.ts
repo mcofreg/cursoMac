@@ -83,15 +83,18 @@ export class Game {
   constructor(container: HTMLElement, hud: HUD, faction: FactionId, quality: Quality, map: WorldMap, save?: SaveData) {
     this.quality = quality;
     this.hud = hud;
-    this.renderer = new THREE.WebGLRenderer({ antialias: quality >= 1, powerPreference: 'high-performance' });
+    this.renderer = Game.createRenderer(container, quality);
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, quality === 2 ? 2 : quality === 1 ? 1.5 : 1));
     this.renderer.setSize(container.clientWidth, container.clientHeight);
+    this.renderer.domElement.addEventListener('webglcontextlost', (e) => {
+      e.preventDefault();
+      hud.toast('Se perdió el contexto gráfico. Recarga la página para continuar.', 10000);
+    });
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
     this.renderer.toneMappingExposure = 1.05;
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.renderer.shadowMap.enabled = quality >= 1;
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    container.prepend(this.renderer.domElement);
     this.camera = new THREE.PerspectiveCamera(55, container.clientWidth / container.clientHeight, 0.5, 9000);
 
     this.map = map;
@@ -150,6 +153,36 @@ export class Game {
     document.addEventListener('visibilitychange', () => { if (document.hidden) this.save(); });
     hud.bind(this);
     this.hud.toast(`${FACTIONS[faction].emoji} ${FACTIONS[faction].name}: ¡en marcha por Sudamérica!`, 4000);
+  }
+
+  /**
+   * Crea el renderizador con varios intentos: iOS Safari a veces entrega un contexto WebGL ya perdido
+   * (falla getShaderPrecisionFormat), sobre todo en visores embebidos o con 'high-performance'.
+   */
+  private static createRenderer(container: HTMLElement, quality: Quality): THREE.WebGLRenderer {
+    const attempts: THREE.WebGLRendererParameters[] = [
+      { antialias: quality >= 1, powerPreference: quality === 2 ? 'high-performance' : 'default' },
+      { antialias: false, powerPreference: 'default' },
+      { antialias: false, powerPreference: 'low-power', depth: true, stencil: false },
+    ];
+    let lastErr: unknown = null;
+    for (const params of attempts) {
+      // El canvas se inserta en el documento ANTES de crear el contexto.
+      const canvas = document.createElement('canvas');
+      canvas.style.cssText = 'display:block;width:100%;height:100%';
+      container.prepend(canvas);
+      try {
+        const r = new THREE.WebGLRenderer({ ...params, canvas, failIfMajorPerformanceCaveat: false });
+        const gl = r.getContext();
+        if (gl.isContextLost()) throw new Error('Contexto WebGL perdido al crearse');
+        return r;
+      } catch (e) {
+        lastErr = e;
+        canvas.remove();
+        console.warn('Fallo al crear WebGL con', params, e);
+      }
+    }
+    throw lastErr instanceof Error ? lastErr : new Error('No se pudo crear el contexto WebGL: ' + String(lastErr));
   }
 
   private resize(container: HTMLElement): void {
