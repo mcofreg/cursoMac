@@ -80,7 +80,7 @@ export class Game {
   private running = false;
   private tmpV = new THREE.Vector3();
 
-  constructor(container: HTMLElement, hud: HUD, faction: FactionId, quality: Quality, save?: SaveData) {
+  constructor(container: HTMLElement, hud: HUD, faction: FactionId, quality: Quality, map: WorldMap, save?: SaveData) {
     this.quality = quality;
     this.hud = hud;
     this.renderer = new THREE.WebGLRenderer({ antialias: quality >= 1, powerPreference: 'high-performance' });
@@ -94,7 +94,7 @@ export class Game {
     container.prepend(this.renderer.domElement);
     this.camera = new THREE.PerspectiveCamera(55, container.clientWidth / container.clientHeight, 0.5, 9000);
 
-    this.map = new WorldMap();
+    this.map = map;
     this.terrain = new Terrain(this.map);
     this.scene.add(this.terrain.group);
     this.sky = new Sky(this.scene);
@@ -158,6 +158,13 @@ export class Game {
     this.composer?.setSize(w, h);
     this.camera.aspect = w / h;
     this.camera.updateProjectionMatrix();
+  }
+
+  /** Compila los shaders antes del primer frame para evitar un congelamiento inicial. */
+  warmup(): void {
+    const p = this.armies.player;
+    this.terrain.update(p.x, p.z, 1);
+    this.renderer.compile(this.scene, this.camera);
   }
 
   start(): void {

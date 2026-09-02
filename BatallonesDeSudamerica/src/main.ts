@@ -2,6 +2,7 @@ import './style.css';
 import { Game, Quality, SaveData } from './game/Game';
 import { HUD } from './ui/HUD';
 import { FACTIONS, FactionId } from './game/Factions';
+import { WorldMap } from './world/SouthAmerica';
 
 const app = document.getElementById('app')!;
 const startEl = document.getElementById('start')!;
@@ -59,25 +60,62 @@ function renderStart(save: SaveData | null): void {
   const mark = () => cardsEl.forEach((c) => c.classList.toggle('sel', Number(c.dataset.f) === faction));
   cardsEl.forEach((c) => c.addEventListener('click', () => { faction = Number(c.dataset.f) as FactionId; mark(); }));
   mark();
-  startEl.querySelector('#btnNew')!.addEventListener('click', () => { Game.clearSave(); launch(faction, quality); });
-  startEl.querySelector('#btnContinue')?.addEventListener('click', () => launch(save!.faction, quality, save!));
+  startEl.querySelector('#btnNew')!.addEventListener('click', () => { Game.clearSave(); void launch(faction, quality); });
+  startEl.querySelector('#btnContinue')?.addEventListener('click', () => { void launch(save!.faction, quality, save!); });
 }
 
-function launch(faction: FactionId, quality: Quality, save?: SaveData): void {
-  startEl.innerHTML = '<div class="loading"><h2>Forjando el continente…</h2><p>Generando Andes, Amazonas y miles de batallones.</p></div>';
+const nextFrame = () => new Promise<void>((r) => requestAnimationFrame(() => setTimeout(r, 0)));
+
+function showError(title: string, detail: string, quality: Quality): void {
+  startEl.innerHTML = `<div class="loading error"><h2>${title}</h2><pre>${detail.replace(/</g, '&lt;')}</pre>
+    <div class="actions"><button class="primary" id="btnRetry">Reintentar en calidad baja</button><button id="btnBack">Volver al inicio</button></div></div>`;
+  startEl.querySelector('#btnRetry')!.addEventListener('click', () => { void launch(FactionId.Romanos, 0); });
+  startEl.querySelector('#btnBack')?.addEventListener('click', () => renderStart(Game.load()));
+  void quality;
+}
+
+async function launch(faction: FactionId, quality: Quality, save?: SaveData): Promise<void> {
+  const steps = ['Trazando costas y fronteras…', 'Levantando los Andes y el Amazonas…', 'Desplegando miles de batallones…', 'Afilando armas (compilando gráficos)…'];
+  const setStep = (i: number) => {
+    startEl.innerHTML = `<div class="loading"><h2>Forjando el continente…</h2><p>${steps[i]}</p><div class="prog"><i style="width:${((i + 1) / (steps.length + 1)) * 100}%"></i></div></div>`;
+  };
+  setStep(0);
+  const test = document.createElement('canvas').getContext('webgl2');
+  if (!test) {
+    showError('Este navegador no soporta WebGL2', 'El juego necesita WebGL2 (iOS 15+ Safari, Chrome/Android moderno). Prueba a actualizar el sistema o abrir el enlace directamente en Safari.', quality);
+    return;
+  }
   // Intentar pantalla completa y bloqueo horizontal en móviles.
   const anyDoc = document.documentElement as HTMLElement & { webkitRequestFullscreen?: () => void };
   try { (anyDoc.requestFullscreen?.() as Promise<void> | undefined)?.catch(() => {}); } catch { /* */ }
   try { (screen.orientation as unknown as { lock?: (o: string) => Promise<void> }).lock?.('landscape').catch(() => {}); } catch { /* */ }
-  setTimeout(() => {
+  try {
+    await nextFrame();
+    const map = new WorldMap();
+    setStep(1); await nextFrame();
     const hud = new HUD(hudRoot);
-    const game = new Game(app, hud, faction, quality, save);
+    const game = new Game(app, hud, faction, quality, map, save);
+    setStep(2); await nextFrame();
+    setStep(3); await nextFrame();
+    game.warmup();
+    await nextFrame();
     startEl.classList.add('hidden');
     hudRoot.classList.remove('hidden');
     game.start();
     (window as unknown as { game: Game }).game = game;
-  }, 50);
+  } catch (err) {
+    const e = err as Error;
+    console.error(e);
+    showError('No se pudo iniciar el juego', `${e?.name ?? 'Error'}: ${e?.message ?? String(err)}\n${(e?.stack ?? '').split('\n').slice(0, 6).join('\n')}`, quality);
+  }
 }
+
+window.addEventListener('error', (ev) => {
+  if (!startEl.classList.contains('hidden')) showError('Error al cargar', `${ev.message}\n${ev.filename ?? ''}:${ev.lineno ?? ''}`, 1);
+});
+window.addEventListener('unhandledrejection', (ev) => {
+  if (!startEl.classList.contains('hidden')) showError('Error al cargar', String((ev as PromiseRejectionEvent).reason), 1);
+});
 
 renderStart(Game.load());
 

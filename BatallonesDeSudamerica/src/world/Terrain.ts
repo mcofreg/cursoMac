@@ -51,17 +51,24 @@ export class Terrain {
   private buildRegion(x0: number, z0: number, w: number, d: number, step: number, coarse: boolean): THREE.BufferGeometry | null {
     const pos: number[] = [], nor: number[] = [], col: number[] = [];
     const map = this.map;
+    // Para la malla gruesa, precalcular el mínimo de cada bloque (queda siempre bajo el terreno detallado).
+    let coarseH: Int8Array | null = null;
+    const cw = Math.ceil(MAP_W / step), ch = Math.ceil(MAP_H / step);
+    if (step > 1) {
+      coarseH = new Int8Array(cw * ch).fill(127);
+      for (let z = 0; z < MAP_H; z++) {
+        const row = (z / step | 0) * cw;
+        for (let x = 0; x < MAP_W; x++) {
+          const v = map.height[z * MAP_W + x];
+          const k = row + (x / step | 0);
+          if (v < coarseH[k]) coarseH[k] = v;
+        }
+      }
+    }
     const hAt = (x: number, z: number): number => {
       if (x < 0 || z < 0 || x >= MAP_W || z >= MAP_H) return -12;
       if (step === 1) return map.height[z * MAP_W + x];
-      // Mínimo del bloque para que quede siempre bajo el terreno detallado.
-      let m = 127;
-      for (let dz = 0; dz < step; dz++) for (let dx = 0; dx < step; dx++) {
-        const xx = Math.min(MAP_W - 1, x + dx), zz = Math.min(MAP_H - 1, z + dz);
-        const v = map.height[zz * MAP_W + xx];
-        if (v < m) m = v;
-      }
-      return m;
+      return coarseH![(z / step | 0) * cw + (x / step | 0)];
     };
     const pushQuad = (
       a: number[], b: number[], c: number[], dd: number[], n: number[], cA: number[], cB: number[], cC: number[], cD: number[],

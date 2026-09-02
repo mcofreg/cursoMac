@@ -27,7 +27,11 @@ html, body { margin: 0; height: 100%; overflow: hidden; background: #0a1020; fon
 .actions button { font-size: 17px; padding: 12px 22px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.08); color: #fff; cursor: pointer; }
 .actions button.primary { background: linear-gradient(180deg, #ffd166, #ef8f00); color: #222; border-color: transparent; font-weight: 700; }
 .tip { font-size: 12px; opacity: 0.6; margin-top: 14px; }
-.loading { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; }
+.loading { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; padding: 20px; }
+.loading .prog { width: min(320px, 70vw); height: 6px; margin: 18px auto 0; background: rgba(255,255,255,0.15); border-radius: 3px; overflow: hidden; }
+.loading .prog i { display: block; height: 100%; background: linear-gradient(90deg, #ffd166, #ef8f00); transition: width .3s; }
+.loading.error h2 { color: #ff8080; }
+.loading pre { text-align: left; font-size: 12px; white-space: pre-wrap; background: rgba(0,0,0,0.4); padding: 10px; border-radius: 8px; max-width: 90vw; }
 
 /* HUD */
 #hud { position: fixed; inset: 0; pointer-events: none; }
@@ -83,3 +87,16 @@ html, body { margin: 0; height: 100%; overflow: hidden; background: #0a1020; fon
 .item.danger { border-color: rgba(255,80,80,0.5); }
 .hint { font-size: 12px; opacity: 0.7; line-height: 1.4; }
 .panel ul { font-size: 13px; line-height: 1.5; padding-left: 18px; }
+
+/* Pantallas bajas (teléfonos en horizontal): botones compactos y minimapa a su izquierda */
+@media (max-height: 520px) {
+  .buttons { gap: 6px; top: 50%; }
+  .buttons button { width: 50px; height: 50px; font-size: 18px; border-radius: 12px; }
+  .buttons button span { font-size: 8px; }
+  .minimap { width: 88px; height: 127px; right: calc(max(10px, env(safe-area-inset-right)) + 60px); bottom: max(8px, env(safe-area-inset-bottom)); }
+  .top { max-width: 55vw; gap: 6px; }
+  .stat { font-size: 13px; padding: 4px 8px; }
+  .challenges { top: calc(max(8px, env(safe-area-inset-top)) + 40px); width: min(240px, 40vw); }
+  .toasts { bottom: 4px; width: 50vw; }
+  .toast { font-size: 12px; padding: 6px 10px; }
+}

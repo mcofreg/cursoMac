@@ -192,12 +192,18 @@ export class WorldMap {
 
     const n = this.noise;
     const [tx, tz] = this.titicaca;
+    const [bx, bz] = lonLatToXZ(-47, -18);
+    const [gx, gz] = lonLatToXZ(-60, 4);
     for (let z = 0; z < MAP_H; z++) {
       const lat = LAT1 - (z / MAP_H) * (LAT1 - LAT0);
       for (let x = 0; x < MAP_W; x++) {
         const idx = z * MAP_W + x;
         const lon = LON0 + (x / MAP_W) * (LON1 - LON0);
-        const d = sample(sdf, x, z) + n.fbm(x * 0.02, z * 0.02, 3) * 4; // costa irregular
+        const d0 = sample(sdf, x, z);
+        if (d0 < -40) { // mar abierto: sin ruido
+          this.height[idx] = -12; this.biome[idx] = Biome.Ocean; this.country[idx] = 255; this.heightTex[idx] = 0; continue;
+        }
+        const d = d0 + (Math.abs(d0) < 24 ? n.fbm(x * 0.02, z * 0.02, 3) * 4 : 0); // costa irregular
         const dA = sample(andes, x, z);
         const dR = sample(river, x, z);
         const cId = ctry[Math.min(ch - 1, z >> 2) * cw + Math.min(cw - 1, x >> 2)];
@@ -215,16 +221,15 @@ export class WorldMap {
         let h = 1 + smoothstep(0, 30, d) * 2.5;
         h += (n.fbm(x * 0.012, z * 0.012, 4) + 0.3) * 3.5; // colinas suaves
         // Andes
-        const ridge = n.ridged(x * 0.022, z * 0.022, 3);
         const andesW = Math.exp(-((dA / 42) ** 2));
-        h += andesW * (16 + ridge * 20);
+        if (andesW > 0.02) h += andesW * (16 + n.ridged(x * 0.022, z * 0.022, 3) * 20);
         // Macizo brasileño y escudo guayanés
-        const [bx, bz] = lonLatToXZ(-47, -18);
         const dBr = Math.hypot(x - bx, (z - bz) * 0.8);
-        h += Math.exp(-((dBr / 320) ** 2)) * (7 + n.fbm(x * 0.03, z * 0.03, 3) * 4);
-        const [gx, gz] = lonLatToXZ(-60, 4);
+        const wBr = Math.exp(-((dBr / 320) ** 2));
+        if (wBr > 0.03) h += wBr * (7 + n.fbm(x * 0.03, z * 0.03, 3) * 4);
         const dGu = Math.hypot(x - gx, z - gz);
-        h += Math.exp(-((dGu / 130) ** 2)) * (7 + n.fbm(x * 0.04, z * 0.04, 3) * 5);
+        const wGu = Math.exp(-((dGu / 130) ** 2));
+        if (wGu > 0.03) h += wGu * (7 + n.fbm(x * 0.04, z * 0.04, 3) * 5);
         // Patagonia: mesetas escalonadas
         if (lat < -38 && dA > 60) h += 3 + Math.floor((n.fbm(x * 0.02, z * 0.02, 2) + 1) * 2);
 
@@ -244,7 +249,7 @@ export class WorldMap {
         if (lat < -50 && h > 14) biome = Biome.Snow;
 
         // Ríos: cauce a nivel 0
-        const riverW = 5 + n.noise(x * 0.05, z * 0.05) * 1.5;
+        const riverW = dR < 12 ? 5 + n.noise(x * 0.05, z * 0.05) * 1.5 : 5;
         if (dR < riverW && andesW < 0.4) {
           h = 0; biome = Biome.River;
         } else if (dR < riverW + 4 && andesW < 0.4) {
