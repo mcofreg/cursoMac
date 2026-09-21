@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Pac Web</title>
+  <meta name="description" content="Juego estilo Pac-Man para jugar en el iPhone desde Safari o instalado en la pantalla de inicio.">
+
+  <!-- PWA -->
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png">
+
+  <!-- iOS: instalar en pantalla de inicio -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Pac Web">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="hud">
+    <div class="hud-item">
+      <span class="hud-label">Puntos</span>
+      <span id="score" class="hud-value">0</span>
+    </div>
+    <div class="hud-item center">
+      <span class="hud-label">Récord</span>
+      <span id="highscore" class="hud-value">0</span>
+    </div>
+    <div class="hud-item right">
+      <span class="hud-label">Nivel <span id="level">1</span></span>
+      <span id="lives" class="lives" aria-label="Vidas"></span>
+    </div>
+  </header>
+
+  <main class="stage" id="stage">
+    <canvas id="game" width="336" height="336" aria-label="Tablero del juego"></canvas>
+
+    <div id="overlay" class="overlay">
+      <div class="overlay-card">
+        <h1 id="overlay-title">PAC WEB</h1>
+        <p id="overlay-text">Desliza el dedo o usa las flechas para moverte.<br>Come todos los puntos y esquiva a los fantasmas.</p>
+        <button id="start-btn" class="btn-primary" type="button">Jugar</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="controls">
+    <div class="side-buttons">
+      <button id="pause-btn" class="btn-icon" type="button" aria-label="Pausar">II</button>
+      <button id="sound-btn" class="btn-icon" type="button" aria-label="Sonido">♪</button>
+    </div>
+    <div class="dpad" id="dpad">
+      <button class="dpad-btn up" data-dir="up" type="button" aria-label="Arriba">▲</button>
+      <button class="dpad-btn left" data-dir="left" type="button" aria-label="Izquierda">◀</button>
+      <button class="dpad-btn right" data-dir="right" type="button" aria-label="Derecha">▶</button>
+      <button class="dpad-btn down" data-dir="down" type="button" aria-label="Abajo">▼</button>
+    </div>
+    <div class="side-buttons hint">
+      <span>Desliza en el tablero para girar</span>
+    </div>
+  </footer>
+
+  <script src="./game.js"></script>
+  <script>
+    if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('./sw.js').catch(function (err) {
+          console.warn('Service worker no registrado:', err);
+        });
+      });
+    }
+  </script>
+</body>
+</html>
