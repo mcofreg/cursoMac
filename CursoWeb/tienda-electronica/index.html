@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Voltio: celulares, notebooks, audio, gaming y hogar inteligente con despacho a todo Chile.">
+    <meta name="color-scheme" content="light dark">
+    <title>Voltio | Tienda de electrónica</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css">
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1400&q=80">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <a class="skip" href="#contenido">Saltar al contenido</a>
+
+    <!-- NAVEGACIÓN -->
+    <header class="nav">
+        <div class="nav__inner container">
+            <a href="#" class="logo" aria-label="Voltio, inicio">
+                <span class="logo__mark"><i class="ph-fill ph-lightning" aria-hidden="true"></i></span>
+                <span class="logo__word">Voltio</span>
+            </a>
+
+            <nav class="nav__links" id="menu" aria-label="Principal">
+                <a href="#categorias">Categorías</a>
+                <a href="#destacados">Destacados</a>
+                <a href="#oferta">Oferta</a>
+                <a href="#beneficios">Beneficios</a>
+            </nav>
+
+            <div class="nav__actions">
+                <a href="#destacados" class="icon-btn" aria-label="Buscar productos"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></a>
+                <button class="icon-btn cart" type="button" aria-label="Carrito, 0 productos" id="cartBtn">
+                    <i class="ph ph-shopping-bag" aria-hidden="true"></i>
+                    <span class="cart__count" id="cartCount" hidden>0</span>
+                </button>
+                <button class="icon-btn nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú" id="menuBtn">
+                    <i class="ph ph-list" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="contenido">
+
+        <!-- HERO: split asimétrico -->
+        <section class="hero container">
+            <div class="hero__copy">
+                <h1 class="hero__title">Tecnología que llega a tu casa <em>mañana</em>.</h1>
+                <p class="hero__sub">Celulares, notebooks y audio de marcas oficiales. Despacho en 24 horas en Santiago y hasta 12 cuotas sin interés.</p>
+                <div class="hero__ctas">
+                    <a href="#destacados" class="btn btn--primary">Ver catálogo <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+                    <a href="#oferta" class="btn btn--ghost">Oferta de la semana</a>
+                </div>
+            </div>
+            <figure class="hero__media">
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1400&q=80"
+                     alt="Audífonos inalámbricos negros sobre fondo amarillo"
+                     width="1400" height="1050" fetchpriority="high">
+            </figure>
+        </section>
+
+        <!-- MARCAS: solo logos -->
+        <section class="brands" aria-label="Marcas oficiales que vendemos">
+            <ul class="brands__row container">
+                <li><img class="logo-light" src="https://cdn.simpleicons.org/apple/2b2d31" alt="Apple" width="28" height="28" loading="lazy"><img class="logo-dark" src="https://cdn.simpleicons.org/apple/d9d9d4" alt="" width="28" height="28" loading="lazy"></li>
+                <li class="wordmark"><img class="logo-light" src="https://cdn.simpleicons.org/samsung/2b2d31" alt="Samsung" width="84" height="28" loading="lazy"><img class="logo-dark" src="https://cdn.simpleicons.org/samsung/d9d9d4" alt="" width="84" height="28" loading="lazy"></li>
+                <li class="wordmark"><img class="logo-light" src="https://cdn.simpleicons.org/sony/2b2d31" alt="Sony" width="72" height="28" loading="lazy"><img class="logo-dark" src="https://cdn.simpleicons.org/sony/d9d9d4" alt="" width="72" height="28" loading="lazy"></li>
+                <li><img class="logo-light" src="https://cdn.simpleicons.org/xiaomi/2b2d31" alt="Xiaomi" width="28" height="28" loading="lazy"><img class="logo-dark" src="https://cdn.simpleicons.org/xiaomi/d9d9d4" alt="" width="28" height="28" loading="lazy"></li>
+                <li class="wordmark"><img class="logo-light" src="https://cdn.simpleicons.org/lenovo/2b2d31" alt="Lenovo" width="72" height="28" loading="lazy"><img class="logo-dark" src="https://cdn.simpleicons.org/lenovo/d9d9d4" alt="" width="72" height="28" loading="lazy"></li>
+                <li class="wordmark"><img class="logo-light" src="https://cdn.simpleicons.org/jbl/2b2d31" alt="JBL" width="40" height="28" loading="lazy"><img class="logo-dark" src="https://cdn.simpleicons.org/jbl/d9d9d4" alt="" width="40" height="28" loading="lazy"></li>
+                <li><img class="logo-light" src="https://cdn.simpleicons.org/playstation/2b2d31" alt="PlayStation" width="34" height="28" loading="lazy"><img class="logo-dark" src="https://cdn.simpleicons.org/playstation/d9d9d4" alt="" width="34" height="28" loading="lazy"></li>
+            </ul>
+        </section>
+
+        <!-- CATEGORÍAS: bento de 5 celdas -->
+        <section class="section container" id="categorias">
+            <h2 class="section__title reveal">Compra por categoría</h2>
+            <div class="bento">
+                <a href="#destacados" class="tile tile--phones reveal">
+                    <img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=1000&q=75" alt="" loading="lazy">
+                    <span class="tile__label">Celulares <i class="ph ph-arrow-up-right" aria-hidden="true"></i></span>
+                </a>
+                <a href="#destacados" class="tile tile--laptops reveal">
+                    <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=900&q=75" alt="" loading="lazy">
+                    <span class="tile__label">Notebooks <i class="ph ph-arrow-up-right" aria-hidden="true"></i></span>
+                </a>
+                <a href="#destacados" class="tile tile--audio reveal">
+                    <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=700&q=75" alt="" loading="lazy">
+                    <span class="tile__label">Audio <i class="ph ph-arrow-up-right" aria-hidden="true"></i></span>
+                </a>
+                <a href="#destacados" class="tile tile--gaming reveal">
+                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=700&q=75" alt="" loading="lazy">
+                    <span class="tile__label">Gaming <i class="ph ph-arrow-up-right" aria-hidden="true"></i></span>
+                </a>
+                <a href="#destacados" class="tile tile--home reveal">
+                    <img src="https://images.unsplash.com/photo-1558089687-f282ffcbc126?w=900&q=75" alt="" loading="lazy">
+                    <span class="tile__label">Hogar inteligente <i class="ph ph-arrow-up-right" aria-hidden="true"></i></span>
+                </a>
+            </div>
+        </section>
+
+        <!-- DESTACADOS: carrusel con scroll-snap -->
+        <!-- Precios de ejemplo (mock), no son precios reales -->
+        <section class="section" id="destacados">
+            <div class="container rail__head">
+                <h2 class="section__title">Lo más vendido esta semana</h2>
+                <div class="rail__controls">
+                    <button class="icon-btn icon-btn--outline" type="button" data-rail="prev" aria-label="Productos anteriores"><i class="ph ph-caret-left" aria-hidden="true"></i></button>
+                    <button class="icon-btn icon-btn--outline" type="button" data-rail="next" aria-label="Productos siguientes"><i class="ph ph-caret-right" aria-hidden="true"></i></button>
+                </div>
+            </div>
+
+            <ul class="rail" id="rail" aria-label="Productos destacados">
+                <li class="product">
+                    <div class="product__img"><img src="https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=700&q=75" alt="Audífonos AirPods Pro junto a su estuche de carga" loading="lazy"></div>
+                    <p class="product__cat">Audio</p>
+                    <h3 class="product__name">AirPods Pro, 2.ª generación</h3>
+                    <p class="product__price">$229.990</p>
+                    <button class="btn btn--add" type="button" data-add="AirPods Pro">Agregar <i class="ph ph-plus" aria-hidden="true"></i></button>
+                </li>
+                <li class="product">
+                    <div class="product__img"><img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=700&q=75" alt="Parlante portátil JBL negro sobre una mesa de madera" loading="lazy"></div>
+                    <p class="product__cat">Audio</p>
+                    <h3 class="product__name">Parlante JBL Flip 5</h3>
+                    <p class="product__price">$99.990</p>
+                    <button class="btn btn--add" type="button" data-add="Parlante JBL Flip 5">Agregar <i class="ph ph-plus" aria-hidden="true"></i></button>
+                </li>
+                <li class="product">
+                    <div class="product__img"><img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=700&q=75" alt="Notebook gris abierto sobre fondo blanco" loading="lazy"></div>
+                    <p class="product__cat">Computación</p>
+                    <h3 class="product__name">Notebook 14" Core i5, 16 GB</h3>
+                    <p class="product__price">$649.990</p>
+                    <button class="btn btn--add" type="button" data-add="Notebook 14 pulgadas">Agregar <i class="ph ph-plus" aria-hidden="true"></i></button>
+                </li>
+                <li class="product">
+                    <div class="product__img"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=700&q=75" alt="Reloj inteligente blanco con pantalla redonda" loading="lazy"></div>
+                    <p class="product__cat">Wearables</p>
+                    <h3 class="product__name">Reloj inteligente deportivo</h3>
+                    <p class="product__price">$89.990</p>
+                    <button class="btn btn--add" type="button" data-add="Reloj inteligente">Agregar <i class="ph ph-plus" aria-hidden="true"></i></button>
+                </li>
+                <li class="product">
+                    <div class="product__img"><img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=700&q=75" alt="Smart TV encendido mostrando aplicaciones de streaming" loading="lazy"></div>
+                    <p class="product__cat">Televisores</p>
+                    <h3 class="product__name">Smart TV 55" 4K</h3>
+                    <p class="product__price">$379.990</p>
+                    <button class="btn btn--add" type="button" data-add="Smart TV 55 pulgadas">Agregar <i class="ph ph-plus" aria-hidden="true"></i></button>
+                </li>
+                <li class="product">
+                    <div class="product__img"><img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=700&q=75" alt="Audífonos over-ear negros junto a un teclado blanco" loading="lazy"></div>
+                    <p class="product__cat">Audio</p>
+                    <h3 class="product__name">Audífonos con cancelación de ruido</h3>
+                    <p class="product__price">$159.990</p>
+                    <button class="btn btn--add" type="button" data-add="Audífonos con cancelación de ruido">Agregar <i class="ph ph-plus" aria-hidden="true"></i></button>
+                </li>
+            </ul>
+        </section>
+
+        <!-- BENEFICIOS: 2x2 sin tarjetas -->
+        <section class="section container" id="beneficios">
+            <h2 class="section__title reveal">Comprar aquí es simple</h2>
+            <ul class="perks">
+                <li class="perk reveal">
+                    <i class="ph ph-truck" aria-hidden="true"></i>
+                    <div>
+                        <h3>Despacho en 24 horas</h3>
+                        <p>Compras antes de las 14:00 llegan al día siguiente en Santiago. Regiones, entre 2 y 4 días hábiles.</p>
+                    </div>
+                </li>
+                <li class="perk reveal">
+                    <i class="ph ph-shield-check" aria-hidden="true"></i>
+                    <div>
+                        <h3>Garantía oficial</h3>
+                        <p>Todos los productos traen la garantía del fabricante en Chile, más 6 meses extra con nosotros.</p>
+                    </div>
+                </li>
+                <li class="perk reveal">
+                    <i class="ph ph-credit-card" aria-hidden="true"></i>
+                    <div>
+                        <h3>Hasta 12 cuotas sin interés</h3>
+                        <p>Con tarjetas de crédito bancarias. También aceptamos débito y transferencia.</p>
+                    </div>
+                </li>
+                <li class="perk reveal">
+                    <i class="ph ph-storefront" aria-hidden="true"></i>
+                    <div>
+                        <h3>Retiro gratis en tienda</h3>
+                        <p>Compra en línea y retira en dos horas en nuestra tienda de Providencia.</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- OFERTA: split con imagen -->
+        <section class="section container" id="oferta">
+            <div class="deal reveal">
+                <figure class="deal__media">
+                    <img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=1100&q=75" alt="Consola PlayStation 5 blanca con su control" loading="lazy">
+                </figure>
+                <div class="deal__copy">
+                    <p class="eyebrow">Oferta de la semana</p>
+                    <h2 class="deal__title">PlayStation 5 con un control extra</h2>
+                    <p class="deal__text">Válida hasta el domingo o hasta agotar stock. Incluye despacho gratis a todo Chile.</p>
+                    <p class="deal__price">
+                        <span class="deal__now">$519.990</span>
+                        <s class="deal__before">$599.990</s>
+                    </p>
+                    <button class="btn btn--primary" type="button" data-add="PlayStation 5 + control extra">Agregar <i class="ph ph-plus" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIO -->
+        <section class="section container quote reveal" aria-label="Opinión de cliente">
+            <blockquote>
+                <p>“Pedí el notebook un martes en la tarde y el miércoles a mediodía ya estaba trabajando con él. Sin letra chica.”</p>
+                <footer>
+                    <strong>Catalina Fuenzalida</strong>
+                    <span>Diseñadora, Ñuñoa</span>
+                </footer>
+            </blockquote>
+        </section>
+
+        <!-- NEWSLETTER -->
+        <section class="section container">
+            <div class="news reveal">
+                <div class="news__copy">
+                    <h2 class="news__title">Recibe las ofertas antes que nadie</h2>
+                    <p>Un correo a la semana, los jueves. Te puedes dar de baja cuando quieras.</p>
+                </div>
+                <form class="news__form" id="newsForm" novalidate>
+                    <div class="field">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" name="email" autocomplete="email" placeholder="tu@correo.cl" aria-describedby="emailHelp emailError">
+                        <p class="field__help" id="emailHelp">Solo lo usaremos para enviarte ofertas.</p>
+                        <p class="field__error" id="emailError" role="alert" hidden>Revisa el correo: debe tener el formato nombre@dominio.cl</p>
+                    </div>
+                    <button class="btn btn--primary" type="submit">Suscribirme</button>
+                    <p class="news__ok" id="newsOk" role="status" hidden><i class="ph ph-check-circle" aria-hidden="true"></i> Listo, te llegará el primer correo este jueves.</p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer__grid">
+            <div>
+                <a href="#" class="logo" aria-label="Voltio, inicio">
+                    <span class="logo__mark"><i class="ph-fill ph-lightning" aria-hidden="true"></i></span>
+                    <span class="logo__word">Voltio</span>
+                </a>
+                <p class="footer__note">Av. Providencia 2133, local 12, Santiago.<br>Lunes a sábado, 10:00 a 20:00.</p>
+            </div>
+            <div>
+                <h3>Tienda</h3>
+                <ul>
+                    <li><a href="#categorias">Categorías</a></li>
+                    <li><a href="#destacados">Destacados</a></li>
+                    <li><a href="#oferta">Oferta</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Ayuda</h3>
+                <ul>
+                    <li><a href="#beneficios">Despacho y retiro</a></li>
+                    <li><a href="#beneficios">Garantía</a></li>
+                    <li><a href="mailto:hola@voltio.cl">hola@voltio.cl</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Síguenos</h3>
+                <ul class="footer__social">
+                    <li><a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo" aria-hidden="true"></i></a></li>
+                    <li><a href="#" aria-label="TikTok"><i class="ph ph-tiktok-logo" aria-hidden="true"></i></a></li>
+                    <li><a href="#" aria-label="YouTube"><i class="ph ph-youtube-logo" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="container footer__legal">© 2026 Voltio. Proyecto de práctica del curso web.</p>
+    </footer>
+
+    <!-- Aviso al agregar al carro -->
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="./js/main.js"></script>
+</body>
+</html>
