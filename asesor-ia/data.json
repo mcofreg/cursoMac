@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "titulo": "El asesor IA de Fintual",
+    "fps": 30,
+    "ancho": 1920,
+    "alto": 1080,
+    "intro": 3.2,
+    "outro": 7.6,
+    "texto_final": "IA en primera línea. Personas cuando hacen falta.",
+    "nota": "Casos tipo ilustrativos y anonimizados. Sin nombres, RUT, correos, cuentas ni montos reales."
+  },
+  "estaciones": {
+    "leer":       { "letrero": "LEER",              "herramienta": "leer_mensaje",        "color": "#4f7cff" },
+    "clasificar": { "letrero": "ENTENDER",          "herramienta": "clasificar_pedido",   "color": "#9b6bff" },
+    "cuenta":     { "letrero": "REVISAR CUENTA",    "herramienta": "consultar_cuenta",    "color": "#ff9a3c" },
+    "buscar":     { "letrero": "BUSCAR",            "herramienta": "buscar_ayuda",        "color": "#38c98a" },
+    "calcular":   { "letrero": "CALCULAR",          "herramienta": "calcular_simular",    "color": "#ffd23f" },
+    "verificar":  { "letrero": "VERIFICAR",         "herramienta": "verificar_respuesta", "color": "#21d4c4" },
+    "ejecutar":   { "letrero": "EJECUTAR",          "herramienta": "ejecutar_operacion",  "color": "#ff5a6e" },
+    "derivar":    { "letrero": "DERIVAR A PERSONA", "herramienta": "derivar_a_humano",    "color": "#f2b53a" },
+    "responder":  { "letrero": "RESPONDER",         "herramienta": "responder",           "color": "#ff6fb5" }
+  },
+  "casos": [
+    {
+      "id": "a",
+      "tipo": "Pedido simple",
+      "canal": "app",
+      "pasos": [
+        { "estacion": "leer", "fase": "entender", "dur": 2.6, "titulo": "1. El cliente escribe",
+          "mensaje": "¿Cuánto he ganado este año?", "resultado": "Pedido: ganancia del año" },
+        { "estacion": "clasificar", "fase": "entender", "dur": 1.9, "titulo": "2. Entiende qué necesita",
+          "resultado": "Consulta · rentabilidad" },
+        { "estacion": "cuenta", "fase": "actuar", "dur": 2.0, "titulo": "3. Consulta y calcula",
+          "cajon": "aportes", "resultado": "Aportes, rescates y cuotas del año" },
+        { "estacion": "calcular", "fase": "actuar", "dur": 2.2,
+          "resultado": "Primer cálculo",
+          "error": { "tipo": "atasco", "detalle": "Faltó descontar un rescate" } },
+        { "estacion": "verificar", "fase": "verificar", "dur": 2.2, "titulo": "4. Verifica antes de responder",
+          "semaforo": "rojo", "resultado": "El monto no cuadra con los movimientos" },
+        { "estacion": "calcular", "fase": "actuar", "dur": 1.8, "titulo": "Si no cuadra… lo corrige",
+          "correccion": "Recalcula incluyendo el rescate", "resultado": "Cálculo corregido" },
+        { "estacion": "verificar", "fase": "verificar", "dur": 1.8,
+          "semaforo": "verde", "resultado": "Cuadra ✓" },
+        { "estacion": "responder", "fase": "actuar", "dur": 2.4, "titulo": "5. Responde y cierra",
+          "respuesta": "Tu ganancia del año: $ •••• ▲", "cierra": true }
+      ]
+    },
+    {
+      "id": "b",
+      "tipo": "Reclamo con error",
+      "canal": "correo",
+      "pasos": [
+        { "estacion": "leer", "fase": "entender", "dur": 2.0, "titulo": "Caso 2: un reclamo",
+          "mensaje": "Mi rescate no llegó", "resultado": "Reclamo: rescate no recibido" },
+        { "estacion": "cuenta", "fase": "actuar", "dur": 2.2, "titulo": "Un dato no cuadra",
+          "cajon": "rescates", "resultado": "Rescate devuelto por el banco",
+          "error": { "tipo": "dato", "detalle": "Datos bancarios erróneos" } },
+        { "estacion": "responder", "fase": "actuar", "dur": 1.8, "titulo": "Pide el dato correcto",
+          "respuesta": "¿Me confirmas tu cuenta bancaria?", "pregunta": true },
+        { "estacion": "leer", "fase": "entender", "dur": 1.8,
+          "mensaje": "Cuenta corregida: •••• ✓", "resultado": "Dato recibido" },
+        { "estacion": "ejecutar", "fase": "actuar", "dur": 2.2, "titulo": "Reprocesa el rescate",
+          "correccion": "Reprocesar rescate con el dato nuevo", "resultado": "Rescate reprocesado" },
+        { "estacion": "verificar", "fase": "verificar", "dur": 2.0,
+          "semaforo": "verde", "resultado": "Operación confirmada ✓" },
+        { "estacion": "responder", "fase": "actuar", "dur": 3.8, "titulo": "Responde y cierra",
+          "respuesta": "Listo, ya va en camino. ¿Te paso con una persona?",
+          "replica": "prefiero al asesor IA", "cierra": true }
+      ]
+    },
+    {
+      "id": "c",
+      "tipo": "Requiere criterio humano",
+      "canal": "web",
+      "pasos": [
+        { "estacion": "leer", "fase": "entender", "dur": 1.9, "titulo": "Caso 3: algo excepcional",
+          "mensaje": "Tengo una situación excepcional…", "resultado": "Reclamo fuera de lo común" },
+        { "estacion": "cuenta", "fase": "actuar", "dur": 2.0, "titulo": "El contexto crece",
+          "cajon": "cuotas", "resultado": "Historial del cliente" },
+        { "estacion": "buscar", "fase": "actuar", "dur": 2.3, "titulo": "No hay una regla clara",
+          "resultado": "Ninguna política cubre el caso", "duda": true },
+        { "estacion": "derivar", "fase": "actuar", "dur": 2.6, "titulo": "¿Necesita criterio? Llama a alguien",
+          "resultado": "Persona del equipo avisada" },
+        { "estacion": "entrega", "fase": "actuar", "dur": 2.6, "titulo": "Le entrega todo el contexto",
+          "resultado": "La persona recibe el expediente completo" },
+        { "estacion": "decide", "fase": "verificar", "dur": 1.8,
+          "resultado": "Decisión del equipo" },
+        { "estacion": "responder", "fase": "actuar", "dur": 2.4, "titulo": "5. Responde y cierra",
+          "respuesta": "Lo revisó el equipo: está resuelto", "cierra": true }
+      ]
+    }
+  ]
+}

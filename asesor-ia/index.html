@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>El asesor IA de Fintual</title>
+<style>
+  html,body{margin:0;background:#120c22;overflow:hidden}
+  canvas{display:block;width:1920px;height:1080px}
+  #ui{position:fixed;left:8px;bottom:8px;color:#fff;font:14px Inter,sans-serif}
+</style>
+</head>
+<body>
+<canvas id="c" width="1920" height="1080"></canvas>
+<div id="ui"></div>
+<script src="src/timeline.js"></script>
+<script src="src/scene.js"></script>
+<script>
+  // Si render.js inyectó window.DATA lo usamos; si no, se carga data.json (vista previa con servidor http).
+  async function boot() {
+    const data = window.DATA || await (await fetch('data.json')).json();
+    const tl = Timeline.build(data);
+    const ctx = document.getElementById('c').getContext('2d');
+    window.__tl = tl;
+    window.__renderMini = (m, tm) => Scene.renderFrame(m, tl, tm, { mini: true });
+    window.renderAt = (t) => { ctx.setTransform(1,0,0,1,0,0); Scene.renderFrame(ctx, tl, t); };
+    window.__ready = true;
+    if (!window.DATA) { // vista previa en vivo
+      const t0 = performance.now();
+      const loop = () => { const t = ((performance.now() - t0) / 1000) % tl.duration; window.renderAt(t); document.getElementById('ui').textContent = t.toFixed(2) + ' s'; requestAnimationFrame(loop); };
+      loop();
+    }
+  }
+  document.fonts.load('900 20px Inter').then(boot);
+</script>
+</body>
+</html>
