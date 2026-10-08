@@ -54,5 +54,5 @@ Fuentes:
 - DPL News, "Fintual busca pasar del billion al trillion en el largo plazo": https://dplnews.com/?p=267992
 
 ## Tiempo
-- Render del video: ~RENDER_MIN min (3 procesos en paralelo, 4 núcleos). Audio: ~3 s.
+- Render del video: ~6 min (352 s, ≈0,58 s por frame y proceso) (3 procesos en paralelo, 4 núcleos). Audio: ~3 s.
 - Sesión total (investigación, código, 6 rondas de revisión de frames, render): ~1 h 30 min aprox.
