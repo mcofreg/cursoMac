@@ -54,7 +54,6 @@ test('lo que escribe la persona se muestra como texto, nunca como HTML', () => {
 
 test('el reparto muestra el total, los minutos por tipo y una barra a escala', () => {
   const html = viewScreen(initialState());
-  assert.match(html, /7 h 10<\/strong> en fichas/);
   assert.match(html, /Me nutre <b>1 h 45<\/b>/);
   assert.match(html, /Me sostiene <b>3 h 30<\/b>/);
   assert.match(html, /Me drena <b>1 h 55<\/b>/);
@@ -93,7 +92,7 @@ test('el día de ejemplo se anuncia y ofrece empezar en blanco; en blanco invita
 
 test('Espejo muestra el puntaje con sus tres partes', () => {
   const html = viewScreen(run(go('espejo')));
-  assert.match(html, /--lleno:46/);
+  assert.match(html, /stroke-dasharray="46 100"/);
   assert.match(html, /class="sol__num">46</);
   assert.match(html, /Presencia[\s\S]*?27 de 40/);
   assert.match(html, /Nutrición[\s\S]*?19 de 30/);
@@ -182,4 +181,28 @@ test('cada casilla de agradecimiento tiene su etiqueta numerada desde 1', () => 
   const html = viewScreen(run(go('noche')));
   assert.match(html, /for="g-0">Agradecimiento 1</);
   assert.match(html, /for="g-2">Agradecimiento 3</);
+});
+
+test('la cabecera de Hoy dice cuánto llevas hecho y pone el sol en ese punto del arco', () => {
+  const html = viewScreen(initialState());
+  assert.match(html, /<strong>6 h<\/strong> hechas de 7 h 10/);
+  assert.match(html, /aria-label="Llevas hecho el 84% de tu día"/);
+  assert.match(html, /class="arco__sol" cx="242.5" cy="36.2"/);
+});
+
+test('en un día en blanco el sol espera al inicio del arco', () => {
+  const html = viewScreen(run({ type: 'blank' }));
+  assert.match(html, /Tu día está por escribirse/);
+  assert.equal(html.includes('hechas de'), false);
+  assert.match(html, /class="arco__sol" cx="14" cy="62"/);
+});
+
+test('con todo hecho el sol llega al final del arco', () => {
+  const html = viewScreen(run({ type: 'outcome', id: '6', value: 'hecha' }, { type: 'outcome', id: '7', value: 'hecha' }));
+  assert.match(html, /class="arco__sol" cx="286" cy="62"/);
+});
+
+test('cada ficha dice su tipo y duración bajo el nombre', () => {
+  const html = viewScreen(initialState());
+  assert.match(html, /Redes sociales<\/span><span class="ficha__meta">Me drena · 1 h 15</);
 });

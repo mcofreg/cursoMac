@@ -80,6 +80,13 @@ export function score(day) {
   return { presencia, nutricion, gratitud, total: presencia + nutricion + gratitud };
 }
 
+// Cuánto del día planeado ya está hecho, en minutos y como parte de 0 a 1.
+export function progress(day) {
+  const done = sum(day.activities.filter(isDone), (a) => a.minutes);
+  const total = sum(day.activities, (a) => a.minutes);
+  return { done, total, part: Math.round(100 * share(done, total)) / 100 };
+}
+
 export function formatMinutes(minutes) {
   const hours = Math.floor(minutes / 60);
   const rest = minutes % 60;

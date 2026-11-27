@@ -218,3 +218,9 @@ test('si dos fichas que drenan duran lo mismo, la pregunta nombra la primera', (
   const day = dayOf(['Leer', 60, 'nutre', 'hecha'], ['Fila', 30, 'drena', 'hecha'], ['Redes', 30, 'drena', 'hecha']);
   assert.match(L.questions(day)[0], /«Fila» sola se lleva 30 min/);
 });
+
+test('el avance dice los minutos hechos, los planeados y qué parte del día va', () => {
+  assert.deepEqual(L.progress(L.sampleDay()), { done: 360, total: 430, part: 0.84 });
+  assert.deepEqual(L.progress(L.emptyDay()), { done: 0, total: 0, part: 0 });
+  assert.deepEqual(L.progress(dayOf(['A', 30, 'nutre', 'tibio'], ['B', 30, 'drena'])), { done: 30, total: 60, part: 0.5 });
+});
