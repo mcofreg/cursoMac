@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Día Vivido</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@500;700;800&display=swap">
+<style>
+/* Un teléfono de juguete: fichas con borde grueso y sombra dura sobre un cielo lila.
+   Forma y color dicen el tipo: círculo nutre, cuadrado sostiene, triángulo drena. */
+:root {
+  --fondo: #dcd6ff;
+  --suelo: #f8f6ff;
+  --papel: #ffffff;
+  --tinta: #1f1a4d;
+  --tenue: #5b5687;
+  --linea: #1f1a4d;
+  --sombra: #1f1a4d;
+  --hueco: #e7e3fb;
+  --acento: #5746f5;
+  --sobre-acento: #ffffff;
+  --nutre: #2dbe78;
+  --sostiene: #ffc533;
+  --drena: #ff6f91;
+  --sobre-color: #1f1a4d;
+  --titulo: 'Baloo 2', 'Trebuchet MS', system-ui, sans-serif;
+  --texto: 'Nunito', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --borde: 2.5px solid var(--linea);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --fondo: #0d0a29;
+    --suelo: #17133d;
+    --papel: #231e57;
+    --tinta: #f1eeff;
+    --tenue: #aba6d8;
+    --linea: #cfc8ff;
+    --sombra: #05031a;
+    --hueco: #332d70;
+    --acento: #8f7fff;
+    --sobre-acento: #120e33;
+    color-scheme: dark;
+  }
+}
+:root[data-theme='dark'] {
+  --fondo: #0d0a29;
+  --suelo: #17133d;
+  --papel: #231e57;
+  --tinta: #f1eeff;
+  --tenue: #aba6d8;
+  --linea: #cfc8ff;
+  --sombra: #05031a;
+  --hueco: #332d70;
+  --acento: #8f7fff;
+  --sobre-acento: #120e33;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  padding-block: 16px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  background: var(--fondo);
+  color: var(--tinta);
+  font: 500 1rem/1.4 var(--texto);
+}
+h1, h2, p, ul, fieldset, legend { margin: 0; padding: 0; }
+ul { list-style: none; }
+fieldset { border: 0; min-width: 0; }
+button, input { font: inherit; color: inherit; }
+button { cursor: pointer; background: none; border: 0; padding: 0; }
+button:disabled { cursor: default; }
+:focus-visible { outline: 3px solid var(--acento); outline-offset: 2px; }
+.oculto { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+.telefono {
+  width: 100%;
+  max-width: 400px;
+  height: min(100%, 800px);
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  overflow: hidden;
+  background: var(--suelo);
+  border: 3px solid var(--linea);
+  border-radius: 36px;
+  box-shadow: 8px 8px 0 var(--sombra);
+}
+#pantalla { overflow-y: auto; display: flex; flex-direction: column; gap: 18px; padding: 22px 18px 26px; }
+#tabs { display: grid; grid-template-columns: repeat(3, 1fr); background: var(--papel); border-top: 3px solid var(--linea); }
+
+@media (max-width: 480px) {
+  body { background: var(--suelo); padding-block: 0; }
+  .telefono { max-width: none; height: 100%; border: 0; border-radius: 0; box-shadow: none; }
+  #pantalla { padding-inline: 2px; }
+  #tabs { border: 3px solid var(--linea); border-radius: 20px; margin-bottom: 8px; overflow: hidden; }
+}
+
+/* Texto */
+.cabecera { display: grid; gap: 2px; }
+.sobre { font-weight: 800; font-size: 0.75rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--tenue); }
+h1 { font: 800 2.5rem/1 var(--titulo); text-wrap: balance; }
+h2 { font: 700 1.25rem/1.1 var(--titulo); }
+.bloque { display: grid; gap: 10px; }
+.ejemplo { align-self: flex-start; display: flex; flex-wrap: wrap; gap: 4px 10px; padding: 5px 12px; border: 2px dashed var(--tenue); border-radius: 999px; font-size: 0.8125rem; font-weight: 700; color: var(--tenue); }
+.enlace { font-weight: 800; color: var(--acento); text-decoration: underline; text-underline-offset: 3px; }
+.vacio { padding: 14px; border: 2px dashed var(--tenue); border-radius: 16px; color: var(--tenue); font-weight: 700; text-align: center; }
+.aviso { padding: 9px 12px; border: var(--borde); border-radius: 12px; background: color-mix(in srgb, var(--drena) 30%, var(--papel)); font-weight: 700; }
+
+/* Formas: una por tipo */
+.forma { flex: none; display: inline-block; width: 18px; height: 18px; }
+.forma--nutre { background: var(--nutre); border-radius: 50%; }
+.forma--sostiene { background: var(--sostiene); border-radius: 4px; }
+.forma--drena { background: var(--drena); clip-path: polygon(50% 4%, 100% 96%, 0 96%); }
+
+/* Tarjetas con sombra dura */
+.reparto, .ficha, .puntaje, .nueva, .pregunta, .agradecido li {
+  background: var(--papel);
+  border: var(--borde);
+  box-shadow: 4px 4px 0 var(--sombra);
+}
+
+/* Hoy */
+.reparto { display: grid; gap: 10px; padding: 14px; border-radius: 20px; }
+.reparto__total { color: var(--tenue); font-weight: 700; }
+.reparto__total strong { font: 800 1.5rem/1 var(--titulo); color: var(--tinta); }
+.barra { display: flex; height: 22px; overflow: hidden; border: var(--borde); border-radius: 999px; background: var(--hueco); }
+.barra__seg--nutre { background: var(--nutre); }
+.barra__seg--sostiene { background: var(--sostiene); }
+.barra__seg--drena { background: var(--drena); }
+.leyenda { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 0.8125rem; }
+.leyenda__item { display: flex; align-items: center; gap: 6px; }
+.leyenda .forma { width: 12px; height: 12px; }
+.leyenda b { font-variant-numeric: tabular-nums; }
+
+.fichas { display: grid; gap: 12px; }
+.ficha { display: grid; grid-template-columns: minmax(0, 1fr) auto; border-radius: 16px; overflow: hidden; transition: transform 0.12s, box-shadow 0.12s; }
+.ficha:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--sombra); }
+.ficha__main { display: flex; align-items: center; gap: 10px; min-width: 0; padding: 12px 12px 12px 14px; text-align: left; }
+.ficha__name { flex: 1; min-width: 0; font-weight: 700; overflow-wrap: anywhere; }
+.ficha__time { font-weight: 800; font-size: 0.875rem; color: var(--tenue); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ficha__remove { width: 42px; border-left: var(--borde); font-weight: 800; font-size: 1.125rem; color: var(--tenue); }
+.ficha.is-done .ficha__time::before { content: '✓ '; }
+.ficha.is-done .ficha__time { color: var(--tinta); }
+.ficha--nutre.is-done { background: color-mix(in srgb, var(--nutre) 32%, var(--papel)); }
+.ficha--sostiene.is-done { background: color-mix(in srgb, var(--sostiene) 36%, var(--papel)); }
+.ficha--drena.is-done { background: color-mix(in srgb, var(--drena) 30%, var(--papel)); }
+
+.nueva { display: grid; gap: 12px; padding: 16px; border-radius: 20px; border-style: dashed; }
+.nueva__label { font: 700 1.25rem/1.1 var(--titulo); }
+.campo { width: 100%; padding: 11px 14px; border: var(--borde); border-radius: 14px; background: var(--suelo); font-weight: 700; }
+.campo::placeholder { color: var(--tenue); font-weight: 500; opacity: 1; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips legend { margin-bottom: 6px; font-weight: 800; font-size: 0.8125rem; color: var(--tenue); }
+.chip__input { position: absolute; opacity: 0; pointer-events: none; }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border: var(--borde); border-radius: 999px; font-weight: 700; font-size: 0.875rem; cursor: pointer; }
+.chip .forma { width: 12px; height: 12px; }
+.chip__input:checked + .chip { background: var(--acento); color: var(--sobre-acento); box-shadow: 2px 2px 0 var(--sombra); }
+.chip__input:checked + .chip--nutre { background: var(--nutre); color: var(--sobre-color); }
+.chip__input:checked + .chip--sostiene { background: var(--sostiene); color: var(--sobre-color); }
+.chip__input:checked + .chip--drena { background: var(--drena); color: var(--sobre-color); }
+.chip__input:checked + .chip .forma { background: var(--sobre-color); }
+.chip__input:focus-visible + .chip { outline: 3px solid var(--acento); outline-offset: 2px; }
+
+.boton { padding: 12px 18px; border: var(--borde); border-radius: 999px; background: var(--acento); color: var(--sobre-acento); box-shadow: 4px 4px 0 var(--sombra); font: 700 1.125rem/1 var(--titulo); transition: transform 0.12s, box-shadow 0.12s; }
+.boton:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--sombra); }
+.boton--noche { background: var(--tinta); color: var(--suelo); }
+
+/* Espejo */
+.puntaje { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; padding: 16px; border-radius: 20px; }
+.sol { position: relative; flex: none; display: grid; place-content: center; justify-items: center; width: 116px; height: 116px; margin-inline: auto; border: 3px solid var(--linea); border-radius: 50%; background: conic-gradient(var(--sostiene) calc(var(--lleno) * 1%), var(--hueco) 0); }
+.sol::before { content: ''; position: absolute; inset: 13px; border: var(--borde); border-radius: 50%; background: var(--papel); }
+.sol__num, .sol__de { position: relative; }
+.sol__num { font: 800 2.5rem/0.9 var(--titulo); font-variant-numeric: tabular-nums; }
+.sol__de { font-size: 0.75rem; font-weight: 800; color: var(--tenue); }
+.partes { flex: 1; min-width: 170px; display: grid; gap: 12px; }
+.parte { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 8px; align-items: baseline; }
+.parte__label { font-weight: 800; }
+.parte__num { grid-row: 1; grid-column: 2; font-weight: 800; font-size: 0.8125rem; font-variant-numeric: tabular-nums; }
+.parte__hint { grid-column: 1 / -1; font-size: 0.75rem; color: var(--tenue); }
+.medidor { grid-column: 1 / -1; height: 12px; overflow: hidden; border: 2px solid var(--linea); border-radius: 999px; background: var(--hueco); }
+.medidor__lleno { display: block; height: 100%; background: var(--acento); }
+
+.preguntas { display: grid; gap: 12px; }
+.pregunta { padding: 12px 14px; border-radius: 18px 18px 18px 4px; font-weight: 700; }
+.pregunta:nth-child(odd) { rotate: -0.6deg; }
+.pregunta:nth-child(even) { rotate: 0.6deg; border-radius: 18px 18px 4px 18px; }
+
+.veredictos { display: grid; gap: 12px; }
+.veredicto { display: grid; gap: 6px; }
+.veredicto__name { display: flex; align-items: center; gap: 8px; font-weight: 700; overflow-wrap: anywhere; }
+.veredicto__opciones, .animos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.opcion { padding: 7px 6px; border: var(--borde); border-radius: 999px; background: var(--papel); font-weight: 700; font-size: 0.875rem; }
+.opcion[aria-pressed='true'] { background: var(--acento); color: var(--sobre-acento); box-shadow: 2px 2px 0 var(--sombra); }
+.opcion--animo { padding-block: 14px; border-radius: 16px; font-size: 1rem; }
+
+/* Noche */
+.gracias { display: grid; gap: 10px; }
+.cierre { position: relative; display: grid; gap: 12px; justify-items: center; padding-top: 44px; text-align: center; }
+.cierre__num { font-size: 1.5rem; }
+.cierre__num strong { font-size: 4.5rem; }
+.cierre__animo { font-weight: 700; }
+.agradecido { display: grid; gap: 10px; width: 100%; }
+.agradecido li { padding: 10px 14px; border-radius: 14px; font-weight: 700; overflow-wrap: anywhere; }
+.cierre .boton { margin-top: 8px; }
+.confeti { position: absolute; inset: 0 0 auto; height: 40px; display: flex; justify-content: space-around; align-items: center; }
+.confeti .forma { animation: salto 1.6s ease-in-out infinite alternate; }
+.confeti .forma:nth-child(even) { animation-delay: -0.8s; }
+@keyframes salto { from { translate: 0 6px; rotate: -12deg; } to { translate: 0 -6px; rotate: 12deg; } }
+
+/* Pestañas */
+.tab { display: grid; justify-items: center; gap: 4px; padding: 10px 4px 9px; font-weight: 700; font-size: 0.8125rem; color: var(--tenue); }
+.tab[aria-current='page'] { background: var(--hueco); color: var(--tinta); font-weight: 800; }
+.tab__icon { width: 20px; height: 20px; border: var(--borde); transition: scale 0.15s; }
+.tab[aria-current='page'] .tab__icon { scale: 1.2; }
+.tab--hoy .tab__icon { border-radius: 50%; background: var(--sostiene); }
+.tab--espejo .tab__icon { border-radius: 6px; background: var(--acento); rotate: 45deg; scale: 0.85; }
+.tab--espejo[aria-current='page'] .tab__icon { scale: 1; }
+.tab--noche .tab__icon { border: 0; border-radius: 50%; box-shadow: inset -7px -3px 0 0 var(--tinta); rotate: 200deg; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="telefono">
+  <main id="pantalla"></main>
+  <nav id="tabs" aria-label="Secciones"></nav>
+</div>
+<script>
+const __logic = (() => {
+// Dominio de Día Vivido. Funciones puras: reciben un día y devuelven otro.
+//
+// Glosario
+//   ficha       una dedicación del día: nombre, minutos y tipo.
+//   tipo        qué te hace la ficha: te nutre, te sostiene o te drena.
+//   resultado   cómo va la ficha: pendiente, hecha, o hecha con veredicto
+//               (valió, tibio, no valió). Un solo campo: no existe veredicto sin hacerla.
+//   reparto     minutos del día sumados por tipo.
+//   puntaje     qué tan vivido fue el día, de 0 a 100: presencia + nutrición + gratitud.
+//   cierre      agradecer y elegir un ánimo. Un día cerrado no se edita.
+
+const KINDS = ['nutre', 'sostiene', 'drena'];
+const VERDICTS = ['valio', 'tibio', 'novalio'];
+const MOODS = ['feliz', 'tranquilo', 'inquieto'];
+
+// Cuánto cuenta cada resultado para la presencia. Sus claves son los resultados válidos.
+const WEIGHT = { pendiente: 0, hecha: 1, valio: 1, tibio: 0.5, novalio: 0 };
+
+const sum = (list, amount) => list.reduce((total, item) => total + amount(item), 0);
+const isDone = (activity) => activity.outcome !== 'pendiente';
+const isWritten = (text) => text.trim() !== '';
+const fail = (error) => ({ ok: false, error });
+const edit = (day, change) => (day.closed ? day : change(day));
+
+const emptyDay = () => ({ activities: [], gratitudes: ['', '', ''], mood: null, closed: false });
+
+// Frontera: lo que escribe la persona entra por aquí una sola vez.
+function parseActivity(input) {
+  const name = String(input.name || '').trim();
+  const minutes = Number(input.minutes);
+  if (name === '') return fail('Ponle un nombre a la ficha.');
+  if (!Number.isInteger(minutes) || minutes < 5 || minutes > 720) {
+    return fail('La duración va de 5 minutos a 12 horas.');
+  }
+  if (!KINDS.includes(input.kind)) return fail('Elige si te nutre, te sostiene o te drena.');
+  return { ok: true, value: { name, minutes, kind: input.kind } };
+}
+
+const addActivity = (day, value) =>
+  edit(day, () => {
+    const id = Math.max(0, ...day.activities.map((a) => a.id)) + 1;
+    return { ...day, activities: [...day.activities, { id, ...value, outcome: 'pendiente' }] };
+  });
+
+const setOutcome = (day, id, outcome) =>
+  edit(day, () =>
+    Object.hasOwn(WEIGHT, outcome)
+      ? { ...day, activities: day.activities.map((a) => (a.id === id ? { ...a, outcome } : a)) }
+      : day,
+  );
+
+const removeActivity = (day, id) =>
+  edit(day, () => ({ ...day, activities: day.activities.filter((a) => a.id !== id) }));
+
+const setGratitude = (day, index, text) =>
+  edit(day, () => ({ ...day, gratitudes: day.gratitudes.map((old, i) => (i === index ? text : old)) }));
+
+const setMood = (day, mood) => edit(day, () => (MOODS.includes(mood) ? { ...day, mood } : day));
+
+const canClose = (day) => day.mood !== null && day.gratitudes.some(isWritten);
+const closeDay = (day) => (canClose(day) ? { ...day, closed: true } : day);
+const reopenDay = (day) => ({ ...day, closed: false });
+
+function minutesByKind(day) {
+  const of = (kind) => sum(day.activities.filter((a) => a.kind === kind), (a) => a.minutes);
+  const [nutre, sostiene, drena] = KINDS.map(of);
+  return { nutre, sostiene, drena, total: nutre + sostiene + drena };
+}
+
+const share = (part, whole) => (whole === 0 ? 0 : part / whole);
+
+function score(day) {
+  const done = day.activities.filter(isDone);
+  const planned = sum(day.activities, (a) => a.minutes);
+  const lived = sum(done, (a) => a.minutes * WEIGHT[a.outcome]);
+  const nourishing = sum(done.filter((a) => a.kind === 'nutre'), (a) => a.minutes);
+  const presencia = Math.round(40 * share(lived, planned));
+  const nutricion = Math.round(30 * Math.min(1, 3 * share(nourishing, sum(done, (a) => a.minutes))));
+  const gratitud = 10 * day.gratitudes.filter(isWritten).length;
+  return { presencia, nutricion, gratitud, total: presencia + nutricion + gratitud };
+}
+
+function formatMinutes(minutes) {
+  const hours = Math.floor(minutes / 60);
+  const rest = minutes % 60;
+  if (hours === 0) return `${rest} min`;
+  return rest === 0 ? `${hours} h` : `${hours} h ${String(rest).padStart(2, '0')}`;
+}
+
+const longest = (list) => list.reduce((top, a) => (top.minutes >= a.minutes ? top : a));
+const about = (activity, say) => (activity ? say(activity) : null);
+
+// Cada regla mira el día y, si aplica, devuelve su pregunta. Van de la más urgente a la menos.
+const RULES = [
+  (day, m) => (m.total > 840 ? `Planeaste ${formatMinutes(m.total)}. ¿Qué puedes soltar sin que nadie lo note?` : null),
+  (day, m) => (m.nutre === 0 ? 'Hoy no hay nada que te nutra. ¿Qué 20 minutos te regalas?' : null),
+  (day) =>
+    about(
+      day.activities.find((a) => a.outcome === 'novalio'),
+      (a) => `Dijiste que «${a.name}» no valió la pena. ¿Qué pondrías en su lugar?`,
+    ),
+  (day, m) =>
+    about(m.drena * 4 >= m.total && longest(day.activities.filter((a) => a.kind === 'drena')), (a) => {
+      const percent = Math.round((100 * m.drena) / m.total);
+      return `El ${percent}% de tu día se va en cosas que te drenan; «${a.name}» sola se lleva ${formatMinutes(a.minutes)}. ¿Qué le recortas mañana?`;
+    }),
+  (day) =>
+    about(
+      day.activities.find((a) => a.kind === 'nutre' && !isDone(a)),
+      (a) => `Todavía no haces «${a.name}». ¿A qué hora, exactamente?`,
+    ),
+];
+
+function questions(day) {
+  if (day.activities.length === 0) return ['Tu día está en blanco. ¿Qué tres cosas lo harían valer la pena?'];
+  const reparto = minutesByKind(day);
+  const asked = RULES.map((rule) => rule(day, reparto)).filter(Boolean);
+  return asked.length === 0 ? ['Buen equilibrio. ¿Qué repetirías mañana tal cual?'] : asked.slice(0, 3);
+}
+
+// Día de ejemplo para que la maqueta abra con algo que mirar.
+const sampleDay = () =>
+  [
+    ['Caminar con café', 30, 'nutre', 'valio'],
+    ['Trabajo profundo', 120, 'sostiene', 'hecha'],
+    ['Reuniones', 90, 'sostiene', 'hecha'],
+    ['Almuerzo sin pantalla', 45, 'nutre', 'hecha'],
+    ['Redes sociales', 75, 'drena', 'novalio'],
+    ['Trámites del banco', 40, 'drena', 'pendiente'],
+    ['Leer antes de dormir', 30, 'nutre', 'pendiente'],
+  ].reduce((day, [name, minutes, kind, outcome]) => {
+    const added = addActivity(day, { name, minutes, kind });
+    return setOutcome(added, added.activities.at(-1).id, outcome);
+  }, emptyDay());
+
+return { KINDS, VERDICTS, MOODS, emptyDay, parseActivity, addActivity, setOutcome, removeActivity, setGratitude, setMood, canClose, closeDay, reopenDay, minutesByKind, score, formatMinutes, questions, sampleDay };
+})();
+const __state = (() => {
+// Estado de la pantalla y la única función que lo cambia. Sin DOM: la cáscara
+// (app.js) traduce cada toque a una acción y vuelve a pintar.
+const L = __logic;
+
+const TABS = ['hoy', 'espejo', 'noche'];
+
+const DRAFT = { name: '', minutes: '30', kind: 'nutre' };
+
+const initialState = () => ({ day: L.sampleDay(), example: true, tab: 'hoy', draft: DRAFT, error: null });
+
+const withDay = (state, day) => ({ ...state, day });
+
+const HANDLERS = {
+  tab: (state, { value }) => (TABS.includes(value) ? { ...state, tab: value } : state),
+  // Los campos del borrador se llaman como sus claves; los agradecimientos, 0, 1 y 2.
+  field: (state, { name, value }) =>
+    Object.hasOwn(state.draft, name)
+      ? { ...state, draft: { ...state.draft, [name]: value } }
+      : withDay(state, L.setGratitude(state.day, Number(name), value)),
+  add: (state) => {
+    const parsed = L.parseActivity(state.draft);
+    return parsed.ok
+      ? { ...withDay(state, L.addActivity(state.day, parsed.value)), draft: DRAFT }
+      : { ...state, error: parsed.error };
+  },
+  outcome: (state, { id, value }) => withDay(state, L.setOutcome(state.day, Number(id), value)),
+  remove: (state, { id }) => withDay(state, L.removeActivity(state.day, Number(id))),
+  mood: (state, { value }) => withDay(state, L.setMood(state.day, value)),
+  close: (state) =>
+    L.canClose(state.day)
+      ? withDay(state, L.closeDay(state.day))
+      : { ...state, error: 'Escribe al menos un agradecimiento y elige cómo te acuestas.' },
+  reopen: (state) => withDay(state, L.reopenDay(state.day)),
+  blank: (state) => ({ ...initialState(), day: L.emptyDay(), example: false, tab: state.tab }),
+};
+
+function update(state, action) {
+  const handler = Object.hasOwn(HANDLERS, action.type) ? HANDLERS[action.type] : null;
+  return handler ? handler({ ...state, error: null }, action) : state;
+}
+
+return { TABS, initialState, update };
+})();
+const __view = (() => {
+// Vista: del estado a HTML, sin tocar el DOM. Todo texto de la persona pasa por esc().
+const L = __logic;
+const { TABS } = __state;
+
+const ESCAPES = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+const esc = (text) => String(text).replace(/[&<>"']/g, (char) => ESCAPES[char]);
+
+const KIND_LABEL = { nutre: 'Me nutre', sostiene: 'Me sostiene', drena: 'Me drena' };
+const VERDICT_LABEL = { valio: 'Sí', tibio: 'Más o menos', novalio: 'No' };
+const MOOD_LABEL = { feliz: 'Feliz', tranquilo: 'En calma', inquieto: 'Inquieto' };
+const TAB_LABEL = { hoy: 'Hoy', espejo: 'Espejo', noche: 'Noche' };
+const MINUTE_CHOICES = ['15', '30', '60', '90', '120'];
+const THANKS_HINTS = ['Algo pequeño', 'Alguien', 'Algo que hiciste tú'];
+const PARTS = [
+  ['presencia', 'Presencia', 40, 'hiciste lo que elegiste'],
+  ['nutricion', 'Nutrición', 30, 'un tercio de lo hecho te nutre'],
+  ['gratitud', 'Gratitud', 30, 'tres agradecimientos'],
+];
+
+const attr = (name, on) => (on ? ` ${name}` : '');
+const each = (list, render) => list.map(render).join('');
+const forma = (kind) => `<span class="forma forma--${kind}" aria-hidden="true"></span>`;
+const alert = (error) => (error ? `<p class="aviso" role="alert">${esc(error)}</p>` : '');
+const isDone = (activity) => activity.outcome !== 'pendiente';
+
+const head = (eyebrow, title) =>
+  `<header class="cabecera"><p class="sobre">${eyebrow}</p><h1>${title}</h1></header>`;
+
+const example = (state) =>
+  state.example
+    ? `<p class="ejemplo">Día de ejemplo <button id="b-blank" class="enlace" data-action="blank">Empezar en blanco</button></p>`
+    : '';
+
+// ---- Hoy
+
+function reparto(day) {
+  const minutes = L.minutesByKind(day);
+  return `<section class="reparto" aria-label="Reparto del día">
+    <p class="reparto__total"><strong>${L.formatMinutes(minutes.total)}</strong> en fichas</p>
+    <div class="barra" aria-hidden="true">${each(
+      L.KINDS,
+      (kind) => `<span class="barra__seg barra__seg--${kind}" style="flex-grow:${minutes[kind]}"></span>`,
+    )}</div>
+    <ul class="leyenda">${each(
+      L.KINDS,
+      (kind) => `<li class="leyenda__item">${forma(kind)}${KIND_LABEL[kind]} <b>${L.formatMinutes(minutes[kind])}</b></li>`,
+    )}</ul>
+  </section>`;
+}
+
+function ficha(activity, closed) {
+  const done = isDone(activity);
+  const name = esc(activity.name);
+  return `<li class="ficha ficha--${activity.kind}${attr('is-done', done)}">
+    <button id="f-${activity.id}" class="ficha__main" data-action="outcome" data-id="${activity.id}" data-value="${done ? 'pendiente' : 'hecha'}" aria-pressed="${done}"${attr('disabled', closed)}>
+      ${forma(activity.kind)}<span class="ficha__name">${name}</span><span class="ficha__time">${L.formatMinutes(activity.minutes)}</span>
+    </button>
+    <button id="x-${activity.id}" class="ficha__remove" data-action="remove" data-id="${activity.id}" aria-label="Quitar ${name}"${attr('disabled', closed)}>×</button>
+  </li>`;
+}
+
+const chips = (legend, field, choices, chosen, label) =>
+  `<fieldset class="chips"><legend>${legend}</legend>${each(
+    choices,
+    (choice) =>
+      `<input class="chip__input" type="radio" name="${field}" id="f-${field}-${choice}" data-field="${field}" value="${choice}"${attr('checked', choice === chosen)}><label class="chip chip--${choice}" for="f-${field}-${choice}">${label(choice)}</label>`,
+  )}</fieldset>`;
+
+const form = (state) =>
+  `<form class="nueva" novalidate>
+    <label class="nueva__label" for="f-name">Nueva ficha</label>
+    <input id="f-name" class="campo" data-field="name" value="${esc(state.draft.name)}" placeholder="¿A qué le darás tiempo?" autocomplete="off" maxlength="40">
+    ${chips('¿Cuánto?', 'minutes', MINUTE_CHOICES, state.draft.minutes, (choice) => L.formatMinutes(Number(choice)))}
+    ${chips('¿Qué te hace?', 'kind', L.KINDS, state.draft.kind, (kind) => forma(kind) + KIND_LABEL[kind])}
+    ${alert(state.error)}
+    <button id="b-add" class="boton" type="submit">Poner en mi día</button>
+  </form>`;
+
+const hoy = (state) =>
+  `${head('Tu día en fichas', 'Hoy')}
+  ${reparto(state.day)}
+  ${state.day.activities.length === 0 ? `<p class="vacio">Pon tu primera ficha: ¿qué merece tu tiempo hoy?</p>` : ''}
+  <ul class="fichas">${each(state.day.activities, (activity) => ficha(activity, state.day.closed))}</ul>
+  ${state.day.closed ? `<p class="vacio">Día cerrado. Reábrelo en Noche para cambiar algo.</p>` : form(state)}`;
+
+// ---- Espejo
+
+const part = (points, [key, label, max, hint]) =>
+  `<li class="parte"><span class="parte__label">${label}</span><span class="parte__hint">${hint}</span>
+    <span class="medidor medidor--${key}"><span class="medidor__lleno" style="width:${(100 * points[key]) / max}%"></span></span>
+    <span class="parte__num">${points[key]} de ${max}</span></li>`;
+
+const verdict = (activity) =>
+  `<li class="veredicto"><span class="veredicto__name">${forma(activity.kind)}${esc(activity.name)}</span>
+    <span class="veredicto__opciones">${each(
+      L.VERDICTS,
+      (value) =>
+        `<button id="v-${activity.id}-${value}" class="opcion" data-action="outcome" data-id="${activity.id}" data-value="${value}" aria-pressed="${activity.outcome === value}">${VERDICT_LABEL[value]}</button>`,
+    )}</span></li>`;
+
+function espejo(state) {
+  const points = L.score(state.day);
+  const done = state.day.activities.filter(isDone);
+  return `${head('Espejo', '¿Cómo va tu día?')}
+  <section class="puntaje">
+    <div class="sol" style="--lleno:${points.total}"><span class="sol__num">${points.total}</span><span class="sol__de">de 100</span></div>
+    <ul class="partes">${each(PARTS, (row) => part(points, row))}</ul>
+  </section>
+  <section class="bloque"><h2>Preguntas para ti</h2>
+    <ul class="preguntas">${each(L.questions(state.day), (text) => `<li class="pregunta">${esc(text)}</li>`)}</ul>
+  </section>
+  <section class="bloque"><h2>¿Valió la pena?</h2>
+    ${done.length === 0 ? `<p class="vacio">Marca una ficha como hecha en Hoy y vuelve aquí.</p>` : `<ul class="veredictos">${each(done, verdict)}</ul>`}
+  </section>`;
+}
+
+// ---- Noche
+
+const thanks = (text, index) =>
+  `<label class="oculto" for="g-${index}">Agradecimiento ${index + 1}</label>
+   <input id="g-${index}" class="campo" data-field="${index}" value="${esc(text)}" placeholder="${THANKS_HINTS[index]}" autocomplete="off" maxlength="80">`;
+
+const nocheAbierta = (state) =>
+  `${head('Noche', 'Cierra tu día')}
+  <section class="bloque"><h2>Hoy agradezco</h2><div class="gracias">${each(state.day.gratitudes, thanks)}</div></section>
+  <section class="bloque"><h2>¿Cómo te acuestas?</h2>
+    <div class="animos">${each(
+      L.MOODS,
+      (mood) =>
+        `<button id="m-${mood}" class="opcion opcion--animo" data-action="mood" data-value="${mood}" aria-pressed="${state.day.mood === mood}">${MOOD_LABEL[mood]}</button>`,
+    )}</div>
+  </section>
+  ${alert(state.error)}
+  <button id="b-close" class="boton boton--noche" data-action="close">Cerrar el día</button>`;
+
+const nocheCerrada = (state) =>
+  `<section class="cierre">
+    <div class="confeti" aria-hidden="true">${each([...L.KINDS, ...L.KINDS], forma)}</div>
+    <p class="sobre">Día cerrado</p>
+    <h1 class="cierre__num"><strong>${L.score(state.day).total}</strong> de 100</h1>
+    <p class="cierre__animo">Te acuestas ${MOOD_LABEL[state.day.mood].toLowerCase()}. Mañana se juega de nuevo.</p>
+    <h2>Hoy agradeciste</h2>
+    <ul class="agradecido">${each(
+      state.day.gratitudes.filter((text) => text.trim() !== ''),
+      (text) => `<li>${esc(text)}</li>`,
+    )}</ul>
+    <button id="b-reopen" class="boton boton--noche" data-action="reopen">Reabrir el día</button>
+  </section>`;
+
+const noche = (state) => (state.day.closed ? nocheCerrada(state) : nocheAbierta(state));
+
+// ---- App
+
+const SCREENS = { hoy, espejo, noche };
+
+const viewScreen = (state) => example(state) + SCREENS[state.tab](state);
+
+const viewTabs = (state) =>
+  each(
+    TABS,
+    (tab) =>
+      `<button id="t-${tab}" class="tab tab--${tab}" data-action="tab" data-value="${tab}"${attr('aria-current="page"', state.tab === tab)}><span class="tab__icon" aria-hidden="true"></span>${TAB_LABEL[tab]}</button>`,
+  );
+
+return { esc, viewScreen, viewTabs };
+})();
+const __app = (() => {
+// Cáscara del navegador: traduce toques a acciones y pinta. Las decisiones viven en state.js.
+const { initialState, update } = __state;
+const { viewScreen, viewTabs } = __view;
+
+const screen = document.getElementById('pantalla');
+const tabs = document.getElementById('tabs');
+let state = initialState();
+
+function paint() {
+  const focused = document.activeElement.id;
+  screen.innerHTML = viewScreen(state);
+  tabs.innerHTML = viewTabs(state);
+  const again = document.getElementById(focused);
+  if (again) again.focus();
+}
+
+function act(action) {
+  state = update(state, action);
+  paint();
+}
+
+function press(button) {
+  if (button.dataset.action === 'tab') screen.scrollTop = 0;
+  act({ type: button.dataset.action, id: button.dataset.id, value: button.dataset.value });
+}
+
+function onClick(event) {
+  const button = event.target.closest('[data-action]');
+  if (button) press(button);
+}
+
+// Escribir no repinta: así no se pierde el cursor ni los acentos a medio teclear.
+function onInput(event) {
+  const name = event.target.dataset.field;
+  if (name !== undefined) state = update(state, { type: 'field', name, value: event.target.value });
+}
+
+function onSubmit(event) {
+  event.preventDefault();
+  act({ type: 'add' });
+}
+
+document.addEventListener('click', onClick);
+document.addEventListener('input', onInput);
+document.addEventListener('submit', onSubmit);
+paint();
+
+return {  };
+})();
+</script>
+</body>
+</html>
