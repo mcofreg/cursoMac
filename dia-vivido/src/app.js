@@ -19,11 +19,14 @@ function act(action) {
   paint();
 }
 
-function onClick(event) {
-  const button = event.target.closest('[data-action]');
-  if (!button) return;
+function press(button) {
   if (button.dataset.action === 'tab') screen.scrollTop = 0;
   act({ type: button.dataset.action, id: button.dataset.id, value: button.dataset.value });
+}
+
+function onClick(event) {
+  const button = event.target.closest('[data-action]');
+  if (button) press(button);
 }
 
 // Escribir no repinta: así no se pierde el cursor ni los acentos a medio teclear.

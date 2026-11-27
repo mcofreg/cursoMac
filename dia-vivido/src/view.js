@@ -63,7 +63,7 @@ const chips = (legend, field, choices, chosen, label) =>
   `<fieldset class="chips"><legend>${legend}</legend>${each(
     choices,
     (choice) =>
-      `<input class="chip__input" type="radio" name="${field}" id="f-${field === 'minutes' ? 'min' : field}-${choice}" data-field="${field}" value="${choice}"${attr('checked', choice === chosen)}><label class="chip chip--${choice}" for="f-${field === 'minutes' ? 'min' : field}-${choice}">${label(choice)}</label>`,
+      `<input class="chip__input" type="radio" name="${field}" id="f-${field}-${choice}" data-field="${field}" value="${choice}"${attr('checked', choice === chosen)}><label class="chip chip--${choice}" for="f-${field}-${choice}">${label(choice)}</label>`,
   )}</fieldset>`;
 
 const form = (state) =>

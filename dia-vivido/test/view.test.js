@@ -67,8 +67,8 @@ test('el formulario refleja el borrador: texto, minutos y tipo elegidos', () => 
     run({ type: 'field', name: 'name', value: 'Siesta' }, { type: 'field', name: 'minutes', value: '90' }, { type: 'field', name: 'kind', value: 'drena' }),
   );
   assert.match(tag(html, 'f-name'), /value="Siesta"/);
-  assert.match(tag(html, 'f-min-90'), / checked/);
-  assert.doesNotMatch(tag(html, 'f-min-30'), / checked/);
+  assert.match(tag(html, 'f-minutes-90'), / checked/);
+  assert.doesNotMatch(tag(html, 'f-minutes-30'), / checked/);
   assert.match(tag(html, 'f-kind-drena'), / checked/);
   assert.doesNotMatch(tag(html, 'f-kind-nutre'), / checked/);
   assert.equal(count(html, ' checked'), 2);
@@ -169,4 +169,17 @@ test('la barra de pestañas marca dónde estás', () => {
   assert.doesNotMatch(tag(html, 't-hoy'), /aria-current/);
   assert.match(tag(html, 't-noche'), /data-action="tab" data-value="noche"/);
   assert.match(html, />Hoy<[\s\S]*>Espejo<[\s\S]*>Noche</);
+});
+
+test('cada opción de tipo en el formulario dice su nombre', () => {
+  const html = viewScreen(initialState());
+  for (const [kind, label] of [['nutre', 'Me nutre'], ['sostiene', 'Me sostiene'], ['drena', 'Me drena']]) {
+    assert.match(html, new RegExp(`for="f-kind-${kind}">.*?</span>${label}</label>`));
+  }
+});
+
+test('cada casilla de agradecimiento tiene su etiqueta numerada desde 1', () => {
+  const html = viewScreen(run(go('noche')));
+  assert.match(html, /for="g-0">Agradecimiento 1</);
+  assert.match(html, /for="g-2">Agradecimiento 3</);
 });

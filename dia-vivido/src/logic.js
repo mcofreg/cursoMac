@@ -26,7 +26,7 @@ export const emptyDay = () => ({ activities: [], gratitudes: ['', '', ''], mood:
 
 // Frontera: lo que escribe la persona entra por aquí una sola vez.
 export function parseActivity(input) {
-  const name = String(input.name ?? '').trim();
+  const name = String(input.name || '').trim();
   const minutes = Number(input.minutes);
   if (name === '') return fail('Ponle un nombre a la ficha.');
   if (!Number.isInteger(minutes) || minutes < 5 || minutes > 720) {

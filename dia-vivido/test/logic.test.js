@@ -213,3 +213,8 @@ test('el día de ejemplo trae fichas de los tres tipos, sin cerrar, y ya provoca
   assert.equal(sample.closed, false);
   assert.equal(L.questions(sample).length, 3);
 });
+
+test('si dos fichas que drenan duran lo mismo, la pregunta nombra la primera', () => {
+  const day = dayOf(['Leer', 60, 'nutre', 'hecha'], ['Fila', 30, 'drena', 'hecha'], ['Redes', 30, 'drena', 'hecha']);
+  assert.match(L.questions(day)[0], /«Fila» sola se lleva 30 min/);
+});
